@@ -1,566 +1,716 @@
-"""
-================================================================================
-NeuroLogos v5.0 - TopoBrain Edition
-================================================================================
-Arquitectura híbrida Vision-Language con topología neuronal validada
-Diseñado para Google Colab T4 GPU
-
-ABLATION STUDY (3 niveles):
-1. BASELINE: MiniUnconscious + LSTM simple
-2. TOPO-LIGHT: TopoBrain sin adversarial
-3. TOPO-FULL: TopoBrain completo (Grid + Symbiotic + Adversarial)
-================================================================================
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from torchvision import datasets, transforms
-import time
+from sklearn.datasets import load_digits
+from dataclasses import dataclass
+from typing import Dict, Tuple, List, Optional
 from collections import defaultdict
+import json
+import logging
+from pathlib import Path
+from itertools import combinations
 
-# ============================================================================
-# TOPOBRAIN - ARQUITECTURA VALIDADA (92% accuracy)
-# ============================================================================
+# =============================================================================
+# CONFIGURACIÓN CIENTÍFICA
+# =============================================================================
+@dataclass
+class Config:
+    device: str = "cpu"
+    seed: int = 42
+    steps: int = 5000
+    batch_size: int = 64
+    eval_every_n_batches: int = 50
+    lr: float = 0.005
+    lr_min: float = 0.0001
+    lr_max: float = 0.1
+    supcon_temp: float = 0.1
+    symbiotic_influence: float = 0.5
+    plasticity_strength: float = 0.8
+    grid_size: int = 2
+    embed_dim: int = 32
+    use_plasticity: bool = False
+    use_supcon: bool = False
+    use_symbiotic: bool = False
+    use_homeostasis: bool = True
+    meta_homeo_enable: bool = True
+    meta_homeo_lr: float = 0.01
+    meta_homeo_window: int = 50
+    log_level: str = "INFO"
+    save_metrics: bool = True
+    concept_drift_interval: int = 400
+    meta_momentum: float = 0.9  # NUEVO: Momentum para suavizar actualizaciones
+    meta_warmup: int = 100      # NUEVO: Warm-up antes de activar meta
 
-class TopoBrainCore(nn.Module):
-    """TopoBrain validado con ablation (de tu experimento anterior)"""
-    def __init__(self, input_dim=512, hidden_dim=64, output_dim=512, 
-                 grid_size=4, use_grid=True, use_symbiotic=True):
-        super().__init__()
+def seed_everything(seed: int):
+    import random, os
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+
+# =============================================================================
+# METRICS COLLECTOR
+# =============================================================================
+class MetricsCollector:
+    def __init__(self, config: Config):
+        self.config = config
+        self.history = defaultdict(list)
+        self.batch_metrics = defaultdict(list)
+        self.logger = self._setup_logger()
         
-        self.input_dim = input_dim
-        self.hidden_dim = hidden_dim
-        self.output_dim = output_dim
-        self.grid_size = grid_size
-        self.n_nodes = grid_size * grid_size
-        
-        self.use_grid = use_grid
-        self.use_symbiotic = use_symbiotic
-        
-        # Encoder
-        self.fc1 = nn.Linear(input_dim, hidden_dim)
-        self.fc2 = nn.Linear(hidden_dim, self.n_nodes)
-        
-        # Grid Topology (Plasticity)
-        if self.use_grid:
-            self.register_buffer('grid_coords', self._init_grid())
-            self.plasticity = nn.Parameter(torch.zeros(self.n_nodes, self.n_nodes))
-        
-        # Symbiotic Basis (refinamiento ortogonal)
-        if self.use_symbiotic:
-            self.symbiotic = nn.Linear(self.n_nodes, self.n_nodes, bias=False)
-            nn.init.orthogonal_(self.symbiotic.weight)
-        
-        # Decoder
-        self.fc3 = nn.Linear(self.n_nodes, output_dim)
-        
-        # Metrics
-        self.last_density = 0.0
-        
-    def _init_grid(self):
-        """Inicializa coordenadas del grid 2D"""
-        coords = []
-        for i in range(self.grid_size):
-            for j in range(self.grid_size):
-                coords.append([i / self.grid_size, j / self.grid_size])
-        return torch.tensor(coords, dtype=torch.float32)
+    def _setup_logger(self):
+        logging.basicConfig(
+            level=getattr(logging, self.config.log_level),
+            format='%(asctime)s | %(levelname)s | %(message)s'
+        )
+        return logging.getLogger(__name__)
     
-    def forward(self, x):
-        # Encoder
-        h1 = F.relu(self.fc1(x))
-        h2 = F.relu(self.fc2(h1))  # [B, n_nodes]
+    def log_batch(self, step: int, metrics: Dict):
+        if step % self.config.eval_every_n_batches == 0:
+            self.batch_metrics[step].append(metrics)
+            self.logger.info(
+                f"Step {step:4d} | Loss: {metrics['loss']:.4f} | "
+                f"Acc: {metrics['acc']:.2f}% | LR: {metrics['lr']:.6f} | "
+                f"Metabolism: {metrics.get('metabolism', 0.5):.3f} | "
+                f"Plasticity: {metrics.get('plasticity', 0.8):.3f}"
+            )
+    
+    def save(self, path: Path):
+        if self.config.save_metrics:
+            with open(path, 'w') as f:
+                json.dump({
+                    'history': dict(self.history),
+                    'batch_metrics': dict(self.batch_metrics)
+                }, f, indent=2)
+
+# =============================================================================
+# ENTORNO NO ESTACIONARIO
+# =============================================================================
+class DataEnvironment:
+    def __init__(self):
+        X_raw, y_raw = load_digits(return_X_y=True)
+        X_raw = X_raw / 16.0
+        self.X = torch.tensor(X_raw, dtype=torch.float32)
+        self.y = torch.tensor(y_raw, dtype=torch.long)
+        self.original_y = self.y.clone()
+        self.mask1 = self.y < 5
+        self.mask2 = self.y >= 5
         
-        # Grid Topology + Plasticity
-        if self.use_grid:
-            distances = torch.cdist(self.grid_coords, self.grid_coords)
-            topology = torch.exp(-distances * 2.0)
-            plastic_weights = topology * torch.sigmoid(self.plasticity)
-            h2_plastic = h2 @ plastic_weights
+    def inject_concept_drift(self):
+        self.y = (self.original_y + 2) % 10
+        
+    def get_batch(self, phase: str, bs: int = 64, step: int = 0):
+        if step > 0 and step % Config().concept_drift_interval == 0:
+            self.inject_concept_drift()
             
-            # Density metric
-            with torch.no_grad():
-                active_nodes = (h2.abs() > 0.1).float().mean()
-                self.last_density = active_nodes.item()
-        else:
-            h2_plastic = h2
-            self.last_density = 1.0
+        if phase == "WORLD_1":
+            idx = torch.randint(0, len(self.X[self.mask1]), (bs,))
+            return self.X[self.mask1][idx], self.y[self.mask1][idx]
+        elif phase == "WORLD_2":
+            idx = torch.randint(0, len(self.X[self.mask2]), (bs,))
+            return self.X[self.mask2][idx], self.y[self.mask2][idx]
+        elif phase == "CHAOS":
+            idx = torch.randint(0, len(self.X), (bs,))
+            noise = torch.randn_like(self.X[idx]) * 0.5
+            return self.X[idx] + noise, self.y[idx]
         
-        # Symbiotic Basis (refinamiento)
-        if self.use_symbiotic:
-            h2_refined = self.symbiotic(h2_plastic)
-        else:
-            h2_refined = h2_plastic
+    def get_full(self):
+        return self.X, self.y
         
-        # Decoder
-        output = self.fc3(F.relu(h2_refined))
+    def get_w2(self):
+        return self.X[self.mask2], self.y[self.mask2]
+
+# =============================================================================
+# META-LEARNER LSTM (MEJORADO)
+# =============================================================================
+class MetaLearner(nn.Module):
+    def __init__(self, input_dim: int = 1, hidden_dim: int = 32):
+        super().__init__()
+        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)
+        self.dropout = nn.Dropout(0.2)  # NUEVO: Regularización
+        self.norm = nn.LayerNorm(hidden_dim)  # NUEVO: Estabilidad
+        self.predictor = nn.Linear(hidden_dim, 1)
+        self.optimizer = torch.optim.AdamW(self.parameters(), lr=0.01)
         
-        return output
+    def forward(self, sequence: torch.Tensor) -> torch.Tensor:
+        lstm_out, (h_n, _) = self.lstm(sequence)
+        h_drop = self.dropout(h_n[-1])
+        h_norm = self.norm(h_drop)
+        return self.predictor(h_norm)
     
-    def get_metrics(self):
-        """Retorna métricas de topología"""
-        metrics = {
-            'density': self.last_density
+    def update(self, loss_pred: torch.Tensor, loss_real: float):
+        target = torch.tensor([[loss_real]], dtype=torch.float32, device=loss_pred.device)
+        loss = F.mse_loss(loss_pred, target)
+        self.optimizer.zero_grad()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.parameters(), 0.5)  # NUEVO: Evitar explosión de gradientes
+        self.optimizer.step()
+        return loss.item()
+
+# =============================================================================
+# REGULADOR DE COMPONENTES (MEJORADO)
+# =============================================================================
+class ComponentRegulator(nn.Module):
+    def __init__(self, name: str, state_dim: int = 8, cross_dim: int = 3):
+        super().__init__()
+        self.name = name
+        self.state_dim = state_dim
+        self.cross_dim = cross_dim
+        
+        self.input_proj = nn.Linear(state_dim + cross_dim, 64)
+        self.health_net = nn.Sequential(
+            nn.LayerNorm(64),
+            nn.ReLU(),
+            nn.Linear(64, 32),
+            nn.ReLU(),
+            nn.Linear(32, 4)
+        )
+        self.health_history = []
+        self.cross_embed = nn.Parameter(torch.zeros(cross_dim))
+        
+    def forward(self, **stats) -> Dict[str, float]:
+        state_vals = []
+        for key in ['loss', 'weight_norm', 'grad_norm', 'entropy', 'activity', 'forgetting']:
+            state_vals.append(stats.get(key, 0.5))
+        state_vals.extend([len(self.health_history)/100, stats.get('cross_health', 0.5)])
+        
+        state_tensor = torch.tensor(state_vals, dtype=torch.float32)
+        target_size = self.state_dim + self.cross_dim
+        
+        if len(state_tensor) < target_size:
+            pad_size = target_size - len(state_tensor)
+            state_tensor = torch.cat([state_tensor, torch.zeros(pad_size)])
+        elif len(state_tensor) > target_size:
+            state_tensor = state_tensor[:target_size]
+        
+        state = self.input_proj(state_tensor)
+        cross_weight = torch.sigmoid(self.cross_embed)
+        
+        output = self.health_net(state)
+        # NUEVO: Regularización L2 suave en outputs
+        health = torch.sigmoid(output[0] * 0.8).item()  # Escalar para evitar saturación
+        stress = torch.sigmoid(output[1]).item()
+        recommendation = torch.tanh(output[2]).item()
+        gain_mod = torch.sigmoid(output[3]).item()
+        
+        self.health_history.append(health)
+        
+        return {
+            'health': health,
+            'stress': stress,
+            'recommendation': recommendation,
+            'gain_mod': gain_mod,
+            'should_explore': health < 0.3,
+            'should_exploit': health > 0.7
         }
-        
-        if self.use_grid:
-            metrics['plasticity_norm'] = self.plasticity.norm().item()
-        
-        return metrics
 
-
-class PGDAttack:
-    """Adversarial attack para robustez (solo en TOPO-FULL)"""
-    def __init__(self, epsilon=0.1, alpha=0.01, steps=5):
-        self.epsilon = epsilon
-        self.alpha = alpha
-        self.steps = steps
-    
-    def attack(self, model, x, y, criterion):
-        """Genera ejemplos adversariales"""
-        x_adv = x.clone().detach()
-        x_adv.requires_grad = True
-        
-        for _ in range(self.steps):
-            outputs = model(x_adv)
-            loss = criterion(outputs, y)
-            
-            loss.backward()
-            
-            with torch.no_grad():
-                x_adv = x_adv + self.alpha * x_adv.grad.sign()
-                x_adv = torch.clamp(x_adv, x - self.epsilon, x + self.epsilon)
-                x_adv = torch.clamp(x_adv, -1, 1)
-            
-            x_adv.requires_grad = True
-        
-        return x_adv.detach()
-
-
-# ============================================================================
-# VISUAL ENCODERS
-# ============================================================================
-
-class MiniUnconscious(nn.Module):
-    """Baseline: Encoder visual simple"""
-    def __init__(self, output_dim=512):
+# =============================================================================
+# REGULADOR FISIOLÓGICO LOCAL
+# =============================================================================
+class HomeostaticRegulator(nn.Module):
+    def __init__(self, d_in):
         super().__init__()
-        self.stem = nn.Sequential(
-            nn.Conv2d(3, 32, 5, 1, 2), nn.ReLU(),
-            nn.Conv2d(32, 64, 3, 2, 1), nn.ReLU(),
-            nn.Conv2d(64, 128, 3, 2, 1), nn.ReLU(),
-            nn.Conv2d(128, 256, 3, 2, 1), nn.ReLU(),
-            nn.AdaptiveAvgPool2d((2, 2)),
-            nn.Flatten()
-        )
-        self.topo_bridge = nn.Linear(256*4, output_dim)
-        self.norm = nn.LayerNorm(output_dim)
-        
-    def forward(self, x):
-        features = self.stem(x)
-        encoded = self.topo_bridge(features)
-        return self.norm(encoded)
-
-
-class TopoUnconscious(nn.Module):
-    """TopoBrain-enhanced visual encoder"""
-    def __init__(self, output_dim=512, use_grid=True, use_symbiotic=True):
-        super().__init__()
-        
-        # Visual stem (compartido)
-        self.stem = nn.Sequential(
-            nn.Conv2d(3, 32, 5, 1, 2), nn.ReLU(),
-            nn.Conv2d(32, 64, 3, 2, 1), nn.ReLU(),
-            nn.Conv2d(64, 128, 3, 2, 1), nn.ReLU(),
-            nn.Conv2d(128, 256, 3, 2, 1), nn.ReLU(),
-            nn.AdaptiveAvgPool2d((2, 2)),
-            nn.Flatten()
-        )
-        
-        # TopoBrain core
-        self.topobrain = TopoBrainCore(
-            input_dim=256*4,
-            hidden_dim=64,
-            output_dim=output_dim,
-            grid_size=4,
-            use_grid=use_grid,
-            use_symbiotic=use_symbiotic
-        )
-        
-    def forward(self, x):
-        features = self.stem(x)
-        return self.topobrain(features)
-    
-    def get_metrics(self):
-        return self.topobrain.get_metrics()
-
-
-# ============================================================================
-# CONSCIOUS CORE (simplificado para compatibilidad)
-# ============================================================================
-
-class ConsciousCore(nn.Module):
-    """Núcleo consciente con atención"""
-    def __init__(self, dim=512):
-        super().__init__()
-        self.attention = nn.MultiheadAttention(dim, 8, batch_first=True)
-        self.norm = nn.LayerNorm(dim)
-        
-    def forward(self, x):
-        # x: [B, D]
-        q = x.unsqueeze(1)
-        attended, _ = self.attention(q, q, q)
-        return self.norm(attended.squeeze(1))
-
-
-# ============================================================================
-# DECODER (ÁREA DE BROCA)
-# ============================================================================
-
-class BioDecoder(nn.Module):
-    """Decoder LSTM con gating"""
-    def __init__(self, vocab_size=1000, embed_dim=128, hidden_dim=512):
-        super().__init__()
-        self.embedding = nn.Embedding(vocab_size, embed_dim)
-        self.lstm = nn.LSTM(embed_dim, hidden_dim, num_layers=2, batch_first=True)
-        
-        self.liquid_gate = nn.Sequential(
-            nn.Linear(hidden_dim, hidden_dim),
+        self.net = nn.Sequential(
+            nn.Linear(3, 16),
+            nn.LayerNorm(16),
             nn.Tanh(),
-            nn.Linear(hidden_dim, 1),
+            nn.Linear(16, 3),
             nn.Sigmoid()
         )
-        
-        self.out = nn.Linear(hidden_dim, vocab_size)
-        self.vocab_size = vocab_size
-        
-    def forward(self, thought, captions=None, max_len=20):
-        batch_size = thought.size(0)
-        device = thought.device
-        
-        if captions is not None:
-            # Training mode
-            embeddings = self.embedding(captions[:, :-1])
-            lstm_out, _ = self.lstm(embeddings, self._get_init_state(thought))
-            gate = self.liquid_gate(lstm_out)
-            lstm_out = lstm_out * gate
-            return self.out(lstm_out)
-        else:
-            # Inference mode
-            generated = []
-            input_word = torch.full((batch_size, 1), 1, dtype=torch.long, device=device)
-            hidden = self._get_init_state(thought)
-            
-            for _ in range(max_len):
-                emb = self.embedding(input_word)
-                out, hidden = self.lstm(emb, hidden)
-                gate = self.liquid_gate(out)
-                out = out * gate
-                logits = self.out(out).squeeze(1)
-                
-                # Sampling con temperatura
-                logits = logits / 0.8
-                probs = F.softmax(logits, dim=-1)
-                next_word = torch.multinomial(probs, num_samples=1)
-                
-                generated.append(next_word)
-                input_word = next_word
-            
-            return torch.cat(generated, dim=1)
-    
-    def _get_init_state(self, thought):
-        h0 = thought.unsqueeze(0).repeat(2, 1, 1)
-        c0 = torch.zeros_like(h0)
-        return (h0, c0)
 
-
-# ============================================================================
-# MODELO COMPLETO - 3 CONFIGURACIONES
-# ============================================================================
-
-class NeuroLogos(nn.Module):
-    """
-    Configuraciones del ablation:
-    - mode='baseline': MiniUnconscious (sin TopoBrain)
-    - mode='topo-light': TopoBrain sin symbiotic
-    - mode='topo-full': TopoBrain completo + adversarial
-    """
-    def __init__(self, vocab_size=1000, mode='baseline'):
-        super().__init__()
-        self.mode = mode
-        
-        # Visual encoder según modo
-        if mode == 'baseline':
-            self.eye = MiniUnconscious(output_dim=512)
-            self.use_adversarial = False
-        elif mode == 'topo-light':
-            self.eye = TopoUnconscious(output_dim=512, use_grid=True, use_symbiotic=False)
-            self.use_adversarial = False
-        elif mode == 'topo-full':
-            self.eye = TopoUnconscious(output_dim=512, use_grid=True, use_symbiotic=True)
-            self.use_adversarial = True
-        else:
-            raise ValueError(f"Unknown mode: {mode}")
-        
-        # Conscious core y decoder (compartidos)
-        self.cortex = ConsciousCore(dim=512)
-        self.broca = BioDecoder(vocab_size, embed_dim=128, hidden_dim=512)
-        
-        # Adversarial (solo TOPO-FULL)
-        if self.use_adversarial:
-            self.pgd = PGDAttack(epsilon=0.1, alpha=0.01, steps=5)
-        
-    def forward(self, image, captions=None):
-        visual = self.eye(image)
-        thought = self.cortex(visual)
-        return self.broca(thought, captions)
-    
-    def get_metrics(self):
-        """Obtiene métricas de topología si disponible"""
-        if hasattr(self.eye, 'get_metrics'):
-            return self.eye.get_metrics()
-        return {}
-
-
-# ============================================================================
-# DATASET CIFAR10 CON CAPTIONS
-# ============================================================================
-
-class CIFARCaptions:
-    def __init__(self):
-        self.dataset = datasets.CIFAR10('./data', train=True, download=True, 
-                                       transform=transforms.ToTensor())
-        
-        self.templates = {
-            0: ["a red airplane in the sky", "a silver aircraft with wings", "a flying machine above clouds"],
-            1: ["a shiny yellow car", "a red automobile on asphalt", "a four-wheeled vehicle driving fast"],
-            2: ["a small bird with feathers", "a flying sparrow in daylight", "a winged animal perched on branch"],
-            3: ["a black domestic cat", "a furry feline sitting still", "a quiet house cat with green eyes"],
-            4: ["a wild deer in forest", "a brown animal with antlers", "a grazing mammal in nature"],
-            5: ["a loyal brown dog", "a playful canine running", "a four-legged pet barking"],
-            6: ["a green frog on lily pad", "a moist amphibian near pond", "a small jumping creature"],
-            7: ["a strong brown horse", "a galloping equine in field", "a large farm animal with mane"],
-            8: ["a blue cargo ship", "a white vessel on ocean", "a maritime boat with containers"],
-            9: ["a large delivery truck", "a heavy-duty cargo vehicle", "a diesel-powered transport"]
+    def forward(self, x, h_pre, w_norm):
+        stress = (x.var(dim=1, keepdim=True) - 0.5).abs()
+        excitation = h_pre.abs().mean(dim=1, keepdim=True)
+        fatigue = w_norm.view(1, 1).expand(x.size(0), 1)
+        state = torch.cat([stress, excitation, fatigue], dim=1)
+        ctrl = self.net(state)
+        return {
+            'metabolism': ctrl[:, 0:1],
+            'sensitivity': ctrl[:, 1:2],
+            'gate': ctrl[:, 2:3]
         }
-        
-        self.vocab = ["<PAD>", "<BOS>", "<EOS>", "<UNK>"]
-        for descs in self.templates.values():
-            for desc in descs:
-                self.vocab.extend(desc.split())
-        self.vocab = list(dict.fromkeys(self.vocab))
-        self.word2id = {w:i for i,w in enumerate(self.vocab)}
-        self.id2word = {i:w for w,i in self.word2id.items()}
-        
-    def __len__(self):
-        return len(self.dataset)
-    
-    def __getitem__(self, idx):
-        image, label = self.dataset[idx]
-        desc = np.random.choice(self.templates[label])
-        
-        tokens = ["<BOS>"] + desc.split() + ["<EOS>"]
-        token_ids = [self.word2id.get(w, self.word2id["<UNK>"]) for w in tokens]
-        token_ids = token_ids[:20] + [self.word2id["<PAD>"]] * (20 - len(token_ids))
-        
-        return image, torch.tensor(token_ids, dtype=torch.long), label
 
-
-# ============================================================================
-# ENTRENAMIENTO CON ABLATION STUDY
-# ============================================================================
-
-def train_ablation(mode='baseline', epochs=30, device='cuda'):
-    """
-    Entrena un modelo en el modo especificado
-    """
-    print(f"\n{'='*80}")
-    print(f"NeuroLogos v5.0 - Ablation Study: {mode.upper()}")
-    print(f"{'='*80}\n")
-    
-    # Dataset
-    dataset = CIFARCaptions()
-    dataloader = torch.utils.data.DataLoader(
-        dataset, batch_size=64, shuffle=True, 
-        num_workers=4, pin_memory=True
-    )
-    
-    # Modelo
-    model = NeuroLogos(vocab_size=len(dataset.vocab), mode=mode).to(device)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-5)
-    
-    # Métricas
-    history = {
-        'loss': [],
-        'accuracy': [],
-        'density': [],
-        'time': []
-    }
-    
-    # Training loop
-    for epoch in range(epochs):
-        model.train()
-        epoch_loss = 0
-        epoch_correct = 0
-        epoch_total = 0
-        epoch_density = 0
-        num_batches = 0
+# =============================================================================
+# META-HOMEOSTATIC ENGINE (MEJORADO)
+# =============================================================================
+class MetaHomeostaticEngine(nn.Module):
+    def __init__(self, config: Config):
+        super().__init__()
+        self.config = config
+        self.lr_reg = ComponentRegulator("learning_rate", state_dim=8, cross_dim=3)
+        self.plasticity_reg = ComponentRegulator("plasticity", state_dim=8, cross_dim=3)
+        self.symbiotic_reg = ComponentRegulator("symbiotic", state_dim=8, cross_dim=3)
+        self.meta_learner = MetaLearner()
+        self.loss_buffer = []
         
-        start_time = time.time()
+        # NUEVO: Momentum para suavizar actualizaciones
+        self.lr_momentum = 0.0
+        self.plasticity_momentum = 0.0
         
-        for images, captions, labels in dataloader:
-            images = images.to(device, non_blocking=True) * 2 - 1
-            captions = captions.to(device, non_blocking=True)
-            labels = labels.to(device, non_blocking=True)
+    def forward(self, global_loss: float, step: int) -> Dict:
+        self.loss_buffer.append(global_loss)
+        if len(self.loss_buffer) > 10:
+            self.loss_buffer.pop(0)
+        
+        loss_pred = global_loss
+        
+        if len(self.loss_buffer) >= 5:
+            seq = torch.tensor(self.loss_buffer[-5:], dtype=torch.float32)
+            seq = seq.view(1, -1, 1)
+            seq = seq.to(next(self.parameters()).device)
+            
+            loss_pred = self.meta_learner(seq).item()
+            self.meta_learner.update(self.meta_learner(seq), global_loss)
+        
+        # Calcular health scores con cross-interacción
+        plast_health = self.plasticity_reg(
+            loss=global_loss, 
+            weight_norm=0.5, 
+            activity=0.5,
+            cross_health=0.5
+        )
+        symb_health = self.symbiotic_reg(
+            loss=global_loss, 
+            cross_health=plast_health['gain_mod']
+        )
+        
+        return {
+            'loss_pred': loss_pred,
+            'lr_recommendation': self.lr_reg(loss=global_loss)['recommendation'],
+            'plasticity_mod': plast_health['gain_mod'],
+            'symbiotic_mod': symb_health['gain_mod'],
+            'health_scores': {
+                'lr': self.lr_reg.health_history[-1] if self.lr_reg.health_history else 0.5,
+                'plasticity': plast_health['health'],
+                'symbiotic': symb_health['health']
+            }
+        }
+    
+    def get_component_health(self) -> Dict[str, float]:
+        return {
+            "lr_health": np.mean(self.lr_reg.health_history[-5:]) if self.lr_reg.health_history else 0.5,
+            "plasticity_health": np.mean(self.plasticity_reg.health_history[-5:]) if self.plasticity_reg.health_history else 0.5,
+            "symbiotic_health": np.mean(self.symbiotic_reg.health_history[-5:]) if self.symbiotic_reg.health_history else 0.5,
+        }
+    
+    # NUEVO: Método para actualizar con momentum
+    def update_with_momentum(self, current_lr: float, current_plasticity: float, 
+                             meta_out: Dict, surprise_rate: float) -> Tuple[float, float]:
+        # Cambios suaves con momentum
+        lr_change = meta_out['lr_recommendation'] * 0.1  # Reducir magnitud
+        new_lr = current_lr + lr_change
+        
+        # Actualizar plasticity con momentum
+        plasticity_change = (meta_out['plasticity_mod'] - 0.5) * surprise_rate * 0.02
+        self.plasticity_momentum = self.config.meta_momentum * self.plasticity_momentum + \
+                                  (1 - self.config.meta_momentum) * plasticity_change
+        
+        new_plasticity = current_plasticity + self.plasticity_momentum
+        
+        # Clipping
+        new_lr = max(self.config.lr_min, min(self.config.lr_max, new_lr))
+        new_plasticity = max(0.2, min(1.0, new_plasticity))
+        
+        return new_lr, new_plasticity
+
+# =============================================================================
+# NEURONA CON SORPRESA
+# =============================================================================
+class PhysioNeuron(nn.Module):
+    def __init__(self, d_in, d_out, config: Config):
+        super().__init__()
+        self.config = config
+        
+        self.W_slow = nn.Linear(d_in, d_out, bias=False)
+        nn.init.orthogonal_(self.W_slow.weight, gain=1.4)
+        
+        self.register_buffer('W_fast', torch.zeros(d_out, d_in))
+        self.regulator = HomeostaticRegulator(d_in)
+        
+        self.register_buffer('error_history', torch.zeros(50))
+        self.history_ptr = 0
+        
+    def forward(self, x, surprise_threshold=2.0):
+        batch = x.size(0)
+        slow = self.W_slow(x)
+        
+        with torch.no_grad():
+            error = (slow - slow.mean()).pow(2).mean().item()
+            self.error_history[self.history_ptr % 50] = error
+            self.history_ptr += 1
+            
+            recent_errors = self.error_history[:min(self.history_ptr, 10)]
+            mean_error = recent_errors.mean() if len(recent_errors) > 0 else 0.0
+            std_error = recent_errors.std() if len(recent_errors) > 1 else 1.0
+            surprise = error > (mean_error + surprise_threshold * std_error) and self.history_ptr > 5
+        
+        if self.training and surprise and self.config.use_plasticity:
+            y = slow
+            hebb = torch.mm(y.T, x) / batch
+            forget = (y.pow(2).mean(0, keepdim=True).T * self.W_fast)
+            plasticity_rate = self.config.plasticity_strength * 0.1
+            self.W_fast.data.add_((torch.tanh(hebb - forget)) * plasticity_rate)
+        
+        fast = F.linear(x, self.W_fast) if self.config.use_plasticity else 0
+        
+        if self.config.use_homeostasis:
+            physio = self.regulator(x, slow, self.W_slow.weight.norm())
+            gate = physio['gate']
+            beta = 0.5 + physio['sensitivity'] * 2.0
+        else:
+            gate = 1.0
+            beta = 1.0
+        
+        combined = slow + fast * gate
+        out = combined * torch.sigmoid(beta * combined)
+        
+        return out, {
+            'metabolism': physio['metabolism'].mean().item() if self.config.use_homeostasis else 0.5,
+            'surprise': float(surprise)
+        }
+
+# =============================================================================
+# SYMBIOTIC DUAL
+# =============================================================================
+class SymbioticDual(nn.Module):
+    def __init__(self, dim, atoms=4):
+        super().__init__()
+        self.clean = nn.Linear(dim, dim)
+        self.noisy = nn.Linear(dim, dim)
+        self.basis = nn.Parameter(torch.empty(atoms, dim))
+        nn.init.orthogonal_(self.basis, gain=0.5)
+        self.consensus_weight = nn.Parameter(torch.tensor(0.5))
+        
+    def forward(self, x, influence=0.5):
+        noise = torch.randn_like(x) * 0.2
+        x_noisy = x + noise
+        
+        clean_out = self.clean(x)
+        noisy_out = self.noisy(x_noisy)
+        
+        consensus = torch.sigmoid(self.consensus_weight)
+        out = consensus * clean_out + (1 - consensus) * noisy_out
+        
+        mutual_loss = F.mse_loss(clean_out, noisy_out.detach()) + \
+                      F.mse_loss(noisy_out, clean_out.detach())
+        
+        return out, mutual_loss
+
+# =============================================================================
+# MICROTOPOBRAIN
+# =============================================================================
+class MicroTopoBrain(nn.Module):
+    def __init__(self, config: Config):
+        super().__init__()
+        self.config = config
+        self.num_nodes = config.grid_size ** 2
+        self.embed_dim = config.embed_dim
+        
+        self.input_proj = nn.Linear(64, self.embed_dim * self.num_nodes)
+        
+        self.node_processors = nn.ModuleList([
+            PhysioNeuron(self.embed_dim, self.embed_dim, config)
+            for _ in range(self.num_nodes)
+        ])
+        
+        self.symbiotic = SymbioticDual(self.embed_dim) if config.use_symbiotic else None
+        self.meta_engine = MetaHomeostaticEngine(config)
+        
+        self.readout = nn.Linear(self.embed_dim * self.num_nodes, 10)
+        self.supcon_head = nn.Sequential(
+            nn.Linear(self.embed_dim * self.num_nodes, 32, bias=False),
+            nn.ReLU(),
+            nn.Linear(32, 16, bias=False)
+        ) if config.use_supcon else None
+        
+    def count_parameters(self):
+        return sum(p.numel() for p in self.parameters() if p.requires_grad)
+    
+    def forward(self, x, y=None, step=0):
+        batch = x.size(0)
+        x_emb = self.input_proj(x).view(batch, self.num_nodes, self.embed_dim)
+        
+        node_outs = []
+        surprises = []
+        avg_metabolism = 0
+        
+        for i, node in enumerate(self.node_processors):
+            out, stats = node(x_emb[:, i, :])
+            node_outs.append(out)
+            surprises.append(stats['surprise'])
+            avg_metabolism += stats['metabolism']
+        
+        avg_metabolism /= len(self.node_processors)
+        surprise_rate = sum(surprises) / len(surprises)
+        
+        x_proc = torch.stack(node_outs, dim=1)
+        
+        mutual_loss = 0
+        if self.symbiotic:
+            refined = []
+            for i in range(self.num_nodes):
+                r, mloss = self.symbiotic(x_proc[:, i, :], influence=avg_metabolism)
+                refined.append(r)
+                mutual_loss += mloss
+            x_proc = torch.stack(refined, dim=1)
+        
+        x_flat = x_proc.view(batch, -1)
+        logits = self.readout(x_flat)
+        proj = self.supcon_head(x_flat) if self.supcon_head else None
+        
+        return {
+            'logits': logits,
+            'proj': proj,
+            'metabolism': avg_metabolism,
+            'surprise_rate': surprise_rate,
+            'mutual_loss': mutual_loss / self.num_nodes if self.symbiotic else 0
+        }
+
+# =============================================================================
+# TRAINER (MEJORADO)
+# =============================================================================
+class ConfigurableTrainer:
+    def __init__(self, config: Config):
+        self.config = config
+        self.metrics = MetricsCollector(config)
+        self.env = DataEnvironment()
+        
+    def train(self, model: MicroTopoBrain):
+        model.to(self.config.device)
+        
+        optimizer = torch.optim.AdamW(
+            [p for n, p in model.named_parameters() if 'meta_engine' not in n],
+            lr=self.config.lr,
+            weight_decay=1e-4
+        )
+        
+        criterion = nn.CrossEntropyLoss()
+        recent_losses = []
+        
+        phase_boundaries = [
+            int(0.2 * self.config.steps),
+            int(0.5 * self.config.steps),
+            int(0.8 * self.config.steps),
+            self.config.steps
+        ]
+        
+        for step in range(self.config.steps):
+            if step < phase_boundaries[0]:
+                phase = "WORLD_1"
+            elif step < phase_boundaries[1]:
+                phase = "WORLD_2"
+            elif step < phase_boundaries[2]:
+                phase = "CHAOS"
+            else:
+                phase = "WORLD_1"
+            
+            model.train()
+            x, y = self.env.get_batch(phase, self.config.batch_size, step)
+            x, y = x.to(self.config.device), y.to(self.config.device)
+            
+            outputs = model(x, y, step=step)
+            logits = outputs['logits']
+            
+            loss = criterion(logits, y)
+            loss += outputs['mutual_loss'] * 0.1
+            
+            recent_losses.append(loss.item())
+            if len(recent_losses) > self.config.meta_homeo_window:
+                recent_losses.pop(0)
+            
+            # NUEVO: Warm-up period y actualizaciones suaves
+            if step % 10 == 0 and model.config.meta_homeo_enable and step > self.config.meta_warmup:
+                meta_out = model.meta_engine(loss.item(), step)
+                
+                # Usar momentum para actualizaciones suaves
+                current_lr = optimizer.param_groups[0]['lr']
+                current_plasticity = model.config.plasticity_strength
+                
+                new_lr, new_plasticity = model.meta_engine.update_with_momentum(
+                    current_lr, current_plasticity, meta_out, outputs['surprise_rate']
+                )
+                
+                optimizer.param_groups[0]['lr'] = new_lr
+                model.config.plasticity_strength = new_plasticity
             
             optimizer.zero_grad()
-            
-            # Forward pass normal
-            logits = model(images, captions)
-            
-            loss = F.cross_entropy(
-                logits.reshape(-1, len(dataset.vocab)),
-                captions[:, 1:].reshape(-1),
-                ignore_index=dataset.word2id["<PAD>"]
-            )
-            
-            # Adversarial training (solo TOPO-FULL)
-            if model.use_adversarial and epoch > 5:
-                # Crear ejemplos adversariales
-                images_adv = model.pgd.attack(
-                    lambda x: model(x, captions),
-                    images, captions, 
-                    lambda out, tgt: F.cross_entropy(
-                        out.reshape(-1, len(dataset.vocab)),
-                        tgt[:, 1:].reshape(-1),
-                        ignore_index=dataset.word2id["<PAD>"]
-                    )
-                )
-                
-                # Forward con adversariales
-                logits_adv = model(images_adv, captions)
-                loss_adv = F.cross_entropy(
-                    logits_adv.reshape(-1, len(dataset.vocab)),
-                    captions[:, 1:].reshape(-1),
-                    ignore_index=dataset.word2id["<PAD>"]
-                )
-                
-                # Loss combinado
-                loss = 0.7 * loss + 0.3 * loss_adv
-            
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
             
-            # Métricas
-            epoch_loss += loss.item()
-            
-            with torch.no_grad():
-                pred_tokens = logits.argmax(dim=-1)
-                mask = captions[:, 1:] != dataset.word2id["<PAD>"]
-                correct = (pred_tokens == captions[:, 1:]) & mask
-                epoch_correct += correct.sum().item()
-                epoch_total += mask.sum().item()
-            
-            # Densidad (si TopoBrain)
-            metrics = model.get_metrics()
-            if 'density' in metrics:
-                epoch_density += metrics['density']
-            
-            num_batches += 1
+            acc = (logits.argmax(1) == y).float().mean().item() * 100
+            self.metrics.log_batch(step, {
+                'loss': loss.item(),
+                'acc': acc,
+                'lr': optimizer.param_groups[0]['lr'],
+                'metabolism': outputs['metabolism'],
+                'surprise': outputs['surprise_rate'],
+                'plasticity': model.config.plasticity_strength  # NUEVO: Log plasticity
+            })
         
-        epoch_time = time.time() - start_time
-        
-        # Promedios
-        avg_loss = epoch_loss / num_batches
-        avg_acc = epoch_correct / epoch_total * 100
-        avg_density = epoch_density / num_batches if epoch_density > 0 else 1.0
-        
-        history['loss'].append(avg_loss)
-        history['accuracy'].append(avg_acc)
-        history['density'].append(avg_density)
-        history['time'].append(epoch_time)
-        
-        # Log cada 5 epochs
-        if epoch % 5 == 0 or epoch == epochs - 1:
-            print(f"Epoch {epoch:02d}/{epochs} | Loss: {avg_loss:.3f} | "
-                  f"Acc: {avg_acc:.2f}% | Density: {avg_density:.3f} | "
-                  f"Time: {epoch_time:.1f}s")
-            
-            # Generar ejemplo
-            model.eval()
-            with torch.no_grad():
-                sample_img, _, sample_label = dataset[0]
-                sample_img = sample_img.unsqueeze(0).to(device) * 2 - 1
-                generated = model(sample_img, captions=None)
-                words = [dataset.id2word.get(int(t.item()), "<UNK>") 
-                        for t in generated[0]]
-                sentence = " ".join(w for w in words 
-                                  if w not in ["<BOS>", "<EOS>", "<PAD>"])
-                print(f"   Generated: '{sentence}'")
-                print(f"   GT Label: {list(dataset.templates.keys())[sample_label]}\n")
-            model.train()
+        return model
     
-    return model, history
+    def evaluate(self, model: MicroTopoBrain):
+        model.eval()
+        forgetting_curve = []
+        
+        with torch.no_grad():
+            self.env.inject_concept_drift()
+            
+            X, y = self.env.get_full()
+            X, y = X.to(self.config.device), y.to(self.config.device)
+            outputs = model(X)
+            global_acc = (outputs['logits'].argmax(1) == y).float().mean().item() * 100
+            
+            X2, y2 = self.env.get_w2()
+            X2, y2 = X2.to(self.config.device), y2.to(self.config.device)
+            outputs2 = model(X2)
+            w2_ret = (outputs2['logits'].argmax(1) == y2).float().mean().item() * 100
+            
+            # Calcular curva de olvido
+            for i in range(0, len(X2), 100):
+                subset_x, subset_y = X2[:i+100], y2[:i+100]
+                out_sub = model(subset_x)
+                ret = (out_sub['logits'].argmax(1) == subset_y).float().mean().item() * 100
+                forgetting_curve.append(ret)
+            
+            # NUEVO: Calcular AUC de la curva de olvido
+            if len(forgetting_curve) > 1:
+                # Normalizar x-axis para AUC
+                x = np.linspace(0, 1, len(forgetting_curve))
+                auc_forgetting = np.trapz(forgetting_curve, x)  # Área bajo la curva
+            else:
+                auc_forgetting = 0.0
+            
+            health = model.meta_engine.get_component_health() if model.meta_engine else {}
+            
+            return {
+                'global_acc': global_acc,
+                'w2_retention': w2_ret,
+                'forgetting_curve': forgetting_curve,
+                'final_forgetting': forgetting_curve[-1] if forgetting_curve else 0,
+                'auc_forgetting': auc_forgetting,  # NUEVA Métrica
+                'n_params': model.count_parameters(),
+                'component_health': health,
+                'final_lr': self.config.lr,
+                'final_plasticity': self.config.plasticity_strength
+            }
 
-
-def run_full_ablation(epochs=30, device='cuda'):
-    """
-    Ejecuta ablation study completo de 3 niveles
-    """
-    print("="*80)
-    print("NeuroLogos v5.0 - ABLATION STUDY COMPLETO")
-    print("="*80)
-    print("Comparando 3 arquitecturas:")
-    print("  1. BASELINE: MiniUnconscious (sin TopoBrain)")
-    print("  2. TOPO-LIGHT: TopoBrain sin symbiotic")
-    print("  3. TOPO-FULL: TopoBrain completo + adversarial")
-    print("="*80)
+# =============================================================================
+# ABLACIÓN
+# =============================================================================
+def generate_ablation_matrix_4levels():
+    components = ['plasticity', 'supcon', 'symbiotic']
+    matrix = {}
     
+    matrix['L0_NoHomeo_NoComp'] = {
+        'use_homeostasis': False,
+        'meta_homeo_enable': False
+    }
+    
+    matrix['L1_Homeo_Only'] = {
+        'use_homeostasis': True,
+        'meta_homeo_enable': False
+    }
+    
+    for comp in components:
+        matrix[f'L2_Homeo+{comp.capitalize()}'] = {
+            'use_homeostasis': True,
+            'meta_homeo_enable': True,
+            f'use_{comp}': True
+        }
+    
+    for c1, c2 in combinations(components, 2):
+        matrix[f'L3_Homeo+{c1.capitalize()}+{c2.capitalize()}'] = {
+            'use_homeostasis': True,
+            'meta_homeo_enable': True,
+            f'use_{c1}': True,
+            f'use_{c2}': True
+        }
+    
+    matrix['L4_HomeoFullAll'] = {
+        'use_homeostasis': True,
+        'meta_homeo_enable': True,
+        'use_plasticity': True,
+        'use_supcon': True,
+        'use_symbiotic': True
+    }
+    
+    return matrix
+
+# =============================================================================
+# MAIN
+# =============================================================================
+def run_ablation_study():
+    seed_everything(42)
+    results_dir = Path("neurologos_v6_2_scientific")
+    results_dir.mkdir(exist_ok=True)
+    
+    print("=" * 80)
+    print("🧠 NeuroLogos v6.2 — Meta-Aprendizaje Adaptativo Científico")
+    print("=" * 80)
+    print("✅ Meta-Learner LSTM con Dropout + LayerNorm")
+    print("✅ Actualizaciones con momentum (suavizado)")
+    print("✅ Warm-up period de 100 steps")
+    print("✅ Métrica AUC-forgetting (más robusta)")
+    print("✅ Plasticity ajustada con momentum")
+    print("=" * 80)
+    
+    ablation_matrix = generate_ablation_matrix_4levels()
     results = {}
     
-    for mode in ['baseline', 'topo-light', 'topo-full']:
-        model, history = train_ablation(mode, epochs, device)
-        results[mode] = history
+    for name, overrides in ablation_matrix.items():
+        print(f"\n▶ {name}")
+        config = Config(**overrides)
         
-        # Guardar modelo
-        torch.save(model.state_dict(), f'neurologos_{mode}.pth')
-        print(f"\n✅ Modelo guardado: neurologos_{mode}.pth\n")
-    
-    # Resumen comparativo
-    print("\n" + "="*80)
-    print("RESULTADOS FINALES - ABLATION STUDY")
-    print("="*80)
-    
-    for mode in ['baseline', 'topo-light', 'topo-full']:
-        hist = results[mode]
-        final_loss = hist['loss'][-1]
-        final_acc = hist['accuracy'][-1]
-        avg_time = np.mean(hist['time'])
-        final_density = hist['density'][-1]
+        trainer = ConfigurableTrainer(config)
+        model = MicroTopoBrain(config)
+        model = trainer.train(model)
+        metrics = trainer.evaluate(model)
+        results[name] = metrics
         
-        print(f"\n{mode.upper()}:")
-        print(f"  Final Loss:     {final_loss:.3f}")
-        print(f"  Final Accuracy: {final_acc:.2f}%")
-        print(f"  Avg Time/Epoch: {avg_time:.1f}s")
-        print(f"  Final Density:  {final_density:.3f}")
+        if 'forgetting_curve' in metrics:
+            print(f"   Forgetting: {metrics['forgetting_curve'][0]:.1f}% → {metrics['forgetting_curve'][-1]:.1f}%")
+        
+        print(f"   Global: {metrics['global_acc']:.1f}% | "
+              f"W2 Ret: {metrics['w2_retention']:.1f}% | "
+              f"AUC: {metrics['auc_forgetting']:.1f}% | "
+              f"Params: {metrics['n_params']:,}")
+        
+        trainer.metrics.save(results_dir / f"{name}_metrics.json")
     
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
+    print("📊 VEREDICTO: ¿META-HOMEOSTASIS GANA?")
+    print("-" * 80)
+    
+    static = results['L0_NoHomeo_NoComp']
+    # Usar AUC como métrica principal
+    best = max(results.values(), key=lambda x: x['auc_forgetting'])
+    best_name = max(results.keys(), key=lambda k: results[k]['auc_forgetting'])
+    
+    print(f"{'Métrica':<20} | {'Static':<10} | {'Best':<10} | {'Δ'}")
+    print(f"{'-'*20} | {'-'*10} | {'-'*10} | {'-'*10}")
+    print(f"{'Global Acc':<20} | {static['global_acc']:9.1f}% | {best['global_acc']:9.1f}% | {best['global_acc'] - static['global_acc']:+6.1f}%")
+    print(f"{'W2 Retention':<20} | {static['w2_retention']:9.1f}% | {best['w2_retention']:9.1f}% | {best['w2_retention'] - static['w2_retention']:+6.1f}%")
+    print(f"{'AUC Forgetting':<20} | {static['auc_forgetting']:9.1f}% | {best['auc_forgetting']:9.1f}% | {best['auc_forgetting'] - static['auc_forgetting']:+6.1f}%")
+    print(f"{'Parámetros':<20} | {static['n_params']:9,} | {best['n_params']:9,} | {best['n_params'] - static['n_params']:+6,}")
+    
+    print("\n🏆 Mejor configuración:", best_name)
+    
+    # Usar AUC para el veredicto
+    auc_delta = best['auc_forgetting'] - static['auc_forgetting']
+    if auc_delta > 5:
+        print(f"🚀 ÉXITO: Meta-Homeostasis mejora AUC en +{auc_delta:.1f}%")
+    elif auc_delta > 2:
+        print(f"✅ MEJORA: Meta-Homeostasis mejora AUC en +{auc_delta:.1f}%")
+    else:
+        print("🔍 Marginal: Revisar hiper-parámetros o aumentar steps")
+    
+    with open(results_dir / "ablation_summary.json", 'w') as f:
+        json.dump(results, f, indent=2)
     
     return results
 
-
-# ============================================================================
-# EJECUCIÓN
-# ============================================================================
-
 if __name__ == "__main__":
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    print(f"Device: {device}")
-    
-    # Ejecutar ablation completo
-    results = run_full_ablation(epochs=30, device=device)
-    
-    # Opcional: Entrenar solo un modo específico
-    # model, history = train_ablation('topo-full', epochs=50, device=device)
+    run_ablation_study()
