@@ -1,0 +1,488 @@
+# API (page 5 of 10)
+Previous: [API_p4.md](API_p4.md)
+
+## minibi_c.py
+- `EpistemicCuriosity.__init__` (method) `minibi_c.py:38` `def __init__(self, feature_dim, hidden_dim)`
+- `EpistemicCuriosity.compute_intrinsic_reward` (method) `minibi_c.py:55` `def compute_intrinsic_reward(self, state, action, next_state)`
+- `EpistemicCuriosity.update` (method) `minibi_c.py:72` `def update(self, state, action, next_state)`
+- `LiquidNeuronV2.__init__` (method) `minibi_c.py:95` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuronV2.forward` (method) `minibi_c.py:121` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuronV2.consolidate_svd` (method) `minibi_c.py:170` `def consolidate_svd(self, repair_strength, timescale)`
+- `BicameralAttention.__init__` (method) `minibi_c.py:198` `def __init__(self, dim, num_heads)`
+- `BicameralAttention.forward` (method) `minibi_c.py:212` `def forward(self, x, mask)`
+- `RightHemisphereV2.__init__` (method) `minibi_c.py:248` `def __init__(self, output_dim)`
+- `RightHemisphereV2.forward` (method) `minibi_c.py:281` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphereV2.__init__` (method) `minibi_c.py:302` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphereV2.forward` (method) `minibi_c.py:332` `def forward(self, visual_context, captions, max_len, return_diagnostics, temperature, exploration_bonus)`
+- `CorpusCallosumV2.__init__` (method) `minibi_c.py:434` `def __init__(self, dim)`
+- `CorpusCallosumV2.forward` (method) `minibi_c.py:450` `def forward(self, right_features)`
+- `NeuroLogosBicameralV2.__init__` (method) `minibi_c.py:465` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralV2.forward` (method) `minibi_c.py:471` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature, exploration_bonus)`
+- `NeuralDiagnosticsV2.__init__` (method) `minibi_c.py:494` `def __init__(self)`
+- `NeuralDiagnosticsV2.measure_callosal_flow` (method) `minibi_c.py:510` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnosticsV2.measure_vocab_diversity` (method) `minibi_c.py:517` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnosticsV2.update` (method) `minibi_c.py:535` `def update(self)`
+- `NeuralDiagnosticsV2.get_recent_avg` (method) `minibi_c.py:541` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnosticsV2.report` (method) `minibi_c.py:548` `def report(self, epoch)`
+- `CurriculumScheduler.__init__` (method) `minibi_c.py:594` `def __init__(self, total_epochs)`
+- `CurriculumScheduler.get_phase` (method) `minibi_c.py:602` `def get_phase(self, epoch)`
+- `CurriculumScheduler.get_plasticity` (method) `minibi_c.py:608` `def get_plasticity(self, epoch)`
+- `CurriculumScheduler.get_exploration_bonus` (method) `minibi_c.py:619` `def get_exploration_bonus(self, epoch)`
+- `CurriculumScheduler.get_temperature` (method) `minibi_c.py:629` `def get_temperature(self, epoch)`
+- `CurriculumScheduler.should_consolidate` (method) `minibi_c.py:640` `def should_consolidate(self, epoch)`
+- `CurriculumScheduler.build_vocab_flickr` (method) `minibi_c.py:644` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.__init__` (method) `minibi_c.py:668` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.setup_flickr8k` (method) `minibi_c.py:722` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `Flickr8kDataset.train_bicameral_v2` (method) `minibi_c.py:794` `def train_bicameral_v2()`
+
+## minibi_reduced.py.py
+- `EpistemicCuriosity.__init__` (method) `minibi_reduced.py.py:40` `def __init__(self, feature_dim, hidden_dim)`
+- `EpistemicCuriosity.compute_intrinsic_reward` (method) `minibi_reduced.py.py:55` `def compute_intrinsic_reward(self, state, action, next_state)`
+- `EpistemicCuriosity.update` (method) `minibi_reduced.py.py:70` `def update(self, state, action, next_state)`
+- `LiquidNeuronV2.__init__` (method) `minibi_reduced.py.py:82` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuronV2.forward` (method) `minibi_reduced.py.py:105` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuronV2.consolidate_svd` (method) `minibi_reduced.py.py:141` `def consolidate_svd(self, repair_strength, timescale)`
+- `BicameralAttention.__init__` (method) `minibi_reduced.py.py:171` `def __init__(self, dim, num_heads)`
+- `BicameralAttention.forward` (method) `minibi_reduced.py.py:184` `def forward(self, x, mask)`
+- `RightHemisphereV2.__init__` (method) `minibi_reduced.py.py:214` `def __init__(self, output_dim)`
+- `RightHemisphereV2.forward` (method) `minibi_reduced.py.py:237` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphereV2.__init__` (method) `minibi_reduced.py.py:248` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphereV2.forward` (method) `minibi_reduced.py.py:266` `def forward(self, visual_context, captions, max_len, return_diagnostics, temperature, exploration_bonus)`
+- `CorpusCallosumV2.__init__` (method) `minibi_reduced.py.py:339` `def __init__(self, dim)`
+- `CorpusCallosumV2.forward` (method) `minibi_reduced.py.py:349` `def forward(self, right_features)`
+- `NeuroLogosBicameralV2.__init__` (method) `minibi_reduced.py.py:357` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralV2.forward` (method) `minibi_reduced.py.py:363` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature, exploration_bonus)`
+- `NeuroLogosBicameralV2.build_vocab_flickr` (method) `minibi_reduced.py.py:381` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.__init__` (method) `minibi_reduced.py.py:397` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.setup_flickr8k` (method) `minibi_reduced.py.py:431` `def setup_flickr8k(data_dir)`
+- `Flickr8kDataset.train_bicameral_v2` (method) `minibi_reduced.py.py:482` `def train_bicameral_v2()`
+
+## miniminibi.py
+- `setup_flickr8k` (function) `miniminibi.py:30` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente desde Kaggle Requiere: pip install kaggle Y tener configurado ~/.kaggle/kaggle.json
+- `LiquidNeuron.__init__` (method) `miniminibi.py:119` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `miniminibi.py:136` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `miniminibi.py:165` `def consolidate_svd(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `miniminibi.py:192` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `miniminibi.py:205` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphere.__init__` (method) `miniminibi.py:215` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `miniminibi.py:237` `def forward(self, visual_context, captions, max_len, return_gate, temperature)`
+- `CorpusCallosum.__init__` (method) `miniminibi.py:315` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `miniminibi.py:324` `def forward(self, right_features)`
+- `NeuroLogosBicameral.__init__` (method) `miniminibi.py:333` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `miniminibi.py:339` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature)`
+- `NeuralDiagnostics.__init__` (method) `miniminibi.py:353` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `miniminibi.py:363` `def measure_callosal_flow(self, right_features, left_context)` -- Mide qué tan bien está fluyendo información entre hemisferios
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `miniminibi.py:372` `def measure_vocab_diversity(self, generated_tokens, vocab_size)` -- Mide diversidad de vocabulario generado (evitar colapso)
+- `NeuralDiagnostics.measure_gate_health` (method) `miniminibi.py:378` `def measure_gate_health(self, gate_activations)` -- Verifica que el liquid gate no colapse a 0 o 1
+- `NeuralDiagnostics.update` (method) `miniminibi.py:387` `def update(self)`
+- `NeuralDiagnostics.report` (method) `miniminibi.py:392` `def report(self, epoch)` -- Reporte diagnóstico completo
+- `Flickr8kDataset.__init__` (method) `miniminibi.py:443` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `miniminibi.py:485` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `miniminibi.py:509` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `miniminibi.py:512` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `miniminibi.py:523` `def train_bicameral()`
+
+## nemesis.py
+- `seed_everything` (function) `nemesis.py:13` `def seed_everything(seed)`
+- `DataEnvironment.__init__` (method) `nemesis.py:24` `def __init__(self)`
+- `DataEnvironment.get_batch` (method) `nemesis.py:33` `def get_batch(self, phase, bs)`
+- `NeuralController.__init__` (method) `nemesis.py:42` `def __init__(self)`
+- `NeuralController.forward` (method) `nemesis.py:52` `def forward(self, surprise, entropy)`
+- `HyperLiquidNeuron.__init__` (method) `nemesis.py:61` `def __init__(self, d_in, d_out, dynamic_mode)`
+- `HyperLiquidNeuron.forward` (method) `nemesis.py:79` `def forward(self, x)`
+- `NemesisNetwork.__init__` (method) `nemesis.py:127` `def __init__(self, config, dynamic_mode)`
+- `NemesisNetwork.forward` (method) `nemesis.py:133` `def forward(self, x)`
+- `NemesisNetwork.run_hyper_experiment` (method) `nemesis.py:143` `def run_hyper_experiment(epochs, name, dynamic_mode)`
+
+## nested1.1.py
+- `Config.safe_serialize` (method) `nested1.1.py:61` `def safe_serialize(obj)` -- Convierte objetos a formato serializable (evita recursión y objetos complejos).
+- `Config.save_checkpoint` (method) `nested1.1.py:80` `def save_checkpoint(epoch, model_state, optimizer_state, config, metrics, checkpoint_dir)` -- Guarda checkpoint de época: modelo (.pth) + metadatos (.pkl).
+- `Config.cleanup_old_checkpoints` (method) `nested1.1.py:105` `def cleanup_old_checkpoints(checkpoint_dir, keep_last)` -- Mantiene solo los últimos `keep_last` checkpoints.
+- `CMSLayer.__init__` (method) `nested1.1.py:129` `def __init__(self, dim, config)`
+- `CMSLayer.forward` (method) `nested1.1.py:148` `def forward(self, x)`
+- `CMSLayer.get_norms` (method) `nested1.1.py:190` `def get_norms(self)`
+- `NestedBrain.__init__` (method) `nested1.1.py:201` `def __init__(self, config)`
+- `NestedBrain.forward` (method) `nested1.1.py:221` `def forward(self, x)`
+- `NestedBrain.get_ablation_state` (method) `nested1.1.py:226` `def get_ablation_state(self)`
+- `NestedBrain.get_norms` (method) `nested1.1.py:233` `def get_norms(self)`
+- `NestedBrain.get_cifar10_loaders` (method) `nested1.1.py:241` `def get_cifar10_loaders(config)`
+- `NestedBrain.evaluate` (method) `nested1.1.py:267` `def evaluate(model, loader, device)`
+- `NestedBrain.train` (method) `nested1.1.py:293` `def train(config)`
+- `NestedBrain.run_ablation_study` (method) `nested1.1.py:371` `def run_ablation_study()`
+
+## nested1.py
+- `CMSLayer.__init__` (method) `nested1.py:60` `def __init__(self, dim, config)`
+- `CMSLayer.forward` (method) `nested1.py:83` `def forward(self, x)`
+- `CMSLayer.get_norms` (method) `nested1.py:131` `def get_norms(self)`
+- `NestedBrain.__init__` (method) `nested1.py:142` `def __init__(self, config)`
+- `NestedBrain.forward` (method) `nested1.py:162` `def forward(self, x)`
+- `NestedBrain.get_ablation_state` (method) `nested1.py:167` `def get_ablation_state(self)`
+- `NestedBrain.get_norms` (method) `nested1.py:174` `def get_norms(self)`
+- `NestedBrain.get_cifar10_loaders` (method) `nested1.py:182` `def get_cifar10_loaders(config)`
+- `NestedBrain.evaluate` (method) `nested1.py:208` `def evaluate(model, loader, device)`
+- `NestedBrain.train` (method) `nested1.py:234` `def train(config)`
+- `NestedBrain.run_ablation_study` (method) `nested1.py:301` `def run_ablation_study()`
+
+## nestedtopobrain.py
+- `Config.to_dict` (method) `nestedtopobrain.py:95` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `nestedtopobrain.py:98` `def get_supcon_lambda(self, epoch)`
+- `Config.get_sparsity_lambda` (method) `nestedtopobrain.py:104` `def get_sparsity_lambda(self, epoch)`
+- `Config.seed_everything` (method) `nestedtopobrain.py:119` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `nestedtopobrain.py:135` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `nestedtopobrain.py:140` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `nestedtopobrain.py:146` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `nestedtopobrain.py:153` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `nestedtopobrain.py:159` `def check_limit(limit_gb, abort_on_limit)`
+- `PrefrontalOrchestrator.__init__` (method) `nestedtopobrain.py:185` `def __init__(self, config)`
+- `PrefrontalOrchestrator.forward` (method) `nestedtopobrain.py:222` `def forward(self, metrics_dict)` -- Orquestador v27: Allostasis con Frenado de Emergencia (Gradient-Aware).
+- `PrefrontalOrchestrator.detach_state` (method) `nestedtopobrain.py:322` `def detach_state(self)` -- Rompe el grafo computacional para evitar retropropagación infinita entre batches
+- `PrefrontalOrchestrator.reset_context` (method) `nestedtopobrain.py:327` `def reset_context(self)` -- Resetear contexto al inicio de cada época
+- `TopologicalHealthSovereignty.__init__` (method) `nestedtopobrain.py:350` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `nestedtopobrain.py:402` `def calculate(self, epoch)`
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `nestedtopobrain.py:419` `def get_critical_summary(self)`
+- `CheckpointManager.__init__` (method) `nestedtopobrain.py:431` `def __init__(self, run_name)`
+- `CheckpointManager.save` (method) `nestedtopobrain.py:436` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `nestedtopobrain.py:464` `def load(self, name)`
+- `CheckpointManager.get_dataloaders` (method) `nestedtopobrain.py:481` `def get_dataloaders(config)` -- DataLoaders con augmentation de alto rendimiento para CIFAR-10
+- `SupConLoss.__init__` (method) `nestedtopobrain.py:526` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `nestedtopobrain.py:529` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `nestedtopobrain.py:543` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `nestedtopobrain.py:553` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `nestedtopobrain.py:563` `def __init__(self, dim, min_gate)`
+- `LearnableAbsenceGating.forward` (method) `nestedtopobrain.py:573` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `nestedtopobrain.py:581` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `nestedtopobrain.py:600` `def forward(self, x)`
+- `ContinuumMemoryCell.__init__` (method) `nestedtopobrain.py:626` `def __init__(self, input_dim, hidden_dim, fast_lr, forget_rate, use_spectral)`
+- `ContinuumMemoryCell.forward` (method) `nestedtopobrain.py:675` `def forward(self, x, state_M, controls)`
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `nestedtopobrain.py:751` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.invalidate_sparse_cache` (method) `nestedtopobrain.py:789` `def invalidate_sparse_cache(self)`
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `nestedtopobrain.py:811` `def get_node_importance(self)` -- FIX: Método faltante para obtener importancia de nodos
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `nestedtopobrain.py:817` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse, prev_state_node, prev_state_cell, controls)` -- Forward con señales de control del Orquestador y retorno de ortho deviation
+- `ResidualBlock.__init__` (method) `nestedtopobrain.py:947` `def __init__(self, in_channels, out_channels, stride)`
+- `ResidualBlock.forward` (method) `nestedtopobrain.py:961` `def forward(self, x)`
+- `VisualCortex.__init__` (method) `nestedtopobrain.py:968` `def __init__(self, output_dim, grid_size)`
+- `VisualCortex.forward` (method) `nestedtopobrain.py:994` `def forward(self, x)`
+- `TopoBrainV24.__init__` (method) `nestedtopobrain.py:1023` `def __init__(self, config, in_channels)`
+- `TopoBrainV24.initialize_memories` (method) `nestedtopobrain.py:1087` `def initialize_memories(self, dataloader)`
+- `TopoBrainV24.consolidate_semantic_memories` (method) `nestedtopobrain.py:1141` `def consolidate_semantic_memories(self)`
+- `TopoBrainV24.set_epoch` (method) `nestedtopobrain.py:1169` `def set_epoch(self, epoch)`
+- `TopoBrainV24.calculate_ortho_loss` (method) `nestedtopobrain.py:1174` `def calculate_ortho_loss(self, ortho_deviation, controls)`
+- `TopoBrainV24.calculate_topology_diversity_loss` (method) `nestedtopobrain.py:1180` `def calculate_topology_diversity_loss(self, controls)`
+- `TopoBrainV24.get_topology` (method) `nestedtopobrain.py:1215` `def get_topology(self, return_sparse)`
+- `TopoBrainV24.forward` (method) `nestedtopobrain.py:1226` `def forward(self, x, prev_states, controls)`
+- `TopoBrainV24.prune_topology` (method) `nestedtopobrain.py:1298` `def prune_topology(self, controls)`
+- `TopoBrainV24.save_topology_visualization` (method) `nestedtopobrain.py:1406` `def save_topology_visualization(model, epoch, run_name)` -- Visualización v18 completa
+- `TopoBrainV24.save_node_importance_viz` (method) `nestedtopobrain.py:1450` `def save_node_importance_viz(model, epoch, run_name)` -- Visualización de importancia de nodos v18
+- `TopoBrainV24.analyze_topology_clustering` (method) `nestedtopobrain.py:1472` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral v18
+- `TopoBrainV24.analyze_topology_flow` (method) `nestedtopobrain.py:1511` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Análisis de flujo de información con captura genérica de outputs
+- `TopoBrainV24.visualize_topology_as_graph` (method) `nestedtopobrain.py:1577` `def visualize_topology_as_graph(model, run_name, threshold)` -- Grafo v18 con métricas
+- `TopoBrainV24.analyze_topology_evolution` (method) `nestedtopobrain.py:1629` `def analyze_topology_evolution(run_name)` -- Análisis temporal completo v18
+- `TopoBrainV24.comprehensive_topology_analysis` (method) `nestedtopobrain.py:1690` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Suite completa de análisis v18
+- `TopoBrainV24.run_ablation_study` (method) `nestedtopobrain.py:1713` `def run_ablation_study()` -- Suite de ablación v18 completa
+- `TopoBrainV24.visualize_memory_evolution` (method) `nestedtopobrain.py:1814` `def visualize_memory_evolution(model, epoch, run_name)` -- Visualiza evolución de memorias semánticas
+- `TopoBrainV24.analyze_gradient_flow` (method) `nestedtopobrain.py:1905` `def analyze_gradient_flow(model, epoch, run_name)` -- Análisis detallado del flujo de gradientes
+- `TopoBrainV24.make_adversarial_pgd` (method) `nestedtopobrain.py:1972` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name, controls, prev_states)` -- PGD ataque con congelamiento total de pesos y detach explícito de estados.
+- `TopoBrainV24.evaluate` (method) `nestedtopobrain.py:2050` `def evaluate(model, loader, config, adversarial, controls)` -- Evaluación con plasticidad residual (test-time adaptation) Biológicamente plausible: el cerebro no se apaga durante...
+- `TopoBrainV24.train_epoch` (method) `nestedtopobrain.py:2122` `def train_epoch(model, loader, optimizer, opt_topo, config, epoch, monitor, scaler, sparsity_lambda)` -- Entrenamiento homeostático con lista manual en lugar de deque
+- `TopoBrainV24.train_model` (method) `nestedtopobrain.py:2347` `def train_model(config, run_name)`
+- `TopoBrainV24.warmup_topo` (method) `nestedtopobrain.py:2381` `def warmup_topo(epoch)`
+- `TopoBrainV24.main` (method) `nestedtopobrain.py:2518` `def main()` -- CLI v24 completo con Orquestador Prefrontal
+
+## nestedtopobrain_v1.py
+- `Config.to_dict` (method) `nestedtopobrain_v1.py:89` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `nestedtopobrain_v1.py:92` `def get_supcon_lambda(self, epoch)`
+- `Config.get_sparsity_lambda` (method) `nestedtopobrain_v1.py:98` `def get_sparsity_lambda(self, epoch)`
+- `Config.seed_everything` (method) `nestedtopobrain_v1.py:114` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `nestedtopobrain_v1.py:130` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `nestedtopobrain_v1.py:135` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `nestedtopobrain_v1.py:141` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `nestedtopobrain_v1.py:148` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `nestedtopobrain_v1.py:154` `def check_limit(limit_gb, abort_on_limit)`
+- `PrefrontalOrchestrator.__init__` (method) `nestedtopobrain_v1.py:180` `def __init__(self, config)`
+- `PrefrontalOrchestrator.forward` (method) `nestedtopobrain_v1.py:217` `def forward(self, metrics_dict)` -- Input: Diccionario con métricas del estado actual Output: Diccionario con señales de control escaladas [0,1]
+- `PrefrontalOrchestrator.detach_state` (method) `nestedtopobrain_v1.py:257` `def detach_state(self)` -- Rompe el grafo computacional para evitar retropropagación infinita entre batches
+- `PrefrontalOrchestrator.reset_context` (method) `nestedtopobrain_v1.py:262` `def reset_context(self)` -- Resetear contexto al inicio de cada época
+- `TopologicalHealthSovereignty.__init__` (method) `nestedtopobrain_v1.py:285` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `nestedtopobrain_v1.py:337` `def calculate(self, epoch)`
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `nestedtopobrain_v1.py:354` `def get_critical_summary(self)`
+- `CheckpointManager.__init__` (method) `nestedtopobrain_v1.py:366` `def __init__(self, run_name)`
+- `CheckpointManager.save` (method) `nestedtopobrain_v1.py:371` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `nestedtopobrain_v1.py:399` `def load(self, name)`
+- `CheckpointManager.get_dataloaders` (method) `nestedtopobrain_v1.py:416` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `nestedtopobrain_v1.py:456` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `nestedtopobrain_v1.py:459` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `nestedtopobrain_v1.py:473` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `nestedtopobrain_v1.py:483` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `nestedtopobrain_v1.py:493` `def __init__(self, dim, min_gate)`
+- `LearnableAbsenceGating.forward` (method) `nestedtopobrain_v1.py:503` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `nestedtopobrain_v1.py:511` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `nestedtopobrain_v1.py:530` `def forward(self, x)`
+- `ContinuumMemoryCell.__init__` (method) `nestedtopobrain_v1.py:550` `def __init__(self, input_dim, hidden_dim, fast_lr, forget_rate, use_spectral)`
+- `ContinuumMemoryCell.forward` (method) `nestedtopobrain_v1.py:599` `def forward(self, x, state_M, controls)` -- FIX: Ahora acepta señales de control del Orquestador para modular la plasticidad y consolidación en tiempo real.
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `nestedtopobrain_v1.py:677` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.invalidate_sparse_cache` (method) `nestedtopobrain_v1.py:715` `def invalidate_sparse_cache(self)`
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `nestedtopobrain_v1.py:737` `def get_node_importance(self)` -- FIX: Método faltante para obtener importancia de nodos
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `nestedtopobrain_v1.py:743` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse, prev_state_node, prev_state_cell, controls)` -- FIX: Integra señales de control del Orquestador con bypass condicional para evitar computación innecesaria cuando...
+- `TopoBrainV24.__init__` (method) `nestedtopobrain_v1.py:880` `def __init__(self, config, in_channels)`
+- `TopoBrainV24.initialize_memories` (method) `nestedtopobrain_v1.py:934` `def initialize_memories(self, dataloader)`
+- `TopoBrainV24.consolidate_semantic_memories` (method) `nestedtopobrain_v1.py:1000` `def consolidate_semantic_memories(self)`
+- `TopoBrainV24.set_epoch` (method) `nestedtopobrain_v1.py:1045` `def set_epoch(self, epoch)`
+- `TopoBrainV24.calculate_ortho_loss` (method) `nestedtopobrain_v1.py:1050` `def calculate_ortho_loss(self, controls)`
+- `TopoBrainV24.calculate_topology_diversity_loss` (method) `nestedtopobrain_v1.py:1070` `def calculate_topology_diversity_loss(self, controls)`
+- `TopoBrainV24.get_topology` (method) `nestedtopobrain_v1.py:1118` `def get_topology(self, return_sparse)`
+- `TopoBrainV24.forward` (method) `nestedtopobrain_v1.py:1131` `def forward(self, x, prev_states, controls)` -- Forward con validación y detach explícito
+- `TopoBrainV24.prune_topology` (method) `nestedtopobrain_v1.py:1198` `def prune_topology(self, controls)`
+- `TopoBrainV24.save_topology_visualization` (method) `nestedtopobrain_v1.py:1304` `def save_topology_visualization(model, epoch, run_name)` -- Visualización v18 completa
+- `TopoBrainV24.save_node_importance_viz` (method) `nestedtopobrain_v1.py:1348` `def save_node_importance_viz(model, epoch, run_name)` -- Visualización de importancia de nodos v18
+- `TopoBrainV24.analyze_topology_clustering` (method) `nestedtopobrain_v1.py:1370` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral v18
+- `TopoBrainV24.analyze_topology_flow` (method) `nestedtopobrain_v1.py:1409` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Análisis de flujo v18
+- `TopoBrainV24.visualize_topology_as_graph` (method) `nestedtopobrain_v1.py:1461` `def visualize_topology_as_graph(model, run_name, threshold)` -- Grafo v18 con métricas
+- `TopoBrainV24.analyze_topology_evolution` (method) `nestedtopobrain_v1.py:1513` `def analyze_topology_evolution(run_name)` -- Análisis temporal completo v18
+- `TopoBrainV24.comprehensive_topology_analysis` (method) `nestedtopobrain_v1.py:1574` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Suite completa de análisis v18
+- `TopoBrainV24.run_ablation_study` (method) `nestedtopobrain_v1.py:1597` `def run_ablation_study()` -- Suite de ablación v18 completa
+- `TopoBrainV24.visualize_memory_evolution` (method) `nestedtopobrain_v1.py:1698` `def visualize_memory_evolution(model, epoch, run_name)` -- Visualiza evolución de memorias semánticas
+- `TopoBrainV24.analyze_gradient_flow` (method) `nestedtopobrain_v1.py:1789` `def analyze_gradient_flow(model, epoch, run_name)` -- Análisis detallado del flujo de gradientes
+- `TopoBrainV24.make_adversarial_pgd` (method) `nestedtopobrain_v1.py:1856` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name, controls, prev_states)` -- PGD attack con congelamiento total de pesos (Protocolo de Aislamiento Sináptico).
+- `TopoBrainV24.evaluate` (method) `nestedtopobrain_v1.py:1936` `def evaluate(model, loader, config, adversarial, controls)` -- Evaluación optimizada para arquitecturas biológicas complejas (Nested/Grid).
+- `TopoBrainV24.train_epoch` (method) `nestedtopobrain_v1.py:2000` `def train_epoch(model, loader, optimizer, opt_topo, config, epoch, monitor, scaler, sparsity_lambda)` -- Entrenamiento homeostático con gestión rigurosa de grafos y memoria.
+- `TopoBrainV24.train_model` (method) `nestedtopobrain_v1.py:2196` `def train_model(config, run_name)` -- Training loop principal - FIX v24: Orden correcto de Scheduler y gestión de memoria.
+- `TopoBrainV24.warmup_topo` (method) `nestedtopobrain_v1.py:2234` `def warmup_topo(epoch)`
+- `TopoBrainV24.main` (method) `nestedtopobrain_v1.py:2398` `def main()` -- CLI v24 completo con Orquestador Prefrontal
+
+## nestedtopobrain_v2.py
+- `Config.to_dict` (method) `nestedtopobrain_v2.py:88` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `nestedtopobrain_v2.py:91` `def get_supcon_lambda(self, epoch)`
+- `Config.get_sparsity_lambda` (method) `nestedtopobrain_v2.py:97` `def get_sparsity_lambda(self, epoch)`
+- `Config.seed_everything` (method) `nestedtopobrain_v2.py:113` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `nestedtopobrain_v2.py:129` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `nestedtopobrain_v2.py:134` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `nestedtopobrain_v2.py:140` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `nestedtopobrain_v2.py:147` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `nestedtopobrain_v2.py:153` `def check_limit(limit_gb, abort_on_limit)`
+- `PrefrontalOrchestrator.__init__` (method) `nestedtopobrain_v2.py:179` `def __init__(self, config)`
+- `PrefrontalOrchestrator.forward` (method) `nestedtopobrain_v2.py:216` `def forward(self, metrics_dict)` -- Input: Diccionario con métricas del estado actual Output: Diccionario con señales de control escaladas [0,1]
+- `PrefrontalOrchestrator.detach_state` (method) `nestedtopobrain_v2.py:256` `def detach_state(self)` -- Rompe el grafo computacional para evitar retropropagación infinita entre batches
+- `PrefrontalOrchestrator.reset_context` (method) `nestedtopobrain_v2.py:261` `def reset_context(self)` -- Resetear contexto al inicio de cada época
+- `TopologicalHealthSovereignty.__init__` (method) `nestedtopobrain_v2.py:284` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `nestedtopobrain_v2.py:336` `def calculate(self, epoch)`
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `nestedtopobrain_v2.py:353` `def get_critical_summary(self)`
+- `CheckpointManager.__init__` (method) `nestedtopobrain_v2.py:365` `def __init__(self, run_name)`
+- `CheckpointManager.save` (method) `nestedtopobrain_v2.py:370` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `nestedtopobrain_v2.py:398` `def load(self, name)`
+- `CheckpointManager.get_dataloaders` (method) `nestedtopobrain_v2.py:415` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `nestedtopobrain_v2.py:455` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `nestedtopobrain_v2.py:458` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `nestedtopobrain_v2.py:472` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `nestedtopobrain_v2.py:482` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `nestedtopobrain_v2.py:492` `def __init__(self, dim, min_gate)`
+- `LearnableAbsenceGating.forward` (method) `nestedtopobrain_v2.py:502` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `nestedtopobrain_v2.py:510` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `nestedtopobrain_v2.py:529` `def forward(self, x)`
+- `ContinuumMemoryCell.__init__` (method) `nestedtopobrain_v2.py:555` `def __init__(self, input_dim, hidden_dim, fast_lr, forget_rate, use_spectral)`
+- `ContinuumMemoryCell.forward` (method) `nestedtopobrain_v2.py:604` `def forward(self, x, state_M, controls)` -- FIX: Ahora acepta señales de control del Orquestador para modular la plasticidad y consolidación en tiempo real.
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `nestedtopobrain_v2.py:682` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.invalidate_sparse_cache` (method) `nestedtopobrain_v2.py:720` `def invalidate_sparse_cache(self)`
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `nestedtopobrain_v2.py:742` `def get_node_importance(self)` -- FIX: Método faltante para obtener importancia de nodos
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `nestedtopobrain_v2.py:748` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse, prev_state_node, prev_state_cell, controls)` -- Forward con señales de control del Orquestador y retorno de ortho deviation
+- `TopoBrainV24.__init__` (method) `nestedtopobrain_v2.py:879` `def __init__(self, config, in_channels)`
+- `TopoBrainV24.initialize_memories` (method) `nestedtopobrain_v2.py:933` `def initialize_memories(self, dataloader)` -- Inicialización de memorias semánticas con captura correcta de 5 valores de retorno
+- `TopoBrainV24.consolidate_semantic_memories` (method) `nestedtopobrain_v2.py:1002` `def consolidate_semantic_memories(self)`
+- `TopoBrainV24.set_epoch` (method) `nestedtopobrain_v2.py:1047` `def set_epoch(self, epoch)`
+- `TopoBrainV24.calculate_ortho_loss` (method) `nestedtopobrain_v2.py:1052` `def calculate_ortho_loss(self, ortho_deviation, controls)` -- Calcula loss de ortogonalidad usando el deviation retornado por las capas
+- `TopoBrainV24.calculate_topology_diversity_loss` (method) `nestedtopobrain_v2.py:1060` `def calculate_topology_diversity_loss(self, controls)`
+- `TopoBrainV24.get_topology` (method) `nestedtopobrain_v2.py:1108` `def get_topology(self, return_sparse)`
+- `TopoBrainV24.forward` (method) `nestedtopobrain_v2.py:1121` `def forward(self, x, prev_states, controls)` -- Forward con validación, detach explícito, y retorno de ortho deviation
+- `TopoBrainV24.prune_topology` (method) `nestedtopobrain_v2.py:1183` `def prune_topology(self, controls)` -- Poda topológica con cálculo correcto de quantile
+- `TopoBrainV24.save_topology_visualization` (method) `nestedtopobrain_v2.py:1289` `def save_topology_visualization(model, epoch, run_name)` -- Visualización v18 completa
+- `TopoBrainV24.save_node_importance_viz` (method) `nestedtopobrain_v2.py:1333` `def save_node_importance_viz(model, epoch, run_name)` -- Visualización de importancia de nodos v18
+- `TopoBrainV24.analyze_topology_clustering` (method) `nestedtopobrain_v2.py:1355` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral v18
+- `TopoBrainV24.analyze_topology_flow` (method) `nestedtopobrain_v2.py:1394` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Análisis de flujo v18
+- `TopoBrainV24.visualize_topology_as_graph` (method) `nestedtopobrain_v2.py:1448` `def visualize_topology_as_graph(model, run_name, threshold)` -- Grafo v18 con métricas
+- `TopoBrainV24.analyze_topology_evolution` (method) `nestedtopobrain_v2.py:1500` `def analyze_topology_evolution(run_name)` -- Análisis temporal completo v18
+- `TopoBrainV24.comprehensive_topology_analysis` (method) `nestedtopobrain_v2.py:1561` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Suite completa de análisis v18
+- `TopoBrainV24.run_ablation_study` (method) `nestedtopobrain_v2.py:1584` `def run_ablation_study()` -- Suite de ablación v18 completa
+- `TopoBrainV24.visualize_memory_evolution` (method) `nestedtopobrain_v2.py:1685` `def visualize_memory_evolution(model, epoch, run_name)` -- Visualiza evolución de memorias semánticas
+- `TopoBrainV24.analyze_gradient_flow` (method) `nestedtopobrain_v2.py:1776` `def analyze_gradient_flow(model, epoch, run_name)` -- Análisis detallado del flujo de gradientes
+- `TopoBrainV24.make_adversarial_pgd` (method) `nestedtopobrain_v2.py:1843` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name, controls, prev_states)` -- PGD attack con congelamiento total de pesos (Protocolo de Aislamiento Sináptico).
+- `TopoBrainV24.evaluate` (method) `nestedtopobrain_v2.py:1910` `def evaluate(model, loader, config, adversarial, controls)` -- Evaluación optimizada con Gradient Shielding.
+- `TopoBrainV24.train_epoch` (method) `nestedtopobrain_v2.py:1963` `def train_epoch(model, loader, optimizer, opt_topo, config, epoch, monitor, scaler, sparsity_lambda)` -- Entrenamiento homeostático con inicialización de estados
+- `TopoBrainV24.train_model` (method) `nestedtopobrain_v2.py:2132` `def train_model(config, run_name)` -- Training loop principal - FIX v24: Orden correcto de Scheduler y gestión de memoria.
+- `TopoBrainV24.warmup_topo` (method) `nestedtopobrain_v2.py:2180` `def warmup_topo(epoch)`
+- `TopoBrainV24.main` (method) `nestedtopobrain_v2.py:2344` `def main()` -- CLI v24 completo con Orquestador Prefrontal
+
+## nestedtopobrain_v3.py
+- `Config.to_dict` (method) `nestedtopobrain_v3.py:88` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `nestedtopobrain_v3.py:91` `def get_supcon_lambda(self, epoch)`
+- `Config.get_sparsity_lambda` (method) `nestedtopobrain_v3.py:97` `def get_sparsity_lambda(self, epoch)`
+- `Config.seed_everything` (method) `nestedtopobrain_v3.py:113` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `nestedtopobrain_v3.py:129` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `nestedtopobrain_v3.py:134` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `nestedtopobrain_v3.py:140` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `nestedtopobrain_v3.py:147` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `nestedtopobrain_v3.py:153` `def check_limit(limit_gb, abort_on_limit)`
+- `PrefrontalOrchestrator.__init__` (method) `nestedtopobrain_v3.py:179` `def __init__(self, config)`
+- `PrefrontalOrchestrator.forward` (method) `nestedtopobrain_v3.py:216` `def forward(self, metrics_dict)` -- Orquestador v26: Allostasis (Adaptación Predictiva Valiente).
+- `PrefrontalOrchestrator.detach_state` (method) `nestedtopobrain_v3.py:312` `def detach_state(self)` -- Rompe el grafo computacional para evitar retropropagación infinita entre batches
+- `PrefrontalOrchestrator.reset_context` (method) `nestedtopobrain_v3.py:317` `def reset_context(self)` -- Resetear contexto al inicio de cada época
+- `TopologicalHealthSovereignty.__init__` (method) `nestedtopobrain_v3.py:340` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `nestedtopobrain_v3.py:392` `def calculate(self, epoch)`
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `nestedtopobrain_v3.py:409` `def get_critical_summary(self)`
+- `CheckpointManager.__init__` (method) `nestedtopobrain_v3.py:421` `def __init__(self, run_name)`
+- `CheckpointManager.save` (method) `nestedtopobrain_v3.py:426` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `nestedtopobrain_v3.py:454` `def load(self, name)`
+- `CheckpointManager.get_dataloaders` (method) `nestedtopobrain_v3.py:471` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `nestedtopobrain_v3.py:511` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `nestedtopobrain_v3.py:514` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `nestedtopobrain_v3.py:528` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `nestedtopobrain_v3.py:538` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `nestedtopobrain_v3.py:548` `def __init__(self, dim, min_gate)`
+- `LearnableAbsenceGating.forward` (method) `nestedtopobrain_v3.py:558` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `nestedtopobrain_v3.py:566` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `nestedtopobrain_v3.py:585` `def forward(self, x)`
+- `ContinuumMemoryCell.__init__` (method) `nestedtopobrain_v3.py:611` `def __init__(self, input_dim, hidden_dim, fast_lr, forget_rate, use_spectral)`
+- `ContinuumMemoryCell.forward` (method) `nestedtopobrain_v3.py:660` `def forward(self, x, state_M, controls)` -- FIX: Ahora acepta señales de control del Orquestador para modular la plasticidad y consolidación en tiempo real.
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `nestedtopobrain_v3.py:738` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.invalidate_sparse_cache` (method) `nestedtopobrain_v3.py:776` `def invalidate_sparse_cache(self)`
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `nestedtopobrain_v3.py:798` `def get_node_importance(self)` -- FIX: Método faltante para obtener importancia de nodos
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `nestedtopobrain_v3.py:804` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse, prev_state_node, prev_state_cell, controls)` -- Forward con señales de control del Orquestador y retorno de ortho deviation
+- `TopoBrainV24.__init__` (method) `nestedtopobrain_v3.py:935` `def __init__(self, config, in_channels)`
+- `TopoBrainV24.initialize_memories` (method) `nestedtopobrain_v3.py:989` `def initialize_memories(self, dataloader)` -- Inicialización de memorias semánticas con captura correcta de 5 valores de retorno
+- `TopoBrainV24.consolidate_semantic_memories` (method) `nestedtopobrain_v3.py:1058` `def consolidate_semantic_memories(self)`
+- `TopoBrainV24.set_epoch` (method) `nestedtopobrain_v3.py:1103` `def set_epoch(self, epoch)`
+- `TopoBrainV24.calculate_ortho_loss` (method) `nestedtopobrain_v3.py:1108` `def calculate_ortho_loss(self, ortho_deviation, controls)` -- Calcula loss de ortogonalidad usando el deviation retornado por las capas
+- `TopoBrainV24.calculate_topology_diversity_loss` (method) `nestedtopobrain_v3.py:1116` `def calculate_topology_diversity_loss(self, controls)`
+- `TopoBrainV24.get_topology` (method) `nestedtopobrain_v3.py:1164` `def get_topology(self, return_sparse)`
+- `TopoBrainV24.forward` (method) `nestedtopobrain_v3.py:1177` `def forward(self, x, prev_states, controls)` -- Forward con validación, detach explícito, y retorno de ortho deviation
+- `TopoBrainV24.prune_topology` (method) `nestedtopobrain_v3.py:1239` `def prune_topology(self, controls)` -- Poda topológica con protocolo de supervivencia garantizado y neurogénesis
+- `TopoBrainV24.save_topology_visualization` (method) `nestedtopobrain_v3.py:1388` `def save_topology_visualization(model, epoch, run_name)` -- Visualización v18 completa
+- `TopoBrainV24.save_node_importance_viz` (method) `nestedtopobrain_v3.py:1432` `def save_node_importance_viz(model, epoch, run_name)` -- Visualización de importancia de nodos v18
+- `TopoBrainV24.analyze_topology_clustering` (method) `nestedtopobrain_v3.py:1454` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral v18
+- `TopoBrainV24.analyze_topology_flow` (method) `nestedtopobrain_v3.py:1493` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Análisis de flujo de información con captura genérica de outputs
+- `TopoBrainV24.visualize_topology_as_graph` (method) `nestedtopobrain_v3.py:1559` `def visualize_topology_as_graph(model, run_name, threshold)` -- Grafo v18 con métricas
+- `TopoBrainV24.analyze_topology_evolution` (method) `nestedtopobrain_v3.py:1611` `def analyze_topology_evolution(run_name)` -- Análisis temporal completo v18
+- `TopoBrainV24.comprehensive_topology_analysis` (method) `nestedtopobrain_v3.py:1672` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Suite completa de análisis v18
+- `TopoBrainV24.run_ablation_study` (method) `nestedtopobrain_v3.py:1695` `def run_ablation_study()` -- Suite de ablación v18 completa
+- `TopoBrainV24.visualize_memory_evolution` (method) `nestedtopobrain_v3.py:1796` `def visualize_memory_evolution(model, epoch, run_name)` -- Visualiza evolución de memorias semánticas
+- `TopoBrainV24.analyze_gradient_flow` (method) `nestedtopobrain_v3.py:1887` `def analyze_gradient_flow(model, epoch, run_name)` -- Análisis detallado del flujo de gradientes
+- `TopoBrainV24.make_adversarial_pgd` (method) `nestedtopobrain_v3.py:1954` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name, controls, prev_states)` -- PGD attack con congelamiento total de pesos (Protocolo de Aislamiento Sináptico).
+- `TopoBrainV24.evaluate` (method) `nestedtopobrain_v3.py:2021` `def evaluate(model, loader, config, adversarial, controls)` -- Evaluación con plasticidad residual (test-time adaptation) Biológicamente plausible: el cerebro no se apaga durante...
+- `TopoBrainV24.train_epoch` (method) `nestedtopobrain_v3.py:2093` `def train_epoch(model, loader, optimizer, opt_topo, config, epoch, monitor, scaler, sparsity_lambda)` -- Entrenamiento homeostático con inicialización de estados y gestión de densidad
+- `TopoBrainV24.train_model` (method) `nestedtopobrain_v3.py:2279` `def train_model(config, run_name)` -- Training loop principal - FIX v24: Orden correcto de Scheduler y gestión de memoria.
+- `TopoBrainV24.warmup_topo` (method) `nestedtopobrain_v3.py:2327` `def warmup_topo(epoch)`
+- `TopoBrainV24.main` (method) `nestedtopobrain_v3.py:2491` `def main()` -- CLI v24 completo con Orquestador Prefrontal
+
+## neurologitos.py
+- `seed_everything` (function) `neurologitos.py:29` `def seed_everything(seed)` -- Control total de reproducibilidad
+- `compute_effect_size` (function) `neurologitos.py:38` `def compute_effect_size(group1, group2)` -- Cohen's d con corrección de sesgo
+- `NeuroLogosConfig.to_dict` (method) `neurologitos.py:81` `def to_dict(self)`
+- `NeuroLogosConfig.component_signature` (method) `neurologitos.py:84` `def component_signature(self)`
+- `TopoBrainCore.__init__` (method) `neurologitos.py:96` `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+- `TopoBrainCore.forward` (method) `neurologitos.py:128` `def forward(self, x)`
+- `TopoBrainCore.get_metrics` (method) `neurologitos.py:152` `def get_metrics(self)`
+- `PGDAttack.__init__` (method) `neurologitos.py:160` `def __init__(self, epsilon, alpha, steps)`
+- `PGDAttack.attack` (method) `neurologitos.py:165` `def attack(self, model_fn, x, y, criterion)`
+- `MiniUnconscious.__init__` (method) `neurologitos.py:188` `def __init__(self, output_dim)`
+- `MiniUnconscious.forward` (method) `neurologitos.py:200` `def forward(self, x)`
+- `TopoUnconscious.__init__` (method) `neurologitos.py:207` `def __init__(self, output_dim, use_grid, use_symbiotic)`
+- `TopoUnconscious.forward` (method) `neurologitos.py:221` `def forward(self, x)`
+- `TopoUnconscious.get_metrics` (method) `neurologitos.py:225` `def get_metrics(self)`
+- `ConsciousCore.__init__` (method) `neurologitos.py:230` `def __init__(self, dim)`
+- `ConsciousCore.forward` (method) `neurologitos.py:235` `def forward(self, x)`
+- `BioDecoder.__init__` (method) `neurologitos.py:242` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologitos.py:253` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `neurologitos.py:285` `def __init__(self, vocab_size, config)`
+- `NeuroLogos.forward` (method) `neurologitos.py:309` `def forward(self, image, captions)`
+- `NeuroLogos.get_metrics` (method) `neurologitos.py:314` `def get_metrics(self)`
+- `CIFARCaptions.__init__` (method) `neurologitos.py:319` `def __init__(self)`
+- `AblationMatrix.level1_isolated` (method) `neurologitos.py:360` `def level1_isolated()`
+- `AblationMatrix.level2_pairs` (method) `neurologitos.py:369` `def level2_pairs()`
+- `AblationMatrix.level3_full` (method) `neurologitos.py:377` `def level3_full()`
+- `AblationMatrix.level4_inverse` (method) `neurologitos.py:381` `def level4_inverse()`
+- `AblationMatrix.get_complete_matrix` (method) `neurologitos.py:389` `def get_complete_matrix(cls)`
+- `ScientificAnalyzer.compute_statistics` (method) `neurologitos.py:395` `def compute_statistics(cv_results)`
+- `ScientificAnalyzer.ttest_vs_baseline` (method) `neurologitos.py:413` `def ttest_vs_baseline(exp_scores, baseline_scores)`
+- `ScientificAnalyzer.detect_synergy` (method) `neurologitos.py:419` `def detect_synergy(pair_score, comp_a_score, comp_b_score, baseline_score)`
+- `ScientificAnalyzer.rank_criticality` (method) `neurologitos.py:432` `def rank_criticality(full_score, ablation_results)`
+- `ScientificAnalyzer.train_epoch_cv` (method) `neurologitos.py:451` `def train_epoch_cv(model, loader, optimizer, config, epoch, vocab)`
+- `ScientificAnalyzer.model_fn` (method) `neurologitos.py:471` `def model_fn(x_adv)`
+- `ScientificAnalyzer.crit_fn` (method) `neurologitos.py:474` `def crit_fn(out, tgt)`
+- `ScientificAnalyzer.evaluate_cv` (method) `neurologitos.py:507` `def evaluate_cv(model, loader, config, vocab)`
+- `ScientificAnalyzer.train_with_cv` (method) `neurologitos.py:524` `def train_with_cv(config, dataset, vocab)`
+- `ScientificAnalyzer.run_scientific_ablation` (method) `neurologitos.py:579` `def run_scientific_ablation()`
+
+## neurologos.py
+- `MiniUnconscious.__init__` (method) `neurologos.py:15` `def __init__(self)`
+- `MiniUnconscious.forward` (method) `neurologos.py:26` `def forward(self, x)`
+- `NestedUnconscious.__init__` (method) `neurologos.py:31` `def __init__(self, grid_size, output_dim)`
+- `NestedUnconscious.forward` (method) `neurologos.py:57` `def forward(self, x)`
+- `LiquidNeuron.__init__` (method) `neurologos.py:82` `def __init__(self, dim)`
+- `LiquidNeuron.forward` (method) `neurologos.py:88` `def forward(self, x, plasticity)`
+- `ConsciousCore.__init__` (method) `neurologos.py:97` `def __init__(self)`
+- `ConsciousCore.forward` (method) `neurologos.py:103` `def forward(self, visual_features, plasticity)`
+- `BioDecoder.__init__` (method) `neurologos.py:117` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos.py:132` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `neurologos.py:168` `def __init__(self, vocab_size, use_nested)`
+- `NeuroLogos.forward` (method) `neurologos.py:182` `def forward(self, image, captions, plasticity)`
+- `NeuroLogos.measure_richness` (method) `neurologos.py:193` `def measure_richness(self)`
+- `LifeCycle.__init__` (method) `neurologos.py:201` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurologos.py:205` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `neurologos.py:221` `def __init__(self)`
+- `CIFARCaptions.train_logos` (method) `neurologos.py:261` `def train_logos(use_nested)`
+
+## neurologos_V1.py
+- `MiniUnconscious.__init__` (method) `neurologos_V1.py:16` `def __init__(self)`
+- `MiniUnconscious.forward` (method) `neurologos_V1.py:27` `def forward(self, x)`
+- `LiquidNeuron.__init__` (method) `neurologos_V1.py:34` `def __init__(self, dim)`
+- `LiquidNeuron.forward` (method) `neurologos_V1.py:40` `def forward(self, x, plasticity)`
+- `ConsciousCore.__init__` (method) `neurologos_V1.py:49` `def __init__(self)`
+- `ConsciousCore.forward` (method) `neurologos_V1.py:55` `def forward(self, visual_features, plasticity)`
+- `BioDecoder.__init__` (method) `neurologos_V1.py:74` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos_V1.py:90` `def forward(self, thought, captions, max_len, teacher_forcing_ratio)` -- Modo entrenamiento: captions != None Modo generación: captions == None
+- `NeuroLogos.__init__` (method) `neurologos_V1.py:141` `def __init__(self, vocab_size)`
+- `NeuroLogos.forward` (method) `neurologos_V1.py:150` `def forward(self, image, captions, plasticity)`
+- `NeuroLogos.measure_richness` (method) `neurologos_V1.py:163` `def measure_richness(self)`
+- `LifeCycle.__init__` (method) `neurologos_V1.py:171` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurologos_V1.py:175` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `neurologos_V1.py:190` `def __init__(self)`
+- `CIFARCaptions.train_logos` (method) `neurologos_V1.py:237` `def train_logos()`
+
+## neurologos_cpu_v7.py
+- `MicroConfig.setup_device` (method) `neurologos_cpu_v7.py:65` `def setup_device()`
+- `MicroConfig.seed_everything` (method) `neurologos_cpu_v7.py:68` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologos_cpu_v7.py:73` `def get_dataset(config)`
+- `MicroContinuumCell.__init__` (method) `neurologos_cpu_v7.py:97` `def __init__(self, dim)`
+- `MicroContinuumCell.forward` (method) `neurologos_cpu_v7.py:106` `def forward(self, x, plasticity)`
+- `MicroSymbioticBasis.__init__` (method) `neurologos_cpu_v7.py:121` `def __init__(self, dim, num_atoms)`
+- `MicroSymbioticBasis.forward` (method) `neurologos_cpu_v7.py:128` `def forward(self, x)`
+- `MicroTopology.__init__` (method) `neurologos_cpu_v7.py:136` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologos_cpu_v7.py:149` `def get_adjacency(self, plasticity)`
+- `MicroSupConLoss.__init__` (method) `neurologos_cpu_v7.py:155` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologos_cpu_v7.py:158` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologos_cpu_v7.py:171` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_cpu_v7.py:198` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_cpu_v7.py:199` `def forward(self, x, plasticity)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologos_cpu_v7.py:235` `def micro_pgd_attack(model, x, y, eps, steps, plasticity)`
+- `MicroTopoBrain.train_with_cv` (method) `neurologos_cpu_v7.py:276` `def train_with_cv(config, dataset, cv_folds)`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_cpu_v7.py:328` `def run_ablation_study()`
+
+## neurologos_cpu_v8.py
+- `MicroConfig.seed_everything` (method) `neurologos_cpu_v8.py:65` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologos_cpu_v8.py:72` `def get_dataset(config)`
+- `MicroContinuumCell.__init__` (method) `neurologos_cpu_v8.py:94` `def __init__(self, dim)`
+- `MicroContinuumCell.forward` (method) `neurologos_cpu_v8.py:105` `def forward(self, x, plasticity)`
+- `MicroSymbioticBasis.__init__` (method) `neurologos_cpu_v8.py:126` `def __init__(self, dim, num_atoms)`
+- `MicroSymbioticBasis.forward` (method) `neurologos_cpu_v8.py:134` `def forward(self, x)`
+- `MicroTopology.__init__` (method) `neurologos_cpu_v8.py:148` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologos_cpu_v8.py:164` `def get_adjacency(self, plasticity)`
+- `MicroSupConLoss.__init__` (method) `neurologos_cpu_v8.py:171` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologos_cpu_v8.py:176` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologos_cpu_v8.py:197` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_cpu_v8.py:245` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_cpu_v8.py:248` `def forward(self, x, plasticity)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologos_cpu_v8.py:308` `def micro_pgd_attack(model, x, y, eps, steps, plasticity)` -- PGD Attack - Versión ultra-simple que siempre funciona
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_cpu_v8.py:344` `def generate_ablation_matrix()` -- Genera matriz de ablación de 3 niveles: - Nivel 1: Baseline + componentes individuales - Nivel 2: Pares sinérgicos...
+- `MicroTopoBrain.train_with_cv` (method) `neurologos_cpu_v8.py:393` `def train_with_cv(config, dataset, cv_folds)` -- Entrenamiento con cross-validation
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_cpu_v8.py:483` `def run_ablation_study()` -- Ejecuta el estudio de ablación completo
+
+
+Next: [API_p6.md](API_p6.md)

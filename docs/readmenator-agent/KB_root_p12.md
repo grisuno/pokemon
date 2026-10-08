@@ -1,0 +1,498 @@
+# Subsystem: root (page 12 of 15)
+Previous: [KB_root_p11.md](KB_root_p11.md)
+
+## qwen3.py
+- Doc: NeuroLogos v5.2 - TopoBrain Ablation 3-Niveles CPU-Optimizado con Control Homeostático Fisiológico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 36) `class Config`
+  - `seed_everything` (method, line 50) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 60) `class DataEnvironment`
+  - `HomeostaticRegulator` (class, line 94) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 120) `class PhysioNeuron(Module)`
+  - `RegulableSymbiotic` (class, line 160) `class RegulableSymbiotic(Module)`
+  - `RegulableTopology` (class, line 179) `class RegulableTopology`
+  - `MicroTopoBrain` (class, line 201) `class MicroTopoBrain(Module)`
+  - `train_nonstationary` (method, line 263) `def train_nonstationary(config)`
+  - `generate_ablation_matrix` (method, line 320) `def generate_ablation_matrix()`
+  - `run_ablation_study` (method, line 352) `def run_ablation_study()`
+  - `__init__` (method, line 61) `def __init__(self)`
+  - `get_batch` (method, line 71) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 85) `def get_full(self)`
+  - `get_w2` (method, line 88) `def get_w2(self)`
+  - `__init__` (method, line 95) `def __init__(self, d_in)`
+  - `forward` (method, line 105) `def forward(self, x, h_pre, w_norm)`
+  - `__init__` (method, line 121) `def __init__(self, d_in, d_out, dynamic)`
+  - `forward` (method, line 132) `def forward(self, x)`
+  - `__init__` (method, line 161) `def __init__(self, dim, atoms)`
+  - `forward` (method, line 168) `def forward(self, x, influence)`
+  - `__init__` (method, line 180) `def __init__(self, num_nodes)`
+  - `get_adjacency` (method, line 193) `def get_adjacency(self, plasticity)`
+  - `__init__` (method, line 202) `def __init__(self, config)`
+  - `count_parameters` (method, line 221) `def count_parameters(self)`
+  - `forward` (method, line 224) `def forward(self, x)`
+
+## qwen4.py
+- Doc: NeuroLogos v5.2 - TopoBrain Ablation 3-Niveles CPU-Optimizado con Control Homeostático Fisiológico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 36) `class Config`
+  - `seed_everything` (method, line 50) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 60) `class DataEnvironment`
+  - `HomeostaticRegulator` (class, line 94) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 120) `class PhysioNeuron(Module)`
+  - `RegulableSymbiotic` (class, line 160) `class RegulableSymbiotic(Module)`
+  - `RegulableTopology` (class, line 179) `class RegulableTopology`
+  - `MicroTopoBrain` (class, line 201) `class MicroTopoBrain(Module)`
+  - `train_nonstationary` (method, line 263) `def train_nonstationary(config)`
+  - `generate_ablation_matrix` (method, line 325) `def generate_ablation_matrix()`
+  - `run_ablation_study` (method, line 357) `def run_ablation_study()`
+  - `__init__` (method, line 61) `def __init__(self)`
+  - `get_batch` (method, line 71) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 85) `def get_full(self)`
+  - `get_w2` (method, line 88) `def get_w2(self)`
+  - `__init__` (method, line 95) `def __init__(self, d_in)`
+  - `forward` (method, line 105) `def forward(self, x, h_pre, w_norm)`
+  - `__init__` (method, line 121) `def __init__(self, d_in, d_out, dynamic)`
+  - `forward` (method, line 132) `def forward(self, x)`
+  - `__init__` (method, line 161) `def __init__(self, dim, atoms)`
+  - `forward` (method, line 168) `def forward(self, x, influence)`
+  - `__init__` (method, line 180) `def __init__(self, num_nodes)`
+  - `get_adjacency` (method, line 193) `def get_adjacency(self, plasticity)`
+  - `__init__` (method, line 202) `def __init__(self, config)`
+  - `count_parameters` (method, line 221) `def count_parameters(self)`
+  - `forward` (method, line 224) `def forward(self, x)`
+
+## qwen5.py
+- Doc: Physio-Chimera v15 — El Agente Fisiológico Predictivo
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 35) `class Config`
+  - `seed_everything` (method, line 49) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 59) `class DataEnvironment`
+  - `WorldModel` (class, line 94) `class WorldModel(Module)`
+  - `EpisodeMemory` (class, line 116) `class EpisodeMemory`
+  - `PredictiveHomeostat` (class, line 138) `class PredictiveHomeostat(Module)`
+  - `PredictivePhysioNeuron` (class, line 196) `class PredictivePhysioNeuron(Module)`
+  - `PhysioChimeraV15` (class, line 247) `class PhysioChimeraV15(Module)`
+  - `train_predictive` (method, line 285) `def train_predictive(config)`
+  - `run_experiment` (method, line 351) `def run_experiment()`
+  - `__init__` (method, line 60) `def __init__(self)`
+  - `get_batch` (method, line 71) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 85) `def get_full(self)`
+  - `get_w2` (method, line 88) `def get_w2(self)`
+  - `__init__` (method, line 96) `def __init__(self, hidden_dim)`
+  - `forward` (method, line 103) `def forward(self, phase_id)`
+  - `__init__` (method, line 118) `def __init__(self, capacity)`
+  - `store` (method, line 122) `def store(self, phase, metrics, state)`
+  - `retrieve` (method, line 129) `def retrieve(self, phase, top_k)`
+  - `__init__` (method, line 139) `def __init__(self, d_in)`
+  - `forward` (method, line 153) `def forward(self, x, h_pre, w_norm, phase, reward)`
+  - `__init__` (method, line 197) `def __init__(self, d_in, d_out, dynamic)`
+  - `forward` (method, line 209) `def forward(self, x, phase, reward)`
+  - `consolidate_svd` (method, line 239) `def consolidate_svd(self, repair_strength)`
+  - `__init__` (method, line 248) `def __init__(self, config)`
+  - `count_parameters` (method, line 261) `def count_parameters(self)`
+  - `forward` (method, line 264) `def forward(self, x, phase, reward)`
+
+## qwen6.py
+- Doc: Physio-Chimera v15 — Nested Learning Edition (FIXED)
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 31) `class Config`
+  - `seed_everything` (method, line 43) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 53) `class DataEnvironment`
+  - `SelfModifyingGates` (class, line 89) `class SelfModifyingGates(Module)`
+  - `ContinuumMemorySystem` (class, line 110) `class ContinuumMemorySystem(Module)`
+  - `NestedPhysioNeuron` (class, line 133) `class NestedPhysioNeuron(Module)`
+  - `PhysioChimeraNested` (class, line 169) `class PhysioChimeraNested(Module)`
+  - `train_nested` (method, line 202) `def train_nested(config)`
+  - `run_experiment` (method, line 265) `def run_experiment()`
+  - `__init__` (method, line 54) `def __init__(self)`
+  - `get_batch` (method, line 64) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 78) `def get_full(self)`
+  - `get_w2` (method, line 82) `def get_w2(self)`
+  - `__init__` (method, line 90) `def __init__(self, input_dim, hidden_dim)`
+  - `forward` (method, line 97) `def forward(self, x)`
+  - `__init__` (method, line 111) `def __init__(self, levels, d_model, hidden_dim)`
+  - `forward` (method, line 123) `def forward(self, x, global_step)`
+  - `__init__` (method, line 134) `def __init__(self, d_in, d_out, config)`
+  - `forward` (method, line 145) `def forward(self, x, global_step)`
+  - `__init__` (method, line 170) `def __init__(self, config)`
+  - `forward` (method, line 182) `def forward(self, x, global_step)`
+
+## qwen8.py
+- Doc: NeuroLogos v5.2 - TopoBrain Ablation 3-Niveles CPU-Optimizado con Control Homeostático...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 33) `class Config`
+  - `seed_everything` (method, line 45) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 55) `class DataEnvironment`
+  - `HomeostaticRegulator` (class, line 89) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 116) `class PhysioNeuron(Module)`
+  - `SupConHead` (class, line 160) `class SupConHead(Module)`
+  - `MicroTopoBrain` (class, line 175) `class MicroTopoBrain(Module)`
+  - `NeuralDiagnostics` (class, line 217) `class NeuralDiagnostics`
+  - `train_nonstationary` (method, line 267) `def train_nonstationary(config)`
+  - `run_ablation_study` (method, line 332) `def run_ablation_study()`
+  - `__init__` (method, line 56) `def __init__(self)`
+  - `get_batch` (method, line 66) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 80) `def get_full(self)`
+  - `get_w2` (method, line 83) `def get_w2(self)`
+  - `__init__` (method, line 90) `def __init__(self, d_in)`
+  - `forward` (method, line 100) `def forward(self, x, h_pre, w_norm, task_loss)`
+  - `__init__` (method, line 117) `def __init__(self, d_in, d_out, dynamic)`
+  - `forward` (method, line 129) `def forward(self, x, task_loss)`
+  - `__init__` (method, line 161) `def __init__(self, in_dim)`
+  - `forward` (method, line 169) `def forward(self, x)`
+  - `__init__` (method, line 176) `def __init__(self, config)`
+  - `count_parameters` (method, line 189) `def count_parameters(self)`
+  - `forward` (method, line 192) `def forward(self, x, task_loss)`
+  - `__init__` (method, line 218) `def __init__(self)`
+  - `update` (method, line 228) `def update(self, loss, liquid_norm, physio, prediction_error)`
+  - `get_recent_avg` (method, line 236) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 241) `def report(self, step, phase)`
+
+## qwen9.py
+- Doc: %%writefile neurosoberano_bicameral_v2.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `LiquidNeuron` (class, line 34) `class LiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 78) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 97) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 195) `class CorpusCallosum(Module)`
+  - `HomeostaticRegulator` (class, line 219) `class HomeostaticRegulator(Module)`
+  - `NeuroLogosBicameral` (class, line 251) `class NeuroLogosBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 291) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 338) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 371) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 386) `def setup_flickr8k(data_dir)`
+  - `train_bicameral` (method, line 400) `def train_bicameral()`
+  - `__init__` (method, line 35) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 49) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `__init__` (method, line 79) `def __init__(self, output_dim)`
+  - `forward` (method, line 88) `def forward(self, image, plasticity, transfer_rate)`
+  - `__init__` (method, line 98) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 119) `def forward(self, visual_context, captions, max_len, prediction_error, return_gate)`
+  - `_get_init_state` (method, line 177) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 182) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 196) `def __init__(self, dim)`
+  - `forward` (method, line 209) `def forward(self, right_features, left_context)`
+  - `__init__` (method, line 220) `def __init__(self, dim)`
+  - `forward` (method, line 230) `def forward(self, right_features, epoch)`
+  - `update_flow_ema` (method, line 245) `def update_flow_ema(self, flow)`
+  - `__init__` (method, line 252) `def __init__(self, vocab_size)`
+  - `forward` (method, line 259) `def forward(self, image, captions, epoch, return_diagnostics)`
+  - `__init__` (method, line 292) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 299) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 306) `def measure_vocab_diversity(self, tokens, vocab_size)`
+  - `update` (method, line 312) `def update(self)`
+  - `get_recent_avg` (method, line 317) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 321) `def report(self, epoch)`
+  - `__init__` (method, line 339) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 355) `def __len__(self)`
+  - `__getitem__` (method, line 358) `def __getitem__(self, idx)`
+
+## qwn2.py
+- Doc: NeuroLogos v5.2 — Ablation 3-Niveles con Componentes Autoregulados
+- Layer: utility
+- Language: py
+- Symbols:
+  - `MicroConfig` (class, line 34) `class MicroConfig`
+  - `seed_everything` (method, line 54) `def seed_everything(seed)`
+  - `get_dataset` (method, line 61) `def get_dataset(config)`
+  - `HomeostaticRegulator` (class, line 80) `class HomeostaticRegulator(Module)`
+  - `AutoregulatedPlasticity` (class, line 97) `class AutoregulatedPlasticity`
+  - `AutoregulatedContinuum` (class, line 122) `class AutoregulatedContinuum(Module)`
+  - `AutoregulatedSymbiotic` (class, line 155) `class AutoregulatedSymbiotic(Module)`
+  - `AutoregulatedSupConHead` (class, line 179) `class AutoregulatedSupConHead(Module)`
+  - `MicroTopoBrain` (class, line 199) `class MicroTopoBrain(Module)`
+  - `micro_pgd_attack` (method, line 259) `def micro_pgd_attack(model, x, y, eps, steps)`
+  - `train_with_cv` (method, line 279) `def train_with_cv(config, dataset, cv_folds)`
+  - `generate_ablation_matrix` (method, line 341) `def generate_ablation_matrix()`
+  - `run_ablation_study` (method, line 366) `def run_ablation_study()`
+  - `__init__` (method, line 81) `def __init__(self, input_dim)`
+  - `forward` (method, line 91) `def forward(self, signals)`
+  - `__init__` (method, line 98) `def __init__(self, num_nodes, grid_size)`
+  - `get_adjacency` (method, line 111) `def get_adjacency(self, x, h_agg)`
+  - `__init__` (method, line 123) `def __init__(self, dim)`
+  - `forward` (method, line 133) `def forward(self, x)`
+  - `__init__` (method, line 156) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 164) `def forward(self, x)`
+  - `__init__` (method, line 180) `def __init__(self, in_dim)`
+  - `forward` (method, line 189) `def forward(self, x, entropy)`
+  - `__init__` (method, line 200) `def __init__(self, config)`
+  - `_init_weights` (method, line 215) `def _init_weights(self)`
+  - `count_parameters` (method, line 220) `def count_parameters(self)`
+  - `forward` (method, line 223) `def forward(self, x)`
+
+## resma4.10.py
+- Doc: _make_serializable: Convierte objetos a formato serializable de forma segura.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 34) `class RESMAConstants`
+  - `GarnierTresTiempos` (class, line 71) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 111) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 158) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 186) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 233) `class RESMAUniverse`
+  - `NeuralNetworkRESMA` (class, line 341) `class NeuralNetworkRESMA`
+  - `MyelinCavity` (class, line 509) `class MyelinCavity`
+  - `ExperimentalPredictions` (class, line 545) `class ExperimentalPredictions`
+  - `ResourceMonitor` (class, line 592) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 604) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 662) `def cargar_checkpoint(filename)`
+  - `_make_serializable` (method, line 690) `def _make_serializable(obj, depth, max_depth, _visited)`
+  - `simulate_resma_garnier` (method, line 794) `def simulate_resma_garnier(n_leaves, n_nodes, seed, resume, force_restart)`
+  - `verify_pt_condition` (method, line 50) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 74) `def __post_init__(self)`
+  - `epsilon_critico` (method, line 86) `def epsilon_critico(self)`
+  - `modulation_factor` (method, line 89) `def modulation_factor(self)`
+  - `to_dict` (method, line 92) `def to_dict(self)`
+  - `from_dict` (method, line 102) `def from_dict(cls, data)`
+  - `__init__` (method, line 112) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores_aleatorios` (method, line 121) `def _construir_generadores_aleatorios(self)`
+  - `_hadamard_generalizado` (method, line 130) `def _hadamard_generalizado(self)`
+  - `operator` (method, line 135) `def operator(self)`
+  - `calcular_alpha_modificado` (method, line 150) `def calcular_alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 159) `def __init__(self, garnier)`
+  - `calcular_delta_s_loop` (method, line 163) `def calcular_delta_s_loop(self, rho_red, b1)`
+  - `es_silencio_activo` (method, line 170) `def es_silencio_activo(self, rho_red, b1)`
+  - `__post_init__` (method, line 193) `def __post_init__(self)`
+  - `spectral_density` (method, line 197) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 203) `def bures_distance(self, other)`
+  - `__init__` (method, line 234) `def __init__(self, n_leaves, seed, leaves, measure, global_state, garnier)`
+  - `_initialize_leaves` (method, line 270) `def _initialize_leaves(self)`
+  - `_generate_complete_measure` (method, line 281) `def _generate_complete_measure(self)`
+  - `_aplicar_modulacion_garnier` (method, line 310) `def _aplicar_modulacion_garnier(self, measure)`
+  - `_construct_global_state` (method, line 321) `def _construct_global_state(self)`
+  - `_calcular_libertad` (method, line 330) `def _calcular_libertad(self)`
+  - `_calcular_coherencia` (method, line 333) `def _calcular_coherencia(self)`
+  - `__init__` (method, line 342) `def __init__(self, n_nodes, seed, graph, dim_spectral, ramsey, betti, garnier)`
+  - `_generate_realistic_modular_network` (method, line 380) `def _generate_realistic_modular_network(self)`
+  - `_compute_betti_numbers` (method, line 454) `def _compute_betti_numbers(self)`
+  - `_spectral_dimension` (method, line 462) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 484) `def _topological_ramsey(self)`
+  - `_calcular_rho_reducida` (method, line 488) `def _calcular_rho_reducida(self)`
+  - `_validar_axioma_6` (method, line 496) `def _validar_axioma_6(self)`
+  - `__init__` (method, line 510) `def __init__(self, axon_length, radius, n_modes)`
+  - `_free_hamiltonian` (method, line 527) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 532) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 538) `def _compute_scalar_mass(self)`
+  - `__init__` (method, line 546) `def __init__(self, universe, network, myelin)`
+  - `compute_log_bayes_factor` (method, line 551) `def compute_log_bayes_factor(self)`
+  - `get_memory_gb` (method, line 594) `def get_memory_gb()`
+  - `log_resources` (method, line 599) `def log_resources()`
+
+## resma4.2.py
+- Doc: RESMAConstants: Constantes físicas RESMA 4.0 con correcciones PT-simétricas
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 38) `class RESMAConstants`
+  - `PhysicalValidator` (class, line 78) `class PhysicalValidator`
+  - `QuantumLeaf` (class, line 109) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 162) `class RESMAUniverse`
+  - `EmunaOperator` (class, line 224) `class EmunaOperator`
+  - `MyelinCavity` (class, line 291) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 351) `class NeuralNetworkRESMA`
+  - `ExperimentalPredictions` (class, line 474) `class ExperimentalPredictions`
+  - `simulate_resma_complete` (method, line 556) `def simulate_resma_complete(n_leaves, n_nodes, seed)`
+  - `verify_pt_condition` (method, line 67) `def verify_pt_condition(cls)`
+  - `validate_dimension` (method, line 80) `def validate_dimension(alpha, tolerance)`
+  - `validate_pt_symmetry` (method, line 88) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 96) `def validate_connectome_size(n_nodes)`
+  - `validate_spectral_dimension` (method, line 101) `def validate_spectral_dimension(dim)`
+  - `__post_init__` (method, line 117) `def __post_init__(self)`
+  - `spectral_density` (method, line 121) `def spectral_density(self, omega)`
+  - `modular_entropy` (method, line 126) `def modular_entropy(self)`
+  - `bures_distance` (method, line 136) `def bures_distance(self, other)`
+  - `haagerup_weight` (method, line 154) `def haagerup_weight(self)`
+  - `__init__` (method, line 165) `def __init__(self, n_leaves, seed)`
+  - `_initialize_leaves` (method, line 176) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 189) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 205) `def _construct_global_state(self)`
+  - `compute_gibbs_free_energy` (method, line 216) `def compute_gibbs_free_energy(self)`
+  - `__init__` (method, line 227) `def __init__(self, universe, n_samples)`
+  - `_construct_hardy_state` (method, line 234) `def _construct_hardy_state(self)`
+  - `_szego_projector` (method, line 238) `def _szego_projector(self)`
+  - `_evaluation_functional` (method, line 246) `def _evaluation_functional(self, state_weights)`
+  - `project` (method, line 258) `def project(self, state_vector)`
+  - `__post_init__` (method, line 297) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 304) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 310) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 317) `def _compute_scalar_mass(self)`
+  - `_pt_symmetry_condition` (method, line 321) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 327) `def coherence_quantum(self)`
+  - `__init__` (method, line 354) `def __init__(self, n_nodes, seed)`
+  - `_generate_fractal_graph` (method, line 366) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 381) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 410) `def _topological_ramsey(self)`
+  - `_compute_betti_numbers` (method, line 429) `def _compute_betti_numbers(self)`
+  - `_graph_to_distance_matrix` (method, line 445) `def _graph_to_distance_matrix(self)`
+  - `critical_percolation_time` (method, line 461) `def critical_percolation_time(self)`
+  - `__init__` (method, line 477) `def __init__(self, universe, myelin, network)`
+  - `predict_all` (method, line 483) `def predict_all(self)`
+  - `compute_log_bayes_factor` (method, line 496) `def compute_log_bayes_factor(self)`
+
+## resma4.3.py
+- Doc: QuantumLeaf: Hoja KMS - INMUTABLE pero con caché externo
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ResourceMonitor` (class, line 33) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 54) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 84) `def cargar_checkpoint(filename)`
+  - `RESMAConstants` (class, line 110) `class RESMAConstants`
+  - `QuantumLeaf` (class, line 142) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 190) `class RESMAUniverse`
+  - `PhysicalValidator` (class, line 269) `class PhysicalValidator`
+  - `MyelinCavity` (class, line 297) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 352) `class NeuralNetworkRESMA`
+  - `ExperimentalPredictions` (class, line 485) `class ExperimentalPredictions`
+  - `simulate_resma_with_checkpointing` (method, line 545) `def simulate_resma_with_checkpointing(n_leaves, n_nodes, seed, resume)`
+  - `get_memory_gb` (method, line 35) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 40) `def check_memory_limit()`
+  - `log_resources` (method, line 49) `def log_resources()`
+  - `verify_pt_condition` (method, line 127) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 150) `def __post_init__(self)`
+  - `spectral_density` (method, line 154) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 158) `def bures_distance(self, other)`
+  - `__init__` (method, line 193) `def __init__(self, n_leaves, seed)`
+  - `_initialize_leaves` (method, line 215) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 227) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 254) `def _construct_global_state(self)`
+  - `validate_dimension` (method, line 271) `def validate_dimension(alpha, tolerance)`
+  - `validate_pt_symmetry` (method, line 279) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 287) `def validate_connectome_size(n_nodes)`
+  - `validate_spectral_dimension` (method, line 292) `def validate_spectral_dimension(dim)`
+  - `__post_init__` (method, line 302) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 312) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 317) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 323) `def _compute_scalar_mass(self)`
+  - `_pt_symmetry_condition` (method, line 326) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 331) `def coherence_quantum(self)`
+  - `__init__` (method, line 353) `def __init__(self, n_nodes, seed)`
+  - `_generate_fractal_graph` (method, line 372) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 401) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 425) `def _topological_ramsey(self)`
+  - `_compute_betti_numbers` (method, line 444) `def _compute_betti_numbers(self)`
+  - `_graph_to_distance_matrix` (method, line 460) `def _graph_to_distance_matrix(self)`
+  - `critical_percolation_time` (method, line 476) `def critical_percolation_time(self)`
+  - `__init__` (method, line 486) `def __init__(self, universe, myelin, network)`
+  - `compute_log_bayes_factor` (method, line 492) `def compute_log_bayes_factor(self)`
+
+## resma4.4.py
+- Doc: QuantumLeaf: Hoja KMS - INMUTABLE
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ResourceMonitor` (class, line 34) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 59) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 93) `def cargar_checkpoint(filename)`
+  - `RESMAConstants` (class, line 129) `class RESMAConstants`
+  - `QuantumLeaf` (class, line 160) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 203) `class RESMAUniverse`
+  - `PhysicalValidator` (class, line 316) `class PhysicalValidator`
+  - `MyelinCavity` (class, line 343) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 377) `class NeuralNetworkRESMA`
+  - `simulate_resma_with_checkpointing` (method, line 554) `def simulate_resma_with_checkpointing(n_leaves, n_nodes, seed, resume)`
+  - `get_memory_gb` (method, line 36) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 41) `def check_memory_limit()`
+  - `log_resources` (method, line 50) `def log_resources()`
+  - `verify_pt_condition` (method, line 146) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 168) `def __post_init__(self)`
+  - `spectral_density` (method, line 172) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 176) `def bures_distance(self, other)`
+  - `__init__` (method, line 206) `def __init__(self, n_leaves, seed, leaves, measure, global_state)`
+  - `_initialize_leaves` (method, line 258) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 269) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 301) `def _construct_global_state(self)`
+  - `validate_dimension` (method, line 318) `def validate_dimension(alpha, tolerance)`
+  - `validate_pt_symmetry` (method, line 326) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 334) `def validate_connectome_size(n_nodes)`
+  - `validate_spectral_dimension` (method, line 339) `def validate_spectral_dimension(dim)`
+  - `__post_init__` (method, line 348) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 358) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 363) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 369) `def _compute_scalar_mass(self)`
+  - `_pt_symmetry_condition` (method, line 372) `def _pt_symmetry_condition(self)`
+  - `__init__` (method, line 378) `def __init__(self, n_nodes, seed, graph, dim_spectral, ramsey, betti)`
+  - `_generate_fractal_graph` (method, line 446) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 475) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 499) `def _topological_ramsey(self)`
+  - `_compute_betti_numbers` (method, line 518) `def _compute_betti_numbers(self)`
+  - `_graph_to_distance_matrix` (method, line 534) `def _graph_to_distance_matrix(self)`
+
+## resma4.5.py
+- Doc: GarnierTresTiempos: Toro temporal T³ con parámetros ADIMENSIONALES.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ResourceMonitor` (class, line 34) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 59) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 88) `def cargar_checkpoint(filename)`
+  - `_make_serializable` (method, line 113) `def _make_serializable(obj)`
+  - `RESMAConstants` (class, line 135) `class RESMAConstants`
+  - `GarnierTresTiempos` (class, line 163) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 201) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 269) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 337) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 380) `class RESMAUniverse`
+  - `MyelinCavity` (class, line 486) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 517) `class NeuralNetworkRESMA`
+  - `ExperimentalPredictions` (class, line 658) `class ExperimentalPredictions`
+  - `simulate_resma_garnier` (method, line 695) `def simulate_resma_garnier(n_leaves, n_nodes, seed, resume, force_restart)`
+  - `get_memory_gb` (method, line 36) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 41) `def check_memory_limit()`
+  - `log_resources` (method, line 50) `def log_resources()`
+  - `verify_pt_condition` (method, line 152) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 170) `def __post_init__(self)`
+  - `factor_escala` (method, line 181) `def factor_escala(self, tiempo_idx)`
+  - `epsilon_critico` (method, line 185) `def epsilon_critico(self)`
+  - `to_dict` (method, line 192) `def to_dict(self)`
+  - `from_dict` (method, line 197) `def from_dict(cls, data)`
+  - `__init__` (method, line 206) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores_E8` (method, line 214) `def _construir_generadores_E8(self)`
+  - `_hadamard_generalizado` (method, line 226) `def _hadamard_generalizado(self)`
+  - `operator` (method, line 235) `def operator(self)`
+  - `aplicar_a_estado` (method, line 254) `def aplicar_a_estado(self, estado)`
+  - `calcular_alpha_modificado` (method, line 260) `def calcular_alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 273) `def __init__(self, garnier, network)`
+  - `calcular_delta_s_loop` (method, line 278) `def calcular_delta_s_loop(self, rho_red)`
+  - `_calcular_rho_reducida_aproximada` (method, line 299) `def _calcular_rho_reducida_aproximada(self)`
+  - `es_silencio_activo` (method, line 307) `def es_silencio_activo(self, rho_red)`
+  - `umbral_percolacion` (method, line 324) `def umbral_percolacion(self)`
+  - `__post_init__` (method, line 345) `def __post_init__(self)`
+  - `spectral_density` (method, line 349) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 353) `def bures_distance(self, other)`
+  - `__init__` (method, line 383) `def __init__(self, n_leaves, seed, leaves, measure, global_state, garnier)`
+  - `_initialize_leaves` (method, line 420) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 431) `def _generate_gibbs_measure(self)`
+  - `_aplicar_desdoblamiento_a_medida` (method, line 451) `def _aplicar_desdoblamiento_a_medida(self, measure)`
+  - `_construct_global_state` (method, line 471) `def _construct_global_state(self)`
+  - `_calcular_libertad_universo` (method, line 481) `def _calcular_libertad_universo(self)`
+  - `__init__` (method, line 488) `def __init__(self, axon_length, radius, n_modes)`
+  - `_free_hamiltonian` (method, line 499) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 504) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 510) `def _compute_scalar_mass(self)`
+  - `_pt_symmetry_condition` (method, line 513) `def _pt_symmetry_condition(self)`
+  - `__init__` (method, line 520) `def __init__(self, n_nodes, seed, graph, dim_spectral, ramsey, betti, garnier)`
+  - `_generate_fractal_graph` (method, line 559) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 591) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 615) `def _topological_ramsey(self)`
+  - `_compute_betti_numbers` (method, line 627) `def _compute_betti_numbers(self)`
+  - `_calcular_rho_reducida` (method, line 636) `def _calcular_rho_reducida(self)`
+  - `validar_axioma_6` (method, line 644) `def validar_axioma_6(self)`
+  - `__init__` (method, line 661) `def __init__(self, universe, myelin, network)`
+  - `compute_log_bayes_factor` (method, line 666) `def compute_log_bayes_factor(self)`
+
+
+Next: [KB_root_p13.md](KB_root_p13.md)

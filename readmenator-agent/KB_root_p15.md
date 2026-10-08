@@ -1,0 +1,380 @@
+# Subsystem: root (page 15 of 15)
+Previous: [KB_root_p14.md](KB_root_p14.md)
+
+## tricameral_kimi.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k_with_audio` (function, line 36) `def setup_flickr8k_with_audio(data_dir)`
+  - `build_vocab_flickr` (function, line 191) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `EpisodicMemoryBuffer` (class, line 215) `class EpisodicMemoryBuffer`
+  - `NeurocognitiveSystem` (class, line 255) `class NeurocognitiveSystem`
+  - `LanguageMetrics` (class, line 331) `class LanguageMetrics`
+  - `LinguisticFeedbackLoop` (class, line 405) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 503) `class LanguageMetrics`
+  - `StableLiquidNeuron` (class, line 550) `class StableLiquidNeuron(Module)`
+  - `TriangulatedMedicalSystem` (class, line 673) `class TriangulatedMedicalSystem`
+  - `LeftHemisphere` (class, line 769) `class LeftHemisphere(Module)`
+  - `AudioEncoder` (class, line 843) `class AudioEncoder(Module)`
+  - `RightHemisphereTricameral` (class, line 893) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 965) `class CorpusCallosumTrimodal(Module)`
+  - `EnhancedDiagnosticsTricameral` (class, line 1067) `class EnhancedDiagnosticsTricameral`
+  - `NeuroLogosTricameral` (class, line 1261) `class NeuroLogosTricameral(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 1296) `class Flickr8kMultimodalDataset(Dataset)`
+  - `compute_tricameral_loss` (method, line 1402) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `train_tricameral` (method, line 1452) `def train_tricameral()`
+  - `__init__` (method, line 216) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 222) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 232) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 241) `def sample(self, batch_size)`
+  - `__init__` (method, line 256) `def __init__(self)`
+  - `assess_cognitive_state` (method, line 266) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 287) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `sentence_bleu` (method, line 335) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 369) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 378) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 391) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 406) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 417) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 443) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 469) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 478) `def _get_ngrams(self, sentence, n)`
+  - `get_cache_stats` (method, line 482) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 505) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 528) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 538) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 551) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 586) `def forward(self, x)`
+  - `hebbian_update` (method, line 599) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 639) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 674) `def __init__(self)`
+  - `diagnose_with_triangulation` (method, line 680) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 703) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 770) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 781) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_greedy_decode` (method, line 806) `def _greedy_decode(self, visual_context, max_len, device)`
+  - `_get_init_state` (method, line 828) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 846) `def __init__(self, output_dim)`
+  - `forward` (method, line 880) `def forward(self, mel_spec)`
+  - `__init__` (method, line 896) `def __init__(self, output_dim)`
+  - `forward` (method, line 929) `def forward(self, image, audio)`
+  - `__init__` (method, line 966) `def __init__(self, dim)`
+  - `forward` (method, line 995) `def forward(self, right_features)`
+  - `update_channel_fatigue` (method, line 1038) `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1054) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1068) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1084) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 1103) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 1127) `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1137) `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1146) `def update(self)`
+  - `get_recent_avg` (method, line 1156) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1173) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 1191) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 1202) `def report(self, epoch)`
+  - `__init__` (method, line 1264) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1270) `def forward(self, image, audio, captions, epoch)`
+  - `__init__` (method, line 1299) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+  - `__len__` (method, line 1347) `def __len__(self)`
+  - `__getitem__` (method, line 1351) `def __getitem__(self, idx)`
+
+## tricameral_kimi2.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k_with_audio` (function, line 50) `def setup_flickr8k_with_audio(data_dir)`
+  - `build_vocab_flickr` (function, line 238) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `EpisodicMemoryBuffer` (class, line 262) `class EpisodicMemoryBuffer`
+  - `NeurocognitiveSystem` (class, line 347) `class NeurocognitiveSystem`
+  - `LanguageMetrics` (class, line 539) `class LanguageMetrics`
+  - `LinguisticFeedbackLoop` (class, line 613) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 725) `class LanguageMetrics`
+  - `LanguageMetrics` (class, line 774) `class LanguageMetrics`
+  - `StableLiquidNeuron` (class, line 821) `class StableLiquidNeuron(Module)`
+  - `TriangulatedMedicalSystem` (class, line 944) `class TriangulatedMedicalSystem`
+  - `LeftHemisphere` (class, line 1103) `class LeftHemisphere(Module)`
+  - `AudioEncoder` (class, line 1401) `class AudioEncoder(Module)`
+  - `RightHemisphereTricameral` (class, line 1451) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 1523) `class CorpusCallosumTrimodal(Module)`
+  - `EnhancedDiagnosticsTricameral` (class, line 1676) `class EnhancedDiagnosticsTricameral`
+  - `NeuroLogosTricameral` (class, line 1952) `class NeuroLogosTricameral(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 1987) `class Flickr8kMultimodalDataset(Dataset)`
+  - `compute_alignment_loss` (method, line 2091) `def compute_alignment_loss(visual_features, channels, alpha, epoch)`
+  - `compute_tricameral_loss` (method, line 2119) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `train_tricameral` (method, line 2166) `def train_tricameral()`
+  - `__init__` (method, line 263) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 278) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 289) `def add(self, image, audio, caption, surprise_score)`
+  - `sample` (method, line 318) `def sample(self, batch_size)`
+  - `__init__` (method, line 348) `def __init__(self)`
+  - `assess_reasoning_state` (method, line 363) `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)`
+  - `assess_cognitive_state` (method, line 407) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 453) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `sentence_bleu` (method, line 543) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 577) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 586) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 599) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 614) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 636) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 675) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 695) `def compute_spice(self, reference, hypothesis)`
+  - `get_cache_stats` (method, line 704) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 727) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 750) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 760) `def word_overlap(reference, hypothesis)`
+  - `sentence_bleu` (method, line 776) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 799) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 809) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 822) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 857) `def forward(self, x)`
+  - `hebbian_update` (method, line 870) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 910) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 945) `def __init__(self)`
+  - `triangulate_signals` (method, line 951) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 962) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 965) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow, epoch)`
+  - `apply_triangulated_intervention` (method, line 1018) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `_reset_liquid_neuron` (method, line 1088) `def _reset_liquid_neuron(self, liquid_neuron)`
+  - `__init__` (method, line 1104) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 1179) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_apply_chain_of_thought` (method, line 1222) `def _apply_chain_of_thought(self, hidden_states, visual_context, use_reasoning)`
+  - `_greedy_decode` (method, line 1262) `def _greedy_decode(self, visual_context, channels, max_len, epoch)`
+  - `_apply_multi_token_prediction` (method, line 1323) `def _apply_multi_token_prediction(self, hidden_states, input_ids)`
+  - `_apply_structural_attention` (method, line 1365) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_get_init_state` (method, line 1386) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1404) `def __init__(self, output_dim)`
+  - `forward` (method, line 1438) `def forward(self, mel_spec)`
+  - `__init__` (method, line 1454) `def __init__(self, output_dim)`
+  - `forward` (method, line 1487) `def forward(self, image, audio)`
+  - `__init__` (method, line 1524) `def __init__(self, dim)`
+  - `forward` (method, line 1572) `def forward(self, right_features)`
+  - `update_channel_fatigue` (method, line 1633) `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1655) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1677) `def __init__(self)`
+  - `_get_cached_norm` (method, line 1699) `def _get_cached_norm(self, tensor, dim)`
+  - `measure_callosal_flow` (method, line 1717) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 1747) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 1784) `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1795) `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1804) `def update(self)`
+  - `get_recent_avg` (method, line 1821) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1837) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 1861) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 1873) `def report(self, epoch)`
+  - `__init__` (method, line 1955) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1961) `def forward(self, image, audio, captions, epoch)`
+  - `__init__` (method, line 1990) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+  - `__len__` (method, line 2038) `def __len__(self)`
+  - `__getitem__` (method, line 2042) `def __getitem__(self, idx)`
+  - `cached_ngrams` (method, line 623) `def cached_ngrams(sentence, n)`
+
+## tricameralkimi2.py
+- Doc: EpisodicMemoryBuffer: Buffer que almacena ejemplos sorpresivos para replay estratégico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k_with_audio` (function, line 30) `def setup_flickr8k_with_audio(data_dir)`
+  - `build_vocab_flickr` (function, line 173) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `EpisodicMemoryBuffer` (class, line 195) `class EpisodicMemoryBuffer`
+  - `NeurocognitiveSystem` (class, line 247) `class NeurocognitiveSystem`
+  - `LinguisticFeedbackLoop` (class, line 425) `class LinguisticFeedbackLoop`
+  - `StableLiquidNeuron` (class, line 546) `class StableLiquidNeuron(Module)`
+  - `AudioEncoder` (class, line 668) `class AudioEncoder(Module)`
+  - `TriangulatedMedicalSystem` (class, line 724) `class TriangulatedMedicalSystem`
+  - `RightHemisphereTricameral` (class, line 881) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 952) `class CorpusCallosumTrimodal(Module)`
+  - `LeftHemisphere` (class, line 1089) `class LeftHemisphere(Module)`
+  - `NeuroLogosTricameral` (class, line 1359) `class NeuroLogosTricameral(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 1415) `class Flickr8kMultimodalDataset(Dataset)`
+  - `compute_tricameral_loss` (method, line 1507) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `EnhancedDiagnosticsTricameral` (class, line 1556) `class EnhancedDiagnosticsTricameral`
+  - `train_tricameral` (method, line 1786) `def train_tricameral()`
+  - `__init__` (method, line 198) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 204) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 216) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 228) `def sample(self, batch_size)`
+  - `__init__` (method, line 248) `def __init__(self)`
+  - `assess_reasoning_state` (method, line 263) `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)`
+  - `assess_cognitive_state` (method, line 305) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 341) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `__init__` (method, line 428) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 442) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 476) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 505) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 518) `def _get_ngrams(self, sentence, n)`
+  - `get_cache_stats` (method, line 523) `def get_cache_stats(self)`
+  - `__init__` (method, line 547) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 582) `def forward(self, x)`
+  - `hebbian_update` (method, line 595) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 633) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 671) `def __init__(self, output_dim)`
+  - `forward` (method, line 705) `def forward(self, mel_spec)`
+  - `__init__` (method, line 725) `def __init__(self)`
+  - `triangulate_signals` (method, line 731) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 741) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 744) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 786) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `_reset_liquid_neuron` (method, line 868) `def _reset_liquid_neuron(self, right_node, severity)`
+  - `__init__` (method, line 884) `def __init__(self, output_dim)`
+  - `forward` (method, line 917) `def forward(self, image, audio)`
+  - `__init__` (method, line 955) `def __init__(self, dim)`
+  - `forward` (method, line 991) `def forward(self, right_features)`
+  - `update_channel_fatigue` (method, line 1060) `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1079) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1090) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 1165) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_greedy_decode` (method, line 1204) `def _greedy_decode(self, visual_context, channels, max_len, epoch)`
+  - `_apply_chain_of_thought` (method, line 1237) `def _apply_chain_of_thought(self, hidden_states, visual_context, use_reasoning)`
+  - `_apply_multi_token_prediction` (method, line 1271) `def _apply_multi_token_prediction(self, hidden_states, input_ids)`
+  - `_apply_structural_attention` (method, line 1317) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_get_init_state` (method, line 1344) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1362) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1374) `def forward(self, image, audio, captions, epoch)`
+  - `__init__` (method, line 1418) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+  - `__len__` (method, line 1463) `def __len__(self)`
+  - `__getitem__` (method, line 1466) `def __getitem__(self, idx)`
+  - `__init__` (method, line 1557) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1572) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 1595) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 1627) `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1638) `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1647) `def update(self)`
+  - `get_recent_avg` (method, line 1657) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1674) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 1695) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 1707) `def report(self, epoch)`
+
+## trycameral.py
+- Doc: Flickr8kMultimodalDataset: Dataset que carga imagen, audio del caption y texto
+- Layer: utility
+- Language: py
+- Symbols:
+  - `generate_audio_async` (function, line 31) `def generate_audio_async(text, output_path, voice)`
+  - `generate_all_audios_batch` (function, line 50) `def generate_all_audios_batch(captions_list, audio_dir, batch_size)`
+  - `generate_audios_sync` (function, line 89) `def generate_audios_sync(images_dir, captions_file, audio_dir)`
+  - `setup_flickr8k` (function, line 133) `def setup_flickr8k(data_dir)`
+  - `build_vocab_flickr` (function, line 205) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `StableLiquidNeuron` (class, line 228) `class StableLiquidNeuron(Module)`
+  - `LeftHemisphere` (class, line 351) `class LeftHemisphere(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 423) `class Flickr8kMultimodalDataset(Dataset)`
+  - `AudioEncoder` (class, line 517) `class AudioEncoder(Module)`
+  - `RightHemisphereTricameral` (class, line 586) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 660) `class CorpusCallosumTrimodal(Module)`
+  - `NeuralAudioGenerator` (class, line 752) `class NeuralAudioGenerator(Module)`
+  - `NeuroLogosTricameral` (class, line 821) `class NeuroLogosTricameral(Module)`
+  - `compute_tricameral_loss` (method, line 887) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `train_tricameral` (method, line 939) `def train_tricameral()`
+  - `__init__` (method, line 229) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 264) `def forward(self, x)`
+  - `hebbian_update` (method, line 277) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 315) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 352) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 364) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_greedy_decode` (method, line 387) `def _greedy_decode(self, visual_context, max_len, device)`
+  - `_get_init_state` (method, line 409) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 426) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+  - `__len__` (method, line 464) `def __len__(self)`
+  - `__getitem__` (method, line 467) `def __getitem__(self, idx)`
+  - `__init__` (method, line 520) `def __init__(self, output_dim)`
+  - `forward` (method, line 559) `def forward(self, mel_spec)`
+  - `__init__` (method, line 589) `def __init__(self, output_dim)`
+  - `forward` (method, line 623) `def forward(self, image, audio)`
+  - `__init__` (method, line 663) `def __init__(self, dim)`
+  - `forward` (method, line 695) `def forward(self, right_features)`
+  - `__init__` (method, line 755) `def __init__(self, text_dim, output_sr)`
+  - `forward` (method, line 790) `def forward(self, text_embedding)`
+  - `__init__` (method, line 824) `def __init__(self, vocab_size)`
+  - `forward` (method, line 839) `def forward(self, image, audio, captions, epoch, generate_audio)`
+  - `Flickr8kSimpleDataset` (class, line 996) `class Flickr8kSimpleDataset(BaseDataset)`
+  - `__init__` (method, line 997) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 1015) `def __len__(self)`
+  - `__getitem__` (method, line 1018) `def __getitem__(self, idx)`
+
+## ultimo_neuorlogos.py
+- Doc: TopoBrainCore: TopoBrain validado con ablation (de tu experimento anterior)
+- Layer: utility
+- Language: py
+- Symbols:
+  - `TopoBrainCore` (class, line 27) `class TopoBrainCore(Module)`
+  - `PGDAttack` (class, line 113) `class PGDAttack`
+  - `MiniUnconscious` (class, line 145) `class MiniUnconscious(Module)`
+  - `TopoUnconscious` (class, line 166) `class TopoUnconscious(Module)`
+  - `ConsciousCore` (class, line 203) `class ConsciousCore(Module)`
+  - `BioDecoder` (class, line 221) `class BioDecoder(Module)`
+  - `NeuroLogos` (class, line 282) `class NeuroLogos(Module)`
+  - `CIFARCaptions` (class, line 330) `class CIFARCaptions`
+  - `train_ablation` (method, line 374) `def train_ablation(mode, epochs, device)`
+  - `run_full_ablation` (method, line 508) `def run_full_ablation(epochs, device)`
+  - `__init__` (method, line 29) `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+  - `_init_grid` (method, line 62) `def _init_grid(self)`
+  - `forward` (method, line 70) `def forward(self, x)`
+  - `get_metrics` (method, line 101) `def get_metrics(self)`
+  - `__init__` (method, line 115) `def __init__(self, epsilon, alpha, steps)`
+  - `attack` (method, line 120) `def attack(self, model, x, y, criterion)`
+  - `__init__` (method, line 147) `def __init__(self, output_dim)`
+  - `forward` (method, line 160) `def forward(self, x)`
+  - `__init__` (method, line 168) `def __init__(self, output_dim, use_grid, use_symbiotic)`
+  - `forward` (method, line 191) `def forward(self, x)`
+  - `get_metrics` (method, line 195) `def get_metrics(self)`
+  - `__init__` (method, line 205) `def __init__(self, dim)`
+  - `forward` (method, line 210) `def forward(self, x)`
+  - `__init__` (method, line 223) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 238) `def forward(self, thought, captions, max_len)`
+  - `_get_init_state` (method, line 272) `def _get_init_state(self, thought)`
+  - `__init__` (method, line 289) `def __init__(self, vocab_size, mode)`
+  - `forward` (method, line 314) `def forward(self, image, captions)`
+  - `get_metrics` (method, line 319) `def get_metrics(self)`
+  - `__init__` (method, line 331) `def __init__(self)`
+  - `__len__` (method, line 356) `def __len__(self)`
+  - `__getitem__` (method, line 359) `def __getitem__(self, idx)`
+
+## ultimobicameral.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `LanguageMetrics` (class, line 23) `class LanguageMetrics`
+  - `MedicalSystem` (class, line 96) `class MedicalSystem`
+  - `StableLiquidNeuron` (class, line 292) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 368) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 383) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 443) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 462) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 483) `class EnhancedDiagnostics`
+  - `Flickr8kDataset` (class, line 608) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 645) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 663) `def setup_flickr8k(data_dir)`
+  - `train_with_metrics` (method, line 677) `def train_with_metrics()`
+  - `sentence_bleu` (method, line 27) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 61) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 70) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 83) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 99) `def __init__(self)`
+  - `diagnose_severity` (method, line 103) `def diagnose_severity(self, health_score, liquid_norm, gate_mean, callosal_flow)`
+  - `apply_intervention` (method, line 149) `def apply_intervention(self, model, issues, severity, epoch)`
+  - `__init__` (method, line 293) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 307) `def forward(self, x)`
+  - `hebbian_update` (method, line 314) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 344) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 369) `def __init__(self, output_dim)`
+  - `forward` (method, line 377) `def forward(self, image)`
+  - `__init__` (method, line 384) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 401) `def forward(self, visual_context, captions, max_len)`
+  - `_get_init_state` (method, line 438) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 444) `def __init__(self, dim)`
+  - `forward` (method, line 456) `def forward(self, right_features)`
+  - `__init__` (method, line 463) `def __init__(self, vocab_size)`
+  - `forward` (method, line 469) `def forward(self, image, captions)`
+  - `__init__` (method, line 484) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 494) `def measure_callosal_flow(self, right_features, left_context)`
+  - `calculate_synergy` (method, line 503) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 512) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 521) `def update(self)`
+  - `get_recent_avg` (method, line 526) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 531) `def report(self, epoch)`
+  - `__init__` (method, line 609) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 626) `def __len__(self)`
+  - `__getitem__` (method, line 629) `def __getitem__(self, idx)`
+

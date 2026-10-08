@@ -1,0 +1,500 @@
+# Subsystem: root (page 13 of 15)
+Previous: [KB_root_p12.md](KB_root_p12.md)
+
+## resma4.6.py
+- Doc: RESMAConstants: Constantes físicas fundamentales
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ResourceMonitor` (class, line 31) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 56) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 86) `def cargar_checkpoint(filename)`
+  - `_make_serializable` (method, line 112) `def _make_serializable(obj)`
+  - `RESMAConstants` (class, line 139) `class RESMAConstants`
+  - `GarnierTresTiempos` (class, line 169) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 233) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 312) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 441) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 484) `class RESMAUniverse`
+  - `MyelinCavity` (class, line 608) `class MyelinCavity`
+  - `ConectomaCuantico` (class, line 659) `class ConectomaCuantico`
+  - `NeuralNetworkRESMA` (class, line 800) `class NeuralNetworkRESMA`
+  - `ExperimentalPredictions` (class, line 898) `class ExperimentalPredictions`
+  - `simulate_resma_garnier` (method, line 951) `def simulate_resma_garnier(n_leaves, n_nodes, seed, resume, force_restart, target_connectivity)`
+  - `get_memory_gb` (method, line 33) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 38) `def check_memory_limit(threshold)`
+  - `log_resources` (method, line 47) `def log_resources()`
+  - `verify_pt_condition` (method, line 158) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 181) `def __post_init__(self)`
+  - `factor_escala` (method, line 194) `def factor_escala(self, tiempo_idx)`
+  - `epsilon_critico` (method, line 200) `def epsilon_critico(self)`
+  - `to_dict` (method, line 208) `def to_dict(self)`
+  - `from_dict` (method, line 220) `def from_dict(cls, data)`
+  - `__init__` (method, line 238) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores_E8_ZPE` (method, line 246) `def _construir_generadores_E8_ZPE(self)`
+  - `_hadamard_generalizado_ZPE` (method, line 266) `def _hadamard_generalizado_ZPE(self)`
+  - `operator` (method, line 284) `def operator(self)`
+  - `alpha_modificado` (method, line 304) `def alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 318) `def __init__(self, garnier, network)`
+  - `calcular_delta_s_loop` (method, line 327) `def calcular_delta_s_loop(self, rho_red)`
+  - `_calcular_rho_reducida_aproximada` (method, line 367) `def _calcular_rho_reducida_aproximada(self)`
+  - `es_silencio_activo` (method, line 383) `def es_silencio_activo(self, rho_red)`
+  - `umbral_percolacion` (method, line 411) `def umbral_percolacion(self)`
+  - `modo_goldstone` (method, line 415) `def modo_goldstone(self)`
+  - `__post_init__` (method, line 449) `def __post_init__(self)`
+  - `spectral_density` (method, line 453) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 457) `def bures_distance(self, other)`
+  - `__init__` (method, line 487) `def __init__(self, n_leaves, seed, leaves, measure, global_state, garnier)`
+  - `_initialize_leaves` (method, line 521) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 535) `def _generate_gibbs_measure(self)`
+  - `_aplicar_desdoblamiento_a_medida` (method, line 557) `def _aplicar_desdoblamiento_a_medida(self, measure)`
+  - `_construct_global_state` (method, line 584) `def _construct_global_state(self)`
+  - `_calcular_libertad_universo` (method, line 603) `def _calcular_libertad_universo(self)`
+  - `__init__` (method, line 611) `def __init__(self, axon_length, radius, n_modes)`
+  - `_free_hamiltonian` (method, line 624) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 633) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 640) `def _compute_scalar_mass(self)`
+  - `_calcular_zpe` (method, line 643) `def _calcular_zpe(self)`
+  - `_pt_symmetry_condition` (method, line 655) `def _pt_symmetry_condition(self)`
+  - `__init__` (method, line 667) `def __init__(self, n_nodes, seed, garnier)`
+  - `_inicializar_amplitudes` (method, line 686) `def _inicializar_amplitudes(self)`
+  - `_calcular_conectividad_cuantica` (method, line 708) `def _calcular_conectividad_cuantica(self)`
+  - `colapsar_a_clasico` (method, line 718) `def colapsar_a_clasico(self, threshold)`
+  - `_recalcular_betti_clasicos` (method, line 742) `def _recalcular_betti_clasicos(self)`
+  - `medir_delta_s_loop` (method, line 756) `def medir_delta_s_loop(self)`
+  - `_calcular_b1_cuantico` (method, line 784) `def _calcular_b1_cuantico(self)`
+  - `__init__` (method, line 803) `def __init__(self, n_nodes, seed, conectoma_quantum, garnier)`
+  - `_calcular_rho_reducida` (method, line 842) `def _calcular_rho_reducida(self)`
+  - `validar_axioma_6_cuantico` (method, line 858) `def validar_axioma_6_cuantico(self)`
+  - `obtener_metricas_cuanticas` (method, line 874) `def obtener_metricas_cuanticas(self)`
+  - `__init__` (method, line 901) `def __init__(self, universe, myelin, network)`
+  - `compute_log_bayes_factor` (method, line 906) `def compute_log_bayes_factor(self)`
+
+## resma4.7.py
+- Doc: GarnierTresTiempos: Toro temporal T³ con parámetros físicamente consistentes.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 23) `class RESMAConstants`
+  - `GarnierTresTiempos` (class, line 46) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 94) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 139) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 190) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 223) `class RESMAUniverse`
+  - `NeuralNetworkRESMA` (class, line 336) `class NeuralNetworkRESMA`
+  - `ExperimentalPredictions` (class, line 484) `class ExperimentalPredictions`
+  - `simulate_resma_garnier` (method, line 537) `def simulate_resma_garnier(n_leaves, n_nodes, seed)`
+  - `__post_init__` (method, line 53) `def __post_init__(self)`
+  - `_compute_coupling` (method, line 67) `def _compute_coupling(self)`
+  - `factor_escala` (method, line 72) `def factor_escala(self, tiempo_idx)`
+  - `epsilon_critico` (method, line 77) `def epsilon_critico(self)`
+  - `modulation_factor` (method, line 85) `def modulation_factor(self)`
+  - `__init__` (method, line 98) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores` (method, line 103) `def _construir_generadores(self)`
+  - `operator` (method, line 115) `def operator(self)`
+  - `aplicar_modulacion` (method, line 120) `def aplicar_modulacion(self, state_vector)`
+  - `calcular_alpha_modificado` (method, line 126) `def calcular_alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 143) `def __init__(self, garnier)`
+  - `calcular_delta_s_loop` (method, line 147) `def calcular_delta_s_loop(self, rho_red, b1)`
+  - `es_silencio_activo` (method, line 166) `def es_silencio_activo(self, rho_red, b1)`
+  - `spectral_density` (method, line 197) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 203) `def bures_distance(self, other)`
+  - `__init__` (method, line 226) `def __init__(self, n_leaves, seed, garnier)`
+  - `_initialize_leaves` (method, line 252) `def _initialize_leaves(self)`
+  - `_generate_modulated_measure` (method, line 265) `def _generate_modulated_measure(self)`
+  - `_construct_global_state` (method, line 312) `def _construct_global_state(self)`
+  - `_calcular_libertad` (method, line 322) `def _calcular_libertad(self)`
+  - `_calcular_coherencia` (method, line 326) `def _calcular_coherencia(self)`
+  - `__init__` (method, line 341) `def __init__(self, n_nodes, seed, garnier)`
+  - `_generate_realistic_network` (method, line 379) `def _generate_realistic_network(self)`
+  - `_compute_betti_numbers` (method, line 424) `def _compute_betti_numbers(self)`
+  - `_spectral_dimension` (method, line 433) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 455) `def _topological_ramsey(self)`
+  - `_calcular_rho_reducida` (method, line 460) `def _calcular_rho_reducida(self)`
+  - `_validar_axioma_6` (method, line 470) `def _validar_axioma_6(self)`
+  - `__init__` (method, line 487) `def __init__(self, universe, network)`
+  - `compute_log_bayes_factor` (method, line 491) `def compute_log_bayes_factor(self)`
+
+## resma4.8.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 37) `class RESMAConstants`
+  - `ResourceMonitor` (class, line 70) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 91) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 117) `def cargar_checkpoint(filename)`
+  - `_make_serializable` (method, line 141) `def _make_serializable(obj)`
+  - `GarnierTresTiempos` (class, line 158) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 209) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 256) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 284) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 331) `class RESMAUniverse`
+  - `NeuralNetworkRESMA` (class, line 433) `class NeuralNetworkRESMA`
+  - `MyelinCavity` (class, line 584) `class MyelinCavity`
+  - `ExperimentalPredictions` (class, line 620) `class ExperimentalPredictions`
+  - `simulate_resma_garnier` (method, line 667) `def simulate_resma_garnier(n_leaves, n_nodes, seed, resume, force_restart)`
+  - `verify_pt_condition` (method, line 54) `def verify_pt_condition(cls)`
+  - `get_memory_gb` (method, line 72) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 77) `def check_memory_limit()`
+  - `log_resources` (method, line 86) `def log_resources()`
+  - `__post_init__` (method, line 161) `def __post_init__(self)`
+  - `_compute_coupling` (method, line 179) `def _compute_coupling(self)`
+  - `epsilon_critico` (method, line 182) `def epsilon_critico(self)`
+  - `modulation_factor` (method, line 186) `def modulation_factor(self)`
+  - `to_dict` (method, line 189) `def to_dict(self)`
+  - `from_dict` (method, line 199) `def from_dict(cls, data)`
+  - `__init__` (method, line 210) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores_aleatorios` (method, line 219) `def _construir_generadores_aleatorios(self)`
+  - `_hadamard_generalizado` (method, line 228) `def _hadamard_generalizado(self)`
+  - `operator` (method, line 233) `def operator(self)`
+  - `calcular_alpha_modificado` (method, line 248) `def calcular_alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 257) `def __init__(self, garnier)`
+  - `calcular_delta_s_loop` (method, line 261) `def calcular_delta_s_loop(self, rho_red, b1)`
+  - `es_silencio_activo` (method, line 268) `def es_silencio_activo(self, rho_red, b1)`
+  - `__post_init__` (method, line 291) `def __post_init__(self)`
+  - `spectral_density` (method, line 295) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 301) `def bures_distance(self, other)`
+  - `__init__` (method, line 332) `def __init__(self, n_leaves, seed, leaves, measure, global_state, garnier)`
+  - `_initialize_leaves` (method, line 362) `def _initialize_leaves(self)`
+  - `_generate_complete_measure` (method, line 373) `def _generate_complete_measure(self)`
+  - `_aplicar_modulacion_garnier` (method, line 402) `def _aplicar_modulacion_garnier(self, measure)`
+  - `_construct_global_state` (method, line 413) `def _construct_global_state(self)`
+  - `_calcular_libertad` (method, line 422) `def _calcular_libertad(self)`
+  - `_calcular_coherencia` (method, line 425) `def _calcular_coherencia(self)`
+  - `__init__` (method, line 434) `def __init__(self, n_nodes, seed, graph, dim_spectral, ramsey, betti, garnier)`
+  - `_generate_realistic_modular_network` (method, line 472) `def _generate_realistic_modular_network(self)`
+  - `_compute_betti_numbers` (method, line 529) `def _compute_betti_numbers(self)`
+  - `_spectral_dimension` (method, line 537) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 559) `def _topological_ramsey(self)`
+  - `_calcular_rho_reducida` (method, line 563) `def _calcular_rho_reducida(self)`
+  - `_validar_axioma_6` (method, line 571) `def _validar_axioma_6(self)`
+  - `__init__` (method, line 585) `def __init__(self, axon_length, radius, n_modes)`
+  - `_free_hamiltonian` (method, line 602) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 607) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 613) `def _compute_scalar_mass(self)`
+  - `__init__` (method, line 621) `def __init__(self, universe, network, myelin)`
+  - `compute_log_bayes_factor` (method, line 626) `def compute_log_bayes_factor(self)`
+
+## resma4.9.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 34) `class RESMAConstants`
+  - `GarnierTresTiempos` (class, line 71) `class GarnierTresTiempos`
+  - `OperadorDesdoblamiento` (class, line 111) `class OperadorDesdoblamiento`
+  - `SilencioActivoMonitor` (class, line 158) `class SilencioActivoMonitor`
+  - `QuantumLeaf` (class, line 186) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 233) `class RESMAUniverse`
+  - `NeuralNetworkRESMA` (class, line 341) `class NeuralNetworkRESMA`
+  - `MyelinCavity` (class, line 492) `class MyelinCavity`
+  - `ExperimentalPredictions` (class, line 528) `class ExperimentalPredictions`
+  - `ResourceMonitor` (class, line 575) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 587) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 615) `def cargar_checkpoint(filename)`
+  - `_make_serializable` (method, line 639) `def _make_serializable(obj)`
+  - `simulate_resma_garnier` (method, line 655) `def simulate_resma_garnier(n_leaves, n_nodes, seed, resume, force_restart)`
+  - `verify_pt_condition` (method, line 50) `def verify_pt_condition(cls)`
+  - `__post_init__` (method, line 74) `def __post_init__(self)`
+  - `epsilon_critico` (method, line 86) `def epsilon_critico(self)`
+  - `modulation_factor` (method, line 89) `def modulation_factor(self)`
+  - `to_dict` (method, line 92) `def to_dict(self)`
+  - `from_dict` (method, line 102) `def from_dict(cls, data)`
+  - `__init__` (method, line 112) `def __init__(self, garnier, dimension)`
+  - `_construir_generadores_aleatorios` (method, line 121) `def _construir_generadores_aleatorios(self)`
+  - `_hadamard_generalizado` (method, line 130) `def _hadamard_generalizado(self)`
+  - `operator` (method, line 135) `def operator(self)`
+  - `calcular_alpha_modificado` (method, line 150) `def calcular_alpha_modificado(self, alpha_base)`
+  - `__init__` (method, line 159) `def __init__(self, garnier)`
+  - `calcular_delta_s_loop` (method, line 163) `def calcular_delta_s_loop(self, rho_red, b1)`
+  - `es_silencio_activo` (method, line 170) `def es_silencio_activo(self, rho_red, b1)`
+  - `__post_init__` (method, line 193) `def __post_init__(self)`
+  - `spectral_density` (method, line 197) `def spectral_density(self, omega)`
+  - `bures_distance` (method, line 203) `def bures_distance(self, other)`
+  - `__init__` (method, line 234) `def __init__(self, n_leaves, seed, leaves, measure, global_state, garnier)`
+  - `_initialize_leaves` (method, line 270) `def _initialize_leaves(self)`
+  - `_generate_complete_measure` (method, line 281) `def _generate_complete_measure(self)`
+  - `_aplicar_modulacion_garnier` (method, line 310) `def _aplicar_modulacion_garnier(self, measure)`
+  - `_construct_global_state` (method, line 321) `def _construct_global_state(self)`
+  - `_calcular_libertad` (method, line 330) `def _calcular_libertad(self)`
+  - `_calcular_coherencia` (method, line 333) `def _calcular_coherencia(self)`
+  - `__init__` (method, line 342) `def __init__(self, n_nodes, seed, graph, dim_spectral, ramsey, betti, garnier)`
+  - `_generate_realistic_modular_network` (method, line 380) `def _generate_realistic_modular_network(self)`
+  - `_compute_betti_numbers` (method, line 437) `def _compute_betti_numbers(self)`
+  - `_spectral_dimension` (method, line 445) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 467) `def _topological_ramsey(self)`
+  - `_calcular_rho_reducida` (method, line 471) `def _calcular_rho_reducida(self)`
+  - `_validar_axioma_6` (method, line 479) `def _validar_axioma_6(self)`
+  - `__init__` (method, line 493) `def __init__(self, axon_length, radius, n_modes)`
+  - `_free_hamiltonian` (method, line 510) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 515) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 521) `def _compute_scalar_mass(self)`
+  - `__init__` (method, line 529) `def __init__(self, universe, network, myelin)`
+  - `compute_log_bayes_factor` (method, line 534) `def compute_log_bayes_factor(self)`
+  - `get_memory_gb` (method, line 577) `def get_memory_gb()`
+  - `log_resources` (method, line 582) `def log_resources()`
+
+## resma_Test.py
+- Layer: testing
+- Language: py
+- Symbols:
+  - `PTSymmetricActivation` (class, line 11) `class PTSymmetricActivation(Module)`
+  - `E8LatticeLayer` (class, line 42) `class E8LatticeLayer(Module)`
+  - `RESMABrain` (class, line 71) `class RESMABrain(Module)`
+  - `stress_test_resma` (method, line 88) `def stress_test_resma(model)`
+  - `__init__` (method, line 12) `def __init__(self, omega, chi, kappa_init)`
+  - `forward` (method, line 18) `def forward(self, x)`
+  - `__init__` (method, line 43) `def __init__(self, in_features, out_features, q_order)`
+  - `_generate_ramsey_mask` (method, line 54) `def _generate_ramsey_mask(self)`
+  - `forward` (method, line 64) `def forward(self, x)`
+  - `__init__` (method, line 72) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 78) `def forward(self, x)`
+
+## resmann.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `PTSymmetricActivation` (class, line 11) `class PTSymmetricActivation(Module)`
+  - `E8LatticeLayer` (class, line 41) `class E8LatticeLayer(Module)`
+  - `RESMABrain` (class, line 86) `class RESMABrain(Module)`
+  - `__init__` (method, line 12) `def __init__(self, omega, chi, kappa_init)`
+  - `forward` (method, line 19) `def forward(self, x)`
+  - `__init__` (method, line 42) `def __init__(self, in_features, out_features, q_order)`
+  - `_generate_ramsey_mask` (method, line 59) `def _generate_ramsey_mask(self)`
+  - `forward` (method, line 69) `def forward(self, x)`
+  - `__init__` (method, line 87) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 97) `def forward(self, x)`
+  - `resma_loss` (method, line 104) `def resma_loss(self, output, target, lambda_topo)`
+
+## resmann2.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `PTSymmetricActivation` (class, line 13) `class PTSymmetricActivation(Module)`
+  - `E8LatticeMultiverseLayer` (class, line 31) `class E8LatticeMultiverseLayer(Module)`
+  - `RESMABrainMultiverse` (class, line 65) `class RESMABrainMultiverse(Module)`
+  - `__init__` (method, line 14) `def __init__(self, omega, chi, kappa_init)`
+  - `forward` (method, line 20) `def forward(self, x)`
+  - `__init__` (method, line 32) `def __init__(self, in_features, out_features, n_universes)`
+  - `_multiverse_mask` (method, line 41) `def _multiverse_mask(self, in_f, out_f, n_univ)`
+  - `forward` (method, line 55) `def forward(self, x)`
+  - `__init__` (method, line 66) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 74) `def forward(self, x)`
+  - `resma_loss` (method, line 79) `def resma_loss(self, output, target, lambda_topo)`
+
+## resmannn.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `PTSymmetricActivation` (class, line 12) `class PTSymmetricActivation(Module)`
+  - `E8LatticeLayer` (class, line 30) `class E8LatticeLayer(Module)`
+  - `RESMABrainLight` (class, line 60) `class RESMABrainLight(Module)`
+  - `__init__` (method, line 13) `def __init__(self, omega, chi, kappa_init)`
+  - `forward` (method, line 19) `def forward(self, x)`
+  - `__init__` (method, line 31) `def __init__(self, in_features, out_features)`
+  - `_fixed_sparse_mask` (method, line 40) `def _fixed_sparse_mask(self, out_f, in_f)`
+  - `forward` (method, line 49) `def forward(self, x)`
+  - `__init__` (method, line 61) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 69) `def forward(self, x)`
+  - `resma_loss` (method, line 74) `def resma_loss(self, output, target, lambda_topo)`
+
+## run_complete_experiment.py
+- Doc: Physio-Chimera v15 - Experimento Completo
+- Layer: utility
+- Language: py
+- Symbols:
+  - `create_experiment_summary` (function, line 24) `def create_experiment_summary(results_dir, metrics, duration)`
+  - `generate_final_report` (function, line 46) `def generate_final_report(results_dir, metrics, duration)`
+  - `run_complete_experiment` (function, line 155) `def run_complete_experiment()`
+- Depends on: `physio_chimera_v15_monitored.py`
+
+## scientific_benchmark.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 42) `def seed_everything(seed)`
+  - `SupConLoss` (class, line 57) `class SupConLoss(Module)`
+  - `PredictiveErrorCell` (class, line 85) `class PredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 97) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 111) `class SymbioticBasisRefinement(Module)`
+  - `CombinatorialComplexLayer` (class, line 132) `class CombinatorialComplexLayer(Module)`
+  - `TopoBrainNet` (class, line 184) `class TopoBrainNet(Module)`
+  - `clamp_pgd` (method, line 276) `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+  - `make_adversarial_pgd` (method, line 283) `def make_adversarial_pgd(model, x, y, eps, steps)`
+  - `eval_autoattack` (method, line 299) `def eval_autoattack(model, test_loader, n_samples)`
+  - `save_topology_snapshot` (method, line 332) `def save_topology_snapshot(model, epoch, run_name)`
+  - `run_training` (method, line 350) `def run_training(config_override, run_name)`
+  - `run_ablation_suite_scientific` (method, line 473) `def run_ablation_suite_scientific()`
+  - `__init__` (method, line 58) `def __init__(self, temperature)`
+  - `forward` (method, line 62) `def forward(self, features, labels)`
+  - `__init__` (method, line 86) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 92) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 98) `def __init__(self, dim)`
+  - `forward` (method, line 107) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 112) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 120) `def forward(self, x)`
+  - `__init__` (method, line 133) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+  - `forward` (method, line 157) `def forward(self, x_nodes, adjacency, incidence)`
+  - `__init__` (method, line 185) `def __init__(self, config)`
+  - `_init_grid` (method, line 220) `def _init_grid(self, N)`
+  - `get_topology` (method, line 241) `def get_topology(self)`
+  - `forward` (method, line 253) `def forward(self, x)`
+  - `Wrapper` (class, line 317) `class Wrapper(Module)`
+  - `__init__` (method, line 318) `def __init__(self, m)`
+  - `forward` (method, line 319) `def forward(self, x)`
+  - `lambda_topo` (method, line 387) `def lambda_topo(epoch)`
+
+## scientist_sinergy_ablation_plan.py
+- Doc: 🧬 ESTUDIO DE SINERGIAS CIENTÍFICAS - TUS INVENTOS
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ScientificConfig` (class, line 31) `class ScientificConfig`
+  - `check_memory_usage` (method, line 63) `def check_memory_usage()`
+  - `memory_safe_check` (method, line 68) `def memory_safe_check(config)`
+  - `setup_matplotlib_for_plotting` (method, line 85) `def setup_matplotlib_for_plotting()`
+  - `generate_sinergy_matrix` (method, line 94) `def generate_sinergy_matrix()`
+  - `print_sinergy_analysis` (method, line 139) `def print_sinergy_analysis()`
+  - `main` (method, line 171) `def main()`
+
+## setup_environment.py
+- Doc: Setup del Entorno para Physio-Chimera v15 Monitoreado
+- Layer: infrastructure
+- Language: py
+- Symbols:
+  - `check_python_version` (function, line 15) `def check_python_version()`
+  - `install_package` (function, line 23) `def install_package(package)`
+  - `check_and_install_dependencies` (function, line 32) `def check_and_install_dependencies()`
+  - `create_directories` (function, line 76) `def create_directories()`
+  - `setup_matplotlib` (function, line 92) `def setup_matplotlib()`
+  - `create_sample_data` (function, line 118) `def create_sample_data()`
+  - `test_installation` (function, line 148) `def test_installation()`
+  - `create_main_script` (function, line 189) `def create_main_script()`
+  - `main` (function, line 256) `def main()`
+
+## sintesis.py
+- Doc: prismatic_dream: Sueño Entrópico: 1.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SpectralMonitorV6` (class, line 12) `class SpectralMonitorV6`
+  - `PrismaticNeuron` (class, line 48) `class PrismaticNeuron(Module)`
+  - `SynthesisOrganismV6` (class, line 117) `class SynthesisOrganismV6(Module)`
+  - `run_prism_dream` (method, line 162) `def run_prism_dream()`
+  - `__init__` (method, line 13) `def __init__(self, target_entropy)`
+  - `calc_structural_health` (method, line 16) `def calc_structural_health(self, weight_matrix)`
+  - `measure_spatial_richness` (method, line 33) `def measure_spatial_richness(self, activations)`
+  - `__init__` (method, line 49) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 58) `def forward(self, x)`
+  - `prismatic_dream` (method, line 81) `def prismatic_dream(self)`
+  - `__init__` (method, line 118) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 128) `def forward(self, x)`
+  - `calculate_losses` (method, line 134) `def calculate_losses(self, outputs, targets, criterion)`
+  - `sleep` (method, line 154) `def sleep(self)`
+
+## sintesys2.py
+- Doc: measure_spatial_richness: Ahora retorna el tensor (para el gradiente) y el valor escalar.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SpectralMonitorV7` (class, line 12) `class SpectralMonitorV7`
+  - `CuriosityGaze` (class, line 52) `class CuriosityGaze(Module)`
+  - `PrismaticNeuronV7` (class, line 69) `class PrismaticNeuronV7(Module)`
+  - `SynthesisOrganismV7` (class, line 114) `class SynthesisOrganismV7(Module)`
+  - `run_the_prisms_eye` (method, line 174) `def run_the_prisms_eye()`
+  - `__init__` (method, line 13) `def __init__(self, target_entropy)`
+  - `calc_structural_health` (method, line 16) `def calc_structural_health(self, weight_matrix)`
+  - `measure_spatial_richness` (method, line 32) `def measure_spatial_richness(self, activations)`
+  - `__init__` (method, line 53) `def __init__(self, input_dim)`
+  - `forward` (method, line 60) `def forward(self, x)`
+  - `__init__` (method, line 70) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 79) `def forward(self, x)`
+  - `prismatic_dream` (method, line 95) `def prismatic_dream(self)`
+  - `__init__` (method, line 115) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 131) `def forward(self, x)`
+  - `calculate_losses` (method, line 144) `def calculate_losses(self, outputs, targets, criterion)`
+  - `sleep` (method, line 166) `def sleep(self)`
+
+## sintesys3.py
+- Doc: measure_spatial_richness: Retorna tensor (gradiente) y valor escalar
+- Layer: utility
+- Language: py
+- Symbols:
+  - `measure_spatial_richness` (function, line 12) `def measure_spatial_richness(activations)`
+  - `HomeostasisEngine` (class, line 30) `class HomeostasisEngine(Module)`
+  - `LiquidNeuron` (class, line 59) `class LiquidNeuron(Module)`
+  - `OrganismV8` (class, line 109) `class OrganismV8(Module)`
+  - `run_liquid_synthesis` (method, line 156) `def run_liquid_synthesis()`
+  - `__init__` (method, line 31) `def __init__(self)`
+  - `decide` (method, line 35) `def decide(self, task_loss_val, richness_val, vn_entropy_val, target_entropy)`
+  - `__init__` (method, line 60) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 68) `def forward(self, x, plasticity_gate)`
+  - `consolidate_svd` (method, line 86) `def consolidate_svd(self, repair_strength)`
+  - `__init__` (method, line 110) `def __init__(self, d_in, d_hid, d_out)`
+  - `forward` (method, line 126) `def forward(self, x, plasticity_gate)`
+  - `get_structure_entropy` (method, line 140) `def get_structure_entropy(self)`
+  - `calc_ent` (method, line 143) `def calc_ent(W)`
+
+## sintesys5.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RealWorldEnvironment` (class, line 19) `class RealWorldEnvironment`
+  - `measure_spatial_richness` (method, line 56) `def measure_spatial_richness(activations)`
+  - `HomeostasisEngine` (class, line 68) `class HomeostasisEngine(Module)`
+  - `LiquidNeuron` (class, line 87) `class LiquidNeuron(Module)`
+  - `OrganismV8_Real` (class, line 124) `class OrganismV8_Real(Module)`
+  - `run_real_world_challenge` (method, line 157) `def run_real_world_challenge()`
+  - `__init__` (method, line 20) `def __init__(self)`
+  - `get_batch` (method, line 38) `def get_batch(self, phase, batch_size)`
+  - `__init__` (method, line 69) `def __init__(self)`
+  - `decide` (method, line 73) `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+  - `__init__` (method, line 88) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 96) `def forward(self, x, plasticity_gate)`
+  - `consolidate_svd` (method, line 111) `def consolidate_svd(self, repair_strength)`
+  - `__init__` (method, line 125) `def __init__(self, d_in, d_hid, d_out)`
+  - `forward` (method, line 135) `def forward(self, x, plasticity_gate)`
+  - `get_structure_entropy` (method, line 143) `def get_structure_entropy(self)`
+  - `calc_ent` (method, line 145) `def calc_ent(W)`
+
+## syntesys4.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `measure_spatial_richness` (function, line 12) `def measure_spatial_richness(activations)`
+  - `HomeostasisEngine` (class, line 27) `class HomeostasisEngine(Module)`
+  - `LiquidNeuron` (class, line 60) `class LiquidNeuron(Module)`
+  - `OrganismV8_1` (class, line 101) `class OrganismV8_1(Module)`
+  - `run_sensitive_self` (method, line 131) `def run_sensitive_self()`
+  - `__init__` (method, line 28) `def __init__(self)`
+  - `decide` (method, line 32) `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+  - `__init__` (method, line 61) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 69) `def forward(self, x, plasticity_gate)`
+  - `consolidate_svd` (method, line 84) `def consolidate_svd(self, repair_strength)`
+  - `__init__` (method, line 102) `def __init__(self, d_in, d_hid, d_out)`
+  - `forward` (method, line 112) `def forward(self, x, plasticity_gate)`
+  - `get_structure_entropy` (method, line 120) `def get_structure_entropy(self)`
+  - `calc_ent` (method, line 122) `def calc_ent(W)`
+
+## test.py
+- Layer: testing
+- Language: py
+- Symbols:
+  - `ColapsoGarantizado` (class, line 52) `class ColapsoGarantizado(Module)`
+  - `measure_metrics` (method, line 80) `def measure_metrics(model)`
+  - `calculate_test_accuracy` (method, line 109) `def calculate_test_accuracy(model, testloader)`
+  - `__init__` (method, line 53) `def __init__(self)`
+  - `forward` (method, line 69) `def forward(self, x)`
+
+## test_premium_synergy.py
+- Doc: Test Script para Premium Synergy System
+- Layer: testing
+- Language: py
+- Symbols:
+  - `test_individual_components` (function, line 29) `def test_individual_components()`
+  - `test_full_system` (function, line 91) `def test_full_system()`
+  - `test_training_loop` (function, line 164) `def test_training_loop()`
+  - `run_all_tests` (function, line 209) `def run_all_tests()`
+- Depends on: `premium_synergy_democratic.py`
+
+
+Next: [KB_root_p14.md](KB_root_p14.md)

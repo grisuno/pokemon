@@ -1,0 +1,465 @@
+# Subsystem: root (page 6 of 15)
+Previous: [KB_root_p5.md](KB_root_p5.md)
+
+## live_go.py
+- Doc: FastSlowLinear: La neurona perfecta.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 30) `class Config`
+  - `compute_integration_index` (method, line 74) `def compute_integration_index(activity)`
+  - `FastSlowLinear` (class, line 93) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 143) `class DualSystemModule(Module)`
+  - `IntegrationModule` (class, line 167) `class IntegrationModule(Module)`
+  - `OmniBrainGenesis` (class, line 190) `class OmniBrainGenesis(Module)`
+  - `get_loaders` (method, line 230) `def get_loaders(config)`
+  - `breathe_life` (method, line 254) `def breathe_life(config)`
+  - `reset_seeds` (method, line 353) `def reset_seeds()`
+  - `run_ablation_test` (method, line 360) `def run_ablation_test(full_epochs)`
+  - `train_engine_wrapper` (method, line 425) `def train_engine_wrapper(config)`
+  - `__init__` (method, line 98) `def __init__(self, in_features, out_features, config)`
+  - `reset_fast_weights` (method, line 115) `def reset_fast_weights(self)`
+  - `forward` (method, line 120) `def forward(self, x)`
+  - `get_fast_norm` (method, line 140) `def get_fast_norm(self)`
+  - `__init__` (method, line 144) `def __init__(self, dim, config)`
+  - `forward` (method, line 155) `def forward(self, x)`
+  - `__init__` (method, line 168) `def __init__(self, features, config)`
+  - `forward` (method, line 176) `def forward(self, x)`
+  - `__init__` (method, line 191) `def __init__(self, config)`
+  - `forward` (method, line 215) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 222) `def reset_all_fast_weights(self)`
+
+## live_ki.py
+- Doc: compute_integration_index: Mide el grado de orden en la actividad neural mediante SVD.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 26) `class Config`
+  - `compute_integration_index` (method, line 76) `def compute_integration_index(activity)`
+  - `FastSlowLinear` (class, line 103) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 177) `class DualSystemModule(Module)`
+  - `IntegrationModule` (class, line 211) `class IntegrationModule(Module)`
+  - `OmniBrainGenesis` (class, line 243) `class OmniBrainGenesis(Module)`
+  - `get_cifar10_loaders` (method, line 308) `def get_cifar10_loaders(config)`
+  - `evaluate_ritual` (method, line 334) `def evaluate_ritual(model, loader, device)`
+  - `train_genesis` (method, line 366) `def train_genesis(config)`
+  - `explore_realities` (method, line 499) `def explore_realities()`
+  - `__init__` (method, line 104) `def __init__(self, in_features, out_features, config)`
+  - `reset_fast_weights` (method, line 124) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 130) `def update_fast_weights(self, x, slow_out)`
+  - `forward` (method, line 157) `def forward(self, x)`
+  - `get_fast_norm` (method, line 171) `def get_fast_norm(self)`
+  - `__init__` (method, line 178) `def __init__(self, dim, config)`
+  - `forward` (method, line 192) `def forward(self, x)`
+  - `__init__` (method, line 212) `def __init__(self, features, config)`
+  - `forward` (method, line 224) `def forward(self, x)`
+  - `__init__` (method, line 244) `def __init__(self, config)`
+  - `forward` (method, line 279) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 286) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 292) `def get_fast_norms(self)`
+  - `get_ablation_state` (method, line 296) `def get_ablation_state(self)`
+
+## live_qw.py
+- Doc: FastSlowLinear: Módulo estabilizado – aunque no se usa en baseline, se mantiene para futura...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 23) `class Config`
+  - `FastSlowLinear` (class, line 64) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 122) `class DualSystemModule(Module)`
+  - `IntegrationModule` (class, line 146) `class IntegrationModule(Module)`
+  - `compute_integration_index` (method, line 171) `def compute_integration_index(activity)`
+  - `OmniBrainFastSlow` (class, line 191) `class OmniBrainFastSlow(Module)`
+  - `get_cifar10_loaders` (method, line 244) `def get_cifar10_loaders(config)`
+  - `evaluate_full` (method, line 265) `def evaluate_full(model, loader, device)`
+  - `train` (method, line 286) `def train(config)`
+  - `__init__` (method, line 66) `def __init__(self, in_features, out_features, config)`
+  - `reset_fast_weights` (method, line 83) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 88) `def update_fast_weights(self, x, slow_out)`
+  - `forward` (method, line 106) `def forward(self, x)`
+  - `get_fast_norm` (method, line 118) `def get_fast_norm(self)`
+  - `__init__` (method, line 123) `def __init__(self, dim, config)`
+  - `forward` (method, line 133) `def forward(self, x)`
+  - `__init__` (method, line 147) `def __init__(self, features, config)`
+  - `forward` (method, line 158) `def forward(self, x)`
+  - `__init__` (method, line 192) `def __init__(self, config)`
+  - `forward` (method, line 217) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 224) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 229) `def get_fast_norms(self)`
+  - `get_ablation_state` (method, line 232) `def get_ablation_state(self)`
+
+## lol.py
+- Doc: %%writefile neurosoberano_bicameral_optimized.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k` (function, line 34) `def setup_flickr8k(data_dir)`
+  - `LiquidNeuron` (class, line 107) `class LiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 180) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 201) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 298) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameral` (class, line 313) `class NeuroLogosBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 334) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 404) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 443) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `LifeCycle` (class, line 466) `class LifeCycle`
+  - `train_bicameral` (method, line 481) `def train_bicameral()`
+  - `__init__` (method, line 108) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 125) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `consolidate_svd` (method, line 154) `def consolidate_svd(self, repair_strength, timescale)`
+  - `__init__` (method, line 181) `def __init__(self, output_dim)`
+  - `forward` (method, line 192) `def forward(self, image, plasticity, transfer_rate)`
+  - `__init__` (method, line 202) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 224) `def forward(self, visual_context, captions, max_len, return_gate)`
+  - `_get_init_state` (method, line 278) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 283) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 299) `def __init__(self, dim)`
+  - `forward` (method, line 307) `def forward(self, right_features)`
+  - `__init__` (method, line 314) `def __init__(self, vocab_size)`
+  - `forward` (method, line 320) `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+  - `__init__` (method, line 335) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 346) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 353) `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+  - `update` (method, line 357) `def update(self)`
+  - `get_recent_avg` (method, line 362) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 367) `def report(self, epoch)`
+  - `__init__` (method, line 405) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 423) `def __len__(self)`
+  - `__getitem__` (method, line 426) `def __getitem__(self, idx)`
+  - `__init__` (method, line 467) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 470) `def get_plasticity(self, epoch)`
+
+## main.py
+- Doc: RESMAConstants: Constantes físicas y parámetros de la teoría RESMA
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 32) `class RESMAConstants`
+  - `PhysicalValidator` (class, line 58) `class PhysicalValidator`
+  - `QuantumLeaf` (class, line 90) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 144) `class RESMAUniverse`
+  - `BranchingOperator` (class, line 220) `class BranchingOperator`
+  - `EmunaOperator` (class, line 270) `class EmunaOperator`
+  - `LindbladFractalDynamics` (class, line 350) `class LindbladFractalDynamics`
+  - `MyelinCavity` (class, line 428) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 481) `class NeuralNetworkRESMA`
+  - `FreedomInvariant` (class, line 582) `class FreedomInvariant`
+  - `NullModels` (class, line 628) `class NullModels`
+  - `ExperimentalPredictions` (class, line 686) `class ExperimentalPredictions`
+  - `simulate_resma_multiverse` (method, line 764) `def simulate_resma_multiverse(n_leaves, n_nodes, seed)`
+  - `validate_dimension` (method, line 62) `def validate_dimension(alpha)`
+  - `validate_pt_symmetry` (method, line 68) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 79) `def validate_connectome_size(n_nodes)`
+  - `__post_init__` (method, line 100) `def __post_init__(self)`
+  - `spectral_density` (method, line 106) `def spectral_density(self, omega)`
+  - `modular_entropy` (method, line 114) `def modular_entropy(self)`
+  - `bures_distance` (method, line 121) `def bures_distance(self, other)`
+  - `_spectral_moments` (method, line 132) `def _spectral_moments(self, n)`
+  - `__init__` (method, line 150) `def __init__(self, n_leaves, seed)`
+  - `_initialize_leaves` (method, line 168) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 181) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 203) `def _construct_global_state(self)`
+  - `__init__` (method, line 226) `def __init__(self, leaf, threshold)`
+  - `_construct_cptp_map` (method, line 231) `def _construct_cptp_map(self)`
+  - `_local_jump_operator` (method, line 240) `def _local_jump_operator(self, power)`
+  - `apply_branching` (method, line 255) `def apply_branching(self, state_vector)`
+  - `__init__` (method, line 276) `def __init__(self, universe, n_samples)`
+  - `_construct_hardy_state` (method, line 282) `def _construct_hardy_state(self)`
+  - `_szego_projector` (method, line 286) `def _szego_projector(self)`
+  - `_evaluation_functional` (method, line 294) `def _evaluation_functional(self, state_weights)`
+  - `project` (method, line 310) `def project(self, state_vector)`
+  - `__init__` (method, line 356) `def __init__(self, universe, emuna)`
+  - `_effective_hamiltonian` (method, line 362) `def _effective_hamiltonian(self)`
+  - `_modular_dissipator` (method, line 372) `def _modular_dissipator(self, state)`
+  - `_nonlinear_term` (method, line 382) `def _nonlinear_term(self, state)`
+  - `evolve` (method, line 389) `def evolve(self, rho0, t_span, n_steps)`
+  - `__post_init__` (method, line 437) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 442) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 448) `def _loss_potential(self)`
+  - `_pt_symmetry_condition` (method, line 456) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 462) `def coherence_quantum(self)`
+  - `__init__` (method, line 487) `def __init__(self, n_nodes, seed)`
+  - `_generate_fractal_graph` (method, line 500) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 510) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 527) `def _topological_ramsey(self)`
+  - `_graph_to_distance_matrix` (method, line 548) `def _graph_to_distance_matrix(self)`
+  - `critical_percolation_time` (method, line 562) `def critical_percolation_time(self)`
+  - `is_coherent_subgraph` (method, line 574) `def is_coherent_subgraph(self, subgraph_nodes)`
+  - `__init__` (method, line 588) `def __init__(self, network, universe)`
+  - `compute_entropy_gap` (method, line 592) `def compute_entropy_gap(self)`
+  - `compute_pontryagin_number` (method, line 596) `def compute_pontryagin_number(self)`
+  - `compute_freedom` (method, line 607) `def compute_freedom(self)`
+  - `is_gauge_invariant` (method, line 618) `def is_gauge_invariant(self)`
+  - `ising_quantum` (method, line 635) `def ising_quantum(network)`
+  - `syk4` (method, line 654) `def syk4(network)`
+  - `random_network` (method, line 670) `def random_network(network)`
+  - `__init__` (method, line 692) `def __init__(self, resma, myelin, network)`
+  - `predict_all` (method, line 699) `def predict_all(self)`
+  - `_predict_diffraction_peak` (method, line 710) `def _predict_diffraction_peak(self)`
+  - `compute_bayes_factor` (method, line 715) `def compute_bayes_factor(self)`
+
+## main2.py
+- Doc: RESMAConstants: Constantes físicas y parámetros de la teoría RESMA
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 33) `class RESMAConstants`
+  - `PhysicalValidator` (class, line 59) `class PhysicalValidator`
+  - `QuantumLeaf` (class, line 91) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 144) `class RESMAUniverse`
+  - `BranchingOperator` (class, line 219) `class BranchingOperator`
+  - `EmunaOperator` (class, line 269) `class EmunaOperator`
+  - `LindbladFractalDynamics` (class, line 349) `class LindbladFractalDynamics`
+  - `MyelinCavity` (class, line 427) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 480) `class NeuralNetworkRESMA`
+  - `FreedomInvariant` (class, line 581) `class FreedomInvariant`
+  - `NullModels` (class, line 627) `class NullModels`
+  - `ExperimentalPredictions` (class, line 685) `class ExperimentalPredictions`
+  - `simulate_resma_multiverse` (method, line 763) `def simulate_resma_multiverse(n_leaves, n_nodes, seed)`
+  - `validate_dimension` (method, line 63) `def validate_dimension(alpha)`
+  - `validate_pt_symmetry` (method, line 69) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 80) `def validate_connectome_size(n_nodes)`
+  - `__post_init__` (method, line 101) `def __post_init__(self)`
+  - `spectral_density` (method, line 106) `def spectral_density(self, omega)`
+  - `modular_entropy` (method, line 114) `def modular_entropy(self)`
+  - `bures_distance` (method, line 121) `def bures_distance(self, other)`
+  - `_spectral_moments` (method, line 132) `def _spectral_moments(self, n)`
+  - `__init__` (method, line 150) `def __init__(self, n_leaves, seed)`
+  - `_initialize_leaves` (method, line 167) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 180) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 202) `def _construct_global_state(self)`
+  - `__init__` (method, line 225) `def __init__(self, leaf, threshold)`
+  - `_construct_cptp_map` (method, line 230) `def _construct_cptp_map(self)`
+  - `_local_jump_operator` (method, line 239) `def _local_jump_operator(self, power)`
+  - `apply_branching` (method, line 254) `def apply_branching(self, state_vector)`
+  - `__init__` (method, line 275) `def __init__(self, universe, n_samples)`
+  - `_construct_hardy_state` (method, line 281) `def _construct_hardy_state(self)`
+  - `_szego_projector` (method, line 285) `def _szego_projector(self)`
+  - `_evaluation_functional` (method, line 293) `def _evaluation_functional(self, state_weights)`
+  - `project` (method, line 309) `def project(self, state_vector)`
+  - `__init__` (method, line 355) `def __init__(self, universe, emuna)`
+  - `_effective_hamiltonian` (method, line 361) `def _effective_hamiltonian(self)`
+  - `_modular_dissipator` (method, line 371) `def _modular_dissipator(self, state)`
+  - `_nonlinear_term` (method, line 381) `def _nonlinear_term(self, state)`
+  - `evolve` (method, line 388) `def evolve(self, rho0, t_span, n_steps)`
+  - `__post_init__` (method, line 436) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 441) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 447) `def _loss_potential(self)`
+  - `_pt_symmetry_condition` (method, line 455) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 461) `def coherence_quantum(self)`
+  - `__init__` (method, line 486) `def __init__(self, n_nodes, seed)`
+  - `_generate_fractal_graph` (method, line 499) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 509) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 526) `def _topological_ramsey(self)`
+  - `_graph_to_distance_matrix` (method, line 547) `def _graph_to_distance_matrix(self)`
+  - `critical_percolation_time` (method, line 561) `def critical_percolation_time(self)`
+  - `is_coherent_subgraph` (method, line 573) `def is_coherent_subgraph(self, subgraph_nodes)`
+  - `__init__` (method, line 587) `def __init__(self, network, universe)`
+  - `compute_entropy_gap` (method, line 591) `def compute_entropy_gap(self)`
+  - `compute_pontryagin_number` (method, line 595) `def compute_pontryagin_number(self)`
+  - `compute_freedom` (method, line 606) `def compute_freedom(self)`
+  - `is_gauge_invariant` (method, line 617) `def is_gauge_invariant(self)`
+  - `ising_quantum` (method, line 634) `def ising_quantum(network)`
+  - `syk4` (method, line 653) `def syk4(network)`
+  - `random_network` (method, line 669) `def random_network(network)`
+  - `__init__` (method, line 691) `def __init__(self, resma, myelin, network)`
+  - `predict_all` (method, line 698) `def predict_all(self)`
+  - `_predict_diffraction_peak` (method, line 708) `def _predict_diffraction_peak(self)`
+  - `compute_bayes_factor` (method, line 713) `def compute_bayes_factor(self)`
+
+## main3.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RC` (class, line 33) `class RC`
+  - `Validator` (class, line 50) `class Validator`
+  - `QuantumLeaf` (class, line 68) `class QuantumLeaf`
+  - `Universe` (class, line 101) `class Universe`
+  - `Network` (class, line 129) `class Network`
+  - `MyelinCavity` (class, line 171) `class MyelinCavity`
+  - `Bayes` (class, line 205) `class Bayes`
+  - `simulate` (method, line 233) `def simulate(n_leaves, n_nodes, seed)`
+  - `dim` (method, line 52) `def dim(a)`
+  - `pt` (method, line 56) `def pt(k, o, c)`
+  - `size` (method, line 59) `def size(n)`
+  - `__post_init__` (method, line 74) `def __post_init__(self)`
+  - `spectral_density` (method, line 78) `def spectral_density(self, w)`
+  - `modular_entropy` (method, line 81) `def modular_entropy(self)`
+  - `bures_distance` (method, line 87) `def bures_distance(self, other)`
+  - `__init__` (method, line 102) `def __init__(self, n_leaves, seed)`
+  - `_gibbs` (method, line 110) `def _gibbs(self)`
+  - `_global` (method, line 119) `def _global(self)`
+  - `__init__` (method, line 130) `def __init__(self, n_nodes, seed)`
+  - `_spectral_dim` (method, line 139) `def _spectral_dim(self, k)`
+  - `_ramsey` (method, line 149) `def _ramsey(self)`
+  - `t_c` (method, line 163) `def t_c(self)`
+  - `__init__` (method, line 172) `def __init__(self, n_modes)`
+  - `_free_hamiltonian` (method, line 178) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 183) `def _loss_potential(self)`
+  - `_pt_symmetry_condition` (method, line 189) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 192) `def coherence_quantum(self)`
+  - `__init__` (method, line 206) `def __init__(self, pred_resma, nulls)`
+  - `log_lik` (method, line 210) `def log_lik(self, model_pred)`
+  - `bf` (method, line 217) `def bf(self)`
+
+## main4.1.py
+- Doc: verify_pt_condition: Verifica que kappa < chi*Omega para simetría PT
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RC` (class, line 29) `class RC`
+  - `Validator` (class, line 61) `class Validator`
+  - `QuantumLeaf` (class, line 82) `class QuantumLeaf`
+  - `Universe` (class, line 123) `class Universe`
+  - `Network` (class, line 152) `class Network`
+  - `MyelinCavity` (class, line 229) `class MyelinCavity`
+  - `Bayes` (class, line 268) `class Bayes`
+  - `simulate` (method, line 307) `def simulate(n_leaves, n_nodes, seed)`
+  - `verify_pt_condition` (method, line 50) `def verify_pt_condition(cls)`
+  - `dim` (method, line 63) `def dim(a)`
+  - `pt` (method, line 68) `def pt(k, o, c)`
+  - `size` (method, line 73) `def size(n)`
+  - `__post_init__` (method, line 88) `def __post_init__(self)`
+  - `spectral_density` (method, line 92) `def spectral_density(self, w)`
+  - `modular_entropy` (method, line 95) `def modular_entropy(self)`
+  - `bures_distance` (method, line 104) `def bures_distance(self, other)`
+  - `__init__` (method, line 124) `def __init__(self, n_leaves, seed)`
+  - `_gibbs` (method, line 133) `def _gibbs(self)`
+  - `_global` (method, line 142) `def _global(self)`
+  - `__init__` (method, line 153) `def __init__(self, n_nodes, seed)`
+  - `_spectral_dim` (method, line 163) `def _spectral_dim(self, k, n_fit)`
+  - `_ramsey` (method, line 199) `def _ramsey(self)`
+  - `t_c` (method, line 218) `def t_c(self)`
+  - `__init__` (method, line 230) `def __init__(self, n_modes)`
+  - `_free_hamiltonian` (method, line 237) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 242) `def _loss_potential(self)`
+  - `_pt_symmetry_condition` (method, line 248) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 251) `def coherence_quantum(self)`
+  - `__init__` (method, line 269) `def __init__(self, pred_resma, nulls)`
+  - `log_lik` (method, line 273) `def log_lik(self, model_pred)`
+  - `ln_bf` (method, line 288) `def ln_bf(self)`
+
+## main4.py.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RC` (class, line 33) `class RC`
+  - `Validator` (class, line 50) `class Validator`
+  - `QuantumLeaf` (class, line 69) `class QuantumLeaf`
+  - `Universe` (class, line 102) `class Universe`
+  - `Network` (class, line 130) `class Network`
+  - `MyelinCavity` (class, line 198) `class MyelinCavity`
+  - `Bayes` (class, line 232) `class Bayes`
+  - `simulate` (method, line 260) `def simulate(n_leaves, n_nodes, seed)`
+  - `dim` (method, line 52) `def dim(a)`
+  - `pt` (method, line 56) `def pt(k, o, c)`
+  - `size` (method, line 60) `def size(n)`
+  - `__post_init__` (method, line 75) `def __post_init__(self)`
+  - `spectral_density` (method, line 79) `def spectral_density(self, w)`
+  - `modular_entropy` (method, line 82) `def modular_entropy(self)`
+  - `bures_distance` (method, line 88) `def bures_distance(self, other)`
+  - `__init__` (method, line 103) `def __init__(self, n_leaves, seed)`
+  - `_gibbs` (method, line 111) `def _gibbs(self)`
+  - `_global` (method, line 120) `def _global(self)`
+  - `__init__` (method, line 131) `def __init__(self, n_nodes, seed)`
+  - `_spectral_dim` (method, line 140) `def _spectral_dim(self, k, n_fit)`
+  - `_ramsey` (method, line 176) `def _ramsey(self)`
+  - `t_c` (method, line 190) `def t_c(self)`
+  - `__init__` (method, line 199) `def __init__(self, n_modes)`
+  - `_free_hamiltonian` (method, line 205) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 210) `def _loss_potential(self)`
+  - `_pt_symmetry_condition` (method, line 216) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 219) `def coherence_quantum(self)`
+  - `__init__` (method, line 233) `def __init__(self, pred_resma, nulls)`
+  - `log_lik` (method, line 237) `def log_lik(self, model_pred)`
+  - `ln_bf` (method, line 244) `def ln_bf(self)`
+
+## main5.py
+- Doc: RESMAConstants: Constantes físicas y parámetros de la teoría RESMA 4.0
+- Layer: utility
+- Language: py
+- Symbols:
+  - `RESMAConstants` (class, line 37) `class RESMAConstants`
+  - `PhysicalValidator` (class, line 70) `class PhysicalValidator`
+  - `QuantumLeaf` (class, line 116) `class QuantumLeaf`
+  - `RESMAUniverse` (class, line 179) `class RESMAUniverse`
+  - `BranchingOperator` (class, line 260) `class BranchingOperator`
+  - `EmunaOperator` (class, line 318) `class EmunaOperator`
+  - `LindbladFractalDynamics` (class, line 406) `class LindbladFractalDynamics`
+  - `MyelinCavity` (class, line 539) `class MyelinCavity`
+  - `NeuralNetworkRESMA` (class, line 604) `class NeuralNetworkRESMA`
+  - `FreedomInvariant` (class, line 762) `class FreedomInvariant`
+  - `NullModels` (class, line 816) `class NullModels`
+  - `ExperimentalPredictions` (class, line 877) `class ExperimentalPredictions`
+  - `EmpiricalValidationProtocol` (class, line 975) `class EmpiricalValidationProtocol`
+  - `simulate_resma_multiverse` (method, line 1052) `def simulate_resma_multiverse(n_leaves, n_nodes, seed, validate_empirical)`
+  - `validate_dimension` (method, line 74) `def validate_dimension(alpha, tolerance)`
+  - `validate_pt_symmetry` (method, line 84) `def validate_pt_symmetry(kappa, Omega, chi)`
+  - `validate_connectome_size` (method, line 95) `def validate_connectome_size(n_nodes)`
+  - `validate_spectral_dimension` (method, line 101) `def validate_spectral_dimension(dim)`
+  - `validate_percolation_time` (method, line 106) `def validate_percolation_time(t_c, expected, tolerance)`
+  - `__post_init__` (method, line 127) `def __post_init__(self)`
+  - `spectral_density` (method, line 133) `def spectral_density(self, omega)`
+  - `modular_entropy` (method, line 143) `def modular_entropy(self)`
+  - `bures_distance` (method, line 151) `def bures_distance(self, other)`
+  - `_spectral_moments` (method, line 163) `def _spectral_moments(self, n)`
+  - `haagerup_weight` (method, line 170) `def haagerup_weight(self)`
+  - `__init__` (method, line 185) `def __init__(self, n_leaves, seed)`
+  - `_initialize_leaves` (method, line 203) `def _initialize_leaves(self)`
+  - `_generate_gibbs_measure` (method, line 217) `def _generate_gibbs_measure(self)`
+  - `_construct_global_state` (method, line 239) `def _construct_global_state(self)`
+  - `compute_gibbs_free_energy` (method, line 251) `def compute_gibbs_free_energy(self)`
+  - `__init__` (method, line 266) `def __init__(self, leaf, threshold)`
+  - `_compute_holonomy` (method, line 272) `def _compute_holonomy(self)`
+  - `_construct_cptp_map` (method, line 276) `def _construct_cptp_map(self)`
+  - `_local_jump_operator` (method, line 284) `def _local_jump_operator(self, power)`
+  - `apply_branching` (method, line 300) `def apply_branching(self, state_vector)`
+  - `__init__` (method, line 324) `def __init__(self, universe, n_samples)`
+  - `_construct_hardy_state` (method, line 331) `def _construct_hardy_state(self)`
+  - `_szego_projector` (method, line 335) `def _szego_projector(self)`
+  - `_evaluation_functional` (method, line 345) `def _evaluation_functional(self, state_weights)`
+  - `project` (method, line 361) `def project(self, state_vector)`
+  - `compute_teleological_overlap` (method, line 396) `def compute_teleological_overlap(self)`
+  - `__init__` (method, line 412) `def __init__(self, universe, emuna)`
+  - `_effective_hamiltonian` (method, line 419) `def _effective_hamiltonian(self)`
+  - `_modular_dissipator` (method, line 432) `def _modular_dissipator(self, state)`
+  - `_nonlinear_term` (method, line 444) `def _nonlinear_term(self, state)`
+  - `_stochastic_term` (method, line 452) `def _stochastic_term(self, dt)`
+  - `evolve` (method, line 459) `def evolve(self, rho0, t_span, n_steps)`
+  - `_normalize_density_matrix` (method, line 500) `def _normalize_density_matrix(self, state)`
+  - `_is_physical_state` (method, line 509) `def _is_physical_state(self, state)`
+  - `_correct_non_physical_state` (method, line 523) `def _correct_non_physical_state(self, state)`
+  - `__post_init__` (method, line 548) `def __post_init__(self)`
+  - `_free_hamiltonian` (method, line 555) `def _free_hamiltonian(self)`
+  - `_loss_potential` (method, line 561) `def _loss_potential(self)`
+  - `_compute_scalar_mass` (method, line 569) `def _compute_scalar_mass(self)`
+  - `_pt_symmetry_condition` (method, line 573) `def _pt_symmetry_condition(self)`
+  - `coherence_quantum` (method, line 579) `def coherence_quantum(self)`
+  - `__init__` (method, line 610) `def __init__(self, n_nodes, seed)`
+  - `_generate_fractal_graph` (method, line 625) `def _generate_fractal_graph(self)`
+  - `_spectral_dimension` (method, line 649) `def _spectral_dimension(self)`
+  - `_topological_ramsey` (method, line 680) `def _topological_ramsey(self)`
+  - `_compute_betti_numbers` (method, line 706) `def _compute_betti_numbers(self)`
+  - `_graph_to_distance_matrix` (method, line 722) `def _graph_to_distance_matrix(self)`
+  - `critical_percolation_time` (method, line 735) `def critical_percolation_time(self)`
+  - `is_coherent_subgraph` (method, line 747) `def is_coherent_subgraph(self, subgraph_nodes)`
+  - `compute_network_entropy` (method, line 751) `def compute_network_entropy(self)`
+  - `__init__` (method, line 768) `def __init__(self, network, universe)`
+  - `compute_entropy_gap` (method, line 772) `def compute_entropy_gap(self)`
+  - `compute_pontryagin_number` (method, line 776) `def compute_pontryagin_number(self)`
+  - `compute_freedom` (method, line 792) `def compute_freedom(self)`
+  - `is_gauge_invariant` (method, line 803) `def is_gauge_invariant(self)`
+  - `ising_quantum` (method, line 823) `def ising_quantum(network)`
+  - `syk4` (method, line 843) `def syk4(network)`
+  - `random_network` (method, line 860) `def random_network(network)`
+  - `__init__` (method, line 883) `def __init__(self, resma, myelin, network, freedom)`
+  - `predict_all` (method, line 891) `def predict_all(self)`
+  - `_predict_diffraction_peak` (method, line 906) `def _predict_diffraction_peak(self)`
+  - `compute_log_bayes_factor` (method, line 912) `def compute_log_bayes_factor(self)`
+  - `__init__` (method, line 981) `def __init__(self, predictions)`
+  - `_define_protocols` (method, line 985) `def _define_protocols(self)`
+  - `evaluate_feasibility` (method, line 1014) `def evaluate_feasibility(self, budget, time_limit)`
+  - `simulate_experimental_outcome` (method, line 1027) `def simulate_experimental_outcome(self, protocol_name)`
+
+
+Next: [KB_root_p7.md](KB_root_p7.md)

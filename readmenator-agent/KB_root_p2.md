@@ -1,0 +1,500 @@
+# Subsystem: root (page 2 of 15)
+Previous: [KB_root.md](KB_root.md)
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab)`
+  - `LanguageMetrics` (class, line 44) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 117) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 382) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 458) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 473) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 544) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 581) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 602) `class EnhancedDiagnostics`
+  - `Flickr8kDataset` (class, line 727) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 764) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 782) `def setup_flickr8k(data_dir)`
+  - `train_with_metrics` (method, line 854) `def train_with_metrics()`
+  - `sentence_bleu` (method, line 48) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 82) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 91) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 104) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 120) `def __init__(self)`
+  - `triangulate_signals` (method, line 125) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 157) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 161) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 223) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 383) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 397) `def forward(self, x)`
+  - `hebbian_update` (method, line 404) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 434) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 459) `def __init__(self, output_dim)`
+  - `forward` (method, line 467) `def forward(self, image)`
+  - `__init__` (method, line 474) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 502) `def forward(self, visual_context, captions, max_len)`
+  - `_get_init_state` (method, line 539) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 545) `def __init__(self, dim)`
+  - `forward` (method, line 568) `def forward(self, right_features)`
+  - `__init__` (method, line 582) `def __init__(self, vocab_size)`
+  - `forward` (method, line 588) `def forward(self, image, captions)`
+  - `__init__` (method, line 603) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 613) `def measure_callosal_flow(self, right_features, left_context)`
+  - `calculate_synergy` (method, line 622) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 631) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 640) `def update(self)`
+  - `get_recent_avg` (method, line 645) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 650) `def report(self, epoch)`
+  - `__init__` (method, line 728) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 745) `def __len__(self)`
+  - `__getitem__` (method, line 748) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab)`
+  - `LanguageMetrics` (class, line 44) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 117) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 383) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 509) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 524) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 645) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 700) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 721) `class EnhancedDiagnostics`
+  - `EpisodicMemoryBuffer` (class, line 844) `class EpisodicMemoryBuffer`
+  - `Flickr8kDataset` (class, line 891) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 928) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 946) `def setup_flickr8k(data_dir)`
+  - `train_with_metrics` (method, line 1021) `def train_with_metrics()`
+  - `sentence_bleu` (method, line 48) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 82) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 91) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 104) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 120) `def __init__(self)`
+  - `triangulate_signals` (method, line 125) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 157) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 161) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 224) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 384) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 422) `def forward(self, x)`
+  - `hebbian_update` (method, line 444) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 483) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 510) `def __init__(self, output_dim)`
+  - `forward` (method, line 518) `def forward(self, image)`
+  - `__init__` (method, line 525) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 573) `def forward(self, visual_context, captions, max_len)`
+  - `_get_init_state` (method, line 631) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 646) `def __init__(self, dim)`
+  - `forward` (method, line 678) `def forward(self, right_features)`
+  - `__init__` (method, line 701) `def __init__(self, vocab_size)`
+  - `forward` (method, line 707) `def forward(self, image, captions)`
+  - `__init__` (method, line 722) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 732) `def measure_callosal_flow(self, right_features, left_context)`
+  - `calculate_synergy` (method, line 741) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 750) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 759) `def update(self)`
+  - `get_recent_avg` (method, line 764) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 769) `def report(self, epoch)`
+  - `__init__` (method, line 845) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 851) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 862) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 872) `def sample(self, batch_size)`
+  - `__init__` (method, line 892) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 909) `def __len__(self)`
+  - `__getitem__` (method, line 912) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py
+- Doc: LanguageMetrics: Métricas de calidad de generación
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab)`
+  - `LanguageMetrics` (class, line 44) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 117) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 392) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 518) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 533) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 709) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 765) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 786) `class EnhancedDiagnostics`
+  - `EpisodicMemoryBuffer` (class, line 907) `class EpisodicMemoryBuffer`
+  - `Flickr8kDataset` (class, line 954) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 991) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 1009) `def setup_flickr8k(data_dir)`
+  - `train_with_metrics` (method, line 1081) `def train_with_metrics()`
+  - `sentence_bleu` (method, line 48) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 82) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 91) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 104) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 120) `def __init__(self)`
+  - `triangulate_signals` (method, line 125) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 157) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 161) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 224) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 393) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 431) `def forward(self, x)`
+  - `hebbian_update` (method, line 453) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 492) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 519) `def __init__(self, output_dim)`
+  - `forward` (method, line 527) `def forward(self, image)`
+  - `__init__` (method, line 534) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `beam_search_decode` (method, line 584) `def beam_search_decode(self, visual_context, beam_width, max_len, epoch)`
+  - `forward` (method, line 657) `def forward(self, visual_context, captions, max_len, epoch)`
+  - `_get_init_state` (method, line 695) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 710) `def __init__(self, dim)`
+  - `forward` (method, line 742) `def forward(self, right_features)`
+  - `__init__` (method, line 766) `def __init__(self, vocab_size)`
+  - `forward` (method, line 772) `def forward(self, image, captions, epoch)`
+  - `__init__` (method, line 787) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 797) `def measure_callosal_flow(self, right_features, left_context)`
+  - `calculate_synergy` (method, line 806) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 815) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 824) `def update(self)`
+  - `get_recent_avg` (method, line 829) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 834) `def report(self, epoch)`
+  - `__init__` (method, line 908) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 914) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 925) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 935) `def sample(self, batch_size)`
+  - `__init__` (method, line 955) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 972) `def __len__(self)`
+  - `__getitem__` (method, line 975) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py
+- Doc: NeurocognitiveSystem: Sistema neurocognitivo que complementa al sistema médico para optimizar el...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab, linguistic_reward, lambda_reward)`
+  - `NeurocognitiveSystem` (class, line 49) `class NeurocognitiveSystem`
+  - `LinguisticFeedbackLoop` (class, line 220) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 309) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 382) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 657) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 783) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 798) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 978) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 1034) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 1055) `class EnhancedDiagnostics`
+  - `EpisodicMemoryBuffer` (class, line 1192) `class EpisodicMemoryBuffer`
+  - `Flickr8kDataset` (class, line 1239) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 1276) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 1294) `def setup_flickr8k(data_dir)`
+  - `train_with_metrics` (method, line 1366) `def train_with_metrics()`
+  - `__init__` (method, line 55) `def __init__(self)`
+  - `assess_cognitive_state` (method, line 65) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 113) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 223) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 232) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 254) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 281) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 295) `def _get_ngrams(self, sentence, n)`
+  - `sentence_bleu` (method, line 313) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 347) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 356) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 369) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 385) `def __init__(self)`
+  - `triangulate_signals` (method, line 390) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 422) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 426) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 489) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 658) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 696) `def forward(self, x)`
+  - `hebbian_update` (method, line 718) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 757) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 784) `def __init__(self, output_dim)`
+  - `forward` (method, line 792) `def forward(self, image)`
+  - `__init__` (method, line 799) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `beam_search_decode` (method, line 849) `def beam_search_decode(self, visual_context, beam_width, max_len, epoch)`
+  - `forward` (method, line 925) `def forward(self, visual_context, captions, max_len, epoch)`
+  - `_get_init_state` (method, line 963) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 979) `def __init__(self, dim)`
+  - `forward` (method, line 1011) `def forward(self, right_features)`
+  - `__init__` (method, line 1035) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1041) `def forward(self, image, captions, epoch)`
+  - `__init__` (method, line 1056) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1067) `def measure_callosal_flow(self, right_features, left_context)`
+  - `calculate_synergy` (method, line 1076) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1085) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1094) `def update(self)`
+  - `get_recent_avg` (method, line 1099) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 1104) `def report(self, epoch)`
+  - `__init__` (method, line 1193) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 1199) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 1210) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 1220) `def sample(self, batch_size)`
+  - `__init__` (method, line 1240) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 1257) `def __len__(self)`
+  - `__getitem__` (method, line 1260) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py
+- Doc: NeurocognitiveSystem: Sistema neurocognitivo que complementa al sistema médico para optimizar el...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab, linguistic_reward, lambda_reward)`
+  - `NeurocognitiveSystem` (class, line 49) `class NeurocognitiveSystem`
+  - `LinguisticFeedbackLoop` (class, line 325) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 479) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 552) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 827) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 973) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 988) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 1244) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 1420) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 1446) `class EnhancedDiagnostics`
+  - `EpisodicMemoryBuffer` (class, line 1661) `class EpisodicMemoryBuffer`
+  - `Flickr8kDataset` (class, line 1708) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 1745) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 1763) `def setup_flickr8k(data_dir)`
+  - `compute_alignment_loss` (method, line 1834) `def compute_alignment_loss(visual_features, channels, alpha)`
+  - `train_with_metrics` (method, line 1858) `def train_with_metrics()`
+  - `__init__` (method, line 55) `def __init__(self)`
+  - `assess_cognitive_state` (method, line 76) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `evaluate_gate_state` (method, line 124) `def evaluate_gate_state(self, gate_value, current_metrics)`
+  - `update_trauma_memory` (method, line 142) `def update_trauma_memory(self, gate_value, metrics, outcome)`
+  - `apply_stochastic_perturbation` (method, line 155) `def apply_stochastic_perturbation(self, model, epoch)`
+  - `apply_cognitive_intervention` (method, line 171) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `__init__` (method, line 331) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 347) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 389) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 427) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 443) `def _get_ngrams(self, sentence, n)`
+  - `get_cache_stats` (method, line 452) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 483) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 517) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 526) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 539) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 555) `def __init__(self)`
+  - `triangulate_signals` (method, line 560) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 592) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 596) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 659) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 828) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 871) `def forward(self, x)`
+  - `hebbian_update` (method, line 893) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 932) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 974) `def __init__(self, output_dim)`
+  - `forward` (method, line 982) `def forward(self, image)`
+  - `__init__` (method, line 989) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `beam_search_decode` (method, line 1066) `def beam_search_decode(self, visual_context, channels, beam_width, max_len, epoch)`
+  - `forward` (method, line 1147) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_apply_structural_attention` (method, line 1185) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_get_init_state` (method, line 1230) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1245) `def __init__(self, dim)`
+  - `forward` (method, line 1308) `def forward(self, right_features, left_features)`
+  - `update_channel_fatigue` (method, line 1381) `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1404) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1421) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1427) `def forward(self, image, captions, epoch)`
+  - `__init__` (method, line 1447) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1460) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `calculate_synergy` (method, line 1490) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1499) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1508) `def update(self)`
+  - `get_recent_avg` (method, line 1519) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1538) `def visualize_fatigue_distribution(self, epoch)`
+  - `report` (method, line 1567) `def report(self, epoch)`
+  - `__init__` (method, line 1662) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 1668) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 1679) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 1689) `def sample(self, batch_size)`
+  - `__init__` (method, line 1709) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 1726) `def __len__(self)`
+  - `__getitem__` (method, line 1729) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py
+- Doc: NeurocognitiveSystem: Sistema neurocognitivo que complementa al sistema médico para optimizar el...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 20) `def compute_loss(logits, captions, gate, vocab, mtp_loss, linguistic_reward, lambda_reward, lambda_mtp)`
+  - `NeurocognitiveSystem` (class, line 53) `class NeurocognitiveSystem`
+  - `LinguisticFeedbackLoop` (class, line 396) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 550) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 623) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 898) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 1044) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 1059) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 1469) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 1645) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 1669) `class EnhancedDiagnostics`
+  - `EpisodicMemoryBuffer` (class, line 1947) `class EpisodicMemoryBuffer`
+  - `Flickr8kDataset` (class, line 1994) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 2031) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 2049) `def setup_flickr8k(data_dir)`
+  - `compute_alignment_loss` (method, line 2120) `def compute_alignment_loss(visual_features, channels, alpha)`
+  - `train_with_metrics` (method, line 2144) `def train_with_metrics()`
+  - `__init__` (method, line 59) `def __init__(self)`
+  - `assess_reasoning_state` (method, line 85) `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)`
+  - `assess_cognitive_state` (method, line 128) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `evaluate_gate_state` (method, line 167) `def evaluate_gate_state(self, gate_value, current_metrics)`
+  - `update_trauma_memory` (method, line 182) `def update_trauma_memory(self, gate_value, metrics, outcome)`
+  - `apply_stochastic_perturbation` (method, line 192) `def apply_stochastic_perturbation(self, model, epoch)`
+  - `apply_cognitive_intervention` (method, line 213) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `__init__` (method, line 402) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 418) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 460) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 498) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 514) `def _get_ngrams(self, sentence, n)`
+  - `get_cache_stats` (method, line 523) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 554) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 588) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 597) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 610) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 626) `def __init__(self)`
+  - `triangulate_signals` (method, line 631) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 663) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 667) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 730) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `__init__` (method, line 899) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 942) `def forward(self, x)`
+  - `hebbian_update` (method, line 964) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 1003) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 1045) `def __init__(self, output_dim)`
+  - `forward` (method, line 1053) `def forward(self, image)`
+  - `__init__` (method, line 1060) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `_apply_chain_of_thought` (method, line 1190) `def _apply_chain_of_thought(self, hidden_states, visual_context, use_reasoning)`
+  - `_apply_multi_token_prediction` (method, line 1230) `def _apply_multi_token_prediction(self, hidden_states, input_ids)`
+  - `beam_search_decode` (method, line 1292) `def beam_search_decode(self, visual_context, channels, beam_width, max_len, epoch)`
+  - `forward` (method, line 1370) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_apply_structural_attention` (method, line 1420) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_get_init_state` (method, line 1456) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1470) `def __init__(self, dim)`
+  - `forward` (method, line 1533) `def forward(self, right_features, left_features)`
+  - `update_channel_fatigue` (method, line 1606) `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1629) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1646) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1652) `def forward(self, image, captions, epoch)`
+  - `__init__` (method, line 1670) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1686) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 1709) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 1750) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1759) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1768) `def update(self)`
+  - `get_recent_avg` (method, line 1778) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1795) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 1823) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 1836) `def report(self, epoch)`
+  - `__init__` (method, line 1948) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 1954) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 1965) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 1975) `def sample(self, batch_size)`
+  - `__init__` (method, line 1995) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 2012) `def __len__(self)`
+  - `__getitem__` (method, line 2015) `def __getitem__(self, idx)`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py
+- Doc: EpisodicMemoryBuffer: Buffer que almacena ejemplos sorpresivos para replay estratégico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_loss` (function, line 22) `def compute_loss(logits, captions, gate, vocab, mtp_loss, linguistic_reward, lambda_reward, lambda_mtp)`
+  - `EpisodicMemoryBuffer` (class, line 58) `class EpisodicMemoryBuffer`
+  - `NeurocognitiveSystem` (class, line 112) `class NeurocognitiveSystem`
+  - `LinguisticFeedbackLoop` (class, line 291) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 413) `class LanguageMetrics`
+  - `TriangulatedMedicalSystem` (class, line 475) `class TriangulatedMedicalSystem`
+  - `StableLiquidNeuron` (class, line 622) `class StableLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 745) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 764) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 1019) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralStable` (class, line 1147) `class NeuroLogosBicameralStable(Module)`
+  - `EnhancedDiagnostics` (class, line 1171) `class EnhancedDiagnostics`
+  - `Flickr8kDataset` (class, line 1408) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 1445) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `setup_flickr8k` (method, line 1463) `def setup_flickr8k(data_dir)`
+  - `compute_alignment_loss` (method, line 1527) `def compute_alignment_loss(visual_features, channels, alpha)`
+  - `train_with_metrics` (method, line 1547) `def train_with_metrics()`
+  - `__init__` (method, line 61) `def __init__(self, capacity, surprise_threshold)`
+  - `compute_surprise` (method, line 67) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `add` (method, line 79) `def add(self, image, caption, surprise_score)`
+  - `sample` (method, line 91) `def sample(self, batch_size)`
+  - `__init__` (method, line 113) `def __init__(self)`
+  - `assess_reasoning_state` (method, line 128) `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)`
+  - `assess_cognitive_state` (method, line 170) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 206) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `__init__` (method, line 294) `def __init__(self, alpha, beta)`
+  - `compute_linguistic_reward` (method, line 308) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 342) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 371) `def compute_spice(self, reference, hypothesis)`
+  - `_get_ngrams` (method, line 384) `def _get_ngrams(self, sentence, n)`
+  - `get_cache_stats` (method, line 389) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 417) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 448) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 461) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 476) `def __init__(self)`
+  - `triangulate_signals` (method, line 482) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 492) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 495) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `apply_triangulated_intervention` (method, line 537) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `_reset_liquid_neuron` (method, line 610) `def _reset_liquid_neuron(self, right_node, severity)`
+  - `__init__` (method, line 623) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 658) `def forward(self, x)`
+  - `hebbian_update` (method, line 671) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 709) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 746) `def __init__(self, output_dim)`
+  - `forward` (method, line 754) `def forward(self, image)`
+  - `__init__` (method, line 765) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 840) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_greedy_decode` (method, line 879) `def _greedy_decode(self, visual_context, channels, max_len, epoch)`
+  - `_apply_chain_of_thought` (method, line 912) `def _apply_chain_of_thought(self, hidden_states, visual_context, use_reasoning)`
+  - `_apply_multi_token_prediction` (method, line 944) `def _apply_multi_token_prediction(self, hidden_states, input_ids)`
+  - `_apply_structural_attention` (method, line 986) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_get_init_state` (method, line 1007) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1020) `def __init__(self, dim)`
+  - `forward` (method, line 1070) `def forward(self, right_features, left_features)`
+  - `update_channel_fatigue` (method, line 1113) `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)`
+  - `adjust_gates_by_fatigue` (method, line 1132) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 1148) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1154) `def forward(self, image, captions, epoch)`
+  - `__init__` (method, line 1172) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 1187) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 1210) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 1242) `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 1251) `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 1260) `def update(self)`
+  - `get_recent_avg` (method, line 1270) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 1287) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 1308) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 1320) `def report(self, epoch)`
+  - `__init__` (method, line 1409) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 1426) `def __len__(self)`
+  - `__getitem__` (method, line 1429) `def __getitem__(self, idx)`
+
+## ablation.py
+- Doc: NeuroLogosCPU: Ablation levels: 0: BASELINE     -> MiniUnconscious 1: +GRID        -> TopoBrain...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `TopoBrainCore` (class, line 17) `class TopoBrainCore(Module)`
+  - `MiniUnconscious` (class, line 72) `class MiniUnconscious(Module)`
+  - `TopoUnconscious` (class, line 91) `class TopoUnconscious(Module)`
+  - `SimpleClassifier` (class, line 124) `class SimpleClassifier(Module)`
+  - `NeuroLogosCPU` (class, line 137) `class NeuroLogosCPU(Module)`
+  - `fgsm_attack` (method, line 175) `def fgsm_attack(model, x, y, epsilon)`
+  - `train_epoch` (method, line 188) `def train_epoch(model, loader, optimizer, device, use_adv)`
+  - `evaluate` (method, line 229) `def evaluate(model, loader, device)`
+  - `run_ablation_cpu` (method, line 245) `def run_ablation_cpu()`
+  - `__init__` (method, line 18) `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+  - `_init_grid` (method, line 39) `def _init_grid(self, size)`
+  - `forward` (method, line 46) `def forward(self, x)`
+  - `get_metrics` (method, line 64) `def get_metrics(self)`
+  - `__init__` (method, line 73) `def __init__(self, out_dim)`
+  - `forward` (method, line 87) `def forward(self, x)`
+  - `__init__` (method, line 92) `def __init__(self, out_dim, use_grid, use_symbiotic)`
+  - `forward` (method, line 112) `def forward(self, x)`
+  - `get_metrics` (method, line 116) `def get_metrics(self)`
+  - `__init__` (method, line 125) `def __init__(self, in_dim, num_classes)`
+  - `forward` (method, line 129) `def forward(self, x)`
+  - `__init__` (method, line 145) `def __init__(self, num_classes, ablation_level)`
+  - `forward` (method, line 161) `def forward(self, x)`
+  - `get_metrics` (method, line 165) `def get_metrics(self)`
+
+
+Next: [KB_root_p3.md](KB_root_p3.md)

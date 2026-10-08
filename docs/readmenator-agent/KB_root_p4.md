@@ -1,0 +1,466 @@
+# Subsystem: root (page 4 of 15)
+Previous: [KB_root_p3.md](KB_root_p3.md)
+
+## bicameral_v3.py
+- Doc: %%writefile neurosoberano_v2_FINAL.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_phi_effective` (function, line 22) `def compute_phi_effective(activations, k_partitions)`
+  - `compute_spatial_diversity` (function, line 75) `def compute_spatial_diversity(activations)`
+  - `compute_activation_entropy` (function, line 132) `def compute_activation_entropy(activations)`
+  - `measure_neural_complexity` (function, line 163) `def measure_neural_complexity(activations)`
+  - `measure_spatial_richness` (function, line 212) `def measure_spatial_richness(activations)`
+  - `top_k_top_p_filtering` (function, line 221) `def top_k_top_p_filtering(logits, top_k, top_p, filter_value)`
+  - `BCMPlasticity` (class, line 241) `class BCMPlasticity(Module)`
+  - `BioDecoder` (class, line 257) `class BioDecoder(Module)`
+  - `LiquidNeuron` (class, line 383) `class LiquidNeuron(Module)`
+  - `ResidualBlock` (class, line 486) `class ResidualBlock(Module)`
+  - `VisualCortex` (class, line 505) `class VisualCortex(Module)`
+  - `SymbioticBasisRefinement` (class, line 541) `class SymbioticBasisRefinement(Module)`
+  - `AdaptiveCombinatorialComplexLayer` (class, line 561) `class AdaptiveCombinatorialComplexLayer(Module)`
+  - `GraphNeuralLayer` (class, line 572) `class GraphNeuralLayer(Module)`
+  - `create_grid_adjacency` (method, line 588) `def create_grid_adjacency(N, connectivity)`
+  - `RightHemisphere` (class, line 603) `class RightHemisphere(Module)`
+  - `MiniUnconscious` (class, line 667) `class MiniUnconscious(Module)`
+  - `NestedUnconscious` (class, line 684) `class NestedUnconscious(Module)`
+  - `TopologicalCompressor` (class, line 727) `class TopologicalCompressor(Module)`
+  - `ConsciousCore` (class, line 744) `class ConsciousCore(Module)`
+  - `LeftHemisphere` (class, line 846) `class LeftHemisphere(Module)`
+  - `BioDecoder` (class, line 860) `class BioDecoder(Module)`
+  - `CorpusCallosum` (class, line 991) `class CorpusCallosum(Module)`
+  - `HomeostasisEngine` (class, line 1039) `class HomeostasisEngine(Module)`
+  - `BicameralHomeostasis` (class, line 1082) `class BicameralHomeostasis(Module)`
+  - `ReplayMemory` (class, line 1138) `class ReplayMemory(Module)`
+  - `NeuroLogos` (class, line 1182) `class NeuroLogos(Module)`
+  - `LifeCycle` (class, line 1280) `class LifeCycle`
+  - `CIFARCaptions` (class, line 1298) `class CIFARCaptions`
+  - `estimate_coherence` (method, line 1336) `def estimate_coherence(sentence, templates_per_class)`
+  - `to_float` (method, line 1349) `def to_float(val)`
+  - `train_logos` (method, line 1355) `def train_logos(use_nested)`
+  - `__init__` (method, line 242) `def __init__(self, neurons, tau_theta)`
+  - `forward` (method, line 247) `def forward(self, activity, dt)`
+  - `__init__` (method, line 258) `def __init__(self, vocab_size, embed_dim, hidden_dim, visual_dim)`
+  - `forward` (method, line 281) `def forward(self, thought, visual_features, captions, max_len)`
+  - `_get_init_state` (method, line 377) `def _get_init_state(self, thought)`
+  - `__init__` (method, line 384) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 405) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `consolidate_svd` (method, line 467) `def consolidate_svd(self, repair_strength, timescale)`
+  - `__init__` (method, line 487) `def __init__(self, in_channels, out_channels, stride)`
+  - `forward` (method, line 499) `def forward(self, x)`
+  - `__init__` (method, line 506) `def __init__(self, output_dim, grid_size)`
+  - `_make_layer` (method, line 520) `def _make_layer(self, in_channels, out_channels, num_blocks, stride)`
+  - `forward` (method, line 526) `def forward(self, x)`
+  - `__init__` (method, line 542) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 552) `def forward(self, x)`
+  - `__init__` (method, line 562) `def __init__(self, in_dim, hid_dim, num_nodes, config)`
+  - `forward` (method, line 568) `def forward(self, x, plasticity_gate)`
+  - `__init__` (method, line 573) `def __init__(self, dim, hidden_dim)`
+  - `forward` (method, line 583) `def forward(self, nodes, adjacency)`
+  - `__init__` (method, line 604) `def __init__(self, config)`
+  - `forward` (method, line 636) `def forward(self, image, adjacency, plasticity)`
+  - `__init__` (method, line 668) `def __init__(self)`
+  - `forward` (method, line 681) `def forward(self, x)`
+  - `__init__` (method, line 685) `def __init__(self, grid_size, output_dim)`
+  - `forward` (method, line 705) `def forward(self, x)`
+  - `__init__` (method, line 728) `def __init__(self, node_dim)`
+  - `forward` (method, line 737) `def forward(self, nodes, plasticity, transfer_rate)`
+  - `__init__` (method, line 745) `def __init__(self)`
+  - `_create_rotation_matrix` (method, line 780) `def _create_rotation_matrix(self, dim, angle, device)`
+  - `forward` (method, line 790) `def forward(self, visual_features, plasticity, transfer_rate)`
+  - `get_liquid_module` (method, line 839) `def get_liquid_module(self)`
+  - `__init__` (method, line 847) `def __init__(self, use_nested)`
+  - `forward` (method, line 853) `def forward(self, image, callosal_input, plasticity, transfer_rate)`
+  - `__init__` (method, line 861) `def __init__(self, vocab_size, embed_dim, hidden_dim, visual_dim)`
+  - `forward` (method, line 883) `def forward(self, thought, visual_features, captions, max_len)`
+  - `_get_init_state` (method, line 982) `def _get_init_state(self, thought)`
+  - `__init__` (method, line 992) `def __init__(self)`
+  - `forward` (method, line 999) `def forward(self, left_repr, right_repr, mode)`
+  - `__init__` (method, line 1040) `def __init__(self)`
+  - `decide` (method, line 1049) `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+  - `__init__` (method, line 1083) `def __init__(self)`
+  - `decide` (method, line 1097) `def decide(self, left_metrics, right_metrics, epoch, total_epochs)`
+  - `__init__` (method, line 1139) `def __init__(self, capacity, noise_scale)`
+  - `store` (method, line 1145) `def store(self, pattern)`
+  - `replay` (method, line 1155) `def replay(self, batch_size)`
+  - `__init__` (method, line 1183) `def __init__(self, vocab_size, use_nested)`
+  - `forward` (method, line 1203) `def forward(self, image, captions, plasticity, transfer_rate, mode, epoch, labels)`
+  - `set_epoch` (method, line 1274) `def set_epoch(self, epoch)`
+  - `__init__` (method, line 1281) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 1285) `def get_plasticity(self, epoch)`
+  - `__init__` (method, line 1299) `def __init__(self)`
+  - `__len__` (method, line 1323) `def __len__(self)`
+  - `__getitem__` (method, line 1326) `def __getitem__(self, idx)`
+
+## caquita.py
+- Doc: ABLACIÓN DIAGNÓSTICA v1.0
+- Layer: utility
+- Language: py
+- Symbols:
+  - `DiagnosticConfig` (class, line 31) `class DiagnosticConfig`
+  - `seed_everything` (method, line 40) `def seed_everything(seed)`
+  - `RealWorldEnvironment` (class, line 50) `class RealWorldEnvironment`
+  - `LiquidNeuron` (class, line 78) `class LiquidNeuron(Module)`
+  - `TraumaResponseSchedulerV2_ORIGINAL` (class, line 103) `class TraumaResponseSchedulerV2_ORIGINAL(Module)`
+  - `TraumaResponseSchedulerV2_FIXED` (class, line 168) `class TraumaResponseSchedulerV2_FIXED(Module)`
+  - `ChaosAdaptiveFilter_ORIGINAL` (class, line 228) `class ChaosAdaptiveFilter_ORIGINAL(Module)`
+  - `DiagnosticModel` (class, line 264) `class DiagnosticModel(Module)`
+  - `train_diagnostic` (method, line 327) `def train_diagnostic(config, env, experiment_name)`
+  - `run_diagnostic_ablation` (method, line 406) `def run_diagnostic_ablation()`
+  - `__init__` (method, line 51) `def __init__(self)`
+  - `get_batch` (method, line 63) `def get_batch(self, phase, batch_size)`
+  - `__init__` (method, line 79) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 88) `def forward(self, x, plasticity_gate)`
+  - `__init__` (method, line 105) `def __init__(self)`
+  - `update_phase_performance` (method, line 112) `def update_phase_performance(self, phase_idx, metrics)`
+  - `detect_trauma_level` (method, line 122) `def detect_trauma_level(self, phase_idx, current_metrics)`
+  - `generate_response` (method, line 148) `def generate_response(self, trauma_level, phase_idx, chaos_detected)`
+  - `__init__` (method, line 170) `def __init__(self)`
+  - `update_phase_performance` (method, line 176) `def update_phase_performance(self, phase_idx, metrics)`
+  - `detect_trauma_level` (method, line 185) `def detect_trauma_level(self, phase_idx, current_metrics)`
+  - `generate_response` (method, line 208) `def generate_response(self, trauma_level, phase_idx, chaos_detected)`
+  - `__init__` (method, line 230) `def __init__(self)`
+  - `extract_noise_features` (method, line 240) `def extract_noise_features(self, x)`
+  - `detect_chaos` (method, line 253) `def detect_chaos(self, x)`
+  - `__init__` (method, line 265) `def __init__(self, config, use_liquid, use_trs_original, use_trs_fixed, use_caf)`
+  - `forward` (method, line 285) `def forward(self, x, phase_idx, current_metrics)`
+
+## chatgpt.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 19) `class Config`
+  - `seed_all` (method, line 33) `def seed_all(seed)`
+  - `DataEnvironment` (class, line 41) `class DataEnvironment`
+  - `HomeostaticRegulator` (class, line 70) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 93) `class PhysioNeuron(Module)`
+  - `NeuroPhysioBicameral` (class, line 140) `class NeuroPhysioBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 191) `class NeuralDiagnostics`
+  - `train` (method, line 225) `def train()`
+  - `__init__` (method, line 42) `def __init__(self)`
+  - `get_batch` (method, line 53) `def get_batch(self, phase, bs)`
+  - `__init__` (method, line 71) `def __init__(self)`
+  - `forward` (method, line 81) `def forward(self, stress, excitation, fatigue, loss_signal)`
+  - `__init__` (method, line 94) `def __init__(self, d)`
+  - `forward` (method, line 107) `def forward(self, x, task_loss)`
+  - `__init__` (method, line 141) `def __init__(self, config)`
+  - `count_parameters` (method, line 163) `def count_parameters(self)`
+  - `forward` (method, line 166) `def forward(self, x, task_loss)`
+  - `__init__` (method, line 192) `def __init__(self)`
+  - `update` (method, line 201) `def update(self, loss, liquid_norm, phys)`
+  - `avg` (method, line 208) `def avg(self, k, n)`
+  - `report` (method, line 211) `def report(self, step, phase)`
+
+## cifar3.py
+- Doc: FastSlowLinear: Linear layer con pesos lentos (backprop) y pesos rápidos (hebbianos).
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_phi_effective` (function, line 30) `def compute_phi_effective(activity)`
+  - `FastSlowLinear` (class, line 51) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 129) `class DualSystemModule(Module)`
+  - `ConsciousnessModule` (class, line 147) `class ConsciousnessModule(Module)`
+  - `OmniBrainFastSlow` (class, line 193) `class OmniBrainFastSlow(Module)`
+  - `get_cifar10_loaders` (method, line 245) `def get_cifar10_loaders(batch_size)`
+  - `evaluate` (method, line 261) `def evaluate(model, loader, device)`
+  - `train` (method, line 274) `def train()`
+  - `__init__` (method, line 56) `def __init__(self, in_features, out_features, fast_lr, fast_decay)`
+  - `reset_fast_weights` (method, line 74) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 79) `def update_fast_weights(self, x)`
+  - `forward` (method, line 105) `def forward(self, x)`
+  - `end_of_batch` (method, line 116) `def end_of_batch(self)`
+  - `get_fast_norm` (method, line 120) `def get_fast_norm(self)`
+  - `__init__` (method, line 130) `def __init__(self, dim)`
+  - `forward` (method, line 138) `def forward(self, x)`
+  - `__init__` (method, line 149) `def __init__(self, features)`
+  - `compute_phi_effective_robust` (method, line 160) `def compute_phi_effective_robust(self, activity)`
+  - `forward` (method, line 184) `def forward(self, x)`
+  - `__init__` (method, line 194) `def __init__(self)`
+  - `forward` (method, line 226) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 233) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 238) `def get_fast_norms(self)`
+
+## cifar4.py
+- Doc: FastSlowLinear: Linear layer con pesos lentos (backprop) y pesos rápidos (hebbianos).
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_phi_effective` (function, line 30) `def compute_phi_effective(activity)`
+  - `FastSlowLinear` (class, line 51) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 116) `class DualSystemModule(Module)`
+  - `ConsciousnessModule` (class, line 134) `class ConsciousnessModule(Module)`
+  - `OmniBrainFastSlow` (class, line 176) `class OmniBrainFastSlow(Module)`
+  - `get_cifar10_loaders` (method, line 217) `def get_cifar10_loaders(batch_size)`
+  - `evaluate` (method, line 238) `def evaluate(model, loader, device)`
+  - `train` (method, line 255) `def train()`
+  - `__init__` (method, line 56) `def __init__(self, in_features, out_features, fast_lr, fast_decay)`
+  - `reset_fast_weights` (method, line 72) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 76) `def update_fast_weights(self, x)`
+  - `forward` (method, line 95) `def forward(self, x)`
+  - `end_of_batch` (method, line 106) `def end_of_batch(self)`
+  - `get_fast_norm` (method, line 109) `def get_fast_norm(self)`
+  - `__init__` (method, line 117) `def __init__(self, dim)`
+  - `forward` (method, line 125) `def forward(self, x)`
+  - `__init__` (method, line 136) `def __init__(self, features)`
+  - `compute_phi_effective_robust` (method, line 147) `def compute_phi_effective_robust(self, activity)`
+  - `forward` (method, line 166) `def forward(self, x)`
+  - `__init__` (method, line 177) `def __init__(self)`
+  - `forward` (method, line 197) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 204) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 209) `def get_fast_norms(self)`
+
+## demo_auto_regulation.py
+- Doc: Physio-Chimera v15 - Demo Auto-Regulación Funcional
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 21) `class Config`
+  - `seed_everything` (method, line 33) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 43) `class DataEnvironment`
+  - `AutoRegulationSystem` (class, line 77) `class AutoRegulationSystem`
+  - `SelfModifyingGates` (class, line 108) `class SelfModifyingGates(Module)`
+  - `PhysioChimeraFixed` (class, line 159) `class PhysioChimeraFixed(Module)`
+  - `demo_auto_regulation` (method, line 243) `def demo_auto_regulation()`
+  - `__init__` (method, line 44) `def __init__(self)`
+  - `get_batch` (method, line 54) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 68) `def get_full(self)`
+  - `get_w2` (method, line 71) `def get_w2(self)`
+  - `__init__` (method, line 78) `def __init__(self, size)`
+  - `update` (method, line 84) `def update(self, input_variance, loss_gradient, phase)`
+  - `get_stability` (method, line 99) `def get_stability(self)`
+  - `__init__` (method, line 109) `def __init__(self, input_dim, hidden_dim)`
+  - `forward` (method, line 126) `def forward(self, x, adaptation_state)`
+  - `__init__` (method, line 160) `def __init__(self, config)`
+  - `forward` (method, line 184) `def forward(self, x, global_step, phase, prev_loss)`
+
+## difract.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `visualize_uased_geometry` (function, line 4) `def visualize_uased_geometry()`
+
+## dmg_core.py
+- Doc: AdaptiveMagnitudeGate: Bio-inspired gating mechanism.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `AdaptiveMagnitudeGate` (class, line 14) `class AdaptiveMagnitudeGate(Module)`
+  - `SparseTopologyLayer` (class, line 44) `class SparseTopologyLayer(Module)`
+  - `DMGNetwork` (class, line 82) `class DMGNetwork(Module)`
+  - `__init__` (method, line 21) `def __init__(self, base_threshold, power_order)`
+  - `forward` (method, line 30) `def forward(self, x)`
+  - `__init__` (method, line 49) `def __init__(self, in_features, out_features, sparsity_k)`
+  - `_generate_sparse_mask` (method, line 62) `def _generate_sparse_mask(self, k_neighbors)`
+  - `forward` (method, line 77) `def forward(self, x)`
+  - `__init__` (method, line 87) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `forward` (method, line 100) `def forward(self, x)`
+
+## dualmind.py
+- Doc: LiquidNeuron: Neurona con fast weights hebbianos (de Síntesis)
+- Layer: utility
+- Language: py
+- Symbols:
+  - `measure_spatial_richness` (function, line 15) `def measure_spatial_richness(activations)`
+  - `HomeostasisEngine` (class, line 30) `class HomeostasisEngine(Module)`
+  - `LiquidNeuron` (class, line 57) `class LiquidNeuron(Module)`
+  - `ConsciousSystem` (class, line 108) `class ConsciousSystem(Module)`
+  - `NestedTopoLayer` (class, line 171) `class NestedTopoLayer(Module)`
+  - `UnconsciousSystem` (class, line 217) `class UnconsciousSystem(Module)`
+  - `DualMind` (class, line 279) `class DualMind(Module)`
+  - `train_dualmind_phase1` (method, line 346) `def train_dualmind_phase1(model, train_loader, optimizer, device, epochs)`
+  - `train_dualmind_phase2` (method, line 401) `def train_dualmind_phase2(model, train_loader, optimizer, device, epochs)`
+  - `train_dualmind_phase3` (method, line 487) `def train_dualmind_phase3(model, train_loader, optimizer, device, epochs)`
+  - `evaluate_dualmind` (method, line 579) `def evaluate_dualmind(model, test_loader, device)`
+  - `run_dualmind_experiment` (method, line 604) `def run_dualmind_experiment()`
+  - `__init__` (method, line 31) `def __init__(self)`
+  - `decide` (method, line 35) `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+  - `__init__` (method, line 59) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 67) `def forward(self, x, plasticity_gate)`
+  - `consolidate_svd` (method, line 89) `def consolidate_svd(self, repair_strength)`
+  - `__init__` (method, line 113) `def __init__(self, unconscious_dim, d_hid, d_out)`
+  - `forward` (method, line 136) `def forward(self, unconscious_features, plasticity_gate)`
+  - `get_structure_entropy` (method, line 157) `def get_structure_entropy(self)`
+  - `__init__` (method, line 176) `def __init__(self, in_dim, hid_dim, num_nodes)`
+  - `forward` (method, line 188) `def forward(self, x_nodes, plasticity_gate)`
+  - `get_topology_density` (method, line 209) `def get_topology_density(self)`
+  - `__init__` (method, line 222) `def __init__(self, in_channels, grid_size, hidden_dim)`
+  - `forward` (method, line 246) `def forward(self, x, plasticity_gate)`
+  - `get_topology_stats` (method, line 264) `def get_topology_stats(self)`
+  - `__init__` (method, line 285) `def __init__(self, in_channels, grid_size, hidden_dim, conscious_dim, num_classes)`
+  - `forward` (method, line 305) `def forward(self, x, mode)`
+  - `get_system_status` (method, line 331) `def get_system_status(self)`
+
+## dynamic.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 13) `def seed_everything(seed)`
+  - `MasterConfig` (class, line 24) `class MasterConfig`
+  - `DataEnvironment` (class, line 36) `class DataEnvironment`
+  - `OmnibusController` (class, line 54) `class OmnibusController(Module)`
+  - `SovereignAttention` (class, line 88) `class SovereignAttention(Module)`
+  - `LiquidNeuron` (class, line 100) `class LiquidNeuron(Module)`
+  - `SovereignChimera` (class, line 137) `class SovereignChimera(Module)`
+  - `run_final_showdown` (method, line 184) `def run_final_showdown(epochs, name, dynamic)`
+  - `__init__` (method, line 37) `def __init__(self)`
+  - `get_batch` (method, line 46) `def get_batch(self, phase, bs)`
+  - `__init__` (method, line 55) `def __init__(self)`
+  - `forward` (method, line 66) `def forward(self, x, h_slow)`
+  - `__init__` (method, line 89) `def __init__(self, d_in)`
+  - `forward` (method, line 94) `def forward(self, x, gain)`
+  - `__init__` (method, line 101) `def __init__(self, d_in, d_out)`
+  - `forward` (method, line 113) `def forward(self, x, plasticity, alpha)`
+  - `__init__` (method, line 138) `def __init__(self, config, dynamic_mode)`
+  - `forward` (method, line 151) `def forward(self, x)`
+
+## dynamic2.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 13) `def seed_everything(seed)`
+  - `PhysioConfig` (class, line 24) `class PhysioConfig`
+  - `DataEnvironment` (class, line 36) `class DataEnvironment`
+  - `HomeostaticRegulator` (class, line 54) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 89) `class PhysioNeuron(Module)`
+  - `PhysioChimera` (class, line 162) `class PhysioChimera(Module)`
+  - `run_physio_experiment` (method, line 178) `def run_physio_experiment(epochs, name, dynamic)`
+  - `__init__` (method, line 37) `def __init__(self)`
+  - `get_batch` (method, line 46) `def get_batch(self, phase, bs)`
+  - `__init__` (method, line 55) `def __init__(self, d_in)`
+  - `forward` (method, line 66) `def forward(self, x, h_pre, w_norm)`
+  - `__init__` (method, line 90) `def __init__(self, d_in, d_out, dynamic_mode)`
+  - `forward` (method, line 105) `def forward(self, x)`
+  - `__init__` (method, line 163) `def __init__(self, config, dynamic_mode)`
+  - `forward` (method, line 169) `def forward(self, x)`
+
+## example_usage.py
+- Doc: Ejemplo de uso del sistema Physio-Chimera v15 Monitoreado
+- Layer: utility
+- Language: py
+- Symbols:
+  - `demo_simple_monitoring` (function, line 20) `def demo_simple_monitoring()`
+  - `demo_custom_monitoring` (function, line 38) `def demo_custom_monitoring()`
+  - `demo_checkpoint_system` (function, line 85) `def demo_checkpoint_system()`
+  - `demo_comparison_experiments` (function, line 142) `def demo_comparison_experiments()`
+  - `create_demo_report` (function, line 194) `def create_demo_report()`
+  - `main` (function, line 333) `def main()`
+- Depends on: `physio_chimera_v15_monitored.py`
+
+## exampleww.py
+- Doc: examples/benchmark_vs_weightwatcher.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `run_single_experiment` (function, line 8) `def run_single_experiment(model_name, seed, epochs)`
+
+## exodia_op_2.py
+- Doc: HierarchicalEpisodicMemory: Memoria episódica optimizada con estabilización numérica en sampling...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `preprocess_and_cache_spectrograms` (function, line 49) `def preprocess_and_cache_spectrograms(audio_dir, cache_dir, sample_rate, target_len)`
+  - `apply_emergency_fixes` (function, line 120) `def apply_emergency_fixes(model)`
+  - `setup_flickr8k_with_audio` (function, line 142) `def setup_flickr8k_with_audio(data_dir)`
+  - `build_vocab_flickr` (function, line 316) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `HierarchicalEpisodicMemory` (class, line 340) `class HierarchicalEpisodicMemory`
+  - `NeurocognitiveSystem` (class, line 577) `class NeurocognitiveSystem`
+  - `LanguageMetrics` (class, line 774) `class LanguageMetrics`
+  - `LinguisticFeedbackLoop` (class, line 848) `class LinguisticFeedbackLoop`
+  - `LanguageMetrics` (class, line 965) `class LanguageMetrics`
+  - `CausalReasoningEngine` (class, line 1008) `class CausalReasoningEngine(Module)`
+  - `LanguageMetrics` (class, line 1087) `class LanguageMetrics`
+  - `StableLiquidNeuron` (class, line 1134) `class StableLiquidNeuron(Module)`
+  - `TricameralOutput` (class, line 1321) `class TricameralOutput(NamedTuple)`
+  - `forward` (method, line 1335) `def forward(self, image, audio, captions, epoch)`
+  - `TriangulatedMedicalSystem` (class, line 1360) `class TriangulatedMedicalSystem`
+  - `LeftHemisphere` (class, line 1510) `class LeftHemisphere(Module)`
+  - `AudioEncoder` (class, line 1833) `class AudioEncoder(Module)`
+  - `RightHemisphereTricameral` (class, line 1901) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 1984) `class CorpusCallosumTrimodal(Module)`
+  - `EnhancedDiagnosticsTricameral` (class, line 2207) `class EnhancedDiagnosticsTricameral`
+  - `NeuroLogosTricameral` (class, line 2515) `class NeuroLogosTricameral(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 2550) `class Flickr8kMultimodalDataset(Dataset)`
+  - `compute_alignment_loss` (method, line 2666) `def compute_alignment_loss(visual_features, channels, alpha, epoch)`
+  - `compute_tricameral_loss` (method, line 2695) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `train_tricameral` (method, line 2812) `def train_tricameral()`
+  - `__init__` (method, line 347) `def __init__(self, working_capacity, short_term_capacity, importance_threshold)`
+  - `compute_surprise` (method, line 371) `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+  - `calculate_importance` (method, line 386) `def calculate_importance(self, episode, surprise_score)`
+  - `_calculate_novelty` (method, line 402) `def _calculate_novelty(self, episode)`
+  - `store_episode` (method, line 427) `def store_episode(self, image, audio, caption, surprise_score)`
+  - `_update_unified_buffer` (method, line 456) `def _update_unified_buffer(self)`
+  - `sample` (method, line 470) `def sample(self, batch_size, memory_level)`
+  - `_sample_from_buffer` (method, line 494) `def _sample_from_buffer(self, buffer, scores, batch_size)`
+  - `apply_forgetting_curve` (method, line 535) `def apply_forgetting_curve(self)`
+  - `_purge_low_score_memories` (method, line 545) `def _purge_low_score_memories(self)`
+  - `__init__` (method, line 578) `def __init__(self)`
+  - `assess_reasoning_state` (method, line 598) `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)`
+  - `assess_cognitive_state` (method, line 642) `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+  - `apply_cognitive_intervention` (method, line 688) `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+  - `sentence_bleu` (method, line 778) `def sentence_bleu(reference, hypothesis, weights)`
+  - `_get_ngrams` (method, line 812) `def _get_ngrams(tokens, n)`
+  - `token_accuracy` (method, line 821) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 834) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 849) `def __init__(self, alpha, beta)`
+  - `_get_ngrams_cached` (method, line 863) `def _get_ngrams_cached(sentence, n)`
+  - `compute_linguistic_reward` (method, line 872) `def compute_linguistic_reward(self, references, hypotheses)`
+  - `compute_cider` (method, line 911) `def compute_cider(self, reference, hypothesis)`
+  - `compute_spice` (method, line 925) `def compute_spice(self, reference, hypothesis)`
+  - `get_cache_stats` (method, line 937) `def get_cache_stats(self)`
+  - `sentence_bleu` (method, line 967) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 990) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 1000) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 1009) `def __init__(self, hidden_dim)`
+  - `reason_causally` (method, line 1036) `def reason_causally(self, observation, context)`
+  - `_predict_interventions` (method, line 1050) `def _predict_interventions(self, hypothesis, confidence)`
+  - `update_knowledge_graph` (method, line 1067) `def update_knowledge_graph(self, cause, effect, strength)`
+  - `query_causal_chain` (method, line 1073) `def query_causal_chain(self, start_node, end_node)`
+  - `sentence_bleu` (method, line 1089) `def sentence_bleu(reference, hypothesis, weights)`
+  - `token_accuracy` (method, line 1112) `def token_accuracy(reference, hypothesis)`
+  - `word_overlap` (method, line 1122) `def word_overlap(reference, hypothesis)`
+  - `__init__` (method, line 1136) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 1184) `def forward(self, x)`
+  - `_calculate_homeostasis_metric` (method, line 1219) `def _calculate_homeostasis_metric(self, output)`
+  - `hebbian_update` (method, line 1229) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 1278) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 1361) `def __init__(self)`
+  - `triangulate_signals` (method, line 1368) `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+  - `count_convergent_signals` (method, line 1379) `def count_convergent_signals(self, signals, pattern)`
+  - `diagnose_with_triangulation` (method, line 1382) `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow, epoch)`
+  - `apply_triangulated_intervention` (method, line 1427) `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+  - `_reset_liquid_neuron` (method, line 1496) `def _reset_liquid_neuron(self, liquid_neuron)`
+  - `__init__` (method, line 1511) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 1596) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_apply_chain_of_thought` (method, line 1653) `def _apply_chain_of_thought(self, hidden_states, visual_context, use_reasoning)`
+  - `_apply_multi_token_prediction` (method, line 1694) `def _apply_multi_token_prediction(self, hidden_states, input_ids)`
+  - `_apply_structural_attention` (method, line 1737) `def _apply_structural_attention(self, lstm_out, channels, visual_context)`
+  - `_greedy_decode` (method, line 1759) `def _greedy_decode(self, visual_context, channels, max_len, epoch)`
+  - `_get_init_state` (method, line 1819) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 1842) `def __init__(self, output_dim)`
+  - `forward` (method, line 1880) `def forward(self, mel_spec)`
+  - `__init__` (method, line 1909) `def __init__(self, output_dim)`
+  - `forward` (method, line 1947) `def forward(self, image, audio)`
+  - `__init__` (method, line 1994) `def __init__(self, dim)`
+  - `_apply_flash_attention` (method, line 2057) `def _apply_flash_attention(self, x)`
+  - `forward` (method, line 2090) `def forward(self, right_features)`
+  - `update_channel_fatigue` (method, line 2169) `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+  - `adjust_gates_by_fatigue` (method, line 2190) `def adjust_gates_by_fatigue(self)`
+  - `__init__` (method, line 2208) `def __init__(self)`
+  - `_get_cached_norm` (method, line 2231) `def _get_cached_norm(self, tensor, dim)`
+  - `measure_callosal_flow` (method, line 2248) `def measure_callosal_flow(self, right_features, left_context, channels)`
+  - `evaluate_reasoning_quality` (method, line 2305) `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+  - `calculate_synergy` (method, line 2342) `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+  - `calculate_health` (method, line 2353) `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+  - `update` (method, line 2362) `def update(self)`
+  - `get_recent_avg` (method, line 2379) `def get_recent_avg(self, key, n)`
+  - `visualize_fatigue_distribution` (method, line 2395) `def visualize_fatigue_distribution(self, epoch)`
+  - `visualize_reasoning_metrics` (method, line 2417) `def visualize_reasoning_metrics(self, epoch)`
+  - `report` (method, line 2429) `def report(self, epoch)`
+  - `__init__` (method, line 2518) `def __init__(self, vocab_size)`
+  - `forward` (method, line 2525) `def forward(self, image, audio, captions, epoch)`
+  - `__init__` (method, line 2553) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate, use_cache...`
+  - `__len__` (method, line 2610) `def __len__(self)`
+  - `__getitem__` (method, line 2613) `def __getitem__(self, idx)`
+
+
+Next: [KB_root_p5.md](KB_root_p5.md)

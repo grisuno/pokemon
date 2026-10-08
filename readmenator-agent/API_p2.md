@@ -1,0 +1,491 @@
+# API (page 2 of 10)
+Previous: [API.md](API.md)
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py
+- `compute_loss` (function) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:20` `def compute_loss(logits, captions, gate, vocab, linguistic_reward, lambda_reward)` -- Función de pérdida extendida que incorpora recompensa lingüística
+- `NeurocognitiveSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:55` `def __init__(self)`
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:76` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa el estado cognitivo del modelo basándose en métricas lingüísticas
+- `NeurocognitiveSystem.evaluate_gate_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:124` `def evaluate_gate_state(self, gate_value, current_metrics)` -- MEJORA: Evaluar estado del gate con sistema inmune
+- `NeurocognitiveSystem.update_trauma_memory` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:142` `def update_trauma_memory(self, gate_value, metrics, outcome)` -- MEJORA: Actualizar memoria traumática basada en resultados
+- `NeurocognitiveSystem.apply_stochastic_perturbation` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:155` `def apply_stochastic_perturbation(self, model, epoch)` -- MEJORA: Aplicar micro-perturbaciones estocásticas
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:171` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones cognitivas basadas en el estado lingüístico
+- `LinguisticFeedbackLoop.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:331` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:347` `def compute_linguistic_reward(self, references, hypotheses)` -- Calcula una recompensa combinada basada en CIDEr y SPICE.
+- `LinguisticFeedbackLoop.compute_cider` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:389` `def compute_cider(self, reference, hypothesis)` -- Versión simplificada de CIDEr para uso en entrenamiento.
+- `LinguisticFeedbackLoop.compute_spice` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:427` `def compute_spice(self, reference, hypothesis)` -- Versión simplificada de SPICE para uso en entrenamiento.
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:452` `def get_cache_stats(self)` -- Obtiene estadísticas del sistema de caché
+- `LanguageMetrics.sentence_bleu` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:483` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:526` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:539` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `TriangulatedMedicalSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:555` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:560` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)` -- Identificar señales convergentes que confirman problemas
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:592` `def count_convergent_signals(self, signals, pattern)` -- Contar cuántas señales del patrón están activas
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:596` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)` -- Diagnosticar SOLO con confirmación múltiple
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:659` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)` -- Aplicar intervención SOLO si confianza es alta
+- `StableLiquidNeuron.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:828` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:871` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:893` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:932` `def update_physiology_advanced(self, loss_value)`
+- `RightHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:974` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:982` `def forward(self, image)`
+- `LeftHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:989` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.beam_search_decode` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1066` `def beam_search_decode(self, visual_context, channels, beam_width, max_len, epoch)`
+- `LeftHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1147` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `CorpusCallosum.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1245` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1308` `def forward(self, right_features, left_features)`
+- `CorpusCallosum.update_channel_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1381` `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)` -- MEJORA: Actualizar fatiga específica por canal
+- `CorpusCallosum.adjust_gates_by_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1404` `def adjust_gates_by_fatigue(self)` -- MEJORA: Ajustar gates basado en fatiga de cada canal
+- `NeuroLogosBicameralStable.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1421` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralStable.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1427` `def forward(self, image, captions, epoch)`
+- `EnhancedDiagnostics.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1447` `def __init__(self)`
+- `EnhancedDiagnostics.measure_callosal_flow` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1460` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnostics.calculate_synergy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1490` `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnostics.calculate_health` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1499` `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnostics.update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1508` `def update(self)`
+- `EnhancedDiagnostics.get_recent_avg` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1519` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnostics.visualize_fatigue_distribution` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1538` `def visualize_fatigue_distribution(self, epoch)` -- MEJORA: Visualizar distribución de fatiga entre canales
+- `EnhancedDiagnostics.report` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1567` `def report(self, epoch)`
+- `EpisodicMemoryBuffer.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1662` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1668` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+- `EpisodicMemoryBuffer.add` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1679` `def add(self, image, caption, surprise_score)`
+- `EpisodicMemoryBuffer.sample` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1689` `def sample(self, batch_size)`
+- `Flickr8kDataset.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1709` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1745` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.setup_flickr8k` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1763` `def setup_flickr8k(data_dir)`
+- `Flickr8kDataset.compute_alignment_loss` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1834` `def compute_alignment_loss(visual_features, channels, alpha)` -- Pérdida auxiliar para forzar alineación entre características visuales y canales estructurales del callosum durante...
+- `Flickr8kDataset.train_with_metrics` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py:1858` `def train_with_metrics()`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py
+- `compute_loss` (function) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:20` `def compute_loss(logits, captions, gate, vocab, mtp_loss, linguistic_reward, lambda_reward, lambda_mtp)` -- Función de pérdida extendida con MTP y recompensa lingüística
+- `NeurocognitiveSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:59` `def __init__(self)`
+- `NeurocognitiveSystem.assess_reasoning_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:85` `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)` -- Evalúa el estado del sistema de razonamiento
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:128` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa el estado cognitivo del modelo basándose en métricas lingüísticas
+- `NeurocognitiveSystem.evaluate_gate_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:167` `def evaluate_gate_state(self, gate_value, current_metrics)` -- Evaluar estado del gate con sistema inmune
+- `NeurocognitiveSystem.update_trauma_memory` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:182` `def update_trauma_memory(self, gate_value, metrics, outcome)` -- Actualizar memoria traumática basada en resultados
+- `NeurocognitiveSystem.apply_stochastic_perturbation` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:192` `def apply_stochastic_perturbation(self, model, epoch)` -- Aplicar micro-perturbaciones estocásticas
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:213` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones cognitivas basadas en el estado lingüístico y de razonamiento
+- `LinguisticFeedbackLoop.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:402` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:418` `def compute_linguistic_reward(self, references, hypotheses)` -- Calcula una recompensa combinada basada en CIDEr y SPICE.
+- `LinguisticFeedbackLoop.compute_cider` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:460` `def compute_cider(self, reference, hypothesis)` -- Versión simplificada de CIDEr para uso en entrenamiento.
+- `LinguisticFeedbackLoop.compute_spice` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:498` `def compute_spice(self, reference, hypothesis)` -- Versión simplificada de SPICE para uso en entrenamiento.
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:523` `def get_cache_stats(self)` -- Obtiene estadísticas del sistema de caché
+- `LanguageMetrics.sentence_bleu` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:554` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:597` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:610` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `TriangulatedMedicalSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:626` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:631` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)` -- Identificar señales convergentes que confirman problemas
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:663` `def count_convergent_signals(self, signals, pattern)` -- Contar cuántas señales del patrón están activas
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:667` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)` -- Diagnosticar SOLO con confirmación múltiple
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:730` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)` -- Aplicar intervención SOLO si confianza es alta
+- `StableLiquidNeuron.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:899` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:942` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:964` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1003` `def update_physiology_advanced(self, loss_value)`
+- `RightHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1045` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1053` `def forward(self, image)`
+- `LeftHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1060` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.beam_search_decode` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1292` `def beam_search_decode(self, visual_context, channels, beam_width, max_len, epoch)`
+- `LeftHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1370` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `CorpusCallosum.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1470` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1533` `def forward(self, right_features, left_features)`
+- `CorpusCallosum.update_channel_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1606` `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)` -- MEJORA: Actualizar fatiga específica por canal
+- `CorpusCallosum.adjust_gates_by_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1629` `def adjust_gates_by_fatigue(self)` -- MEJORA: Ajustar gates basado en fatiga de cada canal
+- `NeuroLogosBicameralStable.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1646` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralStable.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1652` `def forward(self, image, captions, epoch)`
+- `EnhancedDiagnostics.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1670` `def __init__(self)`
+- `EnhancedDiagnostics.measure_callosal_flow` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1686` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnostics.evaluate_reasoning_quality` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1709` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)` -- Evalúa la calidad del razonamiento en textos generados
+- `EnhancedDiagnostics.calculate_synergy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1750` `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnostics.calculate_health` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1759` `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnostics.update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1768` `def update(self)`
+- `EnhancedDiagnostics.get_recent_avg` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1778` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnostics.visualize_fatigue_distribution` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1795` `def visualize_fatigue_distribution(self, epoch)` -- Visualizar distribución de fatiga entre canales
+- `EnhancedDiagnostics.visualize_reasoning_metrics` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1823` `def visualize_reasoning_metrics(self, epoch)` -- Visualizar métricas de razonamiento
+- `EnhancedDiagnostics.report` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1836` `def report(self, epoch)`
+- `EpisodicMemoryBuffer.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1948` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1954` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+- `EpisodicMemoryBuffer.add` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1965` `def add(self, image, caption, surprise_score)`
+- `EpisodicMemoryBuffer.sample` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1975` `def sample(self, batch_size)`
+- `Flickr8kDataset.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:1995` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:2031` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.setup_flickr8k` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:2049` `def setup_flickr8k(data_dir)`
+- `Flickr8kDataset.compute_alignment_loss` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:2120` `def compute_alignment_loss(visual_features, channels, alpha)` -- Pérdida auxiliar para forzar alineación entre características visuales y canales estructurales del callosum durante...
+- `Flickr8kDataset.train_with_metrics` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py:2144` `def train_with_metrics()`
+
+## NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py
+- `compute_loss` (function) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:22` `def compute_loss(logits, captions, gate, vocab, mtp_loss, linguistic_reward, lambda_reward, lambda_mtp)` -- Función de pérdida extendida con MTP y recompensa lingüística
+- `EpisodicMemoryBuffer.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:61` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:67` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)` -- Calcula sorpresa basada en error y apertura del gate
+- `EpisodicMemoryBuffer.add` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:79` `def add(self, image, caption, surprise_score)` -- Añade ejemplo si supera umbral y hay capacidad
+- `EpisodicMemoryBuffer.sample` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:91` `def sample(self, batch_size)` -- Samplea ejemplos con probabilidad proporcional a sorpresa
+- `NeurocognitiveSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:113` `def __init__(self)`
+- `NeurocognitiveSystem.assess_reasoning_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:128` `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)` -- Evalúa estado del sistema de razonamiento
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:170` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa estado cognitivo lingüístico
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:206` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones basadas en estado lingüístico y razonamiento
+- `LinguisticFeedbackLoop.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:294` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:308` `def compute_linguistic_reward(self, references, hypotheses)` -- Recompensa combinada CIDEr + SPICE con caché
+- `LinguisticFeedbackLoop.compute_cider` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:342` `def compute_cider(self, reference, hypothesis)` -- CIDEr simplificado con caché de n-gramas
+- `LinguisticFeedbackLoop.compute_spice` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:371` `def compute_spice(self, reference, hypothesis)` -- SPICE simplificado (Jaccard similarity)
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:389` `def get_cache_stats(self)` -- Estadísticas de caché
+- `LanguageMetrics.sentence_bleu` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:417` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU-4 a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:448` `def token_accuracy(reference, hypothesis)` -- Precisión token-level
+- `LanguageMetrics.word_overlap` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:461` `def word_overlap(reference, hypothesis)` -- Jaccard similarity
+- `TriangulatedMedicalSystem.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:476` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:482` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:492` `def count_convergent_signals(self, signals, pattern)`
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:495` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:537` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+- `StableLiquidNeuron.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:623` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:658` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:671` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:709` `def update_physiology_advanced(self, loss_value)`
+- `RightHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:746` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:754` `def forward(self, image)`
+- `LeftHemisphere.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:765` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:840` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `CorpusCallosum.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1020` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1070` `def forward(self, right_features, left_features)`
+- `CorpusCallosum.update_channel_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1113` `def update_channel_fatigue(self, objects_channel, actions_channel, scene_channel)` -- Actualiza fatiga específica por canal
+- `CorpusCallosum.adjust_gates_by_fatigue` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1132` `def adjust_gates_by_fatigue(self)` -- Ajusta gates basado en fatiga
+- `NeuroLogosBicameralStable.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1148` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralStable.forward` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1154` `def forward(self, image, captions, epoch)`
+- `EnhancedDiagnostics.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1172` `def __init__(self)`
+- `EnhancedDiagnostics.measure_callosal_flow` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1187` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnostics.evaluate_reasoning_quality` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1210` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)` -- Evalúa coherencia y consistencia del razonamiento
+- `EnhancedDiagnostics.calculate_synergy` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1242` `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnostics.calculate_health` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1251` `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnostics.update` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1260` `def update(self)`
+- `EnhancedDiagnostics.get_recent_avg` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1270` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnostics.visualize_fatigue_distribution` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1287` `def visualize_fatigue_distribution(self, epoch)`
+- `EnhancedDiagnostics.visualize_reasoning_metrics` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1308` `def visualize_reasoning_metrics(self, epoch)`
+- `EnhancedDiagnostics.report` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1320` `def report(self, epoch)` -- Genera reporte completo del estado del sistema bicameral
+- `Flickr8kDataset.__init__` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1409` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1445` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.setup_flickr8k` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1463` `def setup_flickr8k(data_dir)`
+- `Flickr8kDataset.compute_alignment_loss` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1527` `def compute_alignment_loss(visual_features, channels, alpha)` -- Pérdida auxiliar para alineación temprana
+- `Flickr8kDataset.train_with_metrics` (method) `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py:1547` `def train_with_metrics()`
+
+## ablation.py
+- `TopoBrainCore.__init__` (method) `ablation.py:18` `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+- `TopoBrainCore.forward` (method) `ablation.py:46` `def forward(self, x)`
+- `TopoBrainCore.get_metrics` (method) `ablation.py:64` `def get_metrics(self)`
+- `MiniUnconscious.__init__` (method) `ablation.py:73` `def __init__(self, out_dim)`
+- `MiniUnconscious.forward` (method) `ablation.py:87` `def forward(self, x)`
+- `TopoUnconscious.__init__` (method) `ablation.py:92` `def __init__(self, out_dim, use_grid, use_symbiotic)`
+- `TopoUnconscious.forward` (method) `ablation.py:112` `def forward(self, x)`
+- `TopoUnconscious.get_metrics` (method) `ablation.py:116` `def get_metrics(self)`
+- `SimpleClassifier.__init__` (method) `ablation.py:125` `def __init__(self, in_dim, num_classes)`
+- `SimpleClassifier.forward` (method) `ablation.py:129` `def forward(self, x)`
+- `NeuroLogosCPU.__init__` (method) `ablation.py:145` `def __init__(self, num_classes, ablation_level)`
+- `NeuroLogosCPU.forward` (method) `ablation.py:161` `def forward(self, x)`
+- `NeuroLogosCPU.get_metrics` (method) `ablation.py:165` `def get_metrics(self)`
+- `NeuroLogosCPU.fgsm_attack` (method) `ablation.py:175` `def fgsm_attack(model, x, y, epsilon)`
+- `NeuroLogosCPU.train_epoch` (method) `ablation.py:188` `def train_epoch(model, loader, optimizer, device, use_adv)`
+- `NeuroLogosCPU.evaluate` (method) `ablation.py:229` `def evaluate(model, loader, device)`
+- `NeuroLogosCPU.run_ablation_cpu` (method) `ablation.py:245` `def run_ablation_cpu()`
+
+## ablation1.py
+- `AblationConfig.create_ablation_configs` (method) `ablation1.py:64` `def create_ablation_configs(config)` -- Crea un diccionario de configuraciones para cada test de ablación.
+- `AblationConfig.seed_everything` (method) `ablation1.py:150` `def seed_everything(seed)`
+- `AblationConfig.get_elite_dataset` (method) `ablation1.py:157` `def get_elite_dataset(config)` -- Dataset más grande y balanceado con separabilidad controlada
+- `EpisodicMemory.__init__` (method) `ablation1.py:182` `def __init__(self, dim, capacity)`
+- `EpisodicMemory.update` (method) `ablation1.py:190` `def update(self, x, y)` -- Almacena ejemplos duros
+- `EpisodicMemory.retrieve` (method) `ablation1.py:203` `def retrieve(self, x, k)` -- Recupera k vecinos más cercanos
+- `SpectralNormLinear.__init__` (method) `ablation1.py:222` `def __init__(self, in_features, out_features)`
+- `SpectralNormLinear.power_iteration` (method) `ablation1.py:229` `def power_iteration(self, n_iter)` -- Aproxima la norma espectral máxima
+- `SpectralNormLinear.forward` (method) `ablation1.py:236` `def forward(self, x)`
+- `AdvancedHomeostaticCell.__init__` (method) `ablation1.py:250` `def __init__(self, d_in, d_out, use_spectral, use_homeostasis)`
+- `AdvancedHomeostaticCell.forward` (method) `ablation1.py:271` `def forward(self, x)`
+- `AdaptiveTopology.__init__` (method) `ablation1.py:298` `def __init__(self, num_nodes, grid_size)`
+- `AdaptiveTopology.forward` (method) `ablation1.py:317` `def forward(self, stress)` -- stress ∈ [0,1]: cuánto estrés adversarial
+- `EliteTopoBrain.__init__` (method) `ablation1.py:330` `def __init__(self, config)`
+- `EliteTopoBrain.count_parameters` (method) `ablation1.py:367` `def count_parameters(self)`
+- `EliteTopoBrain.forward` (method) `ablation1.py:370` `def forward(self, x, stress)`
+- `EliteTopoBrain.elite_pgd_attack` (method) `ablation1.py:407` `def elite_pgd_attack(model, x, y, eps, steps, stress)` -- PGD con reinicio aleatorio y gradiente centralizado (CORREGIDO)
+- `SupConLoss.__init__` (method) `ablation1.py:468` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `ablation1.py:472` `def forward(self, features, labels)`
+- `SupConLoss.train_elite_model` (method) `ablation1.py:504` `def train_elite_model(config, dataset, fold_results)` -- Entrenamiento con curriculum adversarial
+- `SupConLoss.run_ablation_study` (method) `ablation1.py:616` `def run_ablation_study()`
+
+## ablation2.py
+- `SparseCompetitiveLayer.__init__` (method) `ablation2.py:25` `def __init__(self, n_nodes, k_sparse, input_dim)`
+- `SparseCompetitiveLayer.forward` (method) `ablation2.py:44` `def forward(self, x)`
+- `SparseCompetitiveLayer.get_metrics` (method) `ablation2.py:79` `def get_metrics(self)`
+- `SymbioticRefiner.__init__` (method) `ablation2.py:96` `def __init__(self, n_nodes)`
+- `SymbioticRefiner.forward` (method) `ablation2.py:106` `def forward(self, x)`
+- `SparseSymbioticCore.__init__` (method) `ablation2.py:125` `def __init__(self, input_dim, hidden_dim, n_nodes, k_sparse)`
+- `SparseSymbioticCore.forward` (method) `ablation2.py:143` `def forward(self, x)`
+- `SparseSymbioticCore.get_metrics` (method) `ablation2.py:158` `def get_metrics(self)`
+- `BaselineUnconscious.__init__` (method) `ablation2.py:169` `def __init__(self, output_dim)`
+- `BaselineUnconscious.forward` (method) `ablation2.py:182` `def forward(self, x)`
+- `SparseUnconscious.__init__` (method) `ablation2.py:188` `def __init__(self, output_dim, n_nodes, k_sparse)`
+- `SparseUnconscious.forward` (method) `ablation2.py:207` `def forward(self, x)`
+- `SparseUnconscious.get_metrics` (method) `ablation2.py:211` `def get_metrics(self)`
+- `ConsciousCore.__init__` (method) `ablation2.py:220` `def __init__(self, dim)`
+- `ConsciousCore.forward` (method) `ablation2.py:225` `def forward(self, x)`
+- `BioDecoder.__init__` (method) `ablation2.py:233` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `ablation2.py:248` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos_v51.__init__` (method) `ablation2.py:299` `def __init__(self, vocab_size, mode, n_nodes, k_sparse)`
+- `NeuroLogos_v51.forward` (method) `ablation2.py:331` `def forward(self, image, captions)`
+- `NeuroLogos_v51.get_metrics` (method) `ablation2.py:340` `def get_metrics(self)`
+- `PGDAttack.__init__` (method) `ablation2.py:347` `def __init__(self, epsilon, alpha, steps)`
+- `PGDAttack.attack` (method) `ablation2.py:352` `def attack(self, model, x, y, criterion)`
+- `CIFARCaptions_v51.__init__` (method) `ablation2.py:376` `def __init__(self)`
+- `CIFARCaptions_v51.compute_bleu` (method) `ablation2.py:417` `def compute_bleu(pred_ids, target_ids, dataset, max_n)` -- BLEU score simplificado para evaluar calidad de generación
+- `CIFARCaptions_v51.ngrams` (method) `ablation2.py:423` `def ngrams(tokens, n)`
+- `CIFARCaptions_v51.train_ablation_v51` (method) `ablation2.py:466` `def train_ablation_v51(mode, epochs, device, n_nodes, k_sparse)` -- Entrena una configuración específica del ablation study v5.1.
+- `CIFARCaptions_v51.forward_fn` (method) `ablation2.py:526` `def forward_fn(x)`
+- `CIFARCaptions_v51.run_ablation_v51` (method) `ablation2.py:619` `def run_ablation_v51(epochs, device, n_nodes, k_sparse)` -- Ejecuta ablation study v5.1 con 5 brazos desacoplados.
+
+## ablation3.py
+- `SparseLayer.__init__` (method) `ablation3.py:23` `def __init__(self, input_dim, n_nodes, k_sparse)`
+- `SparseLayer.forward` (method) `ablation3.py:33` `def forward(self, x)`
+- `SymbioticLayer.__init__` (method) `ablation3.py:56` `def __init__(self, n_nodes)`
+- `SymbioticLayer.forward` (method) `ablation3.py:62` `def forward(self, x)`
+- `AdversarialWrapper.__init__` (method) `ablation3.py:79` `def __init__(self, epsilon, alpha, steps)`
+- `AdversarialWrapper.attack` (method) `ablation3.py:84` `def attack(self, model_fn, x, y, criterion)`
+- `VisualBackbone.__init__` (method) `ablation3.py:110` `def __init__(self, output_dim)`
+- `VisualBackbone.forward` (method) `ablation3.py:122` `def forward(self, x)`
+- `ConsciousCore.__init__` (method) `ablation3.py:126` `def __init__(self, dim)`
+- `ConsciousCore.forward` (method) `ablation3.py:131` `def forward(self, x)`
+- `BioDecoder.__init__` (method) `ablation3.py:137` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `ablation3.py:148` `def forward(self, thought, captions, max_len)`
+- `NeuroLogosFactorial.__init__` (method) `ablation3.py:191` `def __init__(self, vocab_size, use_sparse, use_symbiotic, use_adv, n_nodes, k_sparse)`
+- `NeuroLogosFactorial.forward` (method) `ablation3.py:226` `def forward(self, image, captions)`
+- `NeuroLogosFactorial.train_step` (method) `ablation3.py:243` `def train_step(self, images, captions, optimizer, dataset)` -- Paso de entrenamiento con adversarial condicional y doble forward pass seguro
+- `NeuroLogosFactorial.model_fn` (method) `ablation3.py:257` `def model_fn(x)`
+- `CIFARCaptions.__init__` (method) `ablation3.py:296` `def __init__(self)`
+- `CIFARCaptions.train_configuration` (method) `ablation3.py:338` `def train_configuration(config, epochs, device, n_nodes, k_sparse)` -- Entrena UNA configuración específica del diseño factorial.
+- `CIFARCaptions.run_full_factorial` (method) `ablation3.py:411` `def run_full_factorial(epochs, device, n_nodes, k_sparse)` -- Ejecuta el ablation factorial completo: 8 combinaciones + 3 inversas.
+- `CIFARCaptions.analyze_results` (method) `ablation3.py:480` `def analyze_results(results)` -- Análisis de efectos principales, interacciones y poder explicativo.
+
+## adversarial_benchmark.py
+- `SupConLoss.__init__` (method) `adversarial_benchmark.py:37` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `adversarial_benchmark.py:41` `def forward(self, features, labels)`
+- `PredictiveErrorCell.__init__` (method) `adversarial_benchmark.py:74` `def __init__(self, dim)`
+- `PredictiveErrorCell.forward` (method) `adversarial_benchmark.py:79` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `adversarial_benchmark.py:86` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `adversarial_benchmark.py:95` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `adversarial_benchmark.py:101` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `adversarial_benchmark.py:109` `def forward(self, x)`
+- `CombinatorialComplexLayer.__init__` (method) `adversarial_benchmark.py:119` `def __init__(self, in_dim, hid_dim, num_nodes, layer_type)`
+- `CombinatorialComplexLayer.forward` (method) `adversarial_benchmark.py:136` `def forward(self, x_nodes, adjacency, incidence)`
+- `TopoBrainNet.__init__` (method) `adversarial_benchmark.py:159` `def __init__(self, grid_size)`
+- `TopoBrainNet.get_topology` (method) `adversarial_benchmark.py:213` `def get_topology(self)`
+- `TopoBrainNet.calculate_ortho_loss` (method) `adversarial_benchmark.py:225` `def calculate_ortho_loss(self)`
+- `TopoBrainNet.forward` (method) `adversarial_benchmark.py:249` `def forward(self, x)`
+- `TopoBrainNet.make_adversarial_pgd` (method) `adversarial_benchmark.py:269` `def make_adversarial_pgd(model, x, y, eps, steps)`
+- `TopoBrainNet.train_and_eval` (method) `adversarial_benchmark.py:290` `def train_and_eval()`
+- `TopoBrainNet.lambda_topo` (method) `adversarial_benchmark.py:317` `def lambda_topo(epoch)`
+- `TopoBrainNet.lambda_general` (method) `adversarial_benchmark.py:321` `def lambda_general(epoch)`
+
+## apex.py
+- `seed_everything` (function) `apex.py:14` `def seed_everything(seed)`
+- `DataEnvironment.__init__` (method) `apex.py:25` `def __init__(self)`
+- `DataEnvironment.get_train_batch` (method) `apex.py:35` `def get_train_batch(self, phase, batch_size)`
+- `LiquidNeuron.__init__` (method) `apex.py:51` `def __init__(self, d_in, d_out)`
+- `LiquidNeuron.forward` (method) `apex.py:58` `def forward(self, x, gate)`
+- `SovereignAttention.__init__` (method) `apex.py:70` `def __init__(self, d_in)`
+- `SovereignAttention.forward` (method) `apex.py:74` `def forward(self, x, chaos)`
+- `DualPhaseMemory.__init__` (method) `apex.py:79` `def __init__(self, d_in)`
+- `DualPhaseMemory.forward` (method) `apex.py:82` `def forward(self, x, p)`
+- `DualPhaseMemory.update` (method) `apex.py:86` `def update(self, x, p)`
+- `ElasticMemory.__init__` (method) `apex.py:94` `def __init__(self, model, lambda_ewc)`
+- `ElasticMemory.register_fisher` (method) `apex.py:101` `def register_fisher(self, dataset_x, dataset_y)`
+- `ElasticMemory.penalty` (method) `apex.py:125` `def penalty(self)`
+- `ChimeraNetwork.__init__` (method) `apex.py:137` `def __init__(self, d_in, d_hid, d_out)`
+- `ChimeraNetwork.forward` (method) `apex.py:145` `def forward(self, x, phase)`
+- `ChimeraNetwork.train_and_audit` (method) `apex.py:160` `def train_and_audit(name, use_ewc)`
+
+## app.py
+- `train_ai_model` (function) `app.py:82` `def train_ai_model(df)` -- Entrena un modelo desde cero con todos los detalles de entrenamiento
+- `load_or_train_model` (function) `app.py:156` `def load_or_train_model(df)` -- Carga modelo existente o entrena uno nuevo, y lo actualiza con nuevos datos
+- `apply_ai_predictions` (function) `app.py:191` `def apply_ai_predictions(df, model, vectorizer)` -- Aplica predicciones del modelo al DataFrame
+- `apply_ai_predictions` (function) `app.py:205` `def apply_ai_predictions(df, model, vectorizer)` -- Aplica predicciones del modelo al DataFrame
+- `analyze_ia_vs_rules` (function) `app.py:219` `def analyze_ia_vs_rules(df)` -- Analiza discrepancias entre reglas y modelo IA
+- `load_and_clean_data_robust` (function) `app.py:252` `def load_and_clean_data_robust(filepath)` -- Cargar y limpiar los datos de forma robusta
+- `parse_csv_manual` (function) `app.py:294` `def parse_csv_manual(filepath)`
+- `executive_kpis` (function) `app.py:317` `def executive_kpis(df)`
+- `strategic_okrs` (function) `app.py:344` `def strategic_okrs(df, kpis)`
+- `generate_visualizations` (function) `app.py:377` `def generate_visualizations(df, kpis)`
+- `export_report` (function) `app.py:409` `def export_report(df, kpis, okrs, ia_analysis)`
+- `basic_statistics` (function) `app.py:454` `def basic_statistics(df)`
+- `command_analysis` (function) `app.py:467` `def command_analysis(df)`
+- `network_analysis` (function) `app.py:480` `def network_analysis(df)`
+- `temporal_analysis` (function) `app.py:492` `def temporal_analysis(df)`
+- `statistical_analysis` (function) `app.py:500` `def statistical_analysis(df)`
+- `security_insights` (function) `app.py:508` `def security_insights(df)`
+- `main` (function) `app.py:530` `def main()`
+
+## auto_regulation_working.py
+- `Config.seed_everything` (method) `auto_regulation_working.py:28` `def seed_everything(seed)`
+- `DataEnvironment.__init__` (method) `auto_regulation_working.py:39` `def __init__(self)`
+- `DataEnvironment.get_batch` (method) `auto_regulation_working.py:49` `def get_batch(self, phase, bs)`
+- `DataEnvironment.get_full` (method) `auto_regulation_working.py:63` `def get_full(self)`
+- `DataEnvironment.get_w2` (method) `auto_regulation_working.py:66` `def get_w2(self)`
+- `AutoRegulationSystem.__init__` (method) `auto_regulation_working.py:73` `def __init__(self, size)`
+- `AutoRegulationSystem.update` (method) `auto_regulation_working.py:78` `def update(self, input_variance, loss_gradient, phase)`
+- `AutoRegulationSystem.get_stability` (method) `auto_regulation_working.py:95` `def get_stability(self)`
+- `PhysioChimeraFixed.__init__` (method) `auto_regulation_working.py:104` `def __init__(self, config)`
+- `PhysioChimeraFixed.forward` (method) `auto_regulation_working.py:129` `def forward(self, x, global_step, phase, prev_loss)`
+- `PhysioChimeraFixed.demo_auto_regulation` (method) `auto_regulation_working.py:193` `def demo_auto_regulation()`
+
+## bicamera.py.py
+- `setup_flickr8k` (function) `bicamera.py.py:34` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `LiquidNeuron.__init__` (method) `bicamera.py.py:108` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `bicamera.py.py:125` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `bicamera.py.py:154` `def consolidate_svd(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `bicamera.py.py:181` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `bicamera.py.py:192` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphere.__init__` (method) `bicamera.py.py:202` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `bicamera.py.py:224` `def forward(self, visual_context, captions, max_len, return_gate)`
+- `CorpusCallosum.__init__` (method) `bicamera.py.py:299` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `bicamera.py.py:307` `def forward(self, right_features)`
+- `NeuroLogosBicameral.__init__` (method) `bicamera.py.py:314` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `bicamera.py.py:320` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+- `NeuralDiagnostics.__init__` (method) `bicamera.py.py:335` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `bicamera.py.py:346` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `bicamera.py.py:353` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `bicamera.py.py:357` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `bicamera.py.py:362` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `bicamera.py.py:367` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `bicamera.py.py:405` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `bicamera.py.py:443` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `bicamera.py.py:467` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `bicamera.py.py:470` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `bicamera.py.py:481` `def train_bicameral()`
+
+## bicameral.py
+- `seed_all` (function) `bicameral.py:38` `def seed_all(seed)`
+- `setup_flickr8k` (function) `bicameral.py:46` `def setup_flickr8k(data_dir)`
+- `HomeostaticRegulator.__init__` (method) `bicameral.py:101` `def __init__(self)`
+- `HomeostaticRegulator.forward` (method) `bicameral.py:109` `def forward(self, stress, excitation, fatigue, entropy, phase, loss_signal)`
+- `PhysioNeuron.__init__` (method) `bicameral.py:124` `def __init__(self, in_dim, out_dim)`
+- `PhysioNeuron.forward` (method) `bicameral.py:138` `def forward(self, x, global_loss)`
+- `RightHemisphere.__init__` (method) `bicameral.py:165` `def __init__(self, output_dim, num_nodes)`
+- `RightHemisphere.forward` (method) `bicameral.py:178` `def forward(self, image, global_loss)`
+- `LeftHemisphere.__init__` (method) `bicameral.py:200` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `bicameral.py:219` `def forward(self, visual_context, captions, max_len, return_gate)`
+- `CorpusCallosum.__init__` (method) `bicameral.py:277` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `bicameral.py:284` `def forward(self, right_features)`
+- `NeuroLogosBicameralFisiologico.__init__` (method) `bicameral.py:291` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralFisiologico.forward` (method) `bicameral.py:297` `def forward(self, image, captions, global_loss, return_diagnostics)`
+- `NeuralDiagnostics.__init__` (method) `bicameral.py:310` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `bicameral.py:326` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `bicameral.py:333` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `bicameral.py:337` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `bicameral.py:342` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `bicameral.py:347` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `bicameral.py:384` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `bicameral.py:416` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `bicameral.py:437` `def __init__(self, total_epochs)`
+- `LifeCycle.get_global_loss_proxy` (method) `bicameral.py:440` `def get_global_loss_proxy(self, epoch)`
+- `LifeCycle.train_bicameral_fisiologico` (method) `bicameral.py:447` `def train_bicameral_fisiologico()`
+
+## bicameral2.py
+- `setup_flickr8k` (function) `bicameral2.py:32` `def setup_flickr8k(data_dir)`
+- `TinyVisualEncoder.__init__` (method) `bicameral2.py:84` `def __init__(self, output_dim)`
+- `TinyVisualEncoder.forward` (method) `bicameral2.py:98` `def forward(self, x)`
+- `MinimalLiquidNeuron.__init__` (method) `bicameral2.py:105` `def __init__(self, in_dim, out_dim)`
+- `MinimalLiquidNeuron.forward` (method) `bicameral2.py:113` `def forward(self, x)`
+- `RightHemisphere.__init__` (method) `bicameral2.py:127` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `bicameral2.py:131` `def forward(self, x)`
+- `LeftHemisphere.__init__` (method) `bicameral2.py:137` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `bicameral2.py:143` `def forward(self, visual_ctx, captions, max_len)`
+- `CorpusCallosum.__init__` (method) `bicameral2.py:177` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `bicameral2.py:180` `def forward(self, x)`
+- `NeuroLogosBicameralUltra.__init__` (method) `bicameral2.py:187` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralUltra.forward` (method) `bicameral2.py:192` `def forward(self, image, captions, return_diagnostics)`
+- `DemocraticDiagnostics.__init__` (method) `bicameral2.py:207` `def __init__(self)`
+- `DemocraticDiagnostics.measure_flow` (method) `bicameral2.py:212` `def measure_flow(self, r, l)`
+- `DemocraticDiagnostics.vocab_diversity` (method) `bicameral2.py:217` `def vocab_diversity(self, tokens, V)`
+- `DemocraticDiagnostics.update` (method) `bicameral2.py:219` `def update(self)`
+- `DemocraticDiagnostics.avg` (method) `bicameral2.py:223` `def avg(self, k, n)`
+- `DemocraticDiagnostics.report` (method) `bicameral2.py:226` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `bicameral2.py:247` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab` (method) `bicameral2.py:274` `def build_vocab(captions_file, size)`
+- `Flickr8kDataset.train_ultra` (method) `bicameral2.py:290` `def train_ultra()`
+
+## bicameral3.py
+- `setup_flickr8k` (function) `bicameral3.py:34` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `LiquidNeuron.__init__` (method) `bicameral3.py:108` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `bicameral3.py:125` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `bicameral3.py:154` `def consolidate_svd(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `bicameral3.py:181` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `bicameral3.py:192` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphere.__init__` (method) `bicameral3.py:202` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `bicameral3.py:224` `def forward(self, visual_context, captions, max_len, return_gate)`
+- `CorpusCallosum.__init__` (method) `bicameral3.py:299` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `bicameral3.py:307` `def forward(self, right_features)`
+- `NeuroLogosBicameral.__init__` (method) `bicameral3.py:314` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `bicameral3.py:320` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+- `NeuralDiagnostics.__init__` (method) `bicameral3.py:335` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `bicameral3.py:346` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `bicameral3.py:353` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `bicameral3.py:357` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `bicameral3.py:362` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `bicameral3.py:367` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `bicameral3.py:405` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `bicameral3.py:443` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `bicameral3.py:467` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `bicameral3.py:470` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `bicameral3.py:481` `def train_bicameral()`
+
+## bicameral_v2.py
+- `compute_phi_effective` (function) `bicameral_v2.py:24` `def compute_phi_effective(activations, k_partitions)` -- Φₑ efectivo: integración causal simplificada para batches activations: [B, N, D]
+- `measure_spatial_richness` (function) `bicameral_v2.py:52` `def measure_spatial_richness(activations)` -- FIX: Métrica de riqueza dimensional efectiva con escalado positivo garantizado Preserva interfaz exacta...
+- `top_k_top_p_filtering` (function) `bicameral_v2.py:98` `def top_k_top_p_filtering(logits, top_k, top_p, filter_value)` -- Filtro Top-K y Nucleus Sampling estandar
+- `BCMPlasticity.__init__` (method) `bicameral_v2.py:118` `def __init__(self, neurons, tau_theta)`
+- `BCMPlasticity.forward` (method) `bicameral_v2.py:123` `def forward(self, activity, dt)` -- dθ/dt = (E[activity²] - θ)/τ  →  dw/dt ∝ activity*(activity-θ)
+- `LiquidNeuron.__init__` (method) `bicameral_v2.py:135` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `bicameral_v2.py:158` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `bicameral_v2.py:204` `def consolidate_svd(self, repair_strength, timescale)` -- Mantener interfaz exacta pero implementar consolidación Hebbiana real
+- `ResidualBlock.__init__` (method) `bicameral_v2.py:226` `def __init__(self, in_channels, out_channels, stride)`
+- `ResidualBlock.forward` (method) `bicameral_v2.py:238` `def forward(self, x)`
+- `VisualCortex.__init__` (method) `bicameral_v2.py:245` `def __init__(self, output_dim, grid_size)`
+- `VisualCortex.forward` (method) `bicameral_v2.py:265` `def forward(self, x)`
+- `SymbioticBasisRefinement.__init__` (method) `bicameral_v2.py:281` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `bicameral_v2.py:291` `def forward(self, x)`
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `bicameral_v2.py:301` `def __init__(self, in_dim, hid_dim, num_nodes, config)`
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `bicameral_v2.py:307` `def forward(self, x, plasticity_gate)`
+- `GraphNeuralLayer.__init__` (method) `bicameral_v2.py:312` `def __init__(self, dim, hidden_dim)`
+- `GraphNeuralLayer.forward` (method) `bicameral_v2.py:322` `def forward(self, nodes, adjacency)`
+- `GraphNeuralLayer.create_grid_adjacency` (method) `bicameral_v2.py:327` `def create_grid_adjacency(N, connectivity)` -- Crea matriz de adyacencia para grid cuadrado
+- `RightHemisphere.__init__` (method) `bicameral_v2.py:343` `def __init__(self, config)`
+- `RightHemisphere.forward` (method) `bicameral_v2.py:375` `def forward(self, image, adjacency, plasticity)`
+- `MiniUnconscious.__init__` (method) `bicameral_v2.py:407` `def __init__(self)`
+- `MiniUnconscious.forward` (method) `bicameral_v2.py:420` `def forward(self, x)`
+- `NestedUnconscious.__init__` (method) `bicameral_v2.py:424` `def __init__(self, grid_size, output_dim)`
+- `NestedUnconscious.forward` (method) `bicameral_v2.py:444` `def forward(self, x)`
+- `TopologicalCompressor.__init__` (method) `bicameral_v2.py:467` `def __init__(self, node_dim)`
+- `TopologicalCompressor.forward` (method) `bicameral_v2.py:476` `def forward(self, nodes, plasticity, transfer_rate)`
+- `ConsciousCore.__init__` (method) `bicameral_v2.py:487` `def __init__(self)`
+- `ConsciousCore.forward` (method) `bicameral_v2.py:499` `def forward(self, visual_features, plasticity, transfer_rate)`
+- `ConsciousCore.get_liquid_module` (method) `bicameral_v2.py:537` `def get_liquid_module(self)`
+- `LeftHemisphere.__init__` (method) `bicameral_v2.py:544` `def __init__(self, use_nested)`
+- `LeftHemisphere.forward` (method) `bicameral_v2.py:550` `def forward(self, image, callosal_input, plasticity, transfer_rate)`
+- `BioDecoder.__init__` (method) `bicameral_v2.py:559` `def __init__(self, vocab_size, embed_dim, hidden_dim, visual_dim)`
+- `BioDecoder.forward` (method) `bicameral_v2.py:578` `def forward(self, thought, visual_features, captions, max_len)`
+- `ConsciousCore.__init__` (method) `bicameral_v2.py:668` `def __init__(self)`
+- `ConsciousCore.forward` (method) `bicameral_v2.py:680` `def forward(self, visual_features, plasticity, transfer_rate)`
+- `ConsciousCore.get_liquid_module` (method) `bicameral_v2.py:718` `def get_liquid_module(self)`
+- `HomeostasisEngine.__init__` (method) `bicameral_v2.py:726` `def __init__(self)`
+- `HomeostasisEngine.decide` (method) `bicameral_v2.py:730` `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+- `BicameralHomeostasis.__init__` (method) `bicameral_v2.py:742` `def __init__(self)`
+- `BicameralHomeostasis.decide` (method) `bicameral_v2.py:751` `def decide(self, left_metrics, right_metrics, epoch, total_epochs)`
+- `ReplayMemory.__init__` (method) `bicameral_v2.py:774` `def __init__(self, capacity, noise_scale)`
+- `ReplayMemory.store` (method) `bicameral_v2.py:780` `def store(self, pattern)`
+- `ReplayMemory.replay` (method) `bicameral_v2.py:791` `def replay(self, batch_size)`
+- `CorpusCallosum.__init__` (method) `bicameral_v2.py:818` `def __init__(self)`
+- `CorpusCallosum.forward` (method) `bicameral_v2.py:824` `def forward(self, left_repr, right_repr, mode)`
+- `NeuroLogos.__init__` (method) `bicameral_v2.py:869` `def __init__(self, vocab_size, use_nested)`
+- `NeuroLogos.forward` (method) `bicameral_v2.py:895` `def forward(self, image, captions, plasticity, transfer_rate, mode, epoch)`
+- `NeuroLogos.set_epoch` (method) `bicameral_v2.py:950` `def set_epoch(self, epoch)`
+- `LifeCycle.__init__` (method) `bicameral_v2.py:957` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `bicameral_v2.py:961` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `bicameral_v2.py:975` `def __init__(self)`
+- `CIFARCaptions.estimate_coherence` (method) `bicameral_v2.py:1012` `def estimate_coherence(sentence, templates_per_class)`
+- `CIFARCaptions.train_logos` (method) `bicameral_v2.py:1026` `def train_logos(use_nested)`
+
+
+Next: [API_p3.md](API_p3.md)

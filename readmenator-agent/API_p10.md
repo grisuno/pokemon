@@ -1,0 +1,134 @@
+# API (page 10 of 10)
+Previous: [API_p9.md](API_p9.md)
+
+## tricameralkimi2.py
+- `setup_flickr8k_with_audio` (function) `tricameralkimi2.py:30` `def setup_flickr8k_with_audio(data_dir)` -- Descarga y organiza Flickr8k + Audio del dataset de Kaggle.
+- `build_vocab_flickr` (function) `tricameralkimi2.py:173` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `EpisodicMemoryBuffer.__init__` (method) `tricameralkimi2.py:198` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `tricameralkimi2.py:204` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)` -- Calcula sorpresa basada en error y apertura del gate
+- `EpisodicMemoryBuffer.add` (method) `tricameralkimi2.py:216` `def add(self, image, caption, surprise_score)` -- Añade ejemplo si supera umbral y hay capacidad
+- `EpisodicMemoryBuffer.sample` (method) `tricameralkimi2.py:228` `def sample(self, batch_size)` -- Samplea ejemplos con probabilidad proporcional a sorpresa
+- `NeurocognitiveSystem.__init__` (method) `tricameralkimi2.py:248` `def __init__(self)`
+- `NeurocognitiveSystem.assess_reasoning_state` (method) `tricameralkimi2.py:263` `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)` -- Evalúa estado del sistema de razonamiento
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `tricameralkimi2.py:305` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa estado cognitivo lingüístico
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `tricameralkimi2.py:341` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones basadas en estado lingüístico y razonamiento
+- `LinguisticFeedbackLoop.__init__` (method) `tricameralkimi2.py:428` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `tricameralkimi2.py:442` `def compute_linguistic_reward(self, references, hypotheses)` -- Recompensa combinada CIDEr + SPICE con caché
+- `LinguisticFeedbackLoop.compute_cider` (method) `tricameralkimi2.py:476` `def compute_cider(self, reference, hypothesis)` -- CIDEr simplificado con caché de n-gramas
+- `LinguisticFeedbackLoop.compute_spice` (method) `tricameralkimi2.py:505` `def compute_spice(self, reference, hypothesis)` -- SPICE simplificado (Jaccard similarity)
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `tricameralkimi2.py:523` `def get_cache_stats(self)` -- Estadísticas de caché
+- `StableLiquidNeuron.__init__` (method) `tricameralkimi2.py:547` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `tricameralkimi2.py:582` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `tricameralkimi2.py:595` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `tricameralkimi2.py:633` `def update_physiology_advanced(self, loss_value)`
+- `AudioEncoder.__init__` (method) `tricameralkimi2.py:671` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `tricameralkimi2.py:705` `def forward(self, mel_spec)` -- Args: mel_spec: (batch, 80, time) Returns: audio_features: (batch, output_dim)
+- `TriangulatedMedicalSystem.__init__` (method) `tricameralkimi2.py:725` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `tricameralkimi2.py:731` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `tricameralkimi2.py:741` `def count_convergent_signals(self, signals, pattern)`
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `tricameralkimi2.py:744` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `tricameralkimi2.py:786` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+- `RightHemisphereTricameral.__init__` (method) `tricameralkimi2.py:884` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `tricameralkimi2.py:917` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre...
+- `CorpusCallosumTrimodal.__init__` (method) `tricameralkimi2.py:955` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `tricameralkimi2.py:991` `def forward(self, right_features)` -- Args: right_features: (B, dim) - Fusión de visión + audio Returns: enriched_context: (B, dim) channels: dict con...
+- `CorpusCallosumTrimodal.update_channel_fatigue` (method) `tricameralkimi2.py:1060` `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)` -- Actualiza fatiga específica por canal
+- `CorpusCallosumTrimodal.adjust_gates_by_fatigue` (method) `tricameralkimi2.py:1079` `def adjust_gates_by_fatigue(self)` -- Ajusta proyecciones basado en fatiga
+- `LeftHemisphere.__init__` (method) `tricameralkimi2.py:1090` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `tricameralkimi2.py:1165` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `NeuroLogosTricameral.__init__` (method) `tricameralkimi2.py:1362` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `tricameralkimi2.py:1374` `def forward(self, image, audio, captions, epoch)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) - Mel-spectrogram del caption captions: (B, seq_len) - Tokens (solo en...
+- `Flickr8kMultimodalDataset.__init__` (method) `tricameralkimi2.py:1418` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+- `Flickr8kMultimodalDataset.compute_tricameral_loss` (method) `tricameralkimi2.py:1507` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...` -- Pérdida con término de coherencia audio-visual
+- `EnhancedDiagnosticsTricameral.__init__` (method) `tricameralkimi2.py:1557` `def __init__(self)`
+- `EnhancedDiagnosticsTricameral.measure_callosal_flow` (method) `tricameralkimi2.py:1572` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnosticsTricameral.evaluate_reasoning_quality` (method) `tricameralkimi2.py:1595` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)` -- Evalúa coherencia y consistencia del razonamiento
+- `EnhancedDiagnosticsTricameral.calculate_synergy` (method) `tricameralkimi2.py:1627` `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnosticsTricameral.calculate_health` (method) `tricameralkimi2.py:1638` `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnosticsTricameral.update` (method) `tricameralkimi2.py:1647` `def update(self)`
+- `EnhancedDiagnosticsTricameral.get_recent_avg` (method) `tricameralkimi2.py:1657` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnosticsTricameral.visualize_fatigue_distribution` (method) `tricameralkimi2.py:1674` `def visualize_fatigue_distribution(self, epoch)`
+- `EnhancedDiagnosticsTricameral.visualize_reasoning_metrics` (method) `tricameralkimi2.py:1695` `def visualize_reasoning_metrics(self, epoch)`
+- `EnhancedDiagnosticsTricameral.report` (method) `tricameralkimi2.py:1707` `def report(self, epoch)` -- Genera reporte completo del estado del sistema tricameral
+- `EnhancedDiagnosticsTricameral.train_tricameral` (method) `tricameralkimi2.py:1786` `def train_tricameral()`
+
+## trycameral.py
+- `generate_audio_async` (function) `trycameral.py:31` `def generate_audio_async(text, output_path, voice)` -- Genera un audio usando Edge-TTS
+- `generate_all_audios_batch` (function) `trycameral.py:50` `def generate_all_audios_batch(captions_list, audio_dir, batch_size)` -- Genera todos los audios en batches para eficiencia
+- `generate_audios_sync` (function) `trycameral.py:89` `def generate_audios_sync(images_dir, captions_file, audio_dir)` -- Wrapper síncrono para generar audios
+- `setup_flickr8k` (function) `trycameral.py:133` `def setup_flickr8k(data_dir)` -- Descarga y organiza Flickr8k si no existe
+- `build_vocab_flickr` (function) `trycameral.py:205` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `StableLiquidNeuron.__init__` (method) `trycameral.py:229` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `trycameral.py:264` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `trycameral.py:277` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `trycameral.py:315` `def update_physiology_advanced(self, loss_value)`
+- `LeftHemisphere.__init__` (method) `trycameral.py:352` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `trycameral.py:364` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `Flickr8kMultimodalDataset.__init__` (method) `trycameral.py:426` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+- `AudioEncoder.__init__` (method) `trycameral.py:520` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `trycameral.py:559` `def forward(self, mel_spec)` -- Args: mel_spec: (batch, 80, time) Returns: audio_features: (batch, output_dim)
+- `RightHemisphereTricameral.__init__` (method) `trycameral.py:589` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `trycameral.py:623` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre: Para...
+- `CorpusCallosumTrimodal.__init__` (method) `trycameral.py:663` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `trycameral.py:695` `def forward(self, right_features)` -- Args: right_features: (B, dim) - Fusión de visión + audio Returns: enriched_context: (B, dim) channels: dict con...
+- `NeuralAudioGenerator.__init__` (method) `trycameral.py:755` `def __init__(self, text_dim, output_sr)`
+- `NeuralAudioGenerator.forward` (method) `trycameral.py:790` `def forward(self, text_embedding)` -- Args: text_embedding: (B, text_dim) Returns: audio_waveform: (B, 1, num_samples)
+- `NeuroLogosTricameral.__init__` (method) `trycameral.py:824` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `trycameral.py:839` `def forward(self, image, audio, captions, epoch, generate_audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) - Mel-spectrogram del caption captions: (B, seq_len) - Tokens (solo en...
+- `NeuroLogosTricameral.compute_tricameral_loss` (method) `trycameral.py:887` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...` -- Pérdida con término de coherencia audio-visual
+- `NeuroLogosTricameral.train_tricameral` (method) `trycameral.py:939` `def train_tricameral()`
+- `Flickr8kSimpleDataset.__init__` (method) `trycameral.py:997` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+
+## ultimo_neuorlogos.py
+- `TopoBrainCore.__init__` (method) `ultimo_neuorlogos.py:29` `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+- `TopoBrainCore.forward` (method) `ultimo_neuorlogos.py:70` `def forward(self, x)`
+- `TopoBrainCore.get_metrics` (method) `ultimo_neuorlogos.py:101` `def get_metrics(self)` -- Retorna métricas de topología
+- `PGDAttack.__init__` (method) `ultimo_neuorlogos.py:115` `def __init__(self, epsilon, alpha, steps)`
+- `PGDAttack.attack` (method) `ultimo_neuorlogos.py:120` `def attack(self, model, x, y, criterion)` -- Genera ejemplos adversariales
+- `MiniUnconscious.__init__` (method) `ultimo_neuorlogos.py:147` `def __init__(self, output_dim)`
+- `MiniUnconscious.forward` (method) `ultimo_neuorlogos.py:160` `def forward(self, x)`
+- `TopoUnconscious.__init__` (method) `ultimo_neuorlogos.py:168` `def __init__(self, output_dim, use_grid, use_symbiotic)`
+- `TopoUnconscious.forward` (method) `ultimo_neuorlogos.py:191` `def forward(self, x)`
+- `TopoUnconscious.get_metrics` (method) `ultimo_neuorlogos.py:195` `def get_metrics(self)`
+- `ConsciousCore.__init__` (method) `ultimo_neuorlogos.py:205` `def __init__(self, dim)`
+- `ConsciousCore.forward` (method) `ultimo_neuorlogos.py:210` `def forward(self, x)`
+- `BioDecoder.__init__` (method) `ultimo_neuorlogos.py:223` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `ultimo_neuorlogos.py:238` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `ultimo_neuorlogos.py:289` `def __init__(self, vocab_size, mode)`
+- `NeuroLogos.forward` (method) `ultimo_neuorlogos.py:314` `def forward(self, image, captions)`
+- `NeuroLogos.get_metrics` (method) `ultimo_neuorlogos.py:319` `def get_metrics(self)` -- Obtiene métricas de topología si disponible
+- `CIFARCaptions.__init__` (method) `ultimo_neuorlogos.py:331` `def __init__(self)`
+- `CIFARCaptions.train_ablation` (method) `ultimo_neuorlogos.py:374` `def train_ablation(mode, epochs, device)` -- Entrena un modelo en el modo especificado
+- `CIFARCaptions.run_full_ablation` (method) `ultimo_neuorlogos.py:508` `def run_full_ablation(epochs, device)` -- Ejecuta ablation study completo de 3 niveles
+
+## ultimobicameral.py
+- `LanguageMetrics.sentence_bleu` (method) `ultimobicameral.py:27` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `ultimobicameral.py:70` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `ultimobicameral.py:83` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `MedicalSystem.__init__` (method) `ultimobicameral.py:99` `def __init__(self)`
+- `MedicalSystem.diagnose_severity` (method) `ultimobicameral.py:103` `def diagnose_severity(self, health_score, liquid_norm, gate_mean, callosal_flow)` -- Diagnosticar gravedad del problema con análisis mejorado
+- `MedicalSystem.apply_intervention` (method) `ultimobicameral.py:149` `def apply_intervention(self, model, issues, severity, epoch)` -- Aplicar intervención médica calibrada con más agresividad en gate
+- `StableLiquidNeuron.__init__` (method) `ultimobicameral.py:293` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `ultimobicameral.py:307` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `ultimobicameral.py:314` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `ultimobicameral.py:344` `def update_physiology_advanced(self, loss_value)`
+- `RightHemisphere.__init__` (method) `ultimobicameral.py:369` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `ultimobicameral.py:377` `def forward(self, image)`
+- `LeftHemisphere.__init__` (method) `ultimobicameral.py:384` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `ultimobicameral.py:401` `def forward(self, visual_context, captions, max_len)`
+- `CorpusCallosum.__init__` (method) `ultimobicameral.py:444` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `ultimobicameral.py:456` `def forward(self, right_features)`
+- `NeuroLogosBicameralStable.__init__` (method) `ultimobicameral.py:463` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralStable.forward` (method) `ultimobicameral.py:469` `def forward(self, image, captions)`
+- `EnhancedDiagnostics.__init__` (method) `ultimobicameral.py:484` `def __init__(self)`
+- `EnhancedDiagnostics.measure_callosal_flow` (method) `ultimobicameral.py:494` `def measure_callosal_flow(self, right_features, left_context)`
+- `EnhancedDiagnostics.calculate_synergy` (method) `ultimobicameral.py:503` `def calculate_synergy(self, right_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnostics.calculate_health` (method) `ultimobicameral.py:512` `def calculate_health(self, right_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnostics.update` (method) `ultimobicameral.py:521` `def update(self)`
+- `EnhancedDiagnostics.get_recent_avg` (method) `ultimobicameral.py:526` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnostics.report` (method) `ultimobicameral.py:531` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `ultimobicameral.py:609` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `ultimobicameral.py:645` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.setup_flickr8k` (method) `ultimobicameral.py:663` `def setup_flickr8k(data_dir)`
+- `Flickr8kDataset.train_with_metrics` (method) `ultimobicameral.py:677` `def train_with_metrics()`
+

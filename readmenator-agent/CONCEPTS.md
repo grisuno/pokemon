@@ -1,0 +1,120 @@
+# Concepts
+
+Nouns map atomically to file sets (EXTRACTED); verbs aggregate structural edges (INFERRED).
+
+- `forward` | files=153 | mentions=761 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `03_backpropagation.py`
+- `get` | files=136 | mentions=427 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`
+- `train` | files=121 | mentions=142 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `02_perceptron.py`
+- `con` | files=118 | mentions=598 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`
+- `para` | files=93 | mentions=339 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `13_nested_learning.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`
+- `run` | files=78 | mentions=89 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `ablation.py`, `ablation1.py`, `ablation2.py`
+- `brain` | files=75 | mentions=195 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation.py`
+- `state` | files=71 | mentions=103 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation2.py`, `ablation3.py`, `bicamera.py.py`
+- `config` | files=71 | mentions=77 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `13_nested_hope.py`, `ablation1.py`
+- `del` | files=70 | mentions=178 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`
+- `neuron` | files=69 | mentions=87 | `01_mcculloch_pitts.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `apex.py`, `bicamera.py.py`
+- `neuro` | files=67 | mentions=142 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation.py`, `ablation2.py`, `ablation3.py`
+- `loss` | files=67 | mentions=116 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `08_vae_mnist.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`
+- `update` | files=66 | mentions=127 | `13_nested_hope.py`, `13_nested_learning.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation1.py`
+- `logos` | files=65 | mentions=145 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation.py`, `ablation2.py`, `ablation3.py`
+- `seed` | files=65 | mentions=65 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `ablation1.py`, `apex.py`, `auto_regulation_working.py`
+- `dataset` | files=63 | mentions=103 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_ganador_gpu_v1.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`
+- `completo` | files=61 | mentions=93 | `01_topobrain_cpu_v6.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation3.py`, `bicamera.py.py`, `bicameral3.py`, `dualmind.py`, `example_usage.py`, `exodia_optimized.py`
+- `measure` | files=58 | mentions=74 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `bicamera.py.py`, `bicameral.py`, `bicameral2.py`
+- `compute` | files=57 | mentions=150 | `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v6.py`, `03_backpropagation.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`
+- `ablation` | files=57 | mentions=145 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `ablation.py`, `ablation1.py`, `ablation2.py`
+- `que` | files=57 | mentions=102 | `01_topobrain_cpu_v8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation1.py`, `ablation2.py`
+- `liquid` | files=57 | mentions=72 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `apex.py`, `bicamera.py.py`, `bicameral2.py`
+- `everything` | files=55 | mentions=55 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `ablation1.py`, `apex.py`, `auto_regulation_working.py`, `caquita.py`
+- `topo` | files=54 | mentions=143 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation.py`
+- `sistema` | files=54 | mentions=124 | `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `demo_auto_regulation.py`, `dualmind.py`
+- `memory` | files=53 | mentions=108 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `13_nested_kearning_gpu.py`, `13_nested_learning.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`
+- `cpu` | files=52 | mentions=127 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation.py`
+- `sin` | files=52 | mentions=101 | `01_mcculloch_pitts.py`, `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v8.py`, `13_nested_hope.py`, `ablation2.py`, `bicameral_v2.py`
+- `entrenamiento` | files=52 | mentions=69 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `13_nested_learning.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`
+- `evaluate` | files=52 | mentions=56 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`
+- `tico` | files=50 | mentions=78 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_ganador_gpu_v1.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `bicameral2.py`, `cifar3.py`, `dualmind.py`, `exodia_op_2.py`
+- `generate` | files=49 | mentions=73 | `01_topobrain_cpu.py`, `09_transformer_mini.py`, `app.py`, `caquita.py`, `dmg_core.py`, `final_sinergy_analysis.py`, `gen_dataset.py`, `get_dataset.py`, `legendario2.py`, `main.py`
+- `symbiotic` | files=47 | mentions=68 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation.py`
+- `system` | files=47 | mentions=64 | `01_topobrain_cpu_v8.py`, `13_nested_hope.py`, `13_nested_kearning_gpu.py`, `13_nested_learning.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`
+- `topology` | files=46 | mentions=135 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation1.py`, `adversarial_benchmark.py`
+- `tricas` | files=46 | mentions=80 | `01_topobrain_cpu_v3.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation2.py`
+- `por` | files=44 | mentions=79 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`
+- `weights` | files=44 | mentions=77 | `01_mcculloch_pitts.py`, `01_topobrain_cou_v2.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `cifar3.py`, `cifar4.py`
+- `len` | files=44 | mentions=50 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation2.py`, `ablation3.py`, `bicamera.py.py`
+- `getitem` | files=44 | mentions=46 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation2.py`, `ablation3.py`, `bicamera.py.py`
+- `pgd` | files=42 | mentions=89 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation1.py`
+- `setup` | files=41 | mentions=46 | `01_topobrain_cpu_v7.py`, `01_topobrain_ganador_gpu_v1.py`, `13_nested_hope.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`
+- `ablaci` | files=40 | mentions=65 | `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `ablation1.py`, `caquita.py`, `kimi.py`, `live_qw.py`, `nested1.1.py`, `nested1.py`, `nestedtopobrain.py`, `nestedtopobrain_v1.py`
+- `attack` | files=40 | mentions=46 | `01_topobrain_cou_v2.py`, `01_topobrain_cpu.py`, `01_topobrain_cpu_v3.py`, `01_topobrain_cpu_v4.py`, `01_topobrain_cpu_v5.py`, `01_topobrain_cpu_v6.py`, `01_topobrain_cpu_v7.py`, `01_topobrain_cpu_v8.py`, `01_topobrain_ganador_gpu_v1.py`, `ablation.py`
+- `gico` | files=39 | mentions=70 | `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py`, `ablation1.py`, `bicameral.py`, `dualmind.py`
+- `batch` | files=39 | mentions=67 | `01_topobrain_ganador_gpu_v1.py`, `apex.py`, `auto_regulation_working.py`, `caquita.py`, `chatgpt.py`, `cifar3.py`, `cifar4.py`, `demo_auto_regulation.py`, `dualmind.py`, `dynamic.py`
+- `solo` | files=39 | mentions=62 | `01_topobrain_cpu_v6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py`, `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py`, `dualmind.py`, `exodia_op_2.py`, `exodia_optimized.py`
+- `layer` | files=39 | mentions=59 | `01_topobrain_cpu_v3.py`, `ablation2.py`, `ablation3.py`, `adversarial_benchmark.py`, `bicameral_v2.py`, `bicameral_v3.py`, `cifar3.py`, `cifar4.py`, `dmg_core.py`, `dualmind.py`
+- `study` | files=39 | mentions=45 | `01_topobrain_cpu_v6.py`, `13_nested_hope.py`, `ablation1.py`, `ablation2.py`, `live_cl.py`, `nested1.1.py`, `nested1.py`, `nestedtopobrain.py`, `nestedtopobrain_v1.py`, `nestedtopobrain_v2.py`
+
+## Verb Edges
+
+- `para` --depends_on--> `completo` (strength 1.00)
+- `para` --depends_on--> `con` (strength 1.00)
+- `para` --depends_on--> `config` (strength 1.00)
+- `para` --depends_on--> `dataset` (strength 1.00)
+- `para` --depends_on--> `del` (strength 1.00)
+- `para` --depends_on--> `forward` (strength 1.00)
+- `para` --depends_on--> `get` (strength 1.00)
+- `para` --depends_on--> `gico` (strength 1.00)
+- `para` --depends_on--> `memory` (strength 1.00)
+- `para` --depends_on--> `neuron` (strength 1.00)
+- `para` --depends_on--> `sistema` (strength 1.00)
+- `para` --depends_on--> `system` (strength 1.00)
+- `para` --depends_on--> `tico` (strength 1.00)
+- `para` --depends_on--> `train` (strength 1.00)
+- `para` --depends_on--> `tricas` (strength 1.00)
+- `para` --depends_on--> `update` (strength 1.00)
+- `completo` --depends_on--> `con` (strength 0.75)
+- `completo` --depends_on--> `config` (strength 0.75)
+- `completo` --depends_on--> `dataset` (strength 0.75)
+- `completo` --depends_on--> `del` (strength 0.75)
+- `completo` --depends_on--> `forward` (strength 0.75)
+- `completo` --depends_on--> `get` (strength 0.75)
+- `completo` --depends_on--> `gico` (strength 0.75)
+- `completo` --depends_on--> `memory` (strength 0.75)
+- `completo` --depends_on--> `neuron` (strength 0.75)
+- `completo` --depends_on--> `para` (strength 0.75)
+- `completo` --depends_on--> `sistema` (strength 0.75)
+- `completo` --depends_on--> `system` (strength 0.75)
+- `completo` --depends_on--> `tico` (strength 0.75)
+- `completo` --depends_on--> `train` (strength 0.75)
+- `completo` --depends_on--> `tricas` (strength 0.75)
+- `completo` --depends_on--> `update` (strength 0.75)
+- `del` --depends_on--> `completo` (strength 0.75)
+- `del` --depends_on--> `con` (strength 0.75)
+- `del` --depends_on--> `config` (strength 0.75)
+- `del` --depends_on--> `dataset` (strength 0.75)
+- `del` --depends_on--> `forward` (strength 0.75)
+- `del` --depends_on--> `get` (strength 0.75)
+- `del` --depends_on--> `gico` (strength 0.75)
+- `del` --depends_on--> `memory` (strength 0.75)
+- `del` --depends_on--> `neuron` (strength 0.75)
+- `del` --depends_on--> `para` (strength 0.75)
+- `del` --depends_on--> `sistema` (strength 0.75)
+- `del` --depends_on--> `system` (strength 0.75)
+- `del` --depends_on--> `tico` (strength 0.75)
+- `del` --depends_on--> `train` (strength 0.75)
+- `del` --depends_on--> `tricas` (strength 0.75)
+- `del` --depends_on--> `update` (strength 0.75)
+- `sistema` --depends_on--> `completo` (strength 0.75)
+- `sistema` --depends_on--> `con` (strength 0.75)
+
+## Dialectic
+
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `ablation` pulls 57 files with 39 shared (Jaccard 0.67); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `attack` pulls 40 files with 23 shared (Jaccard 0.40); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `brain` pulls 75 files with 37 shared (Jaccard 0.47); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `con` pulls 118 files with 38 shared (Jaccard 0.32); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `config` pulls 71 files with 40 shared (Jaccard 0.56); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `cpu` pulls 52 files with 23 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `entrenamiento` pulls 52 files with 23 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `everything` pulls 55 files with 30 shared (Jaccard 0.46); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `pgd` pulls 42 files with 23 shared (Jaccard 0.39); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `ablaci` centralizes 40 files; Antithesis: `run` pulls 78 files with 38 shared (Jaccard 0.47); Synthesis: should they merge, split by layer, or keep `bridges` explicit?

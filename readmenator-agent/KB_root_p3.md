@@ -1,0 +1,475 @@
+# Subsystem: root (page 3 of 15)
+Previous: [KB_root_p2.md](KB_root_p2.md)
+
+## ablation1.py
+- Doc: EpisodicMemory: Memoria explícita de patrones adversariales
+- Layer: utility
+- Language: py
+- Symbols:
+  - `EliteConfig` (class, line 20) `class EliteConfig`
+  - `AblationConfig` (class, line 60) `class AblationConfig(EliteConfig)`
+  - `create_ablation_configs` (method, line 64) `def create_ablation_configs(config)`
+  - `seed_everything` (method, line 150) `def seed_everything(seed)`
+  - `get_elite_dataset` (method, line 157) `def get_elite_dataset(config)`
+  - `EpisodicMemory` (class, line 180) `class EpisodicMemory(Module)`
+  - `SpectralNormLinear` (class, line 220) `class SpectralNormLinear(Module)`
+  - `AdvancedHomeostaticCell` (class, line 248) `class AdvancedHomeostaticCell(Module)`
+  - `AdaptiveTopology` (class, line 296) `class AdaptiveTopology(Module)`
+  - `EliteTopoBrain` (class, line 329) `class EliteTopoBrain(Module)`
+  - `elite_pgd_attack` (method, line 407) `def elite_pgd_attack(model, x, y, eps, steps, stress)`
+  - `SupConLoss` (class, line 467) `class SupConLoss(Module)`
+  - `train_elite_model` (method, line 504) `def train_elite_model(config, dataset, fold_results)`
+  - `run_ablation_study` (method, line 616) `def run_ablation_study()`
+  - `__init__` (method, line 182) `def __init__(self, dim, capacity)`
+  - `update` (method, line 190) `def update(self, x, y)`
+  - `retrieve` (method, line 203) `def retrieve(self, x, k)`
+  - `__init__` (method, line 222) `def __init__(self, in_features, out_features)`
+  - `power_iteration` (method, line 229) `def power_iteration(self, n_iter)`
+  - `forward` (method, line 236) `def forward(self, x)`
+  - `__init__` (method, line 250) `def __init__(self, d_in, d_out, use_spectral, use_homeostasis)`
+  - `forward` (method, line 271) `def forward(self, x)`
+  - `__init__` (method, line 298) `def __init__(self, num_nodes, grid_size)`
+  - `forward` (method, line 317) `def forward(self, stress)`
+  - `__init__` (method, line 330) `def __init__(self, config)`
+  - `count_parameters` (method, line 367) `def count_parameters(self)`
+  - `forward` (method, line 370) `def forward(self, x, stress)`
+  - `__init__` (method, line 468) `def __init__(self, temperature)`
+  - `forward` (method, line 472) `def forward(self, features, labels)`
+
+## ablation2.py
+- Doc: SparseCompetitiveLayer: k-WTA con aprendizaje de importancia de nodos.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SparseCompetitiveLayer` (class, line 19) `class SparseCompetitiveLayer(Module)`
+  - `SymbioticRefiner` (class, line 91) `class SymbioticRefiner(Module)`
+  - `SparseSymbioticCore` (class, line 120) `class SparseSymbioticCore(Module)`
+  - `BaselineUnconscious` (class, line 167) `class BaselineUnconscious(Module)`
+  - `SparseUnconscious` (class, line 186) `class SparseUnconscious(Module)`
+  - `ConsciousCore` (class, line 219) `class ConsciousCore(Module)`
+  - `BioDecoder` (class, line 231) `class BioDecoder(Module)`
+  - `NeuroLogos_v51` (class, line 289) `class NeuroLogos_v51(Module)`
+  - `PGDAttack` (class, line 346) `class PGDAttack`
+  - `CIFARCaptions_v51` (class, line 375) `class CIFARCaptions_v51`
+  - `compute_bleu` (method, line 417) `def compute_bleu(pred_ids, target_ids, dataset, max_n)`
+  - `train_ablation_v51` (method, line 466) `def train_ablation_v51(mode, epochs, device, n_nodes, k_sparse)`
+  - `run_ablation_v51` (method, line 619) `def run_ablation_v51(epochs, device, n_nodes, k_sparse)`
+  - `__init__` (method, line 25) `def __init__(self, n_nodes, k_sparse, input_dim)`
+  - `forward` (method, line 44) `def forward(self, x)`
+  - `get_metrics` (method, line 79) `def get_metrics(self)`
+  - `__init__` (method, line 96) `def __init__(self, n_nodes)`
+  - `forward` (method, line 106) `def forward(self, x)`
+  - `__init__` (method, line 125) `def __init__(self, input_dim, hidden_dim, n_nodes, k_sparse)`
+  - `forward` (method, line 143) `def forward(self, x)`
+  - `get_metrics` (method, line 158) `def get_metrics(self)`
+  - `__init__` (method, line 169) `def __init__(self, output_dim)`
+  - `forward` (method, line 182) `def forward(self, x)`
+  - `__init__` (method, line 188) `def __init__(self, output_dim, n_nodes, k_sparse)`
+  - `forward` (method, line 207) `def forward(self, x)`
+  - `get_metrics` (method, line 211) `def get_metrics(self)`
+  - `__init__` (method, line 220) `def __init__(self, dim)`
+  - `forward` (method, line 225) `def forward(self, x)`
+  - `__init__` (method, line 233) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 248) `def forward(self, thought, captions, max_len)`
+  - `_get_init_state` (method, line 279) `def _get_init_state(self, thought)`
+  - `__init__` (method, line 299) `def __init__(self, vocab_size, mode, n_nodes, k_sparse)`
+  - `forward` (method, line 331) `def forward(self, image, captions)`
+  - `get_metrics` (method, line 340) `def get_metrics(self)`
+  - `__init__` (method, line 347) `def __init__(self, epsilon, alpha, steps)`
+  - `attack` (method, line 352) `def attack(self, model, x, y, criterion)`
+  - `__init__` (method, line 376) `def __init__(self)`
+  - `__len__` (method, line 403) `def __len__(self)`
+  - `__getitem__` (method, line 406) `def __getitem__(self, idx)`
+  - `ngrams` (method, line 423) `def ngrams(tokens, n)`
+  - `forward_fn` (method, line 526) `def forward_fn(x)`
+
+## ablation3.py
+- Doc: SparseLayer: k-WTA con health tracking - Factor S
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SparseLayer` (class, line 21) `class SparseLayer(Module)`
+  - `SymbioticLayer` (class, line 54) `class SymbioticLayer(Module)`
+  - `AdversarialWrapper` (class, line 77) `class AdversarialWrapper`
+  - `VisualBackbone` (class, line 109) `class VisualBackbone(Module)`
+  - `ConsciousCore` (class, line 125) `class ConsciousCore(Module)`
+  - `BioDecoder` (class, line 136) `class BioDecoder(Module)`
+  - `NeuroLogosFactorial` (class, line 190) `class NeuroLogosFactorial(Module)`
+  - `CIFARCaptions` (class, line 295) `class CIFARCaptions`
+  - `train_configuration` (method, line 338) `def train_configuration(config, epochs, device, n_nodes, k_sparse)`
+  - `run_full_factorial` (method, line 411) `def run_full_factorial(epochs, device, n_nodes, k_sparse)`
+  - `analyze_results` (method, line 480) `def analyze_results(results)`
+  - `__init__` (method, line 23) `def __init__(self, input_dim, n_nodes, k_sparse)`
+  - `forward` (method, line 33) `def forward(self, x)`
+  - `__init__` (method, line 56) `def __init__(self, n_nodes)`
+  - `forward` (method, line 62) `def forward(self, x)`
+  - `__init__` (method, line 79) `def __init__(self, epsilon, alpha, steps)`
+  - `attack` (method, line 84) `def attack(self, model_fn, x, y, criterion)`
+  - `__init__` (method, line 110) `def __init__(self, output_dim)`
+  - `forward` (method, line 122) `def forward(self, x)`
+  - `__init__` (method, line 126) `def __init__(self, dim)`
+  - `forward` (method, line 131) `def forward(self, x)`
+  - `__init__` (method, line 137) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 148) `def forward(self, thought, captions, max_len)`
+  - `_init_state` (method, line 182) `def _init_state(self, thought)`
+  - `__init__` (method, line 191) `def __init__(self, vocab_size, use_sparse, use_symbiotic, use_adv, n_nodes, k_sparse)`
+  - `forward` (method, line 226) `def forward(self, image, captions)`
+  - `train_step` (method, line 243) `def train_step(self, images, captions, optimizer, dataset)`
+  - `__init__` (method, line 296) `def __init__(self)`
+  - `__len__` (method, line 321) `def __len__(self)`
+  - `__getitem__` (method, line 324) `def __getitem__(self, idx)`
+  - `model_fn` (method, line 257) `def model_fn(x)`
+
+## adversarial_benchmark.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SupConLoss` (class, line 36) `class SupConLoss(Module)`
+  - `PredictiveErrorCell` (class, line 73) `class PredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 85) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 100) `class SymbioticBasisRefinement(Module)`
+  - `CombinatorialComplexLayer` (class, line 118) `class CombinatorialComplexLayer(Module)`
+  - `TopoBrainNet` (class, line 158) `class TopoBrainNet(Module)`
+  - `make_adversarial_pgd` (method, line 269) `def make_adversarial_pgd(model, x, y, eps, steps)`
+  - `train_and_eval` (method, line 290) `def train_and_eval()`
+  - `__init__` (method, line 37) `def __init__(self, temperature)`
+  - `forward` (method, line 41) `def forward(self, features, labels)`
+  - `__init__` (method, line 74) `def __init__(self, dim)`
+  - `forward` (method, line 79) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 86) `def __init__(self, dim)`
+  - `forward` (method, line 95) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 101) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 109) `def forward(self, x)`
+  - `__init__` (method, line 119) `def __init__(self, in_dim, hid_dim, num_nodes, layer_type)`
+  - `forward` (method, line 136) `def forward(self, x_nodes, adjacency, incidence)`
+  - `__init__` (method, line 159) `def __init__(self, grid_size)`
+  - `_init_grid_topology` (method, line 191) `def _init_grid_topology(self, N)`
+  - `get_topology` (method, line 213) `def get_topology(self)`
+  - `calculate_ortho_loss` (method, line 225) `def calculate_ortho_loss(self)`
+  - `forward` (method, line 249) `def forward(self, x)`
+  - `lambda_topo` (method, line 317) `def lambda_topo(epoch)`
+  - `lambda_general` (method, line 321) `def lambda_general(epoch)`
+
+## apex.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 14) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 24) `class DataEnvironment`
+  - `LiquidNeuron` (class, line 50) `class LiquidNeuron(Module)`
+  - `SovereignAttention` (class, line 69) `class SovereignAttention(Module)`
+  - `DualPhaseMemory` (class, line 78) `class DualPhaseMemory(Module)`
+  - `ElasticMemory` (class, line 93) `class ElasticMemory(Module)`
+  - `ChimeraNetwork` (class, line 136) `class ChimeraNetwork(Module)`
+  - `train_and_audit` (method, line 160) `def train_and_audit(name, use_ewc)`
+  - `__init__` (method, line 25) `def __init__(self)`
+  - `get_train_batch` (method, line 35) `def get_train_batch(self, phase, batch_size)`
+  - `__init__` (method, line 51) `def __init__(self, d_in, d_out)`
+  - `forward` (method, line 58) `def forward(self, x, gate)`
+  - `__init__` (method, line 70) `def __init__(self, d_in)`
+  - `forward` (method, line 74) `def forward(self, x, chaos)`
+  - `__init__` (method, line 79) `def __init__(self, d_in)`
+  - `forward` (method, line 82) `def forward(self, x, p)`
+  - `update` (method, line 86) `def update(self, x, p)`
+  - `__init__` (method, line 94) `def __init__(self, model, lambda_ewc)`
+  - `register_fisher` (method, line 101) `def register_fisher(self, dataset_x, dataset_y)`
+  - `penalty` (method, line 125) `def penalty(self)`
+  - `__init__` (method, line 137) `def __init__(self, d_in, d_hid, d_out)`
+  - `forward` (method, line 145) `def forward(self, x, phase)`
+
+## app.py
+- Doc: 🚀 LazyOwn Security Intelligence Report Generador de métricas ejecutivas para Gerencia de...
+- Layer: utility
+- Language: py
+- Symbols:
+  - `train_ai_model` (function, line 82) `def train_ai_model(df)`
+  - `load_or_train_model` (function, line 156) `def load_or_train_model(df)`
+  - `apply_ai_predictions` (function, line 191) `def apply_ai_predictions(df, model, vectorizer)`
+  - `apply_ai_predictions` (function, line 205) `def apply_ai_predictions(df, model, vectorizer)`
+  - `analyze_ia_vs_rules` (function, line 219) `def analyze_ia_vs_rules(df)`
+  - `load_and_clean_data_robust` (function, line 252) `def load_and_clean_data_robust(filepath)`
+  - `parse_csv_manual` (function, line 294) `def parse_csv_manual(filepath)`
+  - `executive_kpis` (function, line 317) `def executive_kpis(df)`
+  - `strategic_okrs` (function, line 344) `def strategic_okrs(df, kpis)`
+  - `generate_visualizations` (function, line 377) `def generate_visualizations(df, kpis)`
+  - `export_report` (function, line 409) `def export_report(df, kpis, okrs, ia_analysis)`
+  - `basic_statistics` (function, line 454) `def basic_statistics(df)`
+  - `command_analysis` (function, line 467) `def command_analysis(df)`
+  - `network_analysis` (function, line 480) `def network_analysis(df)`
+  - `temporal_analysis` (function, line 492) `def temporal_analysis(df)`
+  - `statistical_analysis` (function, line 500) `def statistical_analysis(df)`
+  - `security_insights` (function, line 508) `def security_insights(df)`
+  - `main` (function, line 530) `def main()`
+
+## auto_regulation_working.py
+- Doc: Physio-Chimera v15 - Auto-Regulación Funcional (Working)
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 20) `class Config`
+  - `seed_everything` (method, line 28) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 38) `class DataEnvironment`
+  - `AutoRegulationSystem` (class, line 72) `class AutoRegulationSystem`
+  - `PhysioChimeraFixed` (class, line 103) `class PhysioChimeraFixed(Module)`
+  - `demo_auto_regulation` (method, line 193) `def demo_auto_regulation()`
+  - `__init__` (method, line 39) `def __init__(self)`
+  - `get_batch` (method, line 49) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 63) `def get_full(self)`
+  - `get_w2` (method, line 66) `def get_w2(self)`
+  - `__init__` (method, line 73) `def __init__(self, size)`
+  - `update` (method, line 78) `def update(self, input_variance, loss_gradient, phase)`
+  - `get_stability` (method, line 95) `def get_stability(self)`
+  - `__init__` (method, line 104) `def __init__(self, config)`
+  - `forward` (method, line 129) `def forward(self, x, global_step, phase, prev_loss)`
+
+## bicamera.py.py
+- Doc: %%writefile neurosoberano_bicameral_optimized.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k` (function, line 34) `def setup_flickr8k(data_dir)`
+  - `LiquidNeuron` (class, line 107) `class LiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 180) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 201) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 298) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameral` (class, line 313) `class NeuroLogosBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 334) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 404) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 443) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `LifeCycle` (class, line 466) `class LifeCycle`
+  - `train_bicameral` (method, line 481) `def train_bicameral()`
+  - `__init__` (method, line 108) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 125) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `consolidate_svd` (method, line 154) `def consolidate_svd(self, repair_strength, timescale)`
+  - `__init__` (method, line 181) `def __init__(self, output_dim)`
+  - `forward` (method, line 192) `def forward(self, image, plasticity, transfer_rate)`
+  - `__init__` (method, line 202) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 224) `def forward(self, visual_context, captions, max_len, return_gate)`
+  - `_get_init_state` (method, line 278) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 283) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 299) `def __init__(self, dim)`
+  - `forward` (method, line 307) `def forward(self, right_features)`
+  - `__init__` (method, line 314) `def __init__(self, vocab_size)`
+  - `forward` (method, line 320) `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+  - `__init__` (method, line 335) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 346) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 353) `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+  - `update` (method, line 357) `def update(self)`
+  - `get_recent_avg` (method, line 362) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 367) `def report(self, epoch)`
+  - `__init__` (method, line 405) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 423) `def __len__(self)`
+  - `__getitem__` (method, line 426) `def __getitem__(self, idx)`
+  - `__init__` (method, line 467) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 470) `def get_plasticity(self, epoch)`
+
+## bicameral.py
+- Doc: %%writefile neurologos_bicameral_fisiologico.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_all` (function, line 38) `def seed_all(seed)`
+  - `setup_flickr8k` (function, line 46) `def setup_flickr8k(data_dir)`
+  - `HomeostaticRegulator` (class, line 100) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 123) `class PhysioNeuron(Module)`
+  - `RightHemisphere` (class, line 164) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 199) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 276) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralFisiologico` (class, line 290) `class NeuroLogosBicameralFisiologico(Module)`
+  - `NeuralDiagnostics` (class, line 309) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 383) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 416) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `LifeCycle` (class, line 436) `class LifeCycle`
+  - `train_bicameral_fisiologico` (method, line 447) `def train_bicameral_fisiologico()`
+  - `__init__` (method, line 101) `def __init__(self)`
+  - `forward` (method, line 109) `def forward(self, stress, excitation, fatigue, entropy, phase, loss_signal)`
+  - `__init__` (method, line 124) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 138) `def forward(self, x, global_loss)`
+  - `__init__` (method, line 165) `def __init__(self, output_dim, num_nodes)`
+  - `forward` (method, line 178) `def forward(self, image, global_loss)`
+  - `__init__` (method, line 200) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 219) `def forward(self, visual_context, captions, max_len, return_gate)`
+  - `_get_init_state` (method, line 258) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 263) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 277) `def __init__(self, dim)`
+  - `forward` (method, line 284) `def forward(self, right_features)`
+  - `__init__` (method, line 291) `def __init__(self, vocab_size)`
+  - `forward` (method, line 297) `def forward(self, image, captions, global_loss, return_diagnostics)`
+  - `__init__` (method, line 310) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 326) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 333) `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+  - `update` (method, line 337) `def update(self)`
+  - `get_recent_avg` (method, line 342) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 347) `def report(self, epoch)`
+  - `__init__` (method, line 384) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 400) `def __len__(self)`
+  - `__getitem__` (method, line 403) `def __getitem__(self, idx)`
+  - `__init__` (method, line 437) `def __init__(self, total_epochs)`
+  - `get_global_loss_proxy` (method, line 440) `def get_global_loss_proxy(self, epoch)`
+
+## bicameral2.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k` (function, line 32) `def setup_flickr8k(data_dir)`
+  - `TinyVisualEncoder` (class, line 83) `class TinyVisualEncoder(Module)`
+  - `MinimalLiquidNeuron` (class, line 104) `class MinimalLiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 126) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 136) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 176) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameralUltra` (class, line 186) `class NeuroLogosBicameralUltra(Module)`
+  - `DemocraticDiagnostics` (class, line 206) `class DemocraticDiagnostics`
+  - `Flickr8kDataset` (class, line 246) `class Flickr8kDataset(Dataset)`
+  - `build_vocab` (method, line 274) `def build_vocab(captions_file, size)`
+  - `train_ultra` (method, line 290) `def train_ultra()`
+  - `__init__` (method, line 84) `def __init__(self, output_dim)`
+  - `forward` (method, line 98) `def forward(self, x)`
+  - `__init__` (method, line 105) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 113) `def forward(self, x)`
+  - `__init__` (method, line 127) `def __init__(self, output_dim)`
+  - `forward` (method, line 131) `def forward(self, x)`
+  - `__init__` (method, line 137) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 143) `def forward(self, visual_ctx, captions, max_len)`
+  - `__init__` (method, line 177) `def __init__(self, dim)`
+  - `forward` (method, line 180) `def forward(self, x)`
+  - `__init__` (method, line 187) `def __init__(self, vocab_size)`
+  - `forward` (method, line 192) `def forward(self, image, captions, return_diagnostics)`
+  - `__init__` (method, line 207) `def __init__(self)`
+  - `measure_flow` (method, line 212) `def measure_flow(self, r, l)`
+  - `vocab_diversity` (method, line 217) `def vocab_diversity(self, tokens, V)`
+  - `update` (method, line 219) `def update(self)`
+  - `avg` (method, line 223) `def avg(self, k, n)`
+  - `report` (method, line 226) `def report(self, epoch)`
+  - `__init__` (method, line 247) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 261) `def __len__(self)`
+  - `__getitem__` (method, line 262) `def __getitem__(self, idx)`
+
+## bicameral3.py
+- Doc: %%writefile neurosoberano_bicameral_optimized.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `setup_flickr8k` (function, line 34) `def setup_flickr8k(data_dir)`
+  - `LiquidNeuron` (class, line 107) `class LiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 180) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 201) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 298) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameral` (class, line 313) `class NeuroLogosBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 334) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 404) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 443) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `LifeCycle` (class, line 466) `class LifeCycle`
+  - `train_bicameral` (method, line 481) `def train_bicameral()`
+  - `__init__` (method, line 108) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 125) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `consolidate_svd` (method, line 154) `def consolidate_svd(self, repair_strength, timescale)`
+  - `__init__` (method, line 181) `def __init__(self, output_dim)`
+  - `forward` (method, line 192) `def forward(self, image, plasticity, transfer_rate)`
+  - `__init__` (method, line 202) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 224) `def forward(self, visual_context, captions, max_len, return_gate)`
+  - `_get_init_state` (method, line 278) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 283) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 299) `def __init__(self, dim)`
+  - `forward` (method, line 307) `def forward(self, right_features)`
+  - `__init__` (method, line 314) `def __init__(self, vocab_size)`
+  - `forward` (method, line 320) `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+  - `__init__` (method, line 335) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 346) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 353) `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+  - `update` (method, line 357) `def update(self)`
+  - `get_recent_avg` (method, line 362) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 367) `def report(self, epoch)`
+  - `__init__` (method, line 405) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 423) `def __len__(self)`
+  - `__getitem__` (method, line 426) `def __getitem__(self, idx)`
+  - `__init__` (method, line 467) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 470) `def get_plasticity(self, epoch)`
+
+## bicameral_v2.py
+- Doc: %%writefile neurosoberano_v2_FINAL.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `compute_phi_effective` (function, line 24) `def compute_phi_effective(activations, k_partitions)`
+  - `measure_spatial_richness` (function, line 52) `def measure_spatial_richness(activations)`
+  - `top_k_top_p_filtering` (function, line 98) `def top_k_top_p_filtering(logits, top_k, top_p, filter_value)`
+  - `BCMPlasticity` (class, line 117) `class BCMPlasticity(Module)`
+  - `LiquidNeuron` (class, line 134) `class LiquidNeuron(Module)`
+  - `ResidualBlock` (class, line 225) `class ResidualBlock(Module)`
+  - `VisualCortex` (class, line 244) `class VisualCortex(Module)`
+  - `SymbioticBasisRefinement` (class, line 280) `class SymbioticBasisRefinement(Module)`
+  - `AdaptiveCombinatorialComplexLayer` (class, line 300) `class AdaptiveCombinatorialComplexLayer(Module)`
+  - `GraphNeuralLayer` (class, line 311) `class GraphNeuralLayer(Module)`
+  - `create_grid_adjacency` (method, line 327) `def create_grid_adjacency(N, connectivity)`
+  - `RightHemisphere` (class, line 342) `class RightHemisphere(Module)`
+  - `MiniUnconscious` (class, line 406) `class MiniUnconscious(Module)`
+  - `NestedUnconscious` (class, line 423) `class NestedUnconscious(Module)`
+  - `TopologicalCompressor` (class, line 466) `class TopologicalCompressor(Module)`
+  - `ConsciousCore` (class, line 486) `class ConsciousCore(Module)`
+  - `LeftHemisphere` (class, line 543) `class LeftHemisphere(Module)`
+  - `BioDecoder` (class, line 558) `class BioDecoder(Module)`
+  - `ConsciousCore` (class, line 667) `class ConsciousCore(Module)`
+  - `HomeostasisEngine` (class, line 725) `class HomeostasisEngine(Module)`
+  - `BicameralHomeostasis` (class, line 741) `class BicameralHomeostasis(Module)`
+  - `ReplayMemory` (class, line 773) `class ReplayMemory(Module)`
+  - `CorpusCallosum` (class, line 817) `class CorpusCallosum(Module)`
+  - `NeuroLogos` (class, line 868) `class NeuroLogos(Module)`
+  - `LifeCycle` (class, line 956) `class LifeCycle`
+  - `CIFARCaptions` (class, line 974) `class CIFARCaptions`
+  - `estimate_coherence` (method, line 1012) `def estimate_coherence(sentence, templates_per_class)`
+  - `train_logos` (method, line 1026) `def train_logos(use_nested)`
+  - `__init__` (method, line 118) `def __init__(self, neurons, tau_theta)`
+  - `forward` (method, line 123) `def forward(self, activity, dt)`
+  - `__init__` (method, line 135) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 158) `def forward(self, x, global_plasticity, transfer_rate)`
+  - `consolidate_svd` (method, line 204) `def consolidate_svd(self, repair_strength, timescale)`
+  - `__init__` (method, line 226) `def __init__(self, in_channels, out_channels, stride)`
+  - `forward` (method, line 238) `def forward(self, x)`
+  - `__init__` (method, line 245) `def __init__(self, output_dim, grid_size)`
+  - `_make_layer` (method, line 259) `def _make_layer(self, in_channels, out_channels, num_blocks, stride)`
+  - `forward` (method, line 265) `def forward(self, x)`
+  - `__init__` (method, line 281) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 291) `def forward(self, x)`
+  - `__init__` (method, line 301) `def __init__(self, in_dim, hid_dim, num_nodes, config)`
+  - `forward` (method, line 307) `def forward(self, x, plasticity_gate)`
+  - `__init__` (method, line 312) `def __init__(self, dim, hidden_dim)`
+  - `forward` (method, line 322) `def forward(self, nodes, adjacency)`
+  - `__init__` (method, line 343) `def __init__(self, config)`
+  - `forward` (method, line 375) `def forward(self, image, adjacency, plasticity)`
+  - `__init__` (method, line 407) `def __init__(self)`
+  - `forward` (method, line 420) `def forward(self, x)`
+  - `__init__` (method, line 424) `def __init__(self, grid_size, output_dim)`
+  - `forward` (method, line 444) `def forward(self, x)`
+  - `__init__` (method, line 467) `def __init__(self, node_dim)`
+  - `forward` (method, line 476) `def forward(self, nodes, plasticity, transfer_rate)`
+  - `__init__` (method, line 487) `def __init__(self)`
+  - `forward` (method, line 499) `def forward(self, visual_features, plasticity, transfer_rate)`
+  - `get_liquid_module` (method, line 537) `def get_liquid_module(self)`
+  - `__init__` (method, line 544) `def __init__(self, use_nested)`
+  - `forward` (method, line 550) `def forward(self, image, callosal_input, plasticity, transfer_rate)`
+  - `__init__` (method, line 559) `def __init__(self, vocab_size, embed_dim, hidden_dim, visual_dim)`
+  - `forward` (method, line 578) `def forward(self, thought, visual_features, captions, max_len)`
+  - `_get_init_state` (method, line 659) `def _get_init_state(self, thought)`
+  - `__init__` (method, line 668) `def __init__(self)`
+  - `forward` (method, line 680) `def forward(self, visual_features, plasticity, transfer_rate)`
+  - `get_liquid_module` (method, line 718) `def get_liquid_module(self)`
+  - `__init__` (method, line 726) `def __init__(self)`
+  - `decide` (method, line 730) `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+  - `__init__` (method, line 742) `def __init__(self)`
+  - `decide` (method, line 751) `def decide(self, left_metrics, right_metrics, epoch, total_epochs)`
+  - `__init__` (method, line 774) `def __init__(self, capacity, noise_scale)`
+  - `store` (method, line 780) `def store(self, pattern)`
+  - `replay` (method, line 791) `def replay(self, batch_size)`
+  - `__init__` (method, line 818) `def __init__(self)`
+  - `forward` (method, line 824) `def forward(self, left_repr, right_repr, mode)`
+  - `__init__` (method, line 869) `def __init__(self, vocab_size, use_nested)`
+  - `forward` (method, line 895) `def forward(self, image, captions, plasticity, transfer_rate, mode, epoch)`
+  - `set_epoch` (method, line 950) `def set_epoch(self, epoch)`
+  - `__init__` (method, line 957) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 961) `def get_plasticity(self, epoch)`
+  - `__init__` (method, line 975) `def __init__(self)`
+  - `__len__` (method, line 999) `def __len__(self)`
+  - `__getitem__` (method, line 1002) `def __getitem__(self, idx)`
+
+
+Next: [KB_root_p4.md](KB_root_p4.md)
