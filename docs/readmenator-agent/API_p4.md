@@ -1,0 +1,468 @@
+# API (page 4 of 10)
+Previous: [API_p3.md](API_p3.md)
+
+## hope.py
+- `Config.setup_device` (method) `hope.py:41` `def setup_device()`
+- `Config.set_seed` (method) `hope.py:49` `def set_seed(seed)`
+- `RealWorldEnvironment.__init__` (method) `hope.py:64` `def __init__(self, seed)`
+- `RealWorldEnvironment.get_batch` (method) `hope.py:98` `def get_batch(self, phase, batch_size)` -- Obtener batch según la fase de entrenamiento
+- `RealWorldEnvironment.get_test_loader` (method) `hope.py:118` `def get_test_loader(self, batch_size)` -- Test loader completo
+- `HomeostaticRegulator.__init__` (method) `hope.py:130` `def __init__(self, d_model)`
+- `HomeostaticRegulator.forward` (method) `hope.py:140` `def forward(self, x, h_prev, w_norm)` -- Calcula controles homeostáticos basados en: - Estrés (varianza input) - Excitación (magnitud activación) - Fatiga...
+- `LiquidMemory.__init__` (method) `hope.py:175` `def __init__(self, d_model)`
+- `LiquidMemory.forward` (method) `hope.py:186` `def forward(self, x, physio)` -- Args: physio: Controles homeostáticos
+- `EfficientSelfModMemory.__init__` (method) `hope.py:210` `def __init__(self, d_model, hidden_dim)`
+- `EfficientSelfModMemory.forward` (method) `hope.py:236` `def forward(self, x)` -- Args: Returns: output, h_current
+- `ContinuumMemorySystem.__init__` (method) `hope.py:290` `def __init__(self, frequencies, d_model, hidden_dim)`
+- `ContinuumMemorySystem.forward` (method) `hope.py:304` `def forward(self, x, global_step)` -- Args: global_step: Paso global
+- `HopePhysioModel.__init__` (method) `hope.py:323` `def __init__(self, config, n_features, n_classes)`
+- `HopePhysioModel.reset_states` (method) `hope.py:361` `def reset_states(self)`
+- `HopePhysioModel.forward` (method) `hope.py:365` `def forward(self, x, global_step)` -- Args: x: (B, n_features) global_step: Paso global Returns: logits: (B, n_classes)
+- `HopePhysioModel.pgd_attack` (method) `hope.py:394` `def pgd_attack(model, x, y, epsilon, steps, device)` -- PGD adversarial attack - versión robusta
+- `AdversarialTrainer.__init__` (method) `hope.py:442` `def __init__(self, model, config, device)`
+- `AdversarialTrainer.train_step` (method) `hope.py:460` `def train_step(self, x, y, epsilon, global_step)` -- Un paso de entrenamiento con adversarial opcional
+- `AdversarialTrainer.evaluate` (method) `hope.py:490` `def evaluate(self, test_loader, epsilon)` -- Evaluación con ataque opcional
+- `AdversarialTrainer.run_real_world_experiment` (method) `hope.py:517` `def run_real_world_experiment(config, device)`
+- `AdversarialTrainer.run_ablation` (method) `hope.py:614` `def run_ablation(device)`
+
+## kimi.py
+- `PhysioState.pgd_attack` (method) `kimi.py:39` `def pgd_attack(model, x, y, eps, steps, alpha)` -- PGD-10 ataque con gradiente corregido para CPU
+- `SNE.__init__` (method) `kimi.py:66` `def __init__(self, enabled)`
+- `SNE.forward` (method) `kimi.py:75` `def forward(self, state, loss)`
+- `BCMRegulated.__init__` (method) `kimi.py:98` `def __init__(self, sne, ablated)`
+- `BCMRegulated.forward` (method) `kimi.py:104` `def forward(self, act)`
+- `LiquidRegulated.__init__` (method) `kimi.py:119` `def __init__(self, sne, ablated)`
+- `LiquidRegulated.forward` (method) `kimi.py:127` `def forward(self, x)`
+- `VisualCortexRegulated.__init__` (method) `kimi.py:146` `def __init__(self, sne, ablated)`
+- `VisualCortexRegulated.forward` (method) `kimi.py:155` `def forward(self, img)`
+- `MicroTopoBrainSNA.__init__` (method) `kimi.py:167` `def __init__(self, sne_enabled, ablated_organs)`
+- `MicroTopoBrainSNA.forward` (method) `kimi.py:175` `def forward(self, x)`
+- `Config.get_loader` (method) `kimi.py:191` `def get_loader()`
+- `Config.run_experiment` (method) `kimi.py:201` `def run_experiment(seed, sne_enabled, ablated_organs)` -- Ejecuta un experimento completo con una seed
+- `Config.scientific_ablation` (method) `kimi.py:256` `def scientific_ablation()` -- Ejecuta el estudio científico completo
+
+## legendario.py
+- `compute_phi_effective_approx` (function) `legendario.py:27` `def compute_phi_effective_approx(activity)` -- Cálculo ESTABLE de Φₑ usando PCA (proporción de varianza explicada) ¡Sin errores de dimensiones!
+- `compute_topological_metrics` (function) `legendario.py:60` `def compute_topological_metrics(weights)` -- Cálculo ESTABLE de métricas topológicas (optimizado para CPU)
+- `estimate_energy_consumption` (function) `legendario.py:89` `def estimate_energy_consumption(model, input_size)` -- Estimación conservadora de consumo energético para CPU
+- `OmniBrainModule.__init__` (method) `legendario.py:119` `def __init__(self, module_name, enabled)`
+- `OmniBrainModule.update_performance` (method) `legendario.py:125` `def update_performance(self, metrics)`
+- `PTSymmetricLayer.__init__` (method) `legendario.py:135` `def __init__(self, in_features, out_features)`
+- `PTSymmetricLayer.compute_pt_phase` (method) `legendario.py:144` `def compute_pt_phase(self)` -- Cálculo estable de fase PT sin números complejos
+- `PTSymmetricLayer.forward` (method) `legendario.py:152` `def forward(self, x, params)`
+- `TopologicalLayer.__init__` (method) `legendario.py:169` `def __init__(self, in_features, out_features)`
+- `TopologicalLayer.update_topology` (method) `legendario.py:176` `def update_topology(self, connectivity)` -- Actualizar máscara topológica basada en conectividad deseada
+- `TopologicalLayer.forward` (method) `legendario.py:183` `def forward(self, x, params)`
+- `DualMindModule.__init__` (method) `legendario.py:196` `def __init__(self, features)`
+- `DualMindModule.forward` (method) `legendario.py:211` `def forward(self, x, params)`
+- `ConsciousnessModule.__init__` (method) `legendario.py:227` `def __init__(self, features)`
+- `ConsciousnessModule.forward` (method) `legendario.py:232` `def forward(self, x, params)`
+- `OmniBrainCoordinator.__init__` (method) `legendario.py:248` `def __init__(self)`
+- `OmniBrainCoordinator.measure_network_state` (method) `legendario.py:251` `def measure_network_state(self, model, batch_data)` -- Mediciones ESTABLES para CPU
+- `OmniBrain.__init__` (method) `legendario.py:292` `def __init__(self, input_dim, hidden_dim, output_dim)`
+- `OmniBrain.forward` (method) `legendario.py:317` `def forward(self, x)`
+- `OmniBrain.train_omni_brain` (method) `legendario.py:340` `def train_omni_brain(model, epochs, batch_size, device)` -- Entrenamiento estable y rápido en CPU
+
+## legendario2.py
+- `MotorHomeostaticContext.update` (method) `legendario2.py:47` `def update(self, measurement, dt)` -- Actualiza el estado del motor homeostático
+- `PTSymmetricMotor.__init__` (method) `legendario2.py:66` `def __init__(self)`
+- `PTSymmetricMotor.regulate_parameters` (method) `legendario2.py:78` `def regulate_parameters(self, current_coherence, energy_level)` -- Regula parámetros para mantener PT-simetría
+- `TopologicalMotor.__init__` (method) `legendario2.py:102` `def __init__(self)`
+- `TopologicalMotor.regulate_connectivity` (method) `legendario2.py:112` `def regulate_connectivity(self, current_connectivity, clustering)` -- Regula conectividad para mantener estructura óptima
+- `EnergyHomeostaticMotor.__init__` (method) `legendario2.py:129` `def __init__(self)`
+- `EnergyHomeostaticMotor.regulate_energy` (method) `legendario2.py:139` `def regulate_energy(self, memory_usage, cpu_usage, temperature)` -- Regula parámetros para eficiencia energética
+- `ConsciousnessMotor.__init__` (method) `legendario2.py:159` `def __init__(self)`
+- `ConsciousnessMotor.regulate_consciousness` (method) `legendario2.py:168` `def regulate_consciousness(self, phi_effective, integration_level)` -- Regula parámetros para control de conciencia
+- `DualSystemMotor.__init__` (method) `legendario2.py:187` `def __init__(self)`
+- `DualSystemMotor.regulate_dual_systems` (method) `legendario2.py:197` `def regulate_dual_systems(self, unconscious_activity, conscious_activity)` -- Regula balance entre sistemas inconsciente y consciente
+- `AdaptiveLearningMotor.__init__` (method) `legendario2.py:215` `def __init__(self)`
+- `AdaptiveLearningMotor.regulate_learning` (method) `legendario2.py:224` `def regulate_learning(self, loss_reduction_rate, gradient_norm)` -- Regula parámetros de aprendizaje
+- `ModularActivationMotor.__init__` (method) `legendario2.py:243` `def __init__(self)`
+- `ModularActivationMotor.regulate_modules` (method) `legendario2.py:259` `def regulate_modules(self, task_complexity, resource_availability, performance)` -- Regula qué módulos están activos
+- `OmniBrainCoordinator.__init__` (method) `legendario2.py:294` `def __init__(self)`
+- `OmniBrainCoordinator.sense_environment` (method) `legendario2.py:312` `def sense_environment(self)` -- Sensa el estado actual del entorno
+- `OmniBrainCoordinator.simulate_network_state` (method) `legendario2.py:326` `def simulate_network_state(self)` -- Simula el estado de red sin hacer forward pass (evita conflictos de autograd)
+- `OmniBrainCoordinator.measure_network_state` (method) `legendario2.py:340` `def measure_network_state(self, model, batch_data)` -- Mide el estado actual de la red
+- `OmniBrainCoordinator.coordinate_all_motors` (method) `legendario2.py:377` `def coordinate_all_motors(self, environment_state, network_state)` -- Coordina todos los motores homeostáticos
+- `OmniBrainModule.__init__` (method) `legendario2.py:455` `def __init__(self, module_name, enabled)`
+- `OmniBrainModule.forward` (method) `legendario2.py:461` `def forward(self, x, params)`
+- `OmniBrainModule.update_performance` (method) `legendario2.py:464` `def update_performance(self, metrics)`
+- `PTSymmetricLayer.__init__` (method) `legendario2.py:470` `def __init__(self, in_features, out_features)`
+- `PTSymmetricLayer.forward` (method) `legendario2.py:477` `def forward(self, x, params)`
+- `TopologicalLayer.__init__` (method) `legendario2.py:503` `def __init__(self, in_features, out_features, sparsity_factor)`
+- `TopologicalLayer.forward` (method) `legendario2.py:539` `def forward(self, x, params)`
+- `DualMindModule.__init__` (method) `legendario2.py:560` `def __init__(self, features)`
+- `DualMindModule.forward` (method) `legendario2.py:585` `def forward(self, x, params)`
+- `ConsciousnessModule.__init__` (method) `legendario2.py:643` `def __init__(self, features)`
+- `ConsciousnessModule.compute_phi_effective` (method) `legendario2.py:657` `def compute_phi_effective(self, x)` -- Cálculo simplificado de Φₑ (integración efectiva)
+- `ConsciousnessModule.forward` (method) `legendario2.py:677` `def forward(self, x, params)`
+- `HomeostaticEngine.__init__` (method) `legendario2.py:704` `def __init__(self, target_performance)`
+- `HomeostaticEngine.regulate_homeostasis` (method) `legendario2.py:709` `def regulate_homeostasis(self, observed_performance)` -- Regula parámetros para homeostasis
+- `OmniBrain.__init__` (method) `legendario2.py:735` `def __init__(self, input_dim, hidden_dim, output_dim)`
+- `OmniBrain.reset_internal_states` (method) `legendario2.py:769` `def reset_internal_states(self)` -- Resetea todos los estados internos para evitar problemas de gradientes
+- `OmniBrain.prepare_for_inference` (method) `legendario2.py:803` `def prepare_for_inference(self)` -- Preparación específica para inferencia - reseteo completo
+- `OmniBrain.initialize_context` (method) `legendario2.py:820` `def initialize_context(self)` -- Inicializa el contexto del Omni Brain
+- `OmniBrain.forward` (method) `legendario2.py:834` `def forward(self, x)` -- Forward pass del Omni Brain con coordinación homeostática
+- `OmniBrain.get_status_report` (method) `legendario2.py:932` `def get_status_report(self)` -- Genera reporte de estado del Omni Brain
+- `OmniBrain.train_omni_brain` (method) `legendario2.py:967` `def train_omni_brain(model, epochs, batch_size)` -- Pipeline de entrenamiento para el Omni Brain
+
+## live_cl.py
+- `Config.to_dict` (method) `live_cl.py:62` `def to_dict(self)`
+- `Config.setup_logging` (method) `live_cl.py:69` `def setup_logging()` -- Professional logging configuration
+- `Config.set_seed` (method) `live_cl.py:84` `def set_seed(seed)` -- Ensure reproducibility
+- `Config.compute_integration_index` (method) `live_cl.py:99` `def compute_integration_index(activity)` -- Compute neural integration using SVD (Singular Value Decomposition) Returns value in [0, 1] representing degree of...
+- `FastSlowLinear.__init__` (method) `live_cl.py:138` `def __init__(self, in_features, out_features, config)`
+- `FastSlowLinear.reset_fast_weights` (method) `live_cl.py:156` `def reset_fast_weights(self)` -- Reset fast weights (memory purge)
+- `FastSlowLinear.update_fast_weights` (method) `live_cl.py:162` `def update_fast_weights(self, x, slow_out)` -- Hebbian learning update
+- `FastSlowLinear.forward` (method) `live_cl.py:189` `def forward(self, x)`
+- `FastSlowLinear.get_fast_norm` (method) `live_cl.py:202` `def get_fast_norm(self)`
+- `DualSystemModule.__init__` (method) `live_cl.py:211` `def __init__(self, dim, config)`
+- `DualSystemModule.forward` (method) `live_cl.py:223` `def forward(self, x)`
+- `IntegrationModule.__init__` (method) `live_cl.py:247` `def __init__(self, features, config)`
+- `IntegrationModule.forward` (method) `live_cl.py:260` `def forward(self, x)`
+- `OmniBrain.__init__` (method) `live_cl.py:283` `def __init__(self, config)`
+- `OmniBrain.forward` (method) `live_cl.py:318` `def forward(self, x)`
+- `OmniBrain.reset_all_fast_weights` (method) `live_cl.py:325` `def reset_all_fast_weights(self)` -- Reset all fast weights in the network
+- `OmniBrain.get_fast_norms` (method) `live_cl.py:331` `def get_fast_norms(self)` -- Collect fast weight norms for monitoring
+- `OmniBrain.get_ablation_state` (method) `live_cl.py:336` `def get_ablation_state(self)` -- Return current ablation configuration
+- `OmniBrain.get_data_loaders` (method) `live_cl.py:349` `def get_data_loaders(config)` -- Prepare CIFAR-10 data loaders with augmentation
+- `OmniBrain.evaluate` (method) `live_cl.py:393` `def evaluate(model, loader, device)` -- Comprehensive model evaluation
+- `OmniBrain.train` (method) `live_cl.py:430` `def train(config, silent)` -- Main training loop with comprehensive logging
+- `OmniBrain.run_ablation_study` (method) `live_cl.py:570` `def run_ablation_study(quick_test)` -- Comprehensive ablation study across different configurations
+
+## live_go.py
+- `Config.compute_integration_index` (method) `live_go.py:74` `def compute_integration_index(activity)` -- Calcula el orden dentro del caos neuronal mediante SVD.
+- `FastSlowLinear.__init__` (method) `live_go.py:98` `def __init__(self, in_features, out_features, config)`
+- `FastSlowLinear.reset_fast_weights` (method) `live_go.py:115` `def reset_fast_weights(self)`
+- `FastSlowLinear.forward` (method) `live_go.py:120` `def forward(self, x)`
+- `FastSlowLinear.get_fast_norm` (method) `live_go.py:140` `def get_fast_norm(self)`
+- `DualSystemModule.__init__` (method) `live_go.py:144` `def __init__(self, dim, config)`
+- `DualSystemModule.forward` (method) `live_go.py:155` `def forward(self, x)`
+- `IntegrationModule.__init__` (method) `live_go.py:168` `def __init__(self, features, config)`
+- `IntegrationModule.forward` (method) `live_go.py:176` `def forward(self, x)`
+- `OmniBrainGenesis.__init__` (method) `live_go.py:191` `def __init__(self, config)`
+- `OmniBrainGenesis.forward` (method) `live_go.py:215` `def forward(self, x)`
+- `OmniBrainGenesis.reset_all_fast_weights` (method) `live_go.py:222` `def reset_all_fast_weights(self)`
+- `OmniBrainGenesis.get_loaders` (method) `live_go.py:230` `def get_loaders(config)`
+- `OmniBrainGenesis.breathe_life` (method) `live_go.py:254` `def breathe_life(config)`
+- `OmniBrainGenesis.reset_seeds` (method) `live_go.py:353` `def reset_seeds()` -- Reinicia el determinismo para que cada variante juegue en igualdad de condiciones.
+- `OmniBrainGenesis.run_ablation_test` (method) `live_go.py:360` `def run_ablation_test(full_epochs)` -- Ejecuta el Juicio Final: Compara las diferentes configuraciones del cerebro.
+- `OmniBrainGenesis.train_engine_wrapper` (method) `live_go.py:425` `def train_engine_wrapper(config)` -- Versión simplificada de breathe_life para el test que retorna la precisión.
+
+## live_ki.py
+- `Config.compute_integration_index` (method) `live_ki.py:76` `def compute_integration_index(activity)` -- Mide el grado de orden en la actividad neural mediante SVD.
+- `FastSlowLinear.__init__` (method) `live_ki.py:104` `def __init__(self, in_features, out_features, config)`
+- `FastSlowLinear.reset_fast_weights` (method) `live_ki.py:124` `def reset_fast_weights(self)` -- Ritual de purificación - resetea memoria a corto plazo
+- `FastSlowLinear.update_fast_weights` (method) `live_ki.py:130` `def update_fast_weights(self, x, slow_out)` -- Ritual Hebbiano - solo ocurre si los dioses lo permiten
+- `FastSlowLinear.forward` (method) `live_ki.py:157` `def forward(self, x)`
+- `FastSlowLinear.get_fast_norm` (method) `live_ki.py:171` `def get_fast_norm(self)`
+- `DualSystemModule.__init__` (method) `live_ki.py:178` `def __init__(self, dim, config)`
+- `DualSystemModule.forward` (method) `live_ki.py:192` `def forward(self, x)`
+- `IntegrationModule.__init__` (method) `live_ki.py:212` `def __init__(self, features, config)`
+- `IntegrationModule.forward` (method) `live_ki.py:224` `def forward(self, x)`
+- `OmniBrainGenesis.__init__` (method) `live_ki.py:244` `def __init__(self, config)`
+- `OmniBrainGenesis.forward` (method) `live_ki.py:279` `def forward(self, x)`
+- `OmniBrainGenesis.reset_all_fast_weights` (method) `live_ki.py:286` `def reset_all_fast_weights(self)` -- Ritual de purificación global
+- `OmniBrainGenesis.get_fast_norms` (method) `live_ki.py:292` `def get_fast_norms(self)` -- Recopila energías de pesos rápidos
+- `OmniBrainGenesis.get_ablation_state` (method) `live_ki.py:296` `def get_ablation_state(self)` -- Estado de creación
+- `OmniBrainGenesis.get_cifar10_loaders` (method) `live_ki.py:308` `def get_cifar10_loaders(config)`
+- `OmniBrainGenesis.evaluate_ritual` (method) `live_ki.py:334` `def evaluate_ritual(model, loader, device)`
+- `OmniBrainGenesis.train_genesis` (method) `live_ki.py:366` `def train_genesis(config)`
+- `OmniBrainGenesis.explore_realities` (method) `live_ki.py:499` `def explore_realities()` -- Explora múltiples configuraciones del universo neural
+
+## live_qw.py
+- `FastSlowLinear.__init__` (method) `live_qw.py:66` `def __init__(self, in_features, out_features, config)`
+- `FastSlowLinear.reset_fast_weights` (method) `live_qw.py:83` `def reset_fast_weights(self)`
+- `FastSlowLinear.update_fast_weights` (method) `live_qw.py:88` `def update_fast_weights(self, x, slow_out)`
+- `FastSlowLinear.forward` (method) `live_qw.py:106` `def forward(self, x)`
+- `FastSlowLinear.get_fast_norm` (method) `live_qw.py:118` `def get_fast_norm(self)`
+- `DualSystemModule.__init__` (method) `live_qw.py:123` `def __init__(self, dim, config)`
+- `DualSystemModule.forward` (method) `live_qw.py:133` `def forward(self, x)`
+- `IntegrationModule.__init__` (method) `live_qw.py:147` `def __init__(self, features, config)`
+- `IntegrationModule.forward` (method) `live_qw.py:158` `def forward(self, x)`
+- `IntegrationModule.compute_integration_index` (method) `live_qw.py:171` `def compute_integration_index(activity)`
+- `OmniBrainFastSlow.__init__` (method) `live_qw.py:192` `def __init__(self, config)`
+- `OmniBrainFastSlow.forward` (method) `live_qw.py:217` `def forward(self, x)`
+- `OmniBrainFastSlow.reset_all_fast_weights` (method) `live_qw.py:224` `def reset_all_fast_weights(self)`
+- `OmniBrainFastSlow.get_fast_norms` (method) `live_qw.py:229` `def get_fast_norms(self)`
+- `OmniBrainFastSlow.get_ablation_state` (method) `live_qw.py:232` `def get_ablation_state(self)`
+- `OmniBrainFastSlow.get_cifar10_loaders` (method) `live_qw.py:244` `def get_cifar10_loaders(config)`
+- `OmniBrainFastSlow.evaluate_full` (method) `live_qw.py:265` `def evaluate_full(model, loader, device)`
+- `OmniBrainFastSlow.train` (method) `live_qw.py:286` `def train(config)`
+
+## lol.py
+- `setup_flickr8k` (function) `lol.py:34` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `LiquidNeuron.__init__` (method) `lol.py:108` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `lol.py:125` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `lol.py:154` `def consolidate_svd(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `lol.py:181` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `lol.py:192` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphere.__init__` (method) `lol.py:202` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `lol.py:224` `def forward(self, visual_context, captions, max_len, return_gate)`
+- `CorpusCallosum.__init__` (method) `lol.py:299` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `lol.py:307` `def forward(self, right_features)`
+- `NeuroLogosBicameral.__init__` (method) `lol.py:314` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `lol.py:320` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+- `NeuralDiagnostics.__init__` (method) `lol.py:335` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `lol.py:346` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `lol.py:353` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `lol.py:357` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `lol.py:362` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `lol.py:367` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `lol.py:405` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `lol.py:443` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `lol.py:467` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `lol.py:470` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `lol.py:481` `def train_bicameral()`
+
+## main.py
+- `PhysicalValidator.validate_dimension` (method) `main.py:62` `def validate_dimension(alpha)` -- α ∈ (0,1) por definición de dimensión fractal
+- `PhysicalValidator.validate_pt_symmetry` (method) `main.py:68` `def validate_pt_symmetry(kappa, Omega, chi)` -- Verificar κ/Ω < χ/Ω < 1 para PT-simetría
+- `PhysicalValidator.validate_connectome_size` (method) `main.py:79` `def validate_connectome_size(n_nodes)` -- Límite inferior para conectoma biológico
+- `QuantumLeaf.spectral_density` (method) `main.py:106` `def spectral_density(self, omega)` -- Densidad espectral continua ρ(ω) para álgebra tipo III₁.
+- `QuantumLeaf.modular_entropy` (method) `main.py:114` `def modular_entropy(self)` -- Entropía modular S = ∫ ρ(ω)logρ(ω) dω (aproximada numéricamente)
+- `QuantumLeaf.bures_distance` (method) `main.py:121` `def bures_distance(self, other)`
+- `RESMAUniverse.__init__` (method) `main.py:150` `def __init__(self, n_leaves, seed)` -- Args: n_leaves: Número de hojas (target: 1e5 en Colab con mean-field) seed: Reproducibilidad (Pilar 4)
+- `BranchingOperator.__init__` (method) `main.py:226` `def __init__(self, leaf, threshold)`
+- `BranchingOperator.apply_branching` (method) `main.py:255` `def apply_branching(self, state_vector)` -- Aplicar canal CPTP a vector de estado local (dim=2)
+- `EmunaOperator.__init__` (method) `main.py:276` `def __init__(self, universe, n_samples)`
+- `EmunaOperator.project` (method) `main.py:310` `def project(self, state_vector)` -- P̂_E = P_E ∘ Φ_E (composición no lineal) - ROBUSTO CONTRA COLAPSO
+- `LindbladFractalDynamics.__init__` (method) `main.py:356` `def __init__(self, universe, emuna)`
+- `LindbladFractalDynamics.evolve` (method) `main.py:389` `def evolve(self, rho0, t_span, n_steps)` -- Integración SDE con Euler-Maruyama.
+- `MyelinCavity.coherence_quantum` (method) `main.py:462` `def coherence_quantum(self)` -- Discordia cuántica aproximada (ejemplo: estado separable → 0)
+- `NeuralNetworkRESMA.__init__` (method) `main.py:487` `def __init__(self, n_nodes, seed)`
+- `NeuralNetworkRESMA.critical_percolation_time` (method) `main.py:562` `def critical_percolation_time(self)` -- t_c = log⟨k⟩ / log R_Q * (N/N₀)^0.25 Pilar 1: Basado en organoides corticales (Quadrato et al., Cell 2017)
+- `NeuralNetworkRESMA.is_coherent_subgraph` (method) `main.py:574` `def is_coherent_subgraph(self, subgraph_nodes)` -- Verificar coherencia: subgrafo > 70% del total
+- `FreedomInvariant.__init__` (method) `main.py:588` `def __init__(self, network, universe)`
+- `FreedomInvariant.compute_entropy_gap` (method) `main.py:592` `def compute_entropy_gap(self)` -- Δ_S* = ε_c en punto excepcional
+- `FreedomInvariant.compute_pontryagin_number` (method) `main.py:596` `def compute_pontryagin_number(self)` -- S_top[G] = χ(G)/|V| (número de Euler normalizado)
+- `FreedomInvariant.compute_freedom` (method) `main.py:607` `def compute_freedom(self)` -- L[G] = Δ_S* / S_top[G]
+- `FreedomInvariant.is_gauge_invariant` (method) `main.py:618` `def is_gauge_invariant(self)` -- |L[G] - 1| < 0.05 en estado crítico
+- `NullModels.ising_quantum` (method) `main.py:635` `def ising_quantum(network)` -- Modelo de Ising cuántico transversal en red fractal.
+- `NullModels.syk4` (method) `main.py:654` `def syk4(network)` -- SYK₄ estándar (sin R-simetría Spin(7)).
+- `NullModels.random_network` (method) `main.py:670` `def random_network(network)` -- Red aleatoria Erdős-Rényi sin percolación cuántica.
+- `ExperimentalPredictions.__init__` (method) `main.py:692` `def __init__(self, resma, myelin, network)`
+- `ExperimentalPredictions.predict_all` (method) `main.py:699` `def predict_all(self)` -- Predicciones RESMA 3.0
+- `ExperimentalPredictions.compute_bayes_factor` (method) `main.py:715` `def compute_bayes_factor(self)` -- BF = exp(ΔAIC/2) donde AIC = 2k - 2ln(L) k = número de parámetros RESMA = 5 (α, β, γ, L_E8, g_coupling)
+- `ExperimentalPredictions.simulate_resma_multiverse` (method) `main.py:764` `def simulate_resma_multiverse(n_leaves, n_nodes, seed)` -- Pipeline completo RESMA 3.0 con verificaciones de integridad.
+
+## main2.py
+- `PhysicalValidator.validate_dimension` (method) `main2.py:63` `def validate_dimension(alpha)` -- α ∈ (0,1) por definición de dimensión fractal
+- `PhysicalValidator.validate_pt_symmetry` (method) `main2.py:69` `def validate_pt_symmetry(kappa, Omega, chi)` -- Verificar κ/Ω < χ/Ω < 1 para PT-simetría
+- `PhysicalValidator.validate_connectome_size` (method) `main2.py:80` `def validate_connectome_size(n_nodes)` -- Límite inferior para conectoma biológico
+- `QuantumLeaf.spectral_density` (method) `main2.py:106` `def spectral_density(self, omega)` -- Densidad espectral continua ρ(ω) para álgebra tipo III₁.
+- `QuantumLeaf.modular_entropy` (method) `main2.py:114` `def modular_entropy(self)` -- Entropía modular S = ∫ ρ(ω)logρ(ω) dω (aproximada numéricamente)
+- `QuantumLeaf.bures_distance` (method) `main2.py:121` `def bures_distance(self, other)`
+- `RESMAUniverse.__init__` (method) `main2.py:150` `def __init__(self, n_leaves, seed)` -- Args: n_leaves: Número de hojas (target: 1e5 en Colab con mean-field) seed: Reproducibilidad (Pilar 4)
+- `BranchingOperator.__init__` (method) `main2.py:225` `def __init__(self, leaf, threshold)`
+- `BranchingOperator.apply_branching` (method) `main2.py:254` `def apply_branching(self, state_vector)` -- Aplicar canal CPTP a vector de estado local (dim=2)
+- `EmunaOperator.__init__` (method) `main2.py:275` `def __init__(self, universe, n_samples)`
+- `EmunaOperator.project` (method) `main2.py:309` `def project(self, state_vector)` -- P̂_E = P_E ∘ Φ_E (composición no lineal) - ROBUSTO CONTRA COLAPSO
+- `LindbladFractalDynamics.__init__` (method) `main2.py:355` `def __init__(self, universe, emuna)`
+- `LindbladFractalDynamics.evolve` (method) `main2.py:388` `def evolve(self, rho0, t_span, n_steps)` -- Integración SDE con Euler-Maruyama.
+- `MyelinCavity.coherence_quantum` (method) `main2.py:461` `def coherence_quantum(self)` -- Discordia cuántica aproximada (ejemplo: estado separable → 0)
+- `NeuralNetworkRESMA.__init__` (method) `main2.py:486` `def __init__(self, n_nodes, seed)`
+- `NeuralNetworkRESMA.critical_percolation_time` (method) `main2.py:561` `def critical_percolation_time(self)` -- t_c = log⟨k⟩ / log R_Q * (N/N₀)^0.25 Pilar 1: Basado en organoides corticales (Quadrato et al., Cell 2017)
+- `NeuralNetworkRESMA.is_coherent_subgraph` (method) `main2.py:573` `def is_coherent_subgraph(self, subgraph_nodes)` -- Verificar coherencia: subgrafo > 70% del total
+- `FreedomInvariant.__init__` (method) `main2.py:587` `def __init__(self, network, universe)`
+- `FreedomInvariant.compute_entropy_gap` (method) `main2.py:591` `def compute_entropy_gap(self)` -- Δ_S* = ε_c en punto excepcional
+- `FreedomInvariant.compute_pontryagin_number` (method) `main2.py:595` `def compute_pontryagin_number(self)` -- S_top[G] = χ(G)/|V| (número de Euler normalizado)
+- `FreedomInvariant.compute_freedom` (method) `main2.py:606` `def compute_freedom(self)` -- L[G] = Δ_S* / S_top[G]
+- `FreedomInvariant.is_gauge_invariant` (method) `main2.py:617` `def is_gauge_invariant(self)` -- |L[G] - 1| < 0.05 en estado crítico
+- `NullModels.ising_quantum` (method) `main2.py:634` `def ising_quantum(network)` -- Modelo de Ising cuántico transversal en red fractal.
+- `NullModels.syk4` (method) `main2.py:653` `def syk4(network)` -- SYK₄ estándar (sin R-simetría Spin(7)).
+- `NullModels.random_network` (method) `main2.py:669` `def random_network(network)` -- Red aleatoria Erdős-Rényi sin percolación cuántica.
+- `ExperimentalPredictions.__init__` (method) `main2.py:691` `def __init__(self, resma, myelin, network)`
+- `ExperimentalPredictions.predict_all` (method) `main2.py:698` `def predict_all(self)` -- Predicciones RESMA 3.0
+- `ExperimentalPredictions.compute_bayes_factor` (method) `main2.py:713` `def compute_bayes_factor(self)` -- BF = exp(ΔAIC/2) donde AIC = 2k - 2ln(L) k = número de parámetros RESMA = 5 (α, β, γ, L_E8, g_coupling)
+- `ExperimentalPredictions.simulate_resma_multiverse` (method) `main2.py:763` `def simulate_resma_multiverse(n_leaves, n_nodes, seed)` -- Pipeline completo RESMA 3.0 con verificaciones de integridad.
+
+## main3.py
+- `Validator.dim` (method) `main3.py:52` `def dim(a)`
+- `Validator.pt` (method) `main3.py:56` `def pt(k, o, c)`
+- `Validator.size` (method) `main3.py:59` `def size(n)`
+- `QuantumLeaf.spectral_density` (method) `main3.py:78` `def spectral_density(self, w)`
+- `QuantumLeaf.modular_entropy` (method) `main3.py:81` `def modular_entropy(self)`
+- `QuantumLeaf.bures_distance` (method) `main3.py:87` `def bures_distance(self, other)`
+- `Universe.__init__` (method) `main3.py:102` `def __init__(self, n_leaves, seed)`
+- `Network.__init__` (method) `main3.py:130` `def __init__(self, n_nodes, seed)`
+- `Network.t_c` (method) `main3.py:163` `def t_c(self)`
+- `MyelinCavity.__init__` (method) `main3.py:172` `def __init__(self, n_modes)`
+- `MyelinCavity.coherence_quantum` (method) `main3.py:192` `def coherence_quantum(self)`
+- `Bayes.__init__` (method) `main3.py:206` `def __init__(self, pred_resma, nulls)`
+- `Bayes.log_lik` (method) `main3.py:210` `def log_lik(self, model_pred)`
+- `Bayes.bf` (method) `main3.py:217` `def bf(self)`
+- `Bayes.simulate` (method) `main3.py:233` `def simulate(n_leaves, n_nodes, seed)`
+
+## main4.1.py
+- `RC.verify_pt_condition` (method) `main4.1.py:50` `def verify_pt_condition(cls)` -- Verifica que kappa < chi*Omega para simetría PT
+- `Validator.dim` (method) `main4.1.py:63` `def dim(a)`
+- `Validator.pt` (method) `main4.1.py:68` `def pt(k, o, c)` -- Condición PT: kappa < chi*Omega
+- `Validator.size` (method) `main4.1.py:73` `def size(n)`
+- `QuantumLeaf.spectral_density` (method) `main4.1.py:92` `def spectral_density(self, w)`
+- `QuantumLeaf.modular_entropy` (method) `main4.1.py:95` `def modular_entropy(self)`
+- `QuantumLeaf.bures_distance` (method) `main4.1.py:104` `def bures_distance(self, other)`
+- `Universe.__init__` (method) `main4.1.py:124` `def __init__(self, n_leaves, seed)`
+- `Network.__init__` (method) `main4.1.py:153` `def __init__(self, n_nodes, seed)`
+- `Network.t_c` (method) `main4.1.py:218` `def t_c(self)` -- Tiempo crítico de percolación
+- `MyelinCavity.__init__` (method) `main4.1.py:230` `def __init__(self, n_modes)`
+- `MyelinCavity.coherence_quantum` (method) `main4.1.py:251` `def coherence_quantum(self)`
+- `Bayes.__init__` (method) `main4.1.py:269` `def __init__(self, pred_resma, nulls)`
+- `Bayes.log_lik` (method) `main4.1.py:273` `def log_lik(self, model_pred)` -- Verosimilitud con escalas físicas realistas
+- `Bayes.ln_bf` (method) `main4.1.py:288` `def ln_bf(self)` -- Factor de Bayes con penalización de complejidad
+- `Bayes.simulate` (method) `main4.1.py:307` `def simulate(n_leaves, n_nodes, seed)`
+
+## main4.py.py
+- `Validator.dim` (method) `main4.py.py:52` `def dim(a)`
+- `Validator.pt` (method) `main4.py.py:56` `def pt(k, o, c)`
+- `Validator.size` (method) `main4.py.py:60` `def size(n)`
+- `QuantumLeaf.spectral_density` (method) `main4.py.py:79` `def spectral_density(self, w)`
+- `QuantumLeaf.modular_entropy` (method) `main4.py.py:82` `def modular_entropy(self)`
+- `QuantumLeaf.bures_distance` (method) `main4.py.py:88` `def bures_distance(self, other)`
+- `Universe.__init__` (method) `main4.py.py:103` `def __init__(self, n_leaves, seed)`
+- `Network.__init__` (method) `main4.py.py:131` `def __init__(self, n_nodes, seed)`
+- `Network.t_c` (method) `main4.py.py:190` `def t_c(self)`
+- `MyelinCavity.__init__` (method) `main4.py.py:199` `def __init__(self, n_modes)`
+- `MyelinCavity.coherence_quantum` (method) `main4.py.py:219` `def coherence_quantum(self)`
+- `Bayes.__init__` (method) `main4.py.py:233` `def __init__(self, pred_resma, nulls)`
+- `Bayes.log_lik` (method) `main4.py.py:237` `def log_lik(self, model_pred)`
+- `Bayes.ln_bf` (method) `main4.py.py:244` `def ln_bf(self)`
+- `Bayes.simulate` (method) `main4.py.py:260` `def simulate(n_leaves, n_nodes, seed)`
+
+## main5.py
+- `PhysicalValidator.validate_dimension` (method) `main5.py:74` `def validate_dimension(alpha, tolerance)` -- α ∈ (0,1) por definición de dimensión fractal, con tolerancia experimental
+- `PhysicalValidator.validate_pt_symmetry` (method) `main5.py:84` `def validate_pt_symmetry(kappa, Omega, chi)` -- Verificar κ/Ω < χ/Ω < 1 para PT-simetría (corregido con factor de seguridad)
+- `PhysicalValidator.validate_connectome_size` (method) `main5.py:95` `def validate_connectome_size(n_nodes)` -- Límite inferior para conectoma biológico realista
+- `PhysicalValidator.validate_spectral_dimension` (method) `main5.py:101` `def validate_spectral_dimension(dim)` -- Validar rango físico para dimensión espectral
+- `PhysicalValidator.validate_percolation_time` (method) `main5.py:106` `def validate_percolation_time(t_c, expected, tolerance)` -- Validar tiempo de percolación contra predicción empírica
+- `QuantumLeaf.spectral_density` (method) `main5.py:133` `def spectral_density(self, omega)` -- Densidad espectral continua ρ(ω) para álgebra tipo III₁ con regularización UV.
+- `QuantumLeaf.modular_entropy` (method) `main5.py:143` `def modular_entropy(self)` -- Entropía modular S = ∫ ρ(ω)logρ(ω) dω con regularización
+- `QuantumLeaf.bures_distance` (method) `main5.py:151` `def bures_distance(self, other)`
+- `QuantumLeaf.haagerup_weight` (method) `main5.py:170` `def haagerup_weight(self)` -- Peso de Haagerup para regularización del operador modular
+- `RESMAUniverse.__init__` (method) `main5.py:185` `def __init__(self, n_leaves, seed)` -- Args: n_leaves: Número de hojas (target: 1e5 en Colab con mean-field) seed: Reproducibilidad (Pilar 4)
+- `RESMAUniverse.compute_gibbs_free_energy` (method) `main5.py:251` `def compute_gibbs_free_energy(self)` -- Energía libre de Gibbs para validación termodinámica
+- `BranchingOperator.__init__` (method) `main5.py:266` `def __init__(self, leaf, threshold)`
+- `BranchingOperator.apply_branching` (method) `main5.py:300` `def apply_branching(self, state_vector)` -- Aplicar canal CPTP a vector de estado local (dim=2) con normalización
+- `EmunaOperator.__init__` (method) `main5.py:324` `def __init__(self, universe, n_samples)`
+- `EmunaOperator.project` (method) `main5.py:361` `def project(self, state_vector)` -- P̂_E = P_E ∘ Φ_E (composición no lineal) - ROBUSTO CONTRA COLAPSO
+- `EmunaOperator.compute_teleological_overlap` (method) `main5.py:396` `def compute_teleological_overlap(self)` -- Calcular overlap teleológico con estado objetivo
+- `LindbladFractalDynamics.__init__` (method) `main5.py:412` `def __init__(self, universe, emuna)`
+- `LindbladFractalDynamics.evolve` (method) `main5.py:459` `def evolve(self, rho0, t_span, n_steps)` -- Integración SDE con Euler-Maruyama y control de paso adaptativo.
+- `MyelinCavity.coherence_quantum` (method) `main5.py:579` `def coherence_quantum(self)` -- Discordia cuántica aproximada con corrección PT
+- `NeuralNetworkRESMA.__init__` (method) `main5.py:610` `def __init__(self, n_nodes, seed)`
+- `NeuralNetworkRESMA.critical_percolation_time` (method) `main5.py:735` `def critical_percolation_time(self)` -- t_c = log⟨k⟩ / log R_Q * (N/N₀)^0.25 Pilar 1: Basado en organoides corticales (Quadrato et al., Cell 2017)
+- `NeuralNetworkRESMA.is_coherent_subgraph` (method) `main5.py:747` `def is_coherent_subgraph(self, subgraph_nodes)` -- Verificar coherencia: subgrafo > 70% del total
+- `NeuralNetworkRESMA.compute_network_entropy` (method) `main5.py:751` `def compute_network_entropy(self)` -- Entropía de la red basada en distribución de grados
+- `FreedomInvariant.__init__` (method) `main5.py:768` `def __init__(self, network, universe)`
+- `FreedomInvariant.compute_entropy_gap` (method) `main5.py:772` `def compute_entropy_gap(self)` -- Δ_S* = ε_c en punto excepcional con corrección de regularización
+- `FreedomInvariant.compute_pontryagin_number` (method) `main5.py:776` `def compute_pontryagin_number(self)` -- S_top[G] = χ(G)/|V| (número de Euler normalizado)
+- `FreedomInvariant.compute_freedom` (method) `main5.py:792` `def compute_freedom(self)` -- L[G] = Δ_S* / S_top[G] con protección de división por cero
+- `FreedomInvariant.is_gauge_invariant` (method) `main5.py:803` `def is_gauge_invariant(self)` -- |L[G] - 1| < 0.05 en estado crítico (invariante de libertad)
+- `NullModels.ising_quantum` (method) `main5.py:823` `def ising_quantum(network)` -- Modelo de Ising cuántico transversal en red fractal.
+- `NullModels.syk4` (method) `main5.py:843` `def syk4(network)` -- SYK₄ estándar (sin R-simetría Spin(7) ni E₈).
+- `NullModels.random_network` (method) `main5.py:860` `def random_network(network)` -- Red aleatoria Erdős-Rényi sin percolación cuántica ni estructura.
+- `ExperimentalPredictions.__init__` (method) `main5.py:883` `def __init__(self, resma, myelin, network, freedom)`
+- `ExperimentalPredictions.predict_all` (method) `main5.py:891` `def predict_all(self)` -- Predicciones RESMA 4.0 con valores empíricos objetivo
+- `ExperimentalPredictions.compute_log_bayes_factor` (method) `main5.py:912` `def compute_log_bayes_factor(self)` -- log(BF) = ΔAIC/2 donde AIC = 2k - 2ln(L) FIX RESMA 4.0: Usar espacio logarítmico para evitar desbordamiento.
+- `EmpiricalValidationProtocol.__init__` (method) `main5.py:981` `def __init__(self, predictions)`
+- `EmpiricalValidationProtocol.evaluate_feasibility` (method) `main5.py:1014` `def evaluate_feasibility(self, budget, time_limit)` -- Evaluar viabilidad del protocolo completo
+- `EmpiricalValidationProtocol.simulate_experimental_outcome` (method) `main5.py:1027` `def simulate_experimental_outcome(self, protocol_name)` -- Simular resultado experimental con ruido realista
+- `EmpiricalValidationProtocol.simulate_resma_multiverse` (method) `main5.py:1052` `def simulate_resma_multiverse(n_leaves, n_nodes, seed, validate_empirical)` -- Pipeline completo RESMA 4.0 con verificaciones de integridad y protocolo de validación.
+
+## microbi.py.py
+- `EpistemicCuriosityCPU.__init__` (method) `microbi.py.py:38` `def __init__(self, feature_dim, hidden_dim)`
+- `EpistemicCuriosityCPU.compute_intrinsic_reward` (method) `microbi.py.py:55` `def compute_intrinsic_reward(self, state, action, next_state)`
+- `EpistemicCuriosityCPU.update` (method) `microbi.py.py:71` `def update(self, state, action, next_state)`
+- `LiquidNeuronCPU.__init__` (method) `microbi.py.py:92` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuronCPU.forward` (method) `microbi.py.py:117` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuronCPU.consolidate_svd` (method) `microbi.py.py:168` `def consolidate_svd(self, repair_strength, timescale)`
+- `BicameralAttentionCPU.__init__` (method) `microbi.py.py:196` `def __init__(self, dim, num_heads)`
+- `BicameralAttentionCPU.forward` (method) `microbi.py.py:211` `def forward(self, x, mask)`
+- `RightHemisphereCPU.__init__` (method) `microbi.py.py:249` `def __init__(self, output_dim)`
+- `RightHemisphereCPU.forward` (method) `microbi.py.py:285` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphereCPU.__init__` (method) `microbi.py.py:309` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphereCPU.forward` (method) `microbi.py.py:338` `def forward(self, visual_context, captions, max_len, return_diagnostics, temperature, exploration_bonus)`
+- `CorpusCallosumCPU.__init__` (method) `microbi.py.py:437` `def __init__(self, dim)`
+- `CorpusCallosumCPU.forward` (method) `microbi.py.py:456` `def forward(self, right_features)`
+- `NeuroLogosBicameralCPU.__init__` (method) `microbi.py.py:474` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralCPU.forward` (method) `microbi.py.py:480` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature, exploration_bonus)`
+- `NeuralDiagnosticsCPU.__init__` (method) `microbi.py.py:514` `def __init__(self)`
+- `NeuralDiagnosticsCPU.measure_callosal_flow` (method) `microbi.py.py:523` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnosticsCPU.measure_vocab_diversity` (method) `microbi.py.py:530` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnosticsCPU.update` (method) `microbi.py.py:548` `def update(self)`
+- `NeuralDiagnosticsCPU.get_recent_avg` (method) `microbi.py.py:553` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnosticsCPU.report` (method) `microbi.py.py:560` `def report(self, epoch)`
+- `CurriculumSchedulerCPU.__init__` (method) `microbi.py.py:603` `def __init__(self, total_epochs)`
+- `CurriculumSchedulerCPU.get_phase` (method) `microbi.py.py:611` `def get_phase(self, epoch)`
+- `CurriculumSchedulerCPU.get_plasticity` (method) `microbi.py.py:617` `def get_plasticity(self, epoch)`
+- `CurriculumSchedulerCPU.get_exploration_bonus` (method) `microbi.py.py:627` `def get_exploration_bonus(self, epoch)`
+- `CurriculumSchedulerCPU.get_temperature` (method) `microbi.py.py:636` `def get_temperature(self, epoch)`
+- `CurriculumSchedulerCPU.should_consolidate` (method) `microbi.py.py:646` `def should_consolidate(self, epoch)`
+- `CurriculumSchedulerCPU.build_vocab_flickr` (method) `microbi.py.py:650` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDatasetCPU.__init__` (method) `microbi.py.py:672` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDatasetCPU.setup_flickr8k_cpu` (method) `microbi.py.py:721` `def setup_flickr8k_cpu(data_dir)` -- Descarga Flickr8k automáticamente (igual que la versión original)
+- `Flickr8kDatasetCPU.train_bicameral_cpu` (method) `microbi.py.py:801` `def train_bicameral_cpu()`
+- `Flickr8kDatasetCPU.nan_hook` (method) `microbi.py.py:880` `def nan_hook(module, grad_input, grad_output)`
+
+## minibi.py
+- `setup_flickr8k` (function) `minibi.py:35` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `build_vocab_flickr` (function) `minibi.py:104` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.__init__` (method) `minibi.py:125` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `LiquidNeuron.__init__` (method) `minibi.py:168` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `minibi.py:185` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `minibi.py:219` `def consolidate_svd(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `minibi.py:251` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `minibi.py:268` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphere.__init__` (method) `minibi.py:283` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `minibi.py:305` `def forward(self, visual_context, captions, max_len, return_gate, temperature)`
+- `CorpusCallosum.__init__` (method) `minibi.py:383` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `minibi.py:392` `def forward(self, right_features)`
+- `NeuroLogosBicameral.__init__` (method) `minibi.py:404` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `minibi.py:410` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature)`
+- `NeuralDiagnostics.__init__` (method) `minibi.py:421` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `minibi.py:432` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `minibi.py:439` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `minibi.py:443` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `minibi.py:448` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `minibi.py:455` `def report(self, epoch)`
+- `NeuralDiagnostics.build_vocab` (method) `minibi.py:490` `def build_vocab(ann_file, vocab_size)` -- Construir vocabulario desde annotations de COCO
+- `LifeCycle.__init__` (method) `minibi.py:519` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `minibi.py:522` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `minibi.py:536` `def train_bicameral()`
+
+## minibi2.py
+- `EpistemicCuriosity.__init__` (method) `minibi2.py:41` `def __init__(self, feature_dim, hidden_dim)`
+- `EpistemicCuriosity.compute_intrinsic_reward` (method) `minibi2.py:60` `def compute_intrinsic_reward(self, state, action, next_state)` -- Recompensa intrínseca = error de predicción del forward model Incentiva explorar tokens que son difíciles de predecir
+- `EpistemicCuriosity.update` (method) `minibi2.py:83` `def update(self, state, action, next_state)` -- Entrena los modelos de curiosidad
+- `LiquidNeuronV2.__init__` (method) `minibi2.py:108` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuronV2.forward` (method) `minibi2.py:137` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuronV2.consolidate_svd` (method) `minibi2.py:185` `def consolidate_svd(self, repair_strength, timescale)`
+- `BicameralAttention.__init__` (method) `minibi2.py:218` `def __init__(self, dim, num_heads)`
+- `BicameralAttention.forward` (method) `minibi2.py:236` `def forward(self, x, mask)`
+- `RightHemisphereV2.__init__` (method) `minibi2.py:286` `def __init__(self, output_dim)`
+- `RightHemisphereV2.forward` (method) `minibi2.py:320` `def forward(self, image, plasticity, transfer_rate)`
+- `LeftHemisphereV2.__init__` (method) `minibi2.py:352` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphereV2.forward` (method) `minibi2.py:387` `def forward(self, visual_context, captions, max_len, return_diagnostics, temperature, exploration_bonus)`
+- `CorpusCallosumV2.__init__` (method) `minibi2.py:526` `def __init__(self, dim)`
+- `CorpusCallosumV2.forward` (method) `minibi2.py:546` `def forward(self, right_features)`
+- `NeuroLogosBicameralV2.__init__` (method) `minibi2.py:563` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameralV2.forward` (method) `minibi2.py:569` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics, temperature, exploration_bonus)`
+- `NeuralDiagnosticsV2.__init__` (method) `minibi2.py:592` `def __init__(self)`
+- `NeuralDiagnosticsV2.measure_callosal_flow` (method) `minibi2.py:612` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnosticsV2.measure_vocab_diversity` (method) `minibi2.py:619` `def measure_vocab_diversity(self, generated_tokens, vocab_size)` -- Mide diversidad real + entropía
+- `NeuralDiagnosticsV2.update` (method) `minibi2.py:639` `def update(self)`
+- `NeuralDiagnosticsV2.get_recent_avg` (method) `minibi2.py:644` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnosticsV2.report` (method) `minibi2.py:651` `def report(self, epoch)`
+- `CurriculumScheduler.__init__` (method) `minibi2.py:704` `def __init__(self, total_epochs)`
+- `CurriculumScheduler.get_phase` (method) `minibi2.py:712` `def get_phase(self, epoch)`
+- `CurriculumScheduler.get_plasticity` (method) `minibi2.py:718` `def get_plasticity(self, epoch)`
+- `CurriculumScheduler.get_exploration_bonus` (method) `minibi2.py:732` `def get_exploration_bonus(self, epoch)` -- Bonus de curiosidad que decae con el tiempo
+- `CurriculumScheduler.get_temperature` (method) `minibi2.py:743` `def get_temperature(self, epoch)` -- Temperature que decae suavemente
+- `CurriculumScheduler.should_consolidate` (method) `minibi2.py:755` `def should_consolidate(self, epoch)` -- Decide cuándo hacer consolidación SVD
+- `CurriculumScheduler.build_vocab_flickr` (method) `minibi2.py:760` `def build_vocab_flickr(captions_file, vocab_size)`
+- `Flickr8kDataset.__init__` (method) `minibi2.py:782` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.setup_flickr8k` (method) `minibi2.py:821` `def setup_flickr8k(data_dir)` -- Descarga Flickr8k automáticamente
+- `Flickr8kDataset.train_bicameral_v2` (method) `minibi2.py:893` `def train_bicameral_v2()`
+
+
+Next: [API_p5.md](API_p5.md)

@@ -1,0 +1,479 @@
+# API (page 6 of 10)
+Previous: [API_p5.md](API_p5.md)
+
+## neurologos_cpu_v9.py.py
+- `seed_everything` (function) `neurologos_cpu_v9.py.py:25` `def seed_everything(seed)` -- Control total de reproducibilidad
+- `compute_effect_size` (function) `neurologos_cpu_v9.py.py:34` `def compute_effect_size(group1, group2)` -- Cohen's d con corrección de sesgo
+- `NeuroLogosConfig.to_dict` (method) `neurologos_cpu_v9.py.py:76` `def to_dict(self)`
+- `NeuroLogosConfig.component_signature` (method) `neurologos_cpu_v9.py.py:79` `def component_signature(self)`
+- `TopoBrainCore.__init__` (method) `neurologos_cpu_v9.py.py:91` `def __init__(self, input_dim, hidden_dim, output_dim, grid_size, use_grid, use_symbiotic)`
+- `TopoBrainCore.forward` (method) `neurologos_cpu_v9.py.py:123` `def forward(self, x)`
+- `TopoBrainCore.get_metrics` (method) `neurologos_cpu_v9.py.py:147` `def get_metrics(self)`
+- `PGDAttack.__init__` (method) `neurologos_cpu_v9.py.py:154` `def __init__(self, epsilon, alpha, steps)`
+- `PGDAttack.attack` (method) `neurologos_cpu_v9.py.py:159` `def attack(self, model_fn, x, y, criterion)`
+- `MiniUnconscious.__init__` (method) `neurologos_cpu_v9.py.py:181` `def __init__(self, output_dim)`
+- `MiniUnconscious.forward` (method) `neurologos_cpu_v9.py.py:193` `def forward(self, x)`
+- `TopoUnconscious.__init__` (method) `neurologos_cpu_v9.py.py:199` `def __init__(self, output_dim, use_grid, use_symbiotic)`
+- `TopoUnconscious.forward` (method) `neurologos_cpu_v9.py.py:213` `def forward(self, x)`
+- `TopoUnconscious.get_metrics` (method) `neurologos_cpu_v9.py.py:217` `def get_metrics(self)`
+- `ConsciousCore.__init__` (method) `neurologos_cpu_v9.py.py:221` `def __init__(self, dim)`
+- `ConsciousCore.forward` (method) `neurologos_cpu_v9.py.py:226` `def forward(self, x)`
+- `BioDecoder.__init__` (method) `neurologos_cpu_v9.py.py:232` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos_cpu_v9.py.py:243` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `neurologos_cpu_v9.py.py:277` `def __init__(self, vocab_size, config)`
+- `NeuroLogos.forward` (method) `neurologos_cpu_v9.py.py:304` `def forward(self, image, captions)`
+- `NeuroLogos.get_metrics` (method) `neurologos_cpu_v9.py.py:309` `def get_metrics(self)`
+- `CIFARCaptions.__init__` (method) `neurologos_cpu_v9.py.py:316` `def __init__(self)`
+- `AblationMatrix.level1_isolated` (method) `neurologos_cpu_v9.py.py:360` `def level1_isolated()`
+- `AblationMatrix.level2_pairs` (method) `neurologos_cpu_v9.py.py:369` `def level2_pairs()`
+- `AblationMatrix.level3_full` (method) `neurologos_cpu_v9.py.py:377` `def level3_full()`
+- `AblationMatrix.level4_inverse` (method) `neurologos_cpu_v9.py.py:381` `def level4_inverse()`
+- `AblationMatrix.get_complete_matrix` (method) `neurologos_cpu_v9.py.py:389` `def get_complete_matrix(cls)`
+- `ScientificAnalyzer.compute_statistics` (method) `neurologos_cpu_v9.py.py:394` `def compute_statistics(cv_results)`
+- `ScientificAnalyzer.ttest_vs_baseline` (method) `neurologos_cpu_v9.py.py:412` `def ttest_vs_baseline(exp_scores, baseline_scores)`
+- `ScientificAnalyzer.detect_synergy` (method) `neurologos_cpu_v9.py.py:418` `def detect_synergy(pair_score, comp_a_score, comp_b_score, baseline_score)`
+- `ScientificAnalyzer.rank_criticality` (method) `neurologos_cpu_v9.py.py:431` `def rank_criticality(full_score, ablation_results)`
+- `ScientificAnalyzer.train_epoch_cv` (method) `neurologos_cpu_v9.py.py:452` `def train_epoch_cv(model, loader, optimizer, config, epoch, vocab)`
+- `ScientificAnalyzer.model_fn` (method) `neurologos_cpu_v9.py.py:472` `def model_fn(x_adv)`
+- `ScientificAnalyzer.crit_fn` (method) `neurologos_cpu_v9.py.py:475` `def crit_fn(out, tgt)`
+- `ScientificAnalyzer.evaluate_cv` (method) `neurologos_cpu_v9.py.py:507` `def evaluate_cv(model, loader, config, vocab)`
+- `ScientificAnalyzer.train_with_cv` (method) `neurologos_cpu_v9.py.py:523` `def train_with_cv(config, dataset, vocab)`
+- `ScientificAnalyzer.run_scientific_ablation` (method) `neurologos_cpu_v9.py.py:580` `def run_scientific_ablation()`
+
+## neurologos_entropico.py
+- `Config.seed_everything` (method) `neurologos_entropico.py:50` `def seed_everything(seed)`
+- `DataEnvironment.__init__` (method) `neurologos_entropico.py:61` `def __init__(self)`
+- `DataEnvironment.get_batch` (method) `neurologos_entropico.py:71` `def get_batch(self, phase, bs)`
+- `DataEnvironment.get_full` (method) `neurologos_entropico.py:85` `def get_full(self)`
+- `DataEnvironment.get_w2` (method) `neurologos_entropico.py:88` `def get_w2(self)`
+- `HomeostaticRegulator.__init__` (method) `neurologos_entropico.py:95` `def __init__(self, d_in)`
+- `HomeostaticRegulator.forward` (method) `neurologos_entropico.py:105` `def forward(self, x, h_pre, w_norm)`
+- `PhysioNeuron.__init__` (method) `neurologos_entropico.py:121` `def __init__(self, d_in, d_out, dynamic)`
+- `PhysioNeuron.forward` (method) `neurologos_entropico.py:132` `def forward(self, x)`
+- `RegulableSymbiotic.__init__` (method) `neurologos_entropico.py:161` `def __init__(self, dim, atoms)`
+- `RegulableSymbiotic.forward` (method) `neurologos_entropico.py:168` `def forward(self, x, influence)`
+- `RegulableTopology.__init__` (method) `neurologos_entropico.py:180` `def __init__(self, num_nodes)`
+- `RegulableTopology.get_adjacency` (method) `neurologos_entropico.py:193` `def get_adjacency(self, plasticity)`
+- `MicroTopoBrain.__init__` (method) `neurologos_entropico.py:202` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_entropico.py:221` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_entropico.py:224` `def forward(self, x)`
+- `MicroTopoBrain.train_nonstationary` (method) `neurologos_entropico.py:263` `def train_nonstationary(config)`
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_entropico.py:320` `def generate_ablation_matrix()`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_entropico.py:352` `def run_ablation_study()`
+
+## neurologos_fullhomesotatico_cpu_qw.py
+- `MicroConfig.seed_everything` (method) `neurologos_fullhomesotatico_cpu_qw.py:65` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologos_fullhomesotatico_cpu_qw.py:73` `def get_dataset(config)`
+- `GlobalHomeostaticOrchestrator.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:94` `def __init__(self)`
+- `GlobalHomeostaticOrchestrator.forward` (method) `neurologos_fullhomesotatico_cpu_qw.py:104` `def forward(self, x, logits, h_agg, h_proc, w_norm, entropy, ortho)`
+- `MicroContinuumCell.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:138` `def __init__(self, dim)`
+- `MicroContinuumCell.forward` (method) `neurologos_fullhomesotatico_cpu_qw.py:148` `def forward(self, x, strength)`
+- `MicroSymbioticBasis.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:162` `def __init__(self, dim, num_atoms)`
+- `MicroSymbioticBasis.forward` (method) `neurologos_fullhomesotatico_cpu_qw.py:170` `def forward(self, x, influence)`
+- `MicroTopology.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:184` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologos_fullhomesotatico_cpu_qw.py:197` `def get_adjacency(self, plasticity)`
+- `MicroSupConLoss.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:204` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologos_fullhomesotatico_cpu_qw.py:209` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologos_fullhomesotatico_cpu_qw.py:228` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_fullhomesotatico_cpu_qw.py:272` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_fullhomesotatico_cpu_qw.py:275` `def forward(self, x)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologos_fullhomesotatico_cpu_qw.py:363` `def micro_pgd_attack(model, x, y, eps, steps, plasticity_ctrl)`
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_fullhomesotatico_cpu_qw.py:387` `def generate_ablation_matrix()`
+- `MicroTopoBrain.train_with_cv` (method) `neurologos_fullhomesotatico_cpu_qw.py:407` `def train_with_cv(config, dataset, cv_folds)`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_fullhomesotatico_cpu_qw.py:472` `def run_ablation_study()`
+
+## neurologos_fullhomestatico_cpu_qw2.py
+- `Config.seed_everything` (method) `neurologos_fullhomestatico_cpu_qw2.py:49` `def seed_everything(seed)`
+- `DataEnvironment.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:61` `def __init__(self)`
+- `DataEnvironment.get_batch` (method) `neurologos_fullhomestatico_cpu_qw2.py:71` `def get_batch(self, phase, bs)`
+- `DataEnvironment.get_full` (method) `neurologos_fullhomestatico_cpu_qw2.py:85` `def get_full(self)`
+- `DataEnvironment.get_w2` (method) `neurologos_fullhomestatico_cpu_qw2.py:88` `def get_w2(self)`
+- `HomeostaticRegulator.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:96` `def __init__(self, d_in)`
+- `HomeostaticRegulator.forward` (method) `neurologos_fullhomestatico_cpu_qw2.py:106` `def forward(self, x, h_pre, w_norm)`
+- `PhysioNeuron.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:123` `def __init__(self, d_in, d_out, dynamic)`
+- `PhysioNeuron.forward` (method) `neurologos_fullhomestatico_cpu_qw2.py:134` `def forward(self, x)`
+- `RegulableSymbiotic.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:165` `def __init__(self, dim, atoms)`
+- `RegulableSymbiotic.forward` (method) `neurologos_fullhomestatico_cpu_qw2.py:172` `def forward(self, x, influence)`
+- `RegulableTopology.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:185` `def __init__(self, num_nodes)`
+- `RegulableTopology.get_adjacency` (method) `neurologos_fullhomestatico_cpu_qw2.py:198` `def get_adjacency(self, plasticity)`
+- `MicroTopoBrain.__init__` (method) `neurologos_fullhomestatico_cpu_qw2.py:208` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_fullhomestatico_cpu_qw2.py:227` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_fullhomestatico_cpu_qw2.py:230` `def forward(self, x)`
+- `MicroTopoBrain.train_nonstationary` (method) `neurologos_fullhomestatico_cpu_qw2.py:269` `def train_nonstationary(config)`
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_fullhomestatico_cpu_qw2.py:331` `def generate_ablation_matrix()`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_fullhomestatico_cpu_qw2.py:364` `def run_ablation_study()`
+
+## neurologos_gpu_v1.py
+- `NestedUnconscious.__init__` (method) `neurologos_gpu_v1.py:17` `def __init__(self, grid_size, hidden_dim)`
+- `NestedUnconscious.forward` (method) `neurologos_gpu_v1.py:46` `def forward(self, x)`
+- `LiquidNeuron.__init__` (method) `neurologos_gpu_v1.py:77` `def __init__(self, dim)`
+- `LiquidNeuron.forward` (method) `neurologos_gpu_v1.py:83` `def forward(self, x, plasticity)`
+- `ConsciousCore.__init__` (method) `neurologos_gpu_v1.py:92` `def __init__(self)`
+- `ConsciousCore.forward` (method) `neurologos_gpu_v1.py:98` `def forward(self, visual_features, plasticity)`
+- `BioDecoder.__init__` (method) `neurologos_gpu_v1.py:117` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos_gpu_v1.py:133` `def forward(self, thought, captions, max_len, teacher_forcing_ratio)` -- Modo entrenamiento: captions != None Modo generación: captions == None
+- `NeuroLogos.__init__` (method) `neurologos_gpu_v1.py:184` `def __init__(self, vocab_size)`
+- `NeuroLogos.forward` (method) `neurologos_gpu_v1.py:193` `def forward(self, image, captions, plasticity)`
+- `NeuroLogos.measure_richness` (method) `neurologos_gpu_v1.py:206` `def measure_richness(self)`
+- `LifeCycle.__init__` (method) `neurologos_gpu_v1.py:214` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurologos_gpu_v1.py:219` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `neurologos_gpu_v1.py:234` `def __init__(self)`
+- `CIFARCaptions.train_logos` (method) `neurologos_gpu_v1.py:282` `def train_logos()`
+
+## neurologos_homeostatico_cpu_cl.py
+- `HomeoConfig.seed_everything` (method) `neurologos_homeostatico_cpu_cl.py:71` `def seed_everything(seed)`
+- `HomeoConfig.get_dataset` (method) `neurologos_homeostatico_cpu_cl.py:78` `def get_dataset(config)`
+- `HomeostaticRegulator.__init__` (method) `neurologos_homeostatico_cpu_cl.py:110` `def __init__(self, d_in)`
+- `HomeostaticRegulator.forward` (method) `neurologos_homeostatico_cpu_cl.py:129` `def forward(self, x, h_pre, w_norm)`
+- `HomeoContinuumCell.__init__` (method) `neurologos_homeostatico_cpu_cl.py:220` `def __init__(self, dim, use_homeostasis)`
+- `HomeoContinuumCell.forward` (method) `neurologos_homeostatico_cpu_cl.py:241` `def forward(self, x, plasticity)`
+- `HomeoSymbioticBasis.__init__` (method) `neurologos_homeostatico_cpu_cl.py:283` `def __init__(self, dim, num_atoms, use_homeostasis)`
+- `HomeoSymbioticBasis.forward` (method) `neurologos_homeostatico_cpu_cl.py:299` `def forward(self, x)`
+- `HomeoTopology.__init__` (method) `neurologos_homeostatico_cpu_cl.py:331` `def __init__(self, num_nodes, config)`
+- `HomeoTopology.get_adjacency` (method) `neurologos_homeostatico_cpu_cl.py:354` `def get_adjacency(self, x, plasticity)` -- Genera adyacencia con regulación homeostática opcional
+- `HomeoSupConLoss.__init__` (method) `neurologos_homeostatico_cpu_cl.py:382` `def __init__(self, temperature)`
+- `HomeoSupConLoss.forward` (method) `neurologos_homeostatico_cpu_cl.py:387` `def forward(self, features, labels)`
+- `HomeoTopoBrain.__init__` (method) `neurologos_homeostatico_cpu_cl.py:412` `def __init__(self, config)`
+- `HomeoTopoBrain.count_parameters` (method) `neurologos_homeostatico_cpu_cl.py:461` `def count_parameters(self)`
+- `HomeoTopoBrain.forward` (method) `neurologos_homeostatico_cpu_cl.py:464` `def forward(self, x, plasticity)`
+- `HomeoTopoBrain.pgd_attack` (method) `neurologos_homeostatico_cpu_cl.py:524` `def pgd_attack(model, x, y, eps, steps, plasticity)` -- PGD Attack simplificado
+- `HomeoTopoBrain.generate_homeostatic_ablation` (method) `neurologos_homeostatico_cpu_cl.py:555` `def generate_homeostatic_ablation()` -- Genera matriz enfocada en homeostasis con sensores mejorados
+- `HomeoTopoBrain.train_with_cv` (method) `neurologos_homeostatico_cpu_cl.py:614` `def train_with_cv(config, dataset, cv_folds)` -- Entrenamiento con cross-validation
+- `HomeoTopoBrain.run_homeostatic_ablation` (method) `neurologos_homeostatico_cpu_cl.py:697` `def run_homeostatic_ablation()` -- Ejecuta el estudio de ablación homeostático
+
+## neurologos_homeostatico_cpu_cl2.py
+- `TransContextConfig.seed_everything` (method) `neurologos_homeostatico_cpu_cl2.py:78` `def seed_everything(seed)`
+- `NonStationaryEnvironment.__init__` (method) `neurologos_homeostatico_cpu_cl2.py:94` `def __init__(self)`
+- `NonStationaryEnvironment.get_batch` (method) `neurologos_homeostatico_cpu_cl2.py:115` `def get_batch(self, phase, batch_size)` -- Retorna batch según la fase del entrenamiento
+- `NonStationaryEnvironment.get_phase` (method) `neurologos_homeostatico_cpu_cl2.py:135` `def get_phase(self, epoch, total_epochs)` -- Determina la fase según el epoch actual
+- `EnhancedHomeostaticRegulator.__init__` (method) `neurologos_homeostatico_cpu_cl2.py:157` `def __init__(self, d_in, log_metrics)`
+- `EnhancedHomeostaticRegulator.forward` (method) `neurologos_homeostatico_cpu_cl2.py:183` `def forward(self, x, h_pre, w_norm)`
+- `TransContextContinuumCell.__init__` (method) `neurologos_homeostatico_cpu_cl2.py:256` `def __init__(self, dim, use_homeostasis, log_metrics)`
+- `TransContextContinuumCell.forward` (method) `neurologos_homeostatico_cpu_cl2.py:277` `def forward(self, x, plasticity)`
+- `TransContextTopoBrain.__init__` (method) `neurologos_homeostatico_cpu_cl2.py:325` `def __init__(self, config)`
+- `TransContextTopoBrain.count_parameters` (method) `neurologos_homeostatico_cpu_cl2.py:361` `def count_parameters(self)`
+- `TransContextTopoBrain.forward` (method) `neurologos_homeostatico_cpu_cl2.py:364` `def forward(self, x, plasticity)`
+- `TransContextTopoBrain.get_homeostasis_metrics` (method) `neurologos_homeostatico_cpu_cl2.py:401` `def get_homeostasis_metrics(self)` -- Extrae métricas de homeostasis para logging
+- `TransContextTopoBrain.light_pgd_attack` (method) `neurologos_homeostatico_cpu_cl2.py:424` `def light_pgd_attack(model, x, y, eps, steps)` -- PGD ligero para no dominar el entrenamiento
+- `TransContextTopoBrain.train_trans_contextual` (method) `neurologos_homeostatico_cpu_cl2.py:455` `def train_trans_contextual(config, name)` -- Entrenamiento en entorno no estacionario.
+- `TransContextTopoBrain.generate_selective_ablation` (method) `neurologos_homeostatico_cpu_cl2.py:556` `def generate_selective_ablation()` -- Ablación selectiva basada en resultados v5.2: - Eliminar MGF (nunca mejora con homeostasis) - Focus en Continuum +...
+- `TransContextTopoBrain.run_trans_contextual_study` (method) `neurologos_homeostatico_cpu_cl2.py:598` `def run_trans_contextual_study()` -- Ejecuta el estudio trans-contextual completo
+
+## neurologos_homeostatico_cpu_ki.py
+- `MicroConfig.seed_everything` (method) `neurologos_homeostatico_cpu_ki.py:74` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologos_homeostatico_cpu_ki.py:85` `def get_dataset(config)` -- Genera dataset sintético para el estudio de ablación.
+- `HomeostaticCore.__init__` (method) `neurologos_homeostatico_cpu_ki.py:118` `def __init__(self, d_in, base_lr)`
+- `HomeostaticCore.forward` (method) `neurologos_homeostatico_cpu_ki.py:137` `def forward(self, x, h_pre, w_norm, loss_val)`
+- `MicroContinuumCell.__init__` (method) `neurologos_homeostatico_cpu_ki.py:177` `def __init__(self, dim, config)`
+- `MicroContinuumCell.forward` (method) `neurologos_homeostatico_cpu_ki.py:198` `def forward(self, x, plasticity)`
+- `MicroSymbioticBasis.__init__` (method) `neurologos_homeostatico_cpu_ki.py:249` `def __init__(self, dim, config)`
+- `MicroSymbioticBasis.forward` (method) `neurologos_homeostatico_cpu_ki.py:268` `def forward(self, x, loss_val)`
+- `MicroTopology.__init__` (method) `neurologos_homeostatico_cpu_ki.py:329` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologos_homeostatico_cpu_ki.py:355` `def get_adjacency(self, plasticity, loss_val)`
+- `MicroSupConLoss.__init__` (method) `neurologos_homeostatico_cpu_ki.py:369` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologos_homeostatico_cpu_ki.py:374` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologos_homeostatico_cpu_ki.py:398` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_homeostatico_cpu_ki.py:445` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_homeostatico_cpu_ki.py:448` `def forward(self, x, loss_val)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologos_homeostatico_cpu_ki.py:521` `def micro_pgd_attack(model, x, y, eps, steps, loss_val)` -- PGD Attack - Versión ultra-simple que siempre funciona FIX: No pasar loss_val al modelo durante ataque para evitar...
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_homeostatico_cpu_ki.py:556` `def generate_ablation_matrix()` -- Genera matriz de ablación de 3 niveles con configuración aislada por experimento FIX: Asegurar que cada experimento...
+- `MicroTopoBrain.train_with_cv` (method) `neurologos_homeostatico_cpu_ki.py:595` `def train_with_cv(config, dataset, cv_folds)` -- Entrenamiento con cross-validation FIX CRÍTICO: Métrica W2 debe usar MODELO FRESH copiado, no el mismo modelo
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_homeostatico_cpu_ki.py:777` `def run_ablation_study()` -- Ejecuta estudio con validación de integridad de resultados
+
+## neurologos_homestotico_cpu_qw.py
+- `MicroConfig.seed_everything` (method) `neurologos_homestotico_cpu_qw.py:64` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologos_homestotico_cpu_qw.py:72` `def get_dataset(config)`
+- `HomeostaticRegulatorMini.__init__` (method) `neurologos_homestotico_cpu_qw.py:93` `def __init__(self, d_in)`
+- `HomeostaticRegulatorMini.forward` (method) `neurologos_homestotico_cpu_qw.py:104` `def forward(self, x, h_pre, w_norm)`
+- `MicroPhysioNeuron.__init__` (method) `neurologos_homestotico_cpu_qw.py:118` `def __init__(self, d_in, d_out, dynamic)`
+- `MicroPhysioNeuron.forward` (method) `neurologos_homestotico_cpu_qw.py:129` `def forward(self, x)`
+- `MicroContinuumCell.__init__` (method) `neurologos_homestotico_cpu_qw.py:163` `def __init__(self, dim)`
+- `MicroContinuumCell.forward` (method) `neurologos_homestotico_cpu_qw.py:173` `def forward(self, x, plasticity)`
+- `MicroSymbioticBasis.__init__` (method) `neurologos_homestotico_cpu_qw.py:188` `def __init__(self, dim, num_atoms)`
+- `MicroSymbioticBasis.forward` (method) `neurologos_homestotico_cpu_qw.py:196` `def forward(self, x)`
+- `MicroTopology.__init__` (method) `neurologos_homestotico_cpu_qw.py:208` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologos_homestotico_cpu_qw.py:222` `def get_adjacency(self, plasticity)`
+- `MicroSupConLoss.__init__` (method) `neurologos_homestotico_cpu_qw.py:229` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologos_homestotico_cpu_qw.py:234` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologos_homestotico_cpu_qw.py:253` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_homestotico_cpu_qw.py:306` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_homestotico_cpu_qw.py:309` `def forward(self, x, plasticity)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologos_homestotico_cpu_qw.py:365` `def micro_pgd_attack(model, x, y, eps, steps, plasticity)`
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologos_homestotico_cpu_qw.py:389` `def generate_ablation_matrix()`
+- `MicroTopoBrain.train_with_cv` (method) `neurologos_homestotico_cpu_qw.py:429` `def train_with_cv(config, dataset, cv_folds)`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologos_homestotico_cpu_qw.py:496` `def run_ablation_study()`
+
+## neurologos_tricameral_exodia.py
+- `preprocess_and_cache_spectrograms` (function) `neurologos_tricameral_exodia.py:47` `def preprocess_and_cache_spectrograms(audio_dir, cache_dir, sample_rate, target_len)` -- Preprocesa todos los archivos .wav a Mel-spectrogramas y los guarda como tensores .pt Esto elimina el cuello de...
+- `setup_flickr8k_with_audio` (function) `neurologos_tricameral_exodia.py:120` `def setup_flickr8k_with_audio(data_dir)` -- Descarga y organiza Flickr8k + Audio del dataset de Kaggle.
+- `build_vocab_flickr` (function) `neurologos_tricameral_exodia.py:308` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `HierarchicalEpisodicMemory.__init__` (method) `neurologos_tricameral_exodia.py:333` `def __init__(self, working_capacity, short_term_capacity, importance_threshold)`
+- `HierarchicalEpisodicMemory.compute_surprise` (method) `neurologos_tricameral_exodia.py:359` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+- `HierarchicalEpisodicMemory.calculate_importance` (method) `neurologos_tricameral_exodia.py:369` `def calculate_importance(self, episode, surprise_score)`
+- `HierarchicalEpisodicMemory.store_episode` (method) `neurologos_tricameral_exodia.py:402` `def store_episode(self, image, audio, caption, surprise_score)`
+- `HierarchicalEpisodicMemory.add` (method) `neurologos_tricameral_exodia.py:452` `def add(self, image, audio, caption, surprise_score)`
+- `HierarchicalEpisodicMemory.apply_forgetting_curve` (method) `neurologos_tricameral_exodia.py:455` `def apply_forgetting_curve(self)`
+- `HierarchicalEpisodicMemory.sample` (method) `neurologos_tricameral_exodia.py:497` `def sample(self, batch_size, memory_level)`
+- `HierarchicalEpisodicMemory.get_total_size` (method) `neurologos_tricameral_exodia.py:555` `def get_total_size(self)`
+- `NeurocognitiveSystem.__init__` (method) `neurologos_tricameral_exodia.py:564` `def __init__(self)`
+- `NeurocognitiveSystem.assess_reasoning_state` (method) `neurologos_tricameral_exodia.py:584` `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)` -- Evalúa estado del sistema de razonamiento (MTP + Chain-of-Thought)
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `neurologos_tricameral_exodia.py:628` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa estado cognitivo lingüístico (planteau, déficits, sobreajuste)
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `neurologos_tricameral_exodia.py:674` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones basadas en estado lingüístico y de razonamiento
+- `LanguageMetrics.sentence_bleu` (method) `neurologos_tricameral_exodia.py:764` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `neurologos_tricameral_exodia.py:807` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `neurologos_tricameral_exodia.py:820` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `LinguisticFeedbackLoop.__init__` (method) `neurologos_tricameral_exodia.py:835` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `neurologos_tricameral_exodia.py:858` `def compute_linguistic_reward(self, references, hypotheses)`
+- `LinguisticFeedbackLoop.compute_cider` (method) `neurologos_tricameral_exodia.py:897` `def compute_cider(self, reference, hypothesis)` -- FIX: Uso correcto del cache estático
+- `LinguisticFeedbackLoop.compute_spice` (method) `neurologos_tricameral_exodia.py:911` `def compute_spice(self, reference, hypothesis)`
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `neurologos_tricameral_exodia.py:923` `def get_cache_stats(self)` -- FIX: Estadísticas de cache actualizadas
+- `LanguageMetrics.sentence_bleu` (method) `neurologos_tricameral_exodia.py:953` `def sentence_bleu(reference, hypothesis, weights)`
+- `LanguageMetrics.token_accuracy` (method) `neurologos_tricameral_exodia.py:976` `def token_accuracy(reference, hypothesis)`
+- `LanguageMetrics.word_overlap` (method) `neurologos_tricameral_exodia.py:986` `def word_overlap(reference, hypothesis)`
+- `CausalReasoningEngine.__init__` (method) `neurologos_tricameral_exodia.py:995` `def __init__(self, hidden_dim)`
+- `CausalReasoningEngine.reason_causally` (method) `neurologos_tricameral_exodia.py:1022` `def reason_causally(self, observation, context)`
+- `CausalReasoningEngine.update_knowledge_graph` (method) `neurologos_tricameral_exodia.py:1053` `def update_knowledge_graph(self, cause, effect, strength)`
+- `CausalReasoningEngine.query_causal_chain` (method) `neurologos_tricameral_exodia.py:1059` `def query_causal_chain(self, start_node, end_node)`
+- `LanguageMetrics.sentence_bleu` (method) `neurologos_tricameral_exodia.py:1075` `def sentence_bleu(reference, hypothesis, weights)`
+- `LanguageMetrics.token_accuracy` (method) `neurologos_tricameral_exodia.py:1098` `def token_accuracy(reference, hypothesis)`
+- `LanguageMetrics.word_overlap` (method) `neurologos_tricameral_exodia.py:1108` `def word_overlap(reference, hypothesis)`
+- `StableLiquidNeuron.__init__` (method) `neurologos_tricameral_exodia.py:1121` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `neurologos_tricameral_exodia.py:1163` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `neurologos_tricameral_exodia.py:1188` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `neurologos_tricameral_exodia.py:1226` `def update_physiology_advanced(self, loss_value)`
+- `TriangulatedMedicalSystem.__init__` (method) `neurologos_tricameral_exodia.py:1260` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `neurologos_tricameral_exodia.py:1267` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `neurologos_tricameral_exodia.py:1278` `def count_convergent_signals(self, signals, pattern)`
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `neurologos_tricameral_exodia.py:1281` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow, epoch)`
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `neurologos_tricameral_exodia.py:1326` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+- `LeftHemisphere.__init__` (method) `neurologos_tricameral_exodia.py:1411` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `neurologos_tricameral_exodia.py:1493` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `AudioEncoder.__init__` (method) `neurologos_tricameral_exodia.py:1722` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `neurologos_tricameral_exodia.py:1756` `def forward(self, mel_spec)`
+- `RightHemisphereTricameral.__init__` (method) `neurologos_tricameral_exodia.py:1772` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `neurologos_tricameral_exodia.py:1812` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre...
+- `CorpusCallosumTrimodal.__init__` (method) `neurologos_tricameral_exodia.py:1854` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `neurologos_tricameral_exodia.py:1902` `def forward(self, right_features)`
+- `CorpusCallosumTrimodal.update_channel_fatigue` (method) `neurologos_tricameral_exodia.py:1963` `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+- `CorpusCallosumTrimodal.adjust_gates_by_fatigue` (method) `neurologos_tricameral_exodia.py:1985` `def adjust_gates_by_fatigue(self)`
+- `EnhancedDiagnosticsTricameral.__init__` (method) `neurologos_tricameral_exodia.py:2007` `def __init__(self)`
+- `EnhancedDiagnosticsTricameral.measure_callosal_flow` (method) `neurologos_tricameral_exodia.py:2048` `def measure_callosal_flow(self, right_features, left_context, channels)` -- FIX: Medición de coherencia multimodal real con atención a diversidad Incluye métricas de sincronización entre canales
+- `EnhancedDiagnosticsTricameral.evaluate_reasoning_quality` (method) `neurologos_tricameral_exodia.py:2101` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+- `EnhancedDiagnosticsTricameral.calculate_synergy` (method) `neurologos_tricameral_exodia.py:2138` `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnosticsTricameral.calculate_health` (method) `neurologos_tricameral_exodia.py:2149` `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnosticsTricameral.update` (method) `neurologos_tricameral_exodia.py:2158` `def update(self)`
+- `EnhancedDiagnosticsTricameral.get_recent_avg` (method) `neurologos_tricameral_exodia.py:2175` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnosticsTricameral.visualize_fatigue_distribution` (method) `neurologos_tricameral_exodia.py:2191` `def visualize_fatigue_distribution(self, epoch)`
+- `EnhancedDiagnosticsTricameral.visualize_reasoning_metrics` (method) `neurologos_tricameral_exodia.py:2215` `def visualize_reasoning_metrics(self, epoch)`
+- `EnhancedDiagnosticsTricameral.report` (method) `neurologos_tricameral_exodia.py:2227` `def report(self, epoch)`
+- `NeuroLogosTricameral.__init__` (method) `neurologos_tricameral_exodia.py:2314` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `neurologos_tricameral_exodia.py:2320` `def forward(self, image, audio, captions, epoch)`
+- `Flickr8kMultimodalDataset.__init__` (method) `neurologos_tricameral_exodia.py:2349` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate, use_cache...`
+- `Flickr8kMultimodalDataset.compute_alignment_loss` (method) `neurologos_tricameral_exodia.py:2462` `def compute_alignment_loss(visual_features, channels, alpha, epoch)` -- FIX: Pérdida auxiliar para alineación temprana de canales multimodales Solo activa en épocas iniciales (epoch < 6)
+- `Flickr8kMultimodalDataset.compute_tricameral_loss` (method) `neurologos_tricameral_exodia.py:2490` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...` -- FIX: Pérdida con término explícito de coherencia multimodal Penaliza la falta de sincronización entre canales
+- `Flickr8kMultimodalDataset.train_tricameral` (method) `neurologos_tricameral_exodia.py:2563` `def train_tricameral()`
+
+## neurologos_v4.py
+- `MiniUnconscious.__init__` (method) `neurologos_v4.py:15` `def __init__(self)`
+- `MiniUnconscious.forward` (method) `neurologos_v4.py:26` `def forward(self, x)`
+- `NestedUnconscious.__init__` (method) `neurologos_v4.py:31` `def __init__(self, grid_size, output_dim)`
+- `NestedUnconscious.forward` (method) `neurologos_v4.py:57` `def forward(self, x)`
+- `LiquidNeuron.__init__` (method) `neurologos_v4.py:82` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `neurologos_v4.py:103` `def forward(self, x, global_plasticity)`
+- `LiquidNeuron.consolidate_svd` (method) `neurologos_v4.py:131` `def consolidate_svd(self, repair_strength)` -- Consolidación espectral de pesos rápidos mediante SVD.
+- `ConsciousCore.__init__` (method) `neurologos_v4.py:165` `def __init__(self)`
+- `ConsciousCore.forward` (method) `neurologos_v4.py:172` `def forward(self, visual_features, plasticity)`
+- `BioDecoder.__init__` (method) `neurologos_v4.py:186` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos_v4.py:201` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `neurologos_v4.py:237` `def __init__(self, vocab_size, use_nested)`
+- `NeuroLogos.forward` (method) `neurologos_v4.py:251` `def forward(self, image, captions, plasticity)`
+- `NeuroLogos.measure_richness` (method) `neurologos_v4.py:264` `def measure_richness(self)`
+- `LifeCycle.__init__` (method) `neurologos_v4.py:272` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurologos_v4.py:276` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `neurologos_v4.py:292` `def __init__(self)`
+- `CIFARCaptions.train_logos` (method) `neurologos_v4.py:358` `def train_logos(use_nested)`
+
+## neurologos_v5.py
+- `top_k_top_p_filtering` (function) `neurologos_v5.py:11` `def top_k_top_p_filtering(logits, top_k, top_p, filter_value)` -- Filtra logits con Top-K o Top-P (Nucleus) Sampling.
+- `measure_spatial_richness` (function) `neurologos_v5.py:32` `def measure_spatial_richness(activations)` -- Calcula la riqueza representacional de un tensor de activación.
+- `TopologicalCompressor.__init__` (method) `neurologos_v5.py:76` `def __init__(self, node_dim)`
+- `TopologicalCompressor.forward` (method) `neurologos_v5.py:85` `def forward(self, nodes, plasticity, transfer_rate)`
+- `MiniUnconscious.__init__` (method) `neurologos_v5.py:98` `def __init__(self)`
+- `MiniUnconscious.forward` (method) `neurologos_v5.py:113` `def forward(self, x)`
+- `NestedUnconscious.__init__` (method) `neurologos_v5.py:120` `def __init__(self, grid_size, output_dim)`
+- `NestedUnconscious.forward` (method) `neurologos_v5.py:143` `def forward(self, x)`
+- `LiquidNeuron.__init__` (method) `neurologos_v5.py:170` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `neurologos_v5.py:191` `def forward(self, x, global_plasticity, transfer_rate)`
+- `LiquidNeuron.consolidate_svd` (method) `neurologos_v5.py:228` `def consolidate_svd(self, repair_strength, timescale)`
+- `ConsciousCore.__init__` (method) `neurologos_v5.py:261` `def __init__(self)`
+- `ConsciousCore.forward` (method) `neurologos_v5.py:278` `def forward(self, visual_features, plasticity, transfer_rate)`
+- `ConsciousCore.get_liquid_module` (method) `neurologos_v5.py:319` `def get_liquid_module(self)` -- Retorna el LiquidNeuron activo para la consolidación externa.
+- `BioDecoder.__init__` (method) `neurologos_v5.py:334` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `BioDecoder.forward` (method) `neurologos_v5.py:349` `def forward(self, thought, captions, max_len)`
+- `NeuroLogos.__init__` (method) `neurologos_v5.py:405` `def __init__(self, vocab_size, use_nested)`
+- `NeuroLogos.forward` (method) `neurologos_v5.py:420` `def forward(self, image, captions, plasticity, transfer_rate)`
+- `NeuroLogos.measure_richness` (method) `neurologos_v5.py:428` `def measure_richness(self)`
+- `LifeCycle.__init__` (method) `neurologos_v5.py:436` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurologos_v5.py:440` `def get_plasticity(self, epoch)`
+- `CIFARCaptions.__init__` (method) `neurologos_v5.py:458` `def __init__(self)`
+- `CIFARCaptions.train_logos` (method) `neurologos_v5.py:502` `def train_logos(use_nested)`
+
+## neurologos_v6.py
+- `Config.seed_everything` (method) `neurologos_v6.py:45` `def seed_everything(seed)`
+- `MetricsCollector.__init__` (method) `neurologos_v6.py:56` `def __init__(self, config)`
+- `MetricsCollector.log_batch` (method) `neurologos_v6.py:69` `def log_batch(self, step, metrics)`
+- `MetricsCollector.save` (method) `neurologos_v6.py:79` `def save(self, path)`
+- `DataEnvironment.__init__` (method) `neurologos_v6.py:91` `def __init__(self)`
+- `DataEnvironment.inject_concept_drift` (method) `neurologos_v6.py:100` `def inject_concept_drift(self)`
+- `DataEnvironment.get_batch` (method) `neurologos_v6.py:103` `def get_batch(self, phase, bs, step)`
+- `DataEnvironment.get_full` (method) `neurologos_v6.py:118` `def get_full(self)`
+- `DataEnvironment.get_w2` (method) `neurologos_v6.py:121` `def get_w2(self)`
+- `MetaLearner.__init__` (method) `neurologos_v6.py:128` `def __init__(self, input_dim, hidden_dim)`
+- `MetaLearner.forward` (method) `neurologos_v6.py:136` `def forward(self, sequence)`
+- `MetaLearner.update` (method) `neurologos_v6.py:142` `def update(self, loss_pred, loss_real)`
+- `ComponentRegulator.__init__` (method) `neurologos_v6.py:155` `def __init__(self, name, state_dim, cross_dim)`
+- `ComponentRegulator.forward` (method) `neurologos_v6.py:172` `def forward(self)`
+- `HomeostaticRegulator.__init__` (method) `neurologos_v6.py:212` `def __init__(self, d_in)`
+- `HomeostaticRegulator.forward` (method) `neurologos_v6.py:222` `def forward(self, x, h_pre, w_norm)`
+- `MetaHomeostaticEngine.__init__` (method) `neurologos_v6.py:238` `def __init__(self, config)`
+- `MetaHomeostaticEngine.forward` (method) `neurologos_v6.py:251` `def forward(self, global_loss, step)`
+- `MetaHomeostaticEngine.get_component_health` (method) `neurologos_v6.py:290` `def get_component_health(self)`
+- `MetaHomeostaticEngine.update_with_momentum` (method) `neurologos_v6.py:298` `def update_with_momentum(self, current_lr, current_plasticity, meta_out, surprise_rate)`
+- `PhysioNeuron.__init__` (method) `neurologos_v6.py:321` `def __init__(self, d_in, d_out, config)`
+- `PhysioNeuron.forward` (method) `neurologos_v6.py:334` `def forward(self, x, surprise_threshold)`
+- `SymbioticDual.__init__` (method) `neurologos_v6.py:377` `def __init__(self, dim, atoms)`
+- `SymbioticDual.forward` (method) `neurologos_v6.py:385` `def forward(self, x, influence)`
+- `MicroTopoBrain.__init__` (method) `neurologos_v6.py:404` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologos_v6.py:427` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologos_v6.py:430` `def forward(self, x, y, step)`
+- `ConfigurableTrainer.__init__` (method) `neurologos_v6.py:474` `def __init__(self, config)`
+- `ConfigurableTrainer.train` (method) `neurologos_v6.py:479` `def train(self, model)`
+- `ConfigurableTrainer.evaluate` (method) `neurologos_v6.py:554` `def evaluate(self, model)`
+- `ConfigurableTrainer.generate_ablation_matrix_4levels` (method) `neurologos_v6.py:603` `def generate_ablation_matrix_4levels()`
+- `ConfigurableTrainer.run_ablation_study` (method) `neurologos_v6.py:645` `def run_ablation_study()`
+
+## neurologosv5.2.py
+- `MicroConfig.seed_everything` (method) `neurologosv5.2.py:57` `def seed_everything(seed)`
+- `MicroConfig.get_dataset` (method) `neurologosv5.2.py:65` `def get_dataset(config)`
+- `HomeostaticRegulator.__init__` (method) `neurologosv5.2.py:86` `def __init__(self, d_in)`
+- `HomeostaticRegulator.forward` (method) `neurologosv5.2.py:96` `def forward(self, x, h_pre, w_norm)`
+- `PhysioNeuron.__init__` (method) `neurologosv5.2.py:110` `def __init__(self, d_in, d_out, dynamic_mode)`
+- `PhysioNeuron.forward` (method) `neurologosv5.2.py:121` `def forward(self, x)`
+- `MicroContinuumCell.__init__` (method) `neurologosv5.2.py:152` `def __init__(self, dim)`
+- `MicroContinuumCell.forward` (method) `neurologosv5.2.py:162` `def forward(self, x, plasticity)`
+- `MicroSymbioticBasis.__init__` (method) `neurologosv5.2.py:177` `def __init__(self, dim, num_atoms)`
+- `MicroSymbioticBasis.forward` (method) `neurologosv5.2.py:185` `def forward(self, x)`
+- `MicroTopology.__init__` (method) `neurologosv5.2.py:197` `def __init__(self, num_nodes, config)`
+- `MicroTopology.get_adjacency` (method) `neurologosv5.2.py:210` `def get_adjacency(self, plasticity)`
+- `MicroSupConLoss.__init__` (method) `neurologosv5.2.py:217` `def __init__(self, temperature)`
+- `MicroSupConLoss.forward` (method) `neurologosv5.2.py:222` `def forward(self, features, labels)`
+- `MicroTopoBrain.__init__` (method) `neurologosv5.2.py:241` `def __init__(self, config)`
+- `MicroTopoBrain.count_parameters` (method) `neurologosv5.2.py:283` `def count_parameters(self)`
+- `MicroTopoBrain.forward` (method) `neurologosv5.2.py:286` `def forward(self, x, plasticity)`
+- `MicroTopoBrain.micro_pgd_attack` (method) `neurologosv5.2.py:340` `def micro_pgd_attack(model, x, y, eps, steps, plasticity)`
+- `MicroTopoBrain.generate_ablation_matrix` (method) `neurologosv5.2.py:364` `def generate_ablation_matrix()`
+- `MicroTopoBrain.train_with_cv` (method) `neurologosv5.2.py:393` `def train_with_cv(config, dataset, cv_folds)`
+- `MicroTopoBrain.run_ablation_study` (method) `neurologosv5.2.py:457` `def run_ablation_study()`
+
+## neurosoberano.py
+- `BasicBlock.__init__` (method) `neurosoberano.py:40` `def __init__(self, in_c, out_c, stride)`
+- `BasicBlock.forward` (method) `neurosoberano.py:54` `def forward(self, x)`
+- `WideResNetBaseline.__init__` (method) `neurosoberano.py:65` `def __init__(self, num_classes)`
+- `WideResNetBaseline.forward` (method) `neurosoberano.py:85` `def forward(self, x)`
+- `FastLiquidNeuron.__init__` (method) `neurosoberano.py:98` `def __init__(self, in_dim, out_dim)`
+- `FastLiquidNeuron.forward` (method) `neurosoberano.py:107` `def forward(self, x, plasticity)`
+- `MinimalNeuroSovereign.__init__` (method) `neurosoberano.py:127` `def __init__(self, num_classes)`
+- `MinimalNeuroSovereign.forward` (method) `neurosoberano.py:152` `def forward(self, x)`
+- `MinimalNeuroSovereign.update_plasticity` (method) `neurosoberano.py:163` `def update_plasticity(self, epoch, total_epochs)` -- Plasticity schedule simplificado
+- `MinimalNeuroSovereign.train_epoch` (method) `neurosoberano.py:177` `def train_epoch(model, loader, optimizer, criterion, device, use_mixup)`
+- `MinimalNeuroSovereign.evaluate` (method) `neurosoberano.py:215` `def evaluate(model, loader, device)`
+- `Experiment.__init__` (method) `neurosoberano.py:234` `def __init__(self, config)`
+- `Experiment.run_baseline` (method) `neurosoberano.py:269` `def run_baseline(self)`
+- `Experiment.run_neurosovereign` (method) `neurosoberano.py:316` `def run_neurosovereign(self)`
+- `Experiment.compare` (method) `neurosoberano.py:369` `def compare(self)`
+- `Experiment.plot_comparison` (method) `neurosoberano.py:404` `def plot_comparison(self)`
+- `Experiment.main` (method) `neurosoberano.py:435` `def main()`
+
+## neurosoberano_bicameral_opt.py
+- `HomeostaticRegulator.__init__` (method) `neurosoberano_bicameral_opt.py:40` `def __init__(self)`
+- `HomeostaticRegulator.forward` (method) `neurosoberano_bicameral_opt.py:50` `def forward(self, stress, excitation, fatigue, entropy, phase, loss_signal)`
+- `LiquidNeuron.__init__` (method) `neurosoberano_bicameral_opt.py:67` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `neurosoberano_bicameral_opt.py:99` `def forward(self, x, global_plasticity, transfer_rate, task_loss)`
+- `LiquidNeuron.apply_svd_consolidation` (method) `neurosoberano_bicameral_opt.py:169` `def apply_svd_consolidation(self, repair_strength, timescale)`
+- `RightHemisphere.__init__` (method) `neurosoberano_bicameral_opt.py:194` `def __init__(self, output_dim)`
+- `RightHemisphere.forward` (method) `neurosoberano_bicameral_opt.py:205` `def forward(self, image, plasticity, transfer_rate, task_loss)`
+- `LeftHemisphere.__init__` (method) `neurosoberano_bicameral_opt.py:215` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `neurosoberano_bicameral_opt.py:237` `def forward(self, visual_context, captions, max_len, return_gate)`
+- `CorpusCallosum.__init__` (method) `neurosoberano_bicameral_opt.py:314` `def __init__(self, dim)`
+- `CorpusCallosum.forward` (method) `neurosoberano_bicameral_opt.py:322` `def forward(self, right_features, metabolism)`
+- `NeuroLogosBicameral.__init__` (method) `neurosoberano_bicameral_opt.py:332` `def __init__(self, vocab_size)`
+- `NeuroLogosBicameral.forward` (method) `neurosoberano_bicameral_opt.py:338` `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+- `NeuralDiagnostics.__init__` (method) `neurosoberano_bicameral_opt.py:362` `def __init__(self)`
+- `NeuralDiagnostics.measure_callosal_flow` (method) `neurosoberano_bicameral_opt.py:375` `def measure_callosal_flow(self, right_features, left_context)`
+- `NeuralDiagnostics.measure_vocab_diversity` (method) `neurosoberano_bicameral_opt.py:382` `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+- `NeuralDiagnostics.update` (method) `neurosoberano_bicameral_opt.py:386` `def update(self)`
+- `NeuralDiagnostics.get_recent_avg` (method) `neurosoberano_bicameral_opt.py:391` `def get_recent_avg(self, key, n)`
+- `NeuralDiagnostics.report` (method) `neurosoberano_bicameral_opt.py:396` `def report(self, epoch)`
+- `Flickr8kDataset.__init__` (method) `neurosoberano_bicameral_opt.py:437` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+- `Flickr8kDataset.build_vocab_flickr` (method) `neurosoberano_bicameral_opt.py:475` `def build_vocab_flickr(captions_file, vocab_size)`
+- `LifeCycle.__init__` (method) `neurosoberano_bicameral_opt.py:499` `def __init__(self, total_epochs)`
+- `LifeCycle.get_plasticity` (method) `neurosoberano_bicameral_opt.py:502` `def get_plasticity(self, epoch)`
+- `LifeCycle.train_bicameral` (method) `neurosoberano_bicameral_opt.py:513` `def train_bicameral()`
+
+## neurosovereign.py
+- `SovereignConfig.seed_everything` (method) `neurosovereign.py:44` `def seed_everything(seed)`
+- `SovereignConfig.mixup_data` (method) `neurosovereign.py:51` `def mixup_data(x, y, alpha)` -- Returns mixed inputs, pairs of targets, and lambda
+- `SovereignConfig.mixup_criterion` (method) `neurosovereign.py:63` `def mixup_criterion(criterion, pred, y_a, y_b, lam)`
+- `BasicBlock.__init__` (method) `neurosovereign.py:70` `def __init__(self, in_planes, out_planes, stride, dropRate)`
+- `BasicBlock.forward` (method) `neurosovereign.py:85` `def forward(self, x)`
+- `NetworkBlock.__init__` (method) `neurosovereign.py:97` `def __init__(self, nb_layers, in_planes, out_planes, block, stride, dropRate)`
+- `NetworkBlock.forward` (method) `neurosovereign.py:105` `def forward(self, x)`
+- `LiquidCortex.__init__` (method) `neurosovereign.py:116` `def __init__(self, in_features, out_features, config)`
+- `LiquidCortex.forward` (method) `neurosovereign.py:133` `def forward(self, x)`
+- `NeuroSovereignV1.__init__` (method) `neurosovereign.py:166` `def __init__(self, config, depth, num_classes)`
+- `NeuroSovereignV1.forward` (method) `neurosovereign.py:196` `def forward(self, x)`
+- `NeuroSovereignV1.get_optimized_dataloaders` (method) `neurosovereign.py:214` `def get_optimized_dataloaders(config)`
+- `NeuroSovereignV1.train_sovereign` (method) `neurosovereign.py:239` `def train_sovereign()`
+
+## ohm.py
+- `MotorHomeostaticContext.update` (method) `ohm.py:47` `def update(self, measurement, dt)` -- Actualiza el estado del motor homeostático
+- `PTSymmetricMotor.__init__` (method) `ohm.py:66` `def __init__(self)`
+- `PTSymmetricMotor.regulate_parameters` (method) `ohm.py:78` `def regulate_parameters(self, current_coherence, energy_level)` -- Regula parámetros para mantener PT-simetría
+- `TopologicalMotor.__init__` (method) `ohm.py:102` `def __init__(self)`
+- `TopologicalMotor.regulate_connectivity` (method) `ohm.py:112` `def regulate_connectivity(self, current_connectivity, clustering)` -- Regula conectividad para mantener estructura óptima
+- `EnergyHomeostaticMotor.__init__` (method) `ohm.py:129` `def __init__(self)`
+- `EnergyHomeostaticMotor.regulate_energy` (method) `ohm.py:139` `def regulate_energy(self, memory_usage, cpu_usage, temperature)` -- Regula parámetros para eficiencia energética
+- `ConsciousnessMotor.__init__` (method) `ohm.py:159` `def __init__(self)`
+- `ConsciousnessMotor.regulate_consciousness` (method) `ohm.py:168` `def regulate_consciousness(self, phi_effective, integration_level)` -- Regula parámetros para control de conciencia
+- `DualSystemMotor.__init__` (method) `ohm.py:187` `def __init__(self)`
+- `DualSystemMotor.regulate_dual_systems` (method) `ohm.py:197` `def regulate_dual_systems(self, unconscious_activity, conscious_activity)` -- Regula balance entre sistemas inconsciente y consciente
+- `AdaptiveLearningMotor.__init__` (method) `ohm.py:215` `def __init__(self)`
+- `AdaptiveLearningMotor.regulate_learning` (method) `ohm.py:224` `def regulate_learning(self, loss_reduction_rate, gradient_norm)` -- Regula parámetros de aprendizaje
+- `ModularActivationMotor.__init__` (method) `ohm.py:243` `def __init__(self)`
+- `ModularActivationMotor.regulate_modules` (method) `ohm.py:259` `def regulate_modules(self, task_complexity, resource_availability, performance)` -- Regula qué módulos están activos
+- `OmniBrainCoordinator.__init__` (method) `ohm.py:294` `def __init__(self)`
+- `OmniBrainCoordinator.sense_environment` (method) `ohm.py:312` `def sense_environment(self)` -- Sensa el estado actual del entorno
+- `OmniBrainCoordinator.measure_network_state` (method) `ohm.py:326` `def measure_network_state(self, model, batch_data)` -- Mide el estado actual de la red
+- `OmniBrainCoordinator.coordinate_all_motors` (method) `ohm.py:363` `def coordinate_all_motors(self, environment_state, network_state)` -- Coordina todos los motores homeostáticos
+- `OmniBrainModule.__init__` (method) `ohm.py:441` `def __init__(self, module_name, enabled)`
+- `OmniBrainModule.forward` (method) `ohm.py:447` `def forward(self, x, params)`
+- `OmniBrainModule.update_performance` (method) `ohm.py:450` `def update_performance(self, metrics)`
+- `PTSymmetricLayer.__init__` (method) `ohm.py:456` `def __init__(self, in_features, out_features)`
+- `PTSymmetricLayer.forward` (method) `ohm.py:463` `def forward(self, x, params)`
+- `TopologicalLayer.__init__` (method) `ohm.py:489` `def __init__(self, in_features, out_features, sparsity_factor)`
+- `TopologicalLayer.forward` (method) `ohm.py:525` `def forward(self, x, params)`
+- `DualMindModule.__init__` (method) `ohm.py:546` `def __init__(self, features)`
+- `DualMindModule.forward` (method) `ohm.py:571` `def forward(self, x, params)`
+- `ConsciousnessModule.__init__` (method) `ohm.py:600` `def __init__(self, features)`
+- `ConsciousnessModule.compute_phi_effective` (method) `ohm.py:614` `def compute_phi_effective(self, x)` -- Cálculo simplificado de Φₑ (integración efectiva)
+- `ConsciousnessModule.forward` (method) `ohm.py:634` `def forward(self, x, params)`
+- `HomeostaticEngine.__init__` (method) `ohm.py:661` `def __init__(self, target_performance)`
+- `HomeostaticEngine.regulate_homeostasis` (method) `ohm.py:666` `def regulate_homeostasis(self, observed_performance)` -- Regula parámetros para homeostasis
+- `OmniBrain.__init__` (method) `ohm.py:692` `def __init__(self, input_dim, hidden_dim, output_dim)`
+- `OmniBrain.initialize_context` (method) `ohm.py:726` `def initialize_context(self)` -- Inicializa el contexto del Omni Brain
+- `OmniBrain.forward` (method) `ohm.py:740` `def forward(self, x)` -- Forward pass del Omni Brain con coordinación homeostática
+- `OmniBrain.get_status_report` (method) `ohm.py:828` `def get_status_report(self)` -- Genera reporte de estado del Omni Brain
+- `OmniBrain.train_omni_brain` (method) `ohm.py:863` `def train_omni_brain(model, epochs, batch_size)` -- Pipeline de entrenamiento para el Omni Brain
+
+
+Next: [API_p7.md](API_p7.md)

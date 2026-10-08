@@ -1,0 +1,489 @@
+# API (page 9 of 10)
+Previous: [API_p8.md](API_p8.md)
+
+## sintesys2.py
+- `SpectralMonitorV7.__init__` (method) `sintesys2.py:13` `def __init__(self, target_entropy)`
+- `SpectralMonitorV7.calc_structural_health` (method) `sintesys2.py:16` `def calc_structural_health(self, weight_matrix)`
+- `SpectralMonitorV7.measure_spatial_richness` (method) `sintesys2.py:32` `def measure_spatial_richness(self, activations)` -- Ahora retorna el tensor (para el gradiente) y el valor escalar.
+- `CuriosityGaze.__init__` (method) `sintesys2.py:53` `def __init__(self, input_dim)`
+- `CuriosityGaze.forward` (method) `sintesys2.py:60` `def forward(self, x)`
+- `PrismaticNeuronV7.__init__` (method) `sintesys2.py:70` `def __init__(self, in_dim, out_dim)`
+- `PrismaticNeuronV7.forward` (method) `sintesys2.py:79` `def forward(self, x)`
+- `PrismaticNeuronV7.prismatic_dream` (method) `sintesys2.py:95` `def prismatic_dream(self)`
+- `SynthesisOrganismV7.__init__` (method) `sintesys2.py:115` `def __init__(self, input_dim, hidden_dim, output_dim)`
+- `SynthesisOrganismV7.forward` (method) `sintesys2.py:131` `def forward(self, x)`
+- `SynthesisOrganismV7.calculate_losses` (method) `sintesys2.py:144` `def calculate_losses(self, outputs, targets, criterion)`
+- `SynthesisOrganismV7.sleep` (method) `sintesys2.py:166` `def sleep(self)`
+- `SynthesisOrganismV7.run_the_prisms_eye` (method) `sintesys2.py:174` `def run_the_prisms_eye()`
+
+## sintesys3.py
+- `measure_spatial_richness` (function) `sintesys3.py:12` `def measure_spatial_richness(activations)` -- Retorna tensor (gradiente) y valor escalar
+- `HomeostasisEngine.__init__` (method) `sintesys3.py:31` `def __init__(self)`
+- `HomeostasisEngine.decide` (method) `sintesys3.py:35` `def decide(self, task_loss_val, richness_val, vn_entropy_val, target_entropy)`
+- `LiquidNeuron.__init__` (method) `sintesys3.py:60` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `sintesys3.py:68` `def forward(self, x, plasticity_gate)`
+- `LiquidNeuron.consolidate_svd` (method) `sintesys3.py:86` `def consolidate_svd(self, repair_strength)` -- Sueño a demanda, intensidad variable
+- `OrganismV8.__init__` (method) `sintesys3.py:110` `def __init__(self, d_in, d_hid, d_out)`
+- `OrganismV8.forward` (method) `sintesys3.py:126` `def forward(self, x, plasticity_gate)`
+- `OrganismV8.get_structure_entropy` (method) `sintesys3.py:140` `def get_structure_entropy(self)`
+- `OrganismV8.calc_ent` (method) `sintesys3.py:143` `def calc_ent(W)`
+- `OrganismV8.run_liquid_synthesis` (method) `sintesys3.py:156` `def run_liquid_synthesis()`
+
+## sintesys5.py
+- `RealWorldEnvironment.__init__` (method) `sintesys5.py:20` `def __init__(self)`
+- `RealWorldEnvironment.get_batch` (method) `sintesys5.py:38` `def get_batch(self, phase, batch_size)`
+- `RealWorldEnvironment.measure_spatial_richness` (method) `sintesys5.py:56` `def measure_spatial_richness(activations)`
+- `HomeostasisEngine.__init__` (method) `sintesys5.py:69` `def __init__(self)`
+- `HomeostasisEngine.decide` (method) `sintesys5.py:73` `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+- `LiquidNeuron.__init__` (method) `sintesys5.py:88` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `sintesys5.py:96` `def forward(self, x, plasticity_gate)`
+- `LiquidNeuron.consolidate_svd` (method) `sintesys5.py:111` `def consolidate_svd(self, repair_strength)`
+- `OrganismV8_Real.__init__` (method) `sintesys5.py:125` `def __init__(self, d_in, d_hid, d_out)`
+- `OrganismV8_Real.forward` (method) `sintesys5.py:135` `def forward(self, x, plasticity_gate)`
+- `OrganismV8_Real.get_structure_entropy` (method) `sintesys5.py:143` `def get_structure_entropy(self)`
+- `OrganismV8_Real.calc_ent` (method) `sintesys5.py:145` `def calc_ent(W)`
+- `OrganismV8_Real.run_real_world_challenge` (method) `sintesys5.py:157` `def run_real_world_challenge()`
+
+## syntesys4.py
+- `measure_spatial_richness` (function) `syntesys4.py:12` `def measure_spatial_richness(activations)`
+- `HomeostasisEngine.__init__` (method) `syntesys4.py:28` `def __init__(self)`
+- `HomeostasisEngine.decide` (method) `syntesys4.py:32` `def decide(self, task_loss_val, richness_val, vn_entropy_val)`
+- `LiquidNeuron.__init__` (method) `syntesys4.py:61` `def __init__(self, in_dim, out_dim)`
+- `LiquidNeuron.forward` (method) `syntesys4.py:69` `def forward(self, x, plasticity_gate)`
+- `LiquidNeuron.consolidate_svd` (method) `syntesys4.py:84` `def consolidate_svd(self, repair_strength)`
+- `OrganismV8_1.__init__` (method) `syntesys4.py:102` `def __init__(self, d_in, d_hid, d_out)`
+- `OrganismV8_1.forward` (method) `syntesys4.py:112` `def forward(self, x, plasticity_gate)`
+- `OrganismV8_1.get_structure_entropy` (method) `syntesys4.py:120` `def get_structure_entropy(self)`
+- `OrganismV8_1.calc_ent` (method) `syntesys4.py:122` `def calc_ent(W)`
+- `OrganismV8_1.run_sensitive_self` (method) `syntesys4.py:131` `def run_sensitive_self()`
+
+## topobrain.py
+- `seed_everything` (function) `topobrain.py:50` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain.py:60` `def get_memory_gb()`
+- `ResourceMonitor.check_memory_limit` (method) `topobrain.py:65` `def check_memory_limit(limit_gb)`
+- `ResourceMonitor.log_resources` (method) `topobrain.py:72` `def log_resources()` -- ✅ FIX: Método faltante añadido
+- `ResourceMonitor.clear_cache` (method) `topobrain.py:81` `def clear_cache()`
+- `ResourceMonitor.guardar_checkpoint` (method) `topobrain.py:87` `def guardar_checkpoint(data, filename)` -- ✅ FIX: Guarda solo estado esencial + compresión
+- `ResourceMonitor.cargar_checkpoint` (method) `topobrain.py:118` `def cargar_checkpoint(filename)`
+- `LearnableAbsenceGating.__init__` (method) `topobrain.py:136` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `topobrain.py:143` `def forward(self, x_sensory, x_prediction)`
+- `SupConLoss.__init__` (method) `topobrain.py:148` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `topobrain.py:152` `def forward(self, features, labels)`
+- `PredictiveErrorCell.__init__` (method) `topobrain.py:176` `def __init__(self, dim, use_spectral)`
+- `PredictiveErrorCell.forward` (method) `topobrain.py:182` `def forward(self, input_signal, prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `topobrain.py:188` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `topobrain.py:196` `def forward(self, x)`
+- `CombinatorialComplexLayer.__init__` (method) `topobrain.py:206` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+- `CombinatorialComplexLayer.forward` (method) `topobrain.py:229` `def forward(self, x_nodes, adjacency, incidence, global_step)`
+- `TopoBrainNet.__init__` (method) `topobrain.py:253` `def __init__(self, config)`
+- `TopoBrainNet.get_topology` (method) `topobrain.py:308` `def get_topology(self)`
+- `TopoBrainNet.forward` (method) `topobrain.py:324` `def forward(self, x)`
+- `TopoBrainNet.clamp_pgd` (method) `topobrain.py:352` `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+- `TopoBrainNet.make_adversarial_pgd` (method) `topobrain.py:359` `def make_adversarial_pgd(model, x, y, eps, steps)`
+- `TopoBrainNet.eval_autoattack` (method) `topobrain.py:391` `def eval_autoattack(model, test_loader, n_samples)`
+- `Wrapper.__init__` (method) `topobrain.py:410` `def __init__(self, m)`
+- `Wrapper.forward` (method) `topobrain.py:411` `def forward(self, x)`
+- `Wrapper.save_topology_snapshot` (method) `topobrain.py:423` `def save_topology_snapshot(model, epoch, run_name)`
+- `Wrapper.plot_topology_evolution` (method) `topobrain.py:449` `def plot_topology_evolution(run_name)`
+- `Wrapper.run_training` (method) `topobrain.py:476` `def run_training(config_override, run_name)`
+- `Wrapper.lambda_topo` (method) `topobrain.py:529` `def lambda_topo(epoch)`
+- `Wrapper.run_diagnostic_suite` (method) `topobrain.py:676` `def run_diagnostic_suite()` -- ✅ Suite completa con TopoOnly crítico
+
+## topobrain_16_3.py
+- `seed_everything` (function) `topobrain_16_3.py:61` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain_16_3.py:72` `def get_memory_gb()`
+- `ResourceMonitor.check_memory_limit` (method) `topobrain_16_3.py:77` `def check_memory_limit(limit_gb)`
+- `ResourceMonitor.log_resources` (method) `topobrain_16_3.py:84` `def log_resources()`
+- `ResourceMonitor.clear_cache` (method) `topobrain_16_3.py:92` `def clear_cache()`
+- `ResourceMonitor.guardar_checkpoint` (method) `topobrain_16_3.py:98` `def guardar_checkpoint(data, filename)`
+- `ResourceMonitor.cargar_checkpoint` (method) `topobrain_16_3.py:123` `def cargar_checkpoint(filename)`
+- `LearnableAbsenceGating.__init__` (method) `topobrain_16_3.py:141` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `topobrain_16_3.py:148` `def forward(self, x_sensory, x_prediction)`
+- `SupConLoss.__init__` (method) `topobrain_16_3.py:153` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `topobrain_16_3.py:157` `def forward(self, features, labels)`
+- `PredictiveErrorCell.__init__` (method) `topobrain_16_3.py:184` `def __init__(self, dim, use_spectral)`
+- `PredictiveErrorCell.forward` (method) `topobrain_16_3.py:190` `def forward(self, input_signal, prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `topobrain_16_3.py:196` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `topobrain_16_3.py:204` `def forward(self, x)`
+- `CombinatorialComplexLayer.__init__` (method) `topobrain_16_3.py:214` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+- `CombinatorialComplexLayer.forward` (method) `topobrain_16_3.py:236` `def forward(self, x_nodes, adjacency, incidence, global_step)`
+- `TopoBrainNet.__init__` (method) `topobrain_16_3.py:267` `def __init__(self, config)`
+- `TopoBrainNet.get_topology` (method) `topobrain_16_3.py:319` `def get_topology(self)`
+- `TopoBrainNet.forward` (method) `topobrain_16_3.py:333` `def forward(self, x)`
+- `TopoBrainNet.clamp_pgd` (method) `topobrain_16_3.py:361` `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+- `TopoBrainNet.make_adversarial_pgd` (method) `topobrain_16_3.py:368` `def make_adversarial_pgd(model, x, y, eps, steps)`
+- `TopoBrainNet.eval_autoattack` (method) `topobrain_16_3.py:393` `def eval_autoattack(model, test_loader, n_samples)`
+- `Wrapper.__init__` (method) `topobrain_16_3.py:410` `def __init__(self, m)`
+- `Wrapper.forward` (method) `topobrain_16_3.py:411` `def forward(self, x)`
+- `Wrapper.save_topology_snapshot` (method) `topobrain_16_3.py:423` `def save_topology_snapshot(model, epoch, run_name)`
+- `Wrapper.plot_topology_evolution` (method) `topobrain_16_3.py:447` `def plot_topology_evolution(run_name)`
+- `Wrapper.run_training` (method) `topobrain_16_3.py:464` `def run_training(config_override, run_name)`
+- `Wrapper.lambda_topo` (method) `topobrain_16_3.py:531` `def lambda_topo(epoch)`
+- `Wrapper.run_diagnostic_suite` (method) `topobrain_16_3.py:726` `def run_diagnostic_suite()`
+
+## topobrain_v18.1.py
+- `Config.to_dict` (method) `topobrain_v18.1.py:86` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `topobrain_v18.1.py:89` `def get_supcon_lambda(self, epoch)` -- Schedule adaptativo para SupCon Loss
+- `Config.seed_everything` (method) `topobrain_v18.1.py:100` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain_v18.1.py:111` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `topobrain_v18.1.py:116` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `topobrain_v18.1.py:122` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `topobrain_v18.1.py:129` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `topobrain_v18.1.py:135` `def check_limit(limit_gb)`
+- `TopologicalHealthSovereignty.__init__` (method) `topobrain_v18.1.py:159` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `topobrain_v18.1.py:220` `def calculate(self, epoch)` -- Analiza todas las matrices topológicas del modelo
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `topobrain_v18.1.py:247` `def get_critical_summary(self)` -- Resumen de emergencias
+- `CheckpointManager.__init__` (method) `topobrain_v18.1.py:261` `def __init__(self, checkpoint_dir)`
+- `CheckpointManager.save` (method) `topobrain_v18.1.py:265` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `topobrain_v18.1.py:288` `def load(self, name)`
+- `CheckpointManager.get_dataset_stats` (method) `topobrain_v18.1.py:309` `def get_dataset_stats(dataset_name)`
+- `CheckpointManager.get_dataloaders` (method) `topobrain_v18.1.py:316` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `topobrain_v18.1.py:368` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `topobrain_v18.1.py:372` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `topobrain_v18.1.py:403` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `topobrain_v18.1.py:415` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `topobrain_v18.1.py:439` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `topobrain_v18.1.py:448` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `topobrain_v18.1.py:455` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `topobrain_v18.1.py:463` `def forward(self, x)`
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `topobrain_v18.1.py:480` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `topobrain_v18.1.py:509` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)` -- Args: x_nodes: [B, N, D] node features adjacency: [N, N] dense adjacency (fallback) incidence: [N, C] dense...
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `topobrain_v18.1.py:588` `def get_node_importance(self)` -- Retorna importancia de nodos para visualización
+- `TopoBrainNetV18.__init__` (method) `topobrain_v18.1.py:606` `def __init__(self, config, in_channels)`
+- `TopoBrainNetV18.get_topology` (method) `topobrain_v18.1.py:681` `def get_topology(self, return_sparse)` -- Calcula topología actual
+- `TopoBrainNetV18.calculate_ortho_loss` (method) `topobrain_v18.1.py:708` `def calculate_ortho_loss(self)` -- Regularización ortogonal con pesos por capa
+- `TopoBrainNetV18.prune_topology` (method) `topobrain_v18.1.py:741` `def prune_topology(self)` -- Poda de topología basada en importancia
+- `TopoBrainNetV18.forward` (method) `topobrain_v18.1.py:787` `def forward(self, x)`
+- `TopoBrainNetV18.set_epoch` (method) `topobrain_v18.1.py:813` `def set_epoch(self, epoch)` -- Permite pasar la época actual para schedules dinámicos
+- `TopoBrainNetV18.make_adversarial_pgd` (method) `topobrain_v18.1.py:820` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)` -- PGD Attack
+- `TopoBrainNetV18.train_epoch` (method) `topobrain_v18.1.py:848` `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)` -- Entrena una época con schedule adaptativo de SupCon - CORREGIDO
+- `TopoBrainNetV18.train_model` (method) `topobrain_v18.1.py:956` `def train_model(config, run_name)` -- Loop de entrenamiento v18
+- `TopoBrainNetV18.warmup_topo` (method) `topobrain_v18.1.py:1006` `def warmup_topo(epoch)`
+- `TopoBrainNetV18.evaluate` (method) `topobrain_v18.1.py:1139` `def evaluate(model, test_loader, config, adversarial)` -- Evalúa el modelo
+- `TopoBrainNetV18.save_topology_visualization` (method) `topobrain_v18.1.py:1166` `def save_topology_visualization(model, epoch, run_name)` -- Guarda visualización de la topología aprendida
+- `TopoBrainNetV18.save_node_importance_viz` (method) `topobrain_v18.1.py:1211` `def save_node_importance_viz(model, epoch, run_name)` -- Visualiza importancia de nodos por capa
+- `TopoBrainNetV18.analyze_topology_clustering` (method) `topobrain_v18.1.py:1234` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral de nodos basado en conectividad
+- `TopoBrainNetV18.analyze_topology_flow` (method) `topobrain_v18.1.py:1277` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Analiza flujo de información en la topología Similar a Grad-CAM pero para topología
+- `TopoBrainNetV18.visualize_topology_as_graph` (method) `topobrain_v18.1.py:1343` `def visualize_topology_as_graph(model, run_name, threshold)` -- Visualiza topología como grafo con NetworkX
+- `TopoBrainNetV18.analyze_topology_evolution` (method) `topobrain_v18.1.py:1409` `def analyze_topology_evolution(run_name)` -- Analiza la evolución de la topología a lo largo del entrenamiento
+- `TopoBrainNetV18.comprehensive_topology_analysis` (method) `topobrain_v18.1.py:1478` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Análisis completo de topología Ejecuta todos los análisis disponibles
+- `TopoBrainNetV18.run_ablation_study` (method) `topobrain_v18.1.py:1509` `def run_ablation_study()` -- Ejecuta suite completa de ablación v18
+- `TopoBrainNetV18.main` (method) `topobrain_v18.1.py:1633` `def main()` -- Punto de entrada principal v18
+
+## topobrain_v18.2.py
+- `Config.to_dict` (method) `topobrain_v18.2.py:86` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `topobrain_v18.2.py:89` `def get_supcon_lambda(self, epoch)` -- Schedule adaptativo para SupCon Loss
+- `Config.seed_everything` (method) `topobrain_v18.2.py:100` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain_v18.2.py:111` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `topobrain_v18.2.py:116` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `topobrain_v18.2.py:122` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `topobrain_v18.2.py:129` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `topobrain_v18.2.py:135` `def check_limit(limit_gb)`
+- `TopologicalHealthSovereignty.__init__` (method) `topobrain_v18.2.py:159` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `topobrain_v18.2.py:220` `def calculate(self, epoch)` -- Analiza todas las matrices topológicas del modelo
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `topobrain_v18.2.py:247` `def get_critical_summary(self)` -- Resumen de emergencias
+- `CheckpointManager.__init__` (method) `topobrain_v18.2.py:261` `def __init__(self, checkpoint_dir)`
+- `CheckpointManager.save` (method) `topobrain_v18.2.py:265` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `topobrain_v18.2.py:288` `def load(self, name)`
+- `CheckpointManager.get_dataset_stats` (method) `topobrain_v18.2.py:309` `def get_dataset_stats(dataset_name)`
+- `CheckpointManager.get_dataloaders` (method) `topobrain_v18.2.py:316` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `topobrain_v18.2.py:368` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `topobrain_v18.2.py:372` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `topobrain_v18.2.py:403` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `topobrain_v18.2.py:415` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `topobrain_v18.2.py:439` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `topobrain_v18.2.py:448` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `topobrain_v18.2.py:455` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `topobrain_v18.2.py:463` `def forward(self, x)`
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `topobrain_v18.2.py:480` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `topobrain_v18.2.py:510` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)` -- Args: x_nodes: [B, N, D] node features adjacency: [N, N] dense adjacency (fallback) incidence: [N, C] dense...
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `topobrain_v18.2.py:589` `def get_node_importance(self)` -- Retorna importancia de nodos para visualización
+- `TopoBrainNetV18.__init__` (method) `topobrain_v18.2.py:608` `def __init__(self, config, in_channels)`
+- `TopoBrainNetV18.get_topology` (method) `topobrain_v18.2.py:705` `def get_topology(self, return_sparse)` -- Calcula topología actual
+- `TopoBrainNetV18.calculate_ortho_loss` (method) `topobrain_v18.2.py:729` `def calculate_ortho_loss(self)` -- Regularización ortogonal con pesos por capa
+- `TopoBrainNetV18.prune_topology` (method) `topobrain_v18.2.py:754` `def prune_topology(self)` -- Poda de topología basada en importancia
+- `TopoBrainNetV18.forward` (method) `topobrain_v18.2.py:793` `def forward(self, x)`
+- `TopoBrainNetV18.set_epoch` (method) `topobrain_v18.2.py:818` `def set_epoch(self, epoch)`
+- `TopoBrainNetV18.make_adversarial_pgd` (method) `topobrain_v18.2.py:824` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)` -- PGD Attack
+- `TopoBrainNetV18.train_epoch` (method) `topobrain_v18.2.py:852` `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)` -- Entrena una época con schedule adaptativo de SupCon - CORREGIDO
+- `TopoBrainNetV18.train_model` (method) `topobrain_v18.2.py:960` `def train_model(config, run_name)` -- Loop de entrenamiento v18 (CORREGIDO - Inicialización Negativa)
+- `TopoBrainNetV18.warmup_topo` (method) `topobrain_v18.2.py:1016` `def warmup_topo(epoch)`
+- `TopoBrainNetV18.evaluate` (method) `topobrain_v18.2.py:1088` `def evaluate(model, test_loader, config, adversarial)` -- Evalúa el modelo
+- `TopoBrainNetV18.save_topology_visualization` (method) `topobrain_v18.2.py:1115` `def save_topology_visualization(model, epoch, run_name)` -- Guarda visualización de la topología aprendida
+- `TopoBrainNetV18.save_node_importance_viz` (method) `topobrain_v18.2.py:1160` `def save_node_importance_viz(model, epoch, run_name)` -- Visualiza importancia de nodos por capa
+- `TopoBrainNetV18.analyze_topology_clustering` (method) `topobrain_v18.2.py:1183` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral de nodos basado en conectividad
+- `TopoBrainNetV18.analyze_topology_flow` (method) `topobrain_v18.2.py:1226` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Analiza flujo de información en la topología Similar a Grad-CAM pero para topología
+- `TopoBrainNetV18.visualize_topology_as_graph` (method) `topobrain_v18.2.py:1292` `def visualize_topology_as_graph(model, run_name, threshold)` -- Visualiza topología como grafo con NetworkX
+- `TopoBrainNetV18.analyze_topology_evolution` (method) `topobrain_v18.2.py:1358` `def analyze_topology_evolution(run_name)` -- Analiza la evolución de la topología a lo largo del entrenamiento
+- `TopoBrainNetV18.comprehensive_topology_analysis` (method) `topobrain_v18.2.py:1427` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Análisis completo de topología Ejecuta todos los análisis disponibles
+- `TopoBrainNetV18.run_ablation_study` (method) `topobrain_v18.2.py:1458` `def run_ablation_study()` -- Ejecuta suite completa de ablación v18
+- `TopoBrainNetV18.main` (method) `topobrain_v18.2.py:1582` `def main()` -- Punto de entrada principal v18
+
+## topobrain_v18.py
+- `Config.to_dict` (method) `topobrain_v18.py:86` `def to_dict(self)`
+- `Config.get_supcon_lambda` (method) `topobrain_v18.py:89` `def get_supcon_lambda(self, epoch)` -- Schedule adaptativo para SupCon Loss
+- `Config.seed_everything` (method) `topobrain_v18.py:100` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain_v18.py:111` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `topobrain_v18.py:116` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `topobrain_v18.py:122` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `topobrain_v18.py:129` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `topobrain_v18.py:135` `def check_limit(limit_gb)`
+- `TopologicalHealthSovereignty.__init__` (method) `topobrain_v18.py:159` `def __init__(self, model, config, epsilon_c)`
+- `TopologicalHealthSovereignty.calculate` (method) `topobrain_v18.py:220` `def calculate(self, epoch)` -- Analiza todas las matrices topológicas del modelo
+- `TopologicalHealthSovereignty.get_critical_summary` (method) `topobrain_v18.py:247` `def get_critical_summary(self)` -- Resumen de emergencias
+- `CheckpointManager.__init__` (method) `topobrain_v18.py:261` `def __init__(self, checkpoint_dir)`
+- `CheckpointManager.save` (method) `topobrain_v18.py:265` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `topobrain_v18.py:288` `def load(self, name)`
+- `CheckpointManager.get_dataset_stats` (method) `topobrain_v18.py:309` `def get_dataset_stats(dataset_name)`
+- `CheckpointManager.get_dataloaders` (method) `topobrain_v18.py:316` `def get_dataloaders(config)`
+- `SupConLoss.__init__` (method) `topobrain_v18.py:368` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `topobrain_v18.py:372` `def forward(self, features, labels)`
+- `AsymmetricPredictiveErrorCell.__init__` (method) `topobrain_v18.py:403` `def __init__(self, dim, use_spectral)`
+- `AsymmetricPredictiveErrorCell.forward` (method) `topobrain_v18.py:415` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `topobrain_v18.py:439` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `topobrain_v18.py:448` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `topobrain_v18.py:455` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `topobrain_v18.py:463` `def forward(self, x)`
+- `AdaptiveCombinatorialComplexLayer.__init__` (method) `topobrain_v18.py:480` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+- `AdaptiveCombinatorialComplexLayer.forward` (method) `topobrain_v18.py:509` `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)` -- Args: x_nodes: [B, N, D] node features adjacency: [N, N] dense adjacency (fallback) incidence: [N, C] dense...
+- `AdaptiveCombinatorialComplexLayer.get_node_importance` (method) `topobrain_v18.py:588` `def get_node_importance(self)` -- Retorna importancia de nodos para visualización
+- `TopoBrainNetV18.__init__` (method) `topobrain_v18.py:606` `def __init__(self, config, in_channels)`
+- `TopoBrainNetV18.get_topology` (method) `topobrain_v18.py:681` `def get_topology(self, return_sparse)` -- Calcula topología actual
+- `TopoBrainNetV18.calculate_ortho_loss` (method) `topobrain_v18.py:708` `def calculate_ortho_loss(self)` -- Regularización ortogonal con pesos por capa
+- `TopoBrainNetV18.prune_topology` (method) `topobrain_v18.py:741` `def prune_topology(self)` -- Poda de topología basada en importancia
+- `TopoBrainNetV18.forward` (method) `topobrain_v18.py:769` `def forward(self, x)`
+- `TopoBrainNetV18.make_adversarial_pgd` (method) `topobrain_v18.py:799` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)` -- PGD Attack
+- `TopoBrainNetV18.train_epoch` (method) `topobrain_v18.py:827` `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)` -- Entrena una época con schedule adaptativo de SupCon
+- `TopoBrainNetV18.train_model` (method) `topobrain_v18.py:917` `def train_model(config, run_name)` -- Loop de entrenamiento completo
+- `TopoBrainNetV18.lambda_topo` (method) `topobrain_v18.py:948` `def lambda_topo(epoch)`
+- `TopoBrainNetV18.evaluate` (method) `topobrain_v18.py:1078` `def evaluate(model, test_loader, config, adversarial)` -- Evalúa el modelo
+- `TopoBrainNetV18.train_model` (method) `topobrain_v18.py:1101` `def train_model(config, run_name)` -- Loop de entrenamiento completo
+- `TopoBrainNetV18.lambda_topo` (method) `topobrain_v18.py:1130` `def lambda_topo(epoch)`
+- `TopoBrainNetV18.save_topology_visualization` (method) `topobrain_v18.py:1257` `def save_topology_visualization(model, epoch, run_name)` -- Guarda visualización de la topología aprendida
+- `TopoBrainNetV18.save_node_importance_viz` (method) `topobrain_v18.py:1302` `def save_node_importance_viz(model, epoch, run_name)` -- Visualiza importancia de nodos por capa
+- `TopoBrainNetV18.analyze_topology_clustering` (method) `topobrain_v18.py:1325` `def analyze_topology_clustering(model, run_name)` -- Clustering espectral de nodos basado en conectividad
+- `TopoBrainNetV18.analyze_topology_flow` (method) `topobrain_v18.py:1368` `def analyze_topology_flow(model, dataloader, run_name, num_samples)` -- Analiza flujo de información en la topología Similar a Grad-CAM pero para topología
+- `TopoBrainNetV18.visualize_topology_as_graph` (method) `topobrain_v18.py:1434` `def visualize_topology_as_graph(model, run_name, threshold)` -- Visualiza topología como grafo con NetworkX
+- `TopoBrainNetV18.analyze_topology_evolution` (method) `topobrain_v18.py:1500` `def analyze_topology_evolution(run_name)` -- Analiza la evolución de la topología a lo largo del entrenamiento
+- `TopoBrainNetV18.comprehensive_topology_analysis` (method) `topobrain_v18.py:1569` `def comprehensive_topology_analysis(model, dataloader, run_name)` -- Análisis completo de topología Ejecuta todos los análisis disponibles
+- `TopoBrainNetV18.run_ablation_study` (method) `topobrain_v18.py:1600` `def run_ablation_study()` -- Ejecuta suite completa de ablación v18
+- `TopoBrainNetV18.main` (method) `topobrain_v18.py:1724` `def main()` -- Punto de entrada principal v18
+
+## topobrain_v19.py
+- `Config.to_dict` (method) `topobrain_v19.py:91` `def to_dict(self)`
+- `Config.seed_everything` (method) `topobrain_v19.py:98` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `topobrain_v19.py:109` `def get_memory_gb()`
+- `ResourceMonitor.get_gpu_memory_gb` (method) `topobrain_v19.py:114` `def get_gpu_memory_gb()`
+- `ResourceMonitor.log` (method) `topobrain_v19.py:120` `def log(prefix)`
+- `ResourceMonitor.clear_cache` (method) `topobrain_v19.py:128` `def clear_cache()`
+- `ResourceMonitor.check_limit` (method) `topobrain_v19.py:134` `def check_limit(limit_gb)`
+- `CheckpointManager.__init__` (method) `topobrain_v19.py:140` `def __init__(self, checkpoint_dir)`
+- `CheckpointManager.save` (method) `topobrain_v19.py:144` `def save(self, data, name)`
+- `CheckpointManager.load` (method) `topobrain_v19.py:163` `def load(self, name)`
+- `CheckpointManager.get_dataset_stats` (method) `topobrain_v19.py:182` `def get_dataset_stats(dataset_name)`
+- `CheckpointManager.get_dataloaders` (method) `topobrain_v19.py:189` `def get_dataloaders(config)`
+- `NodePositionLearner.__init__` (method) `topobrain_v19.py:245` `def __init__(self, num_nodes, node_dim, k)`
+- `NodePositionLearner.forward` (method) `topobrain_v19.py:254` `def forward(self, batch_size)` -- Retorna edges para k-NN dinámico Returns: edge_index: [2, E] edge_weight: [E]
+- `DynamicTopologicalLayer.__init__` (method) `topobrain_v19.py:296` `def __init__(self, in_dim, hid_dim, config, layer_idx)`
+- `DynamicTopologicalLayer.forward` (method) `topobrain_v19.py:325` `def forward(self, x, edge_index, edge_weight, batch)` -- Args: x: [B*N, D] Node features edge_index: [2, E] Connectivity edge_weight: [E] Edge weights batch: [B*N] Batch indices
+- `TopoBrainNetV19.__init__` (method) `topobrain_v19.py:364` `def __init__(self, config, in_channels)`
+- `TopoBrainNetV19.forward` (method) `topobrain_v19.py:398` `def forward(self, x)`
+- `TopoBrainNetV19.apply_pruning` (method) `topobrain_v19.py:445` `def apply_pruning(self, edge_index, edge_weight)` -- Aplica máscara de pruning
+- `TopoBrainNetV19.prune_structural` (method) `topobrain_v19.py:453` `def prune_structural(self, threshold)` -- Pruning estructural real: elimina edges permanentemente
+- `TopoBrainNetV19.prune_fn` (method) `topobrain_v19.py:467` `def prune_fn(edge_idx)`
+- `TopoBrainNetV19.calculate_ortho_loss` (method) `topobrain_v19.py:473` `def calculate_ortho_loss(self)` -- Regularización ortogonal simple
+- `TopoBrainNetV19.make_adversarial_pgd` (method) `topobrain_v19.py:493` `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)` -- PGD Attack simplificado y robusto
+- `ContrastiveLoss.__init__` (method) `topobrain_v19.py:523` `def __init__(self, temperature)`
+- `ContrastiveLoss.forward` (method) `topobrain_v19.py:527` `def forward(self, features, labels)`
+- `ContrastiveLoss.train_epoch` (method) `topobrain_v19.py:545` `def train_epoch(model, train_loader, optimizer, criterion, contrastive_loss, config, epoch)` -- Entrena una época con logging integrado
+- `ContrastiveLoss.evaluate` (method) `topobrain_v19.py:621` `def evaluate(model, test_loader, config, adversarial)` -- Evalúa el modelo
+- `ContrastiveLoss.train_model` (method) `topobrain_v19.py:644` `def train_model(config, run_name)` -- Loop de entrenamiento completo v19
+- `ContrastiveLoss.warmup_lr` (method) `topobrain_v19.py:668` `def warmup_lr(epoch)`
+- `ContrastiveLoss.save_topology_snapshot` (method) `topobrain_v19.py:796` `def save_topology_snapshot(model, epoch, run_name)` -- Guarda snapshot de topología
+- `ContrastiveLoss.run_ablation_study` (method) `topobrain_v19.py:837` `def run_ablation_study()` -- Suite de ablación sistemática v19
+- `ContrastiveLoss.main` (method) `topobrain_v19.py:918` `def main()`
+
+## train_Adversarial.py
+- `seed_everything` (function) `train_Adversarial.py:61` `def seed_everything(seed)`
+- `ResourceMonitor.get_memory_gb` (method) `train_Adversarial.py:78` `def get_memory_gb()`
+- `ResourceMonitor.log_resources` (method) `train_Adversarial.py:83` `def log_resources()`
+- `ResourceMonitor.clear_cache` (method) `train_Adversarial.py:90` `def clear_cache()` -- Limpia cachés y fuerza garbage collection
+- `ResourceMonitor.guardar_checkpoint` (method) `train_Adversarial.py:100` `def guardar_checkpoint(data, filename)` -- Sistema de checkpoint robusto con protección contra corrupción
+- `ResourceMonitor.cargar_checkpoint` (method) `train_Adversarial.py:134` `def cargar_checkpoint(filename)` -- Carga checkpoint con fallback automático
+- `NestedOptimizer.__init__` (method) `train_Adversarial.py:159` `def __init__(self, params, lr, momentum, nested_levels, freq_factor)`
+- `NestedOptimizer.step` (method) `train_Adversarial.py:179` `def step(self, closure)`
+- `ContinuumMemorySystem.__init__` (method) `train_Adversarial.py:223` `def __init__(self, input_dim, hidden_dim, num_levels)`
+- `ContinuumMemorySystem.forward` (method) `train_Adversarial.py:240` `def forward(self, x)`
+- `ContinuumMemorySystem.should_update_level` (method) `train_Adversarial.py:246` `def should_update_level(self, level_idx, global_step)` -- Determina si un nivel debe actualizarse basado en su frecuencia
+- `ContinuumMemorySystem.get_update_mask` (method) `train_Adversarial.py:250` `def get_update_mask(self, level_idx, batch_size)` -- Máscara para actualizar solo un subconjunto de parámetros
+- `SupConLoss.__init__` (method) `train_Adversarial.py:261` `def __init__(self, temperature)`
+- `SupConLoss.forward` (method) `train_Adversarial.py:265` `def forward(self, features, labels)`
+- `PredictiveErrorCell.__init__` (method) `train_Adversarial.py:289` `def __init__(self, dim, use_spectral)`
+- `PredictiveErrorCell.forward` (method) `train_Adversarial.py:295` `def forward(self, input_signal, prediction)`
+- `LearnableAbsenceGating.__init__` (method) `train_Adversarial.py:301` `def __init__(self, dim)`
+- `LearnableAbsenceGating.forward` (method) `train_Adversarial.py:310` `def forward(self, x_sensory, x_prediction)`
+- `SymbioticBasisRefinement.__init__` (method) `train_Adversarial.py:315` `def __init__(self, dim, num_atoms)`
+- `SymbioticBasisRefinement.forward` (method) `train_Adversarial.py:323` `def forward(self, x)`
+- `CombinatorialComplexLayer.__init__` (method) `train_Adversarial.py:333` `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+- `CombinatorialComplexLayer.forward` (method) `train_Adversarial.py:362` `def forward(self, x_nodes, adjacency, incidence, global_step)`
+- `CombinatorialComplexLayer.apply_cms` (method) `train_Adversarial.py:391` `def apply_cms(self, x, global_step)` -- Aplica actualización condicional basada en frecuencia del CMS
+- `TopoBrainNet.__init__` (method) `train_Adversarial.py:401` `def __init__(self, config)`
+- `TopoBrainNet.get_topology` (method) `train_Adversarial.py:465` `def get_topology(self)`
+- `TopoBrainNet.forward` (method) `train_Adversarial.py:477` `def forward(self, x)`
+- `TopoBrainNet.clamp_pgd` (method) `train_Adversarial.py:509` `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+- `TopoBrainNet.make_adversarial_pgd` (method) `train_Adversarial.py:516` `def make_adversarial_pgd(model, x, y, eps, steps)`
+- `TopoBrainNet.eval_autoattack` (method) `train_Adversarial.py:534` `def eval_autoattack(model, test_loader, n_samples)`
+- `Wrapper.__init__` (method) `train_Adversarial.py:553` `def __init__(self, m)`
+- `Wrapper.forward` (method) `train_Adversarial.py:554` `def forward(self, x)`
+- `Wrapper.create_checkpoint_data` (method) `train_Adversarial.py:566` `def create_checkpoint_data(model, optimizer, epoch, config, metrics)` -- Crea estructura de checkpoint completa
+- `Wrapper.run_training` (method) `train_Adversarial.py:586` `def run_training(config_override, run_name)`
+- `Wrapper.lambda_topo` (method) `train_Adversarial.py:632` `def lambda_topo(epoch)`
+- `Wrapper.save_topology_snapshot` (method) `train_Adversarial.py:770` `def save_topology_snapshot(model, epoch, run_name)`
+- `Wrapper.run_diagnostic_suite` (method) `train_Adversarial.py:787` `def run_diagnostic_suite()`
+
+## tricameral2.py
+- `generate_audio_async` (function) `tricameral2.py:31` `def generate_audio_async(text, output_path, voice, max_retries)` -- Genera un audio usando Edge-TTS con retry logic
+- `generate_all_audios_batch` (function) `tricameral2.py:66` `def generate_all_audios_batch(captions_list, audio_dir, batch_size)` -- Genera todos los audios en batches pequeños con rate limiting
+- `generate_audios_sync` (function) `tricameral2.py:135` `def generate_audios_sync(images_dir, captions_file, audio_dir)` -- Wrapper síncrono para generar audios
+- `download_from_github` (function) `tricameral2.py:183` `def download_from_github(repo_url, output_dir)` -- Descarga dataset pre-preparado desde GitHub/Hugging Face
+- `setup_flickr8k` (function) `tricameral2.py:257` `def setup_flickr8k(data_dir, github_url)` -- Descarga y organiza Flickr8k - ahora con opción GitHub
+- `build_vocab_flickr` (function) `tricameral2.py:366` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `StableLiquidNeuron.__init__` (method) `tricameral2.py:390` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `tricameral2.py:425` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `tricameral2.py:438` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `tricameral2.py:476` `def update_physiology_advanced(self, loss_value)`
+- `LeftHemisphere.__init__` (method) `tricameral2.py:513` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `tricameral2.py:525` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `Flickr8kMultimodalDataset.__init__` (method) `tricameral2.py:587` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+- `AudioEncoder.__init__` (method) `tricameral2.py:681` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `tricameral2.py:720` `def forward(self, mel_spec)` -- Args: mel_spec: (batch, 80, time) Returns: audio_features: (batch, output_dim)
+- `RightHemisphereTricameral.__init__` (method) `tricameral2.py:750` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `tricameral2.py:784` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre: Para...
+- `CorpusCallosumTrimodal.__init__` (method) `tricameral2.py:824` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `tricameral2.py:856` `def forward(self, right_features)` -- Args: right_features: (B, dim) - Fusión de visión + audio Returns: enriched_context: (B, dim) channels: dict con...
+- `NeuralAudioGenerator.__init__` (method) `tricameral2.py:916` `def __init__(self, text_dim, output_sr)`
+- `NeuralAudioGenerator.forward` (method) `tricameral2.py:951` `def forward(self, text_embedding)` -- Args: text_embedding: (B, text_dim) Returns: audio_waveform: (B, 1, num_samples)
+- `NeuroLogosTricameral.__init__` (method) `tricameral2.py:985` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `tricameral2.py:1000` `def forward(self, image, audio, captions, epoch, generate_audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) - Mel-spectrogram del caption captions: (B, seq_len) - Tokens (solo en...
+- `NeuroLogosTricameral.compute_tricameral_loss` (method) `tricameral2.py:1048` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...` -- Pérdida con término de coherencia audio-visual
+- `NeuroLogosTricameral.train_tricameral` (method) `tricameral2.py:1100` `def train_tricameral(github_repo_url)` -- Entrena el modelo tricameral
+- `Flickr8kSimpleDataset.__init__` (method) `tricameral2.py:1196` `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+
+## tricameral_kimi.py
+- `setup_flickr8k_with_audio` (function) `tricameral_kimi.py:36` `def setup_flickr8k_with_audio(data_dir)` -- Descarga y organiza Flickr8k + Audio del dataset de Kaggle.
+- `build_vocab_flickr` (function) `tricameral_kimi.py:191` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `EpisodicMemoryBuffer.__init__` (method) `tricameral_kimi.py:216` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `tricameral_kimi.py:222` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+- `EpisodicMemoryBuffer.add` (method) `tricameral_kimi.py:232` `def add(self, image, caption, surprise_score)`
+- `EpisodicMemoryBuffer.sample` (method) `tricameral_kimi.py:241` `def sample(self, batch_size)`
+- `NeurocognitiveSystem.__init__` (method) `tricameral_kimi.py:256` `def __init__(self)`
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `tricameral_kimi.py:266` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)`
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `tricameral_kimi.py:287` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)`
+- `LanguageMetrics.sentence_bleu` (method) `tricameral_kimi.py:335` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `tricameral_kimi.py:378` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `tricameral_kimi.py:391` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `LinguisticFeedbackLoop.__init__` (method) `tricameral_kimi.py:406` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `tricameral_kimi.py:417` `def compute_linguistic_reward(self, references, hypotheses)`
+- `LinguisticFeedbackLoop.compute_cider` (method) `tricameral_kimi.py:443` `def compute_cider(self, reference, hypothesis)`
+- `LinguisticFeedbackLoop.compute_spice` (method) `tricameral_kimi.py:469` `def compute_spice(self, reference, hypothesis)`
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `tricameral_kimi.py:482` `def get_cache_stats(self)`
+- `LanguageMetrics.sentence_bleu` (method) `tricameral_kimi.py:505` `def sentence_bleu(reference, hypothesis, weights)`
+- `LanguageMetrics.token_accuracy` (method) `tricameral_kimi.py:528` `def token_accuracy(reference, hypothesis)`
+- `LanguageMetrics.word_overlap` (method) `tricameral_kimi.py:538` `def word_overlap(reference, hypothesis)`
+- `StableLiquidNeuron.__init__` (method) `tricameral_kimi.py:551` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `tricameral_kimi.py:586` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `tricameral_kimi.py:599` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `tricameral_kimi.py:639` `def update_physiology_advanced(self, loss_value)`
+- `TriangulatedMedicalSystem.__init__` (method) `tricameral_kimi.py:674` `def __init__(self)`
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `tricameral_kimi.py:680` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `tricameral_kimi.py:703` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+- `LeftHemisphere.__init__` (method) `tricameral_kimi.py:770` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `tricameral_kimi.py:781` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `AudioEncoder.__init__` (method) `tricameral_kimi.py:846` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `tricameral_kimi.py:880` `def forward(self, mel_spec)`
+- `RightHemisphereTricameral.__init__` (method) `tricameral_kimi.py:896` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `tricameral_kimi.py:929` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre...
+- `CorpusCallosumTrimodal.__init__` (method) `tricameral_kimi.py:966` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `tricameral_kimi.py:995` `def forward(self, right_features)`
+- `CorpusCallosumTrimodal.update_channel_fatigue` (method) `tricameral_kimi.py:1038` `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+- `CorpusCallosumTrimodal.adjust_gates_by_fatigue` (method) `tricameral_kimi.py:1054` `def adjust_gates_by_fatigue(self)`
+- `EnhancedDiagnosticsTricameral.__init__` (method) `tricameral_kimi.py:1068` `def __init__(self)`
+- `EnhancedDiagnosticsTricameral.measure_callosal_flow` (method) `tricameral_kimi.py:1084` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnosticsTricameral.evaluate_reasoning_quality` (method) `tricameral_kimi.py:1103` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+- `EnhancedDiagnosticsTricameral.calculate_synergy` (method) `tricameral_kimi.py:1127` `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnosticsTricameral.calculate_health` (method) `tricameral_kimi.py:1137` `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnosticsTricameral.update` (method) `tricameral_kimi.py:1146` `def update(self)`
+- `EnhancedDiagnosticsTricameral.get_recent_avg` (method) `tricameral_kimi.py:1156` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnosticsTricameral.visualize_fatigue_distribution` (method) `tricameral_kimi.py:1173` `def visualize_fatigue_distribution(self, epoch)`
+- `EnhancedDiagnosticsTricameral.visualize_reasoning_metrics` (method) `tricameral_kimi.py:1191` `def visualize_reasoning_metrics(self, epoch)`
+- `EnhancedDiagnosticsTricameral.report` (method) `tricameral_kimi.py:1202` `def report(self, epoch)`
+- `NeuroLogosTricameral.__init__` (method) `tricameral_kimi.py:1264` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `tricameral_kimi.py:1270` `def forward(self, image, audio, captions, epoch)`
+- `Flickr8kMultimodalDataset.__init__` (method) `tricameral_kimi.py:1299` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+- `Flickr8kMultimodalDataset.compute_tricameral_loss` (method) `tricameral_kimi.py:1402` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...` -- Pérdida con término de coherencia audio-visual
+- `Flickr8kMultimodalDataset.train_tricameral` (method) `tricameral_kimi.py:1452` `def train_tricameral()`
+
+## tricameral_kimi2.py
+- `setup_flickr8k_with_audio` (function) `tricameral_kimi2.py:50` `def setup_flickr8k_with_audio(data_dir)` -- Descarga y organiza Flickr8k + Audio del dataset de Kaggle.
+- `build_vocab_flickr` (function) `tricameral_kimi2.py:238` `def build_vocab_flickr(captions_file, vocab_size)` -- Construye vocabulario desde el archivo de captions
+- `EpisodicMemoryBuffer.__init__` (method) `tricameral_kimi2.py:263` `def __init__(self, capacity, surprise_threshold)`
+- `EpisodicMemoryBuffer.compute_surprise` (method) `tricameral_kimi2.py:278` `def compute_surprise(self, predicted_logits, ground_truth, gate_mean)`
+- `EpisodicMemoryBuffer.add` (method) `tricameral_kimi2.py:289` `def add(self, image, audio, caption, surprise_score)`
+- `EpisodicMemoryBuffer.sample` (method) `tricameral_kimi2.py:318` `def sample(self, batch_size)`
+- `NeurocognitiveSystem.__init__` (method) `tricameral_kimi2.py:348` `def __init__(self)`
+- `NeurocognitiveSystem.assess_reasoning_state` (method) `tricameral_kimi2.py:363` `def assess_reasoning_state(self, mtp_loss, reasoning_steps, logical_coherence, epoch)` -- Evalúa estado del sistema de razonamiento (MTP + Chain-of-Thought)
+- `NeurocognitiveSystem.assess_cognitive_state` (method) `tricameral_kimi2.py:407` `def assess_cognitive_state(self, cider_score, spice_score, combined_reward, epoch)` -- Evalúa estado cognitivo lingüístico (planteau, déficits, sobreajuste)
+- `NeurocognitiveSystem.apply_cognitive_intervention` (method) `tricameral_kimi2.py:453` `def apply_cognitive_intervention(self, model, issues, severity, confidence, epoch, diagnostics)` -- Aplica intervenciones basadas en estado lingüístico y de razonamiento
+- `LanguageMetrics.sentence_bleu` (method) `tricameral_kimi2.py:543` `def sentence_bleu(reference, hypothesis, weights)` -- BLEU simplificado a nivel de oración
+- `LanguageMetrics.token_accuracy` (method) `tricameral_kimi2.py:586` `def token_accuracy(reference, hypothesis)` -- Porcentaje de tokens correctos en posición
+- `LanguageMetrics.word_overlap` (method) `tricameral_kimi2.py:599` `def word_overlap(reference, hypothesis)` -- Jaccard similarity entre palabras
+- `LinguisticFeedbackLoop.__init__` (method) `tricameral_kimi2.py:614` `def __init__(self, alpha, beta)`
+- `LinguisticFeedbackLoop.cached_ngrams` (method) `tricameral_kimi2.py:623` `def cached_ngrams(sentence, n)`
+- `LinguisticFeedbackLoop.compute_linguistic_reward` (method) `tricameral_kimi2.py:636` `def compute_linguistic_reward(self, references, hypotheses)`
+- `LinguisticFeedbackLoop.compute_cider` (method) `tricameral_kimi2.py:675` `def compute_cider(self, reference, hypothesis)`
+- `LinguisticFeedbackLoop.compute_spice` (method) `tricameral_kimi2.py:695` `def compute_spice(self, reference, hypothesis)`
+- `LinguisticFeedbackLoop.get_cache_stats` (method) `tricameral_kimi2.py:704` `def get_cache_stats(self)`
+- `LanguageMetrics.sentence_bleu` (method) `tricameral_kimi2.py:727` `def sentence_bleu(reference, hypothesis, weights)`
+- `LanguageMetrics.token_accuracy` (method) `tricameral_kimi2.py:750` `def token_accuracy(reference, hypothesis)`
+- `LanguageMetrics.word_overlap` (method) `tricameral_kimi2.py:760` `def word_overlap(reference, hypothesis)`
+- `LanguageMetrics.sentence_bleu` (method) `tricameral_kimi2.py:776` `def sentence_bleu(reference, hypothesis, weights)`
+- `LanguageMetrics.token_accuracy` (method) `tricameral_kimi2.py:799` `def token_accuracy(reference, hypothesis)`
+- `LanguageMetrics.word_overlap` (method) `tricameral_kimi2.py:809` `def word_overlap(reference, hypothesis)`
+- `StableLiquidNeuron.__init__` (method) `tricameral_kimi2.py:822` `def __init__(self, in_dim, out_dim)`
+- `StableLiquidNeuron.forward` (method) `tricameral_kimi2.py:857` `def forward(self, x)`
+- `StableLiquidNeuron.hebbian_update` (method) `tricameral_kimi2.py:870` `def hebbian_update(self, post, pre, plasticity)`
+- `StableLiquidNeuron.update_physiology_advanced` (method) `tricameral_kimi2.py:910` `def update_physiology_advanced(self, loss_value)`
+- `TriangulatedMedicalSystem.__init__` (method) `tricameral_kimi2.py:945` `def __init__(self)`
+- `TriangulatedMedicalSystem.triangulate_signals` (method) `tricameral_kimi2.py:951` `def triangulate_signals(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow)`
+- `TriangulatedMedicalSystem.count_convergent_signals` (method) `tricameral_kimi2.py:962` `def count_convergent_signals(self, signals, pattern)`
+- `TriangulatedMedicalSystem.diagnose_with_triangulation` (method) `tricameral_kimi2.py:965` `def diagnose_with_triangulation(self, health_score, liquid_norm, gate_mean, gate_std, callosal_flow, epoch)`
+- `TriangulatedMedicalSystem.apply_triangulated_intervention` (method) `tricameral_kimi2.py:1018` `def apply_triangulated_intervention(self, model, issues, severity, confidence, epoch)`
+- `LeftHemisphere.__init__` (method) `tricameral_kimi2.py:1104` `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+- `LeftHemisphere.forward` (method) `tricameral_kimi2.py:1179` `def forward(self, visual_context, captions, channels, max_len, epoch)`
+- `AudioEncoder.__init__` (method) `tricameral_kimi2.py:1404` `def __init__(self, output_dim)`
+- `AudioEncoder.forward` (method) `tricameral_kimi2.py:1438` `def forward(self, mel_spec)`
+- `RightHemisphereTricameral.__init__` (method) `tricameral_kimi2.py:1454` `def __init__(self, output_dim)`
+- `RightHemisphereTricameral.forward` (method) `tricameral_kimi2.py:1487` `def forward(self, image, audio)` -- Args: image: (B, 3, H, W) audio: (B, 80, T) Returns: fused_features: (B, output_dim) visual_post, visual_pre...
+- `CorpusCallosumTrimodal.__init__` (method) `tricameral_kimi2.py:1524` `def __init__(self, dim)`
+- `CorpusCallosumTrimodal.forward` (method) `tricameral_kimi2.py:1572` `def forward(self, right_features)`
+- `CorpusCallosumTrimodal.update_channel_fatigue` (method) `tricameral_kimi2.py:1633` `def update_channel_fatigue(self, visual_channel, audio_channel, semantic_channel)`
+- `CorpusCallosumTrimodal.adjust_gates_by_fatigue` (method) `tricameral_kimi2.py:1655` `def adjust_gates_by_fatigue(self)`
+- `EnhancedDiagnosticsTricameral.__init__` (method) `tricameral_kimi2.py:1677` `def __init__(self)`
+- `EnhancedDiagnosticsTricameral.measure_callosal_flow` (method) `tricameral_kimi2.py:1717` `def measure_callosal_flow(self, right_features, left_context, channels)`
+- `EnhancedDiagnosticsTricameral.evaluate_reasoning_quality` (method) `tricameral_kimi2.py:1747` `def evaluate_reasoning_quality(self, generated_texts, reference_texts, reasoning_steps)`
+- `EnhancedDiagnosticsTricameral.calculate_synergy` (method) `tricameral_kimi2.py:1784` `def calculate_synergy(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std)`
+- `EnhancedDiagnosticsTricameral.calculate_health` (method) `tricameral_kimi2.py:1795` `def calculate_health(self, visual_node, audio_node, callosal_flow, left_gate_mean, left_gate_std, liquid_norm)`
+- `EnhancedDiagnosticsTricameral.update` (method) `tricameral_kimi2.py:1804` `def update(self)`
+- `EnhancedDiagnosticsTricameral.get_recent_avg` (method) `tricameral_kimi2.py:1821` `def get_recent_avg(self, key, n)`
+- `EnhancedDiagnosticsTricameral.visualize_fatigue_distribution` (method) `tricameral_kimi2.py:1837` `def visualize_fatigue_distribution(self, epoch)`
+- `EnhancedDiagnosticsTricameral.visualize_reasoning_metrics` (method) `tricameral_kimi2.py:1861` `def visualize_reasoning_metrics(self, epoch)`
+- `EnhancedDiagnosticsTricameral.report` (method) `tricameral_kimi2.py:1873` `def report(self, epoch)`
+- `NeuroLogosTricameral.__init__` (method) `tricameral_kimi2.py:1955` `def __init__(self, vocab_size)`
+- `NeuroLogosTricameral.forward` (method) `tricameral_kimi2.py:1961` `def forward(self, image, audio, captions, epoch)`
+- `Flickr8kMultimodalDataset.__init__` (method) `tricameral_kimi2.py:1990` `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+- `Flickr8kMultimodalDataset.compute_alignment_loss` (method) `tricameral_kimi2.py:2091` `def compute_alignment_loss(visual_features, channels, alpha, epoch)` -- FIX: Pérdida auxiliar para alineación temprana de canales multimodales Solo activa en épocas iniciales (epoch < 6)
+- `Flickr8kMultimodalDataset.compute_tricameral_loss` (method) `tricameral_kimi2.py:2119` `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+- `Flickr8kMultimodalDataset.train_tricameral` (method) `tricameral_kimi2.py:2166` `def train_tricameral()`
+
+
+Next: [API_p10.md](API_p10.md)

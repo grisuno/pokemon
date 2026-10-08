@@ -1,0 +1,441 @@
+# Subsystem: root (page 14 of 15)
+Previous: [KB_root_p13.md](KB_root_p13.md)
+
+## topobrain.py
+- Doc: guardar_checkpoint: ✅ FIX: Guarda solo estado esencial + compresión
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 50) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 58) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 87) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 118) `def cargar_checkpoint(filename)`
+  - `LearnableAbsenceGating` (class, line 135) `class LearnableAbsenceGating(Module)`
+  - `SupConLoss` (class, line 147) `class SupConLoss(Module)`
+  - `PredictiveErrorCell` (class, line 175) `class PredictiveErrorCell(Module)`
+  - `SymbioticBasisRefinement` (class, line 187) `class SymbioticBasisRefinement(Module)`
+  - `CombinatorialComplexLayer` (class, line 205) `class CombinatorialComplexLayer(Module)`
+  - `TopoBrainNet` (class, line 252) `class TopoBrainNet(Module)`
+  - `clamp_pgd` (method, line 352) `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+  - `make_adversarial_pgd` (method, line 359) `def make_adversarial_pgd(model, x, y, eps, steps)`
+  - `eval_autoattack` (method, line 391) `def eval_autoattack(model, test_loader, n_samples)`
+  - `save_topology_snapshot` (method, line 423) `def save_topology_snapshot(model, epoch, run_name)`
+  - `plot_topology_evolution` (method, line 449) `def plot_topology_evolution(run_name)`
+  - `run_training` (method, line 476) `def run_training(config_override, run_name)`
+  - `run_diagnostic_suite` (method, line 676) `def run_diagnostic_suite()`
+  - `get_memory_gb` (method, line 60) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 65) `def check_memory_limit(limit_gb)`
+  - `log_resources` (method, line 72) `def log_resources()`
+  - `clear_cache` (method, line 81) `def clear_cache()`
+  - `__init__` (method, line 136) `def __init__(self, dim)`
+  - `forward` (method, line 143) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 148) `def __init__(self, temperature)`
+  - `forward` (method, line 152) `def forward(self, features, labels)`
+  - `__init__` (method, line 176) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 182) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 188) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 196) `def forward(self, x)`
+  - `__init__` (method, line 206) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+  - `forward` (method, line 229) `def forward(self, x_nodes, adjacency, incidence, global_step)`
+  - `__init__` (method, line 253) `def __init__(self, config)`
+  - `_init_grid` (method, line 287) `def _init_grid(self, N)`
+  - `get_topology` (method, line 308) `def get_topology(self)`
+  - `forward` (method, line 324) `def forward(self, x)`
+  - `Wrapper` (class, line 409) `class Wrapper(Module)`
+  - `__init__` (method, line 410) `def __init__(self, m)`
+  - `forward` (method, line 411) `def forward(self, x)`
+  - `lambda_topo` (method, line 529) `def lambda_topo(epoch)`
+
+## topobrain_16_3.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 61) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 70) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 98) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 123) `def cargar_checkpoint(filename)`
+  - `LearnableAbsenceGating` (class, line 140) `class LearnableAbsenceGating(Module)`
+  - `SupConLoss` (class, line 152) `class SupConLoss(Module)`
+  - `PredictiveErrorCell` (class, line 183) `class PredictiveErrorCell(Module)`
+  - `SymbioticBasisRefinement` (class, line 195) `class SymbioticBasisRefinement(Module)`
+  - `CombinatorialComplexLayer` (class, line 213) `class CombinatorialComplexLayer(Module)`
+  - `TopoBrainNet` (class, line 266) `class TopoBrainNet(Module)`
+  - `clamp_pgd` (method, line 361) `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+  - `make_adversarial_pgd` (method, line 368) `def make_adversarial_pgd(model, x, y, eps, steps)`
+  - `eval_autoattack` (method, line 393) `def eval_autoattack(model, test_loader, n_samples)`
+  - `save_topology_snapshot` (method, line 423) `def save_topology_snapshot(model, epoch, run_name)`
+  - `plot_topology_evolution` (method, line 447) `def plot_topology_evolution(run_name)`
+  - `run_training` (method, line 464) `def run_training(config_override, run_name)`
+  - `run_diagnostic_suite` (method, line 726) `def run_diagnostic_suite()`
+  - `get_memory_gb` (method, line 72) `def get_memory_gb()`
+  - `check_memory_limit` (method, line 77) `def check_memory_limit(limit_gb)`
+  - `log_resources` (method, line 84) `def log_resources()`
+  - `clear_cache` (method, line 92) `def clear_cache()`
+  - `__init__` (method, line 141) `def __init__(self, dim)`
+  - `forward` (method, line 148) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 153) `def __init__(self, temperature)`
+  - `forward` (method, line 157) `def forward(self, features, labels)`
+  - `__init__` (method, line 184) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 190) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 196) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 204) `def forward(self, x)`
+  - `__init__` (method, line 214) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+  - `forward` (method, line 236) `def forward(self, x_nodes, adjacency, incidence, global_step)`
+  - `__init__` (method, line 267) `def __init__(self, config)`
+  - `_init_grid` (method, line 299) `def _init_grid(self, N)`
+  - `get_topology` (method, line 319) `def get_topology(self)`
+  - `forward` (method, line 333) `def forward(self, x)`
+  - `Wrapper` (class, line 409) `class Wrapper(Module)`
+  - `__init__` (method, line 410) `def __init__(self, m)`
+  - `forward` (method, line 411) `def forward(self, x)`
+  - `lambda_topo` (method, line 531) `def lambda_topo(epoch)`
+
+## topobrain_v18.1.py
+- Doc: Config: Configuración centralizada y reproducible
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 30) `class Config`
+  - `seed_everything` (method, line 100) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 109) `class ResourceMonitor`
+  - `TopologyMetrics` (class, line 143) `class TopologyMetrics`
+  - `TopologicalHealthSovereignty` (class, line 152) `class TopologicalHealthSovereignty`
+  - `CheckpointManager` (class, line 260) `class CheckpointManager`
+  - `get_dataset_stats` (method, line 309) `def get_dataset_stats(dataset_name)`
+  - `get_dataloaders` (method, line 316) `def get_dataloaders(config)`
+  - `SupConLoss` (class, line 366) `class SupConLoss(Module)`
+  - `AsymmetricPredictiveErrorCell` (class, line 398) `class AsymmetricPredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 437) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 453) `class SymbioticBasisRefinement(Module)`
+  - `AdaptiveCombinatorialComplexLayer` (class, line 473) `class AdaptiveCombinatorialComplexLayer(Module)`
+  - `TopoBrainNetV18` (class, line 598) `class TopoBrainNetV18(Module)`
+  - `make_adversarial_pgd` (method, line 820) `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)`
+  - `train_epoch` (method, line 848) `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)`
+  - `train_model` (method, line 956) `def train_model(config, run_name)`
+  - `evaluate` (method, line 1139) `def evaluate(model, test_loader, config, adversarial)`
+  - `save_topology_visualization` (method, line 1166) `def save_topology_visualization(model, epoch, run_name)`
+  - `save_node_importance_viz` (method, line 1211) `def save_node_importance_viz(model, epoch, run_name)`
+  - `analyze_topology_clustering` (method, line 1234) `def analyze_topology_clustering(model, run_name)`
+  - `analyze_topology_flow` (method, line 1277) `def analyze_topology_flow(model, dataloader, run_name, num_samples)`
+  - `visualize_topology_as_graph` (method, line 1343) `def visualize_topology_as_graph(model, run_name, threshold)`
+  - `analyze_topology_evolution` (method, line 1409) `def analyze_topology_evolution(run_name)`
+  - `comprehensive_topology_analysis` (method, line 1478) `def comprehensive_topology_analysis(model, dataloader, run_name)`
+  - `run_ablation_study` (method, line 1509) `def run_ablation_study()`
+  - `main` (method, line 1633) `def main()`
+  - `__post_init__` (method, line 82) `def __post_init__(self)`
+  - `to_dict` (method, line 86) `def to_dict(self)`
+  - `get_supcon_lambda` (method, line 89) `def get_supcon_lambda(self, epoch)`
+  - `get_memory_gb` (method, line 111) `def get_memory_gb()`
+  - `get_gpu_memory_gb` (method, line 116) `def get_gpu_memory_gb()`
+  - `log` (method, line 122) `def log(prefix)`
+  - `clear_cache` (method, line 129) `def clear_cache()`
+  - `check_limit` (method, line 135) `def check_limit(limit_gb)`
+  - `__init__` (method, line 159) `def __init__(self, model, config, epsilon_c)`
+  - `_analyze_matrix` (method, line 165) `def _analyze_matrix(self, weight_matrix, name)`
+  - `calculate` (method, line 220) `def calculate(self, epoch)`
+  - `get_critical_summary` (method, line 247) `def get_critical_summary(self)`
+  - `__init__` (method, line 261) `def __init__(self, checkpoint_dir)`
+  - `save` (method, line 265) `def save(self, data, name)`
+  - `load` (method, line 288) `def load(self, name)`
+  - `__init__` (method, line 368) `def __init__(self, temperature)`
+  - `forward` (method, line 372) `def forward(self, features, labels)`
+  - `__init__` (method, line 403) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 415) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 439) `def __init__(self, dim)`
+  - `forward` (method, line 448) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 455) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 463) `def forward(self, x)`
+  - `__init__` (method, line 480) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+  - `forward` (method, line 509) `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)`
+  - `get_node_importance` (method, line 588) `def get_node_importance(self)`
+  - `__init__` (method, line 606) `def __init__(self, config, in_channels)`
+  - `_init_grid_topology` (method, line 653) `def _init_grid_topology(self, N)`
+  - `get_topology` (method, line 681) `def get_topology(self, return_sparse)`
+  - `calculate_ortho_loss` (method, line 708) `def calculate_ortho_loss(self)`
+  - `prune_topology` (method, line 741) `def prune_topology(self)`
+  - `forward` (method, line 787) `def forward(self, x)`
+  - `set_epoch` (method, line 813) `def set_epoch(self, epoch)`
+  - `warmup_topo` (method, line 1006) `def warmup_topo(epoch)`
+
+## topobrain_v18.2.py
+- Doc: Config: Configuración centralizada y reproducible
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 30) `class Config`
+  - `seed_everything` (method, line 100) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 109) `class ResourceMonitor`
+  - `TopologyMetrics` (class, line 143) `class TopologyMetrics`
+  - `TopologicalHealthSovereignty` (class, line 152) `class TopologicalHealthSovereignty`
+  - `CheckpointManager` (class, line 260) `class CheckpointManager`
+  - `get_dataset_stats` (method, line 309) `def get_dataset_stats(dataset_name)`
+  - `get_dataloaders` (method, line 316) `def get_dataloaders(config)`
+  - `SupConLoss` (class, line 366) `class SupConLoss(Module)`
+  - `AsymmetricPredictiveErrorCell` (class, line 398) `class AsymmetricPredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 437) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 453) `class SymbioticBasisRefinement(Module)`
+  - `AdaptiveCombinatorialComplexLayer` (class, line 473) `class AdaptiveCombinatorialComplexLayer(Module)`
+  - `TopoBrainNetV18` (class, line 599) `class TopoBrainNetV18(Module)`
+  - `make_adversarial_pgd` (method, line 824) `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)`
+  - `train_epoch` (method, line 852) `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)`
+  - `train_model` (method, line 960) `def train_model(config, run_name)`
+  - `evaluate` (method, line 1088) `def evaluate(model, test_loader, config, adversarial)`
+  - `save_topology_visualization` (method, line 1115) `def save_topology_visualization(model, epoch, run_name)`
+  - `save_node_importance_viz` (method, line 1160) `def save_node_importance_viz(model, epoch, run_name)`
+  - `analyze_topology_clustering` (method, line 1183) `def analyze_topology_clustering(model, run_name)`
+  - `analyze_topology_flow` (method, line 1226) `def analyze_topology_flow(model, dataloader, run_name, num_samples)`
+  - `visualize_topology_as_graph` (method, line 1292) `def visualize_topology_as_graph(model, run_name, threshold)`
+  - `analyze_topology_evolution` (method, line 1358) `def analyze_topology_evolution(run_name)`
+  - `comprehensive_topology_analysis` (method, line 1427) `def comprehensive_topology_analysis(model, dataloader, run_name)`
+  - `run_ablation_study` (method, line 1458) `def run_ablation_study()`
+  - `main` (method, line 1582) `def main()`
+  - `__post_init__` (method, line 82) `def __post_init__(self)`
+  - `to_dict` (method, line 86) `def to_dict(self)`
+  - `get_supcon_lambda` (method, line 89) `def get_supcon_lambda(self, epoch)`
+  - `get_memory_gb` (method, line 111) `def get_memory_gb()`
+  - `get_gpu_memory_gb` (method, line 116) `def get_gpu_memory_gb()`
+  - `log` (method, line 122) `def log(prefix)`
+  - `clear_cache` (method, line 129) `def clear_cache()`
+  - `check_limit` (method, line 135) `def check_limit(limit_gb)`
+  - `__init__` (method, line 159) `def __init__(self, model, config, epsilon_c)`
+  - `_analyze_matrix` (method, line 165) `def _analyze_matrix(self, weight_matrix, name)`
+  - `calculate` (method, line 220) `def calculate(self, epoch)`
+  - `get_critical_summary` (method, line 247) `def get_critical_summary(self)`
+  - `__init__` (method, line 261) `def __init__(self, checkpoint_dir)`
+  - `save` (method, line 265) `def save(self, data, name)`
+  - `load` (method, line 288) `def load(self, name)`
+  - `__init__` (method, line 368) `def __init__(self, temperature)`
+  - `forward` (method, line 372) `def forward(self, features, labels)`
+  - `__init__` (method, line 403) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 415) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 439) `def __init__(self, dim)`
+  - `forward` (method, line 448) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 455) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 463) `def forward(self, x)`
+  - `__init__` (method, line 480) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+  - `forward` (method, line 510) `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)`
+  - `get_node_importance` (method, line 589) `def get_node_importance(self)`
+  - `__init__` (method, line 608) `def __init__(self, config, in_channels)`
+  - `_init_grid_topology` (method, line 668) `def _init_grid_topology(self, N)`
+  - `get_topology` (method, line 705) `def get_topology(self, return_sparse)`
+  - `calculate_ortho_loss` (method, line 729) `def calculate_ortho_loss(self)`
+  - `prune_topology` (method, line 754) `def prune_topology(self)`
+  - `forward` (method, line 793) `def forward(self, x)`
+  - `set_epoch` (method, line 818) `def set_epoch(self, epoch)`
+  - `warmup_topo` (method, line 1016) `def warmup_topo(epoch)`
+
+## topobrain_v18.py
+- Doc: Config: Configuración centralizada y reproducible
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 30) `class Config`
+  - `seed_everything` (method, line 100) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 109) `class ResourceMonitor`
+  - `TopologyMetrics` (class, line 143) `class TopologyMetrics`
+  - `TopologicalHealthSovereignty` (class, line 152) `class TopologicalHealthSovereignty`
+  - `CheckpointManager` (class, line 260) `class CheckpointManager`
+  - `get_dataset_stats` (method, line 309) `def get_dataset_stats(dataset_name)`
+  - `get_dataloaders` (method, line 316) `def get_dataloaders(config)`
+  - `SupConLoss` (class, line 366) `class SupConLoss(Module)`
+  - `AsymmetricPredictiveErrorCell` (class, line 398) `class AsymmetricPredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 437) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 453) `class SymbioticBasisRefinement(Module)`
+  - `AdaptiveCombinatorialComplexLayer` (class, line 473) `class AdaptiveCombinatorialComplexLayer(Module)`
+  - `TopoBrainNetV18` (class, line 598) `class TopoBrainNetV18(Module)`
+  - `make_adversarial_pgd` (method, line 799) `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)`
+  - `train_epoch` (method, line 827) `def train_epoch(model, train_loader, optimizer, opt_topo, supcon, config, epoch, topo_monitor)`
+  - `train_model` (method, line 917) `def train_model(config, run_name)`
+  - `evaluate` (method, line 1078) `def evaluate(model, test_loader, config, adversarial)`
+  - `train_model` (method, line 1101) `def train_model(config, run_name)`
+  - `save_topology_visualization` (method, line 1257) `def save_topology_visualization(model, epoch, run_name)`
+  - `save_node_importance_viz` (method, line 1302) `def save_node_importance_viz(model, epoch, run_name)`
+  - `analyze_topology_clustering` (method, line 1325) `def analyze_topology_clustering(model, run_name)`
+  - `analyze_topology_flow` (method, line 1368) `def analyze_topology_flow(model, dataloader, run_name, num_samples)`
+  - `visualize_topology_as_graph` (method, line 1434) `def visualize_topology_as_graph(model, run_name, threshold)`
+  - `analyze_topology_evolution` (method, line 1500) `def analyze_topology_evolution(run_name)`
+  - `comprehensive_topology_analysis` (method, line 1569) `def comprehensive_topology_analysis(model, dataloader, run_name)`
+  - `run_ablation_study` (method, line 1600) `def run_ablation_study()`
+  - `main` (method, line 1724) `def main()`
+  - `__post_init__` (method, line 82) `def __post_init__(self)`
+  - `to_dict` (method, line 86) `def to_dict(self)`
+  - `get_supcon_lambda` (method, line 89) `def get_supcon_lambda(self, epoch)`
+  - `get_memory_gb` (method, line 111) `def get_memory_gb()`
+  - `get_gpu_memory_gb` (method, line 116) `def get_gpu_memory_gb()`
+  - `log` (method, line 122) `def log(prefix)`
+  - `clear_cache` (method, line 129) `def clear_cache()`
+  - `check_limit` (method, line 135) `def check_limit(limit_gb)`
+  - `__init__` (method, line 159) `def __init__(self, model, config, epsilon_c)`
+  - `_analyze_matrix` (method, line 165) `def _analyze_matrix(self, weight_matrix, name)`
+  - `calculate` (method, line 220) `def calculate(self, epoch)`
+  - `get_critical_summary` (method, line 247) `def get_critical_summary(self)`
+  - `__init__` (method, line 261) `def __init__(self, checkpoint_dir)`
+  - `save` (method, line 265) `def save(self, data, name)`
+  - `load` (method, line 288) `def load(self, name)`
+  - `__init__` (method, line 368) `def __init__(self, temperature)`
+  - `forward` (method, line 372) `def forward(self, features, labels)`
+  - `__init__` (method, line 403) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 415) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 439) `def __init__(self, dim)`
+  - `forward` (method, line 448) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 455) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 463) `def forward(self, x)`
+  - `__init__` (method, line 480) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type, layer_idx)`
+  - `forward` (method, line 509) `def forward(self, x_nodes, adjacency, incidence, adj_sparse, inc_sparse)`
+  - `get_node_importance` (method, line 588) `def get_node_importance(self)`
+  - `__init__` (method, line 606) `def __init__(self, config, in_channels)`
+  - `_init_grid_topology` (method, line 653) `def _init_grid_topology(self, N)`
+  - `get_topology` (method, line 681) `def get_topology(self, return_sparse)`
+  - `calculate_ortho_loss` (method, line 708) `def calculate_ortho_loss(self)`
+  - `prune_topology` (method, line 741) `def prune_topology(self)`
+  - `forward` (method, line 769) `def forward(self, x)`
+  - `lambda_topo` (method, line 948) `def lambda_topo(epoch)`
+  - `lambda_topo` (method, line 1130) `def lambda_topo(epoch)`
+
+## topobrain_v19.py
+- Doc: Config: Configuración unificada y simplificada
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 42) `class Config`
+  - `seed_everything` (method, line 98) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 107) `class ResourceMonitor`
+  - `CheckpointManager` (class, line 139) `class CheckpointManager`
+  - `get_dataset_stats` (method, line 182) `def get_dataset_stats(dataset_name)`
+  - `get_dataloaders` (method, line 189) `def get_dataloaders(config)`
+  - `NodePositionLearner` (class, line 240) `class NodePositionLearner(Module)`
+  - `DynamicTopologicalLayer` (class, line 291) `class DynamicTopologicalLayer(Module)`
+  - `TopoBrainNetV19` (class, line 360) `class TopoBrainNetV19(Module)`
+  - `make_adversarial_pgd` (method, line 493) `def make_adversarial_pgd(model, x, y, eps, steps, dataset_name)`
+  - `ContrastiveLoss` (class, line 521) `class ContrastiveLoss(Module)`
+  - `train_epoch` (method, line 545) `def train_epoch(model, train_loader, optimizer, criterion, contrastive_loss, config, epoch)`
+  - `evaluate` (method, line 621) `def evaluate(model, test_loader, config, adversarial)`
+  - `train_model` (method, line 644) `def train_model(config, run_name)`
+  - `save_topology_snapshot` (method, line 796) `def save_topology_snapshot(model, epoch, run_name)`
+  - `run_ablation_study` (method, line 837) `def run_ablation_study()`
+  - `main` (method, line 918) `def main()`
+  - `to_dict` (method, line 91) `def to_dict(self)`
+  - `get_memory_gb` (method, line 109) `def get_memory_gb()`
+  - `get_gpu_memory_gb` (method, line 114) `def get_gpu_memory_gb()`
+  - `log` (method, line 120) `def log(prefix)`
+  - `clear_cache` (method, line 128) `def clear_cache()`
+  - `check_limit` (method, line 134) `def check_limit(limit_gb)`
+  - `__init__` (method, line 140) `def __init__(self, checkpoint_dir)`
+  - `save` (method, line 144) `def save(self, data, name)`
+  - `load` (method, line 163) `def load(self, name)`
+  - `__init__` (method, line 245) `def __init__(self, num_nodes, node_dim, k)`
+  - `forward` (method, line 254) `def forward(self, batch_size)`
+  - `__init__` (method, line 296) `def __init__(self, in_dim, hid_dim, config, layer_idx)`
+  - `forward` (method, line 325) `def forward(self, x, edge_index, edge_weight, batch)`
+  - `__init__` (method, line 364) `def __init__(self, config, in_channels)`
+  - `forward` (method, line 398) `def forward(self, x)`
+  - `apply_pruning` (method, line 445) `def apply_pruning(self, edge_index, edge_weight)`
+  - `prune_structural` (method, line 453) `def prune_structural(self, threshold)`
+  - `calculate_ortho_loss` (method, line 473) `def calculate_ortho_loss(self)`
+  - `__init__` (method, line 523) `def __init__(self, temperature)`
+  - `forward` (method, line 527) `def forward(self, features, labels)`
+  - `warmup_lr` (method, line 668) `def warmup_lr(epoch)`
+  - `prune_fn` (method, line 467) `def prune_fn(edge_idx)`
+
+## train_Adversarial.py
+- Doc: NestedOptimizer: Optimizador de múltiples niveles basado en Nested Learning.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `seed_everything` (function, line 61) `def seed_everything(seed)`
+  - `ResourceMonitor` (class, line 74) `class ResourceMonitor`
+  - `guardar_checkpoint` (method, line 100) `def guardar_checkpoint(data, filename)`
+  - `cargar_checkpoint` (method, line 134) `def cargar_checkpoint(filename)`
+  - `NestedOptimizer` (class, line 154) `class NestedOptimizer(Optimizer)`
+  - `ContinuumMemorySystem` (class, line 218) `class ContinuumMemorySystem(Module)`
+  - `SupConLoss` (class, line 260) `class SupConLoss(Module)`
+  - `PredictiveErrorCell` (class, line 288) `class PredictiveErrorCell(Module)`
+  - `LearnableAbsenceGating` (class, line 300) `class LearnableAbsenceGating(Module)`
+  - `SymbioticBasisRefinement` (class, line 314) `class SymbioticBasisRefinement(Module)`
+  - `CombinatorialComplexLayer` (class, line 332) `class CombinatorialComplexLayer(Module)`
+  - `TopoBrainNet` (class, line 400) `class TopoBrainNet(Module)`
+  - `clamp_pgd` (method, line 509) `def clamp_pgd(x_adv_norm, x_orig_norm, eps)`
+  - `make_adversarial_pgd` (method, line 516) `def make_adversarial_pgd(model, x, y, eps, steps)`
+  - `eval_autoattack` (method, line 534) `def eval_autoattack(model, test_loader, n_samples)`
+  - `create_checkpoint_data` (method, line 566) `def create_checkpoint_data(model, optimizer, epoch, config, metrics)`
+  - `run_training` (method, line 586) `def run_training(config_override, run_name)`
+  - `save_topology_snapshot` (method, line 770) `def save_topology_snapshot(model, epoch, run_name)`
+  - `run_diagnostic_suite` (method, line 787) `def run_diagnostic_suite()`
+  - `get_memory_gb` (method, line 78) `def get_memory_gb()`
+  - `log_resources` (method, line 83) `def log_resources()`
+  - `clear_cache` (method, line 90) `def clear_cache()`
+  - `__init__` (method, line 159) `def __init__(self, params, lr, momentum, nested_levels, freq_factor)`
+  - `step` (method, line 179) `def step(self, closure)`
+  - `__init__` (method, line 223) `def __init__(self, input_dim, hidden_dim, num_levels)`
+  - `forward` (method, line 240) `def forward(self, x)`
+  - `should_update_level` (method, line 246) `def should_update_level(self, level_idx, global_step)`
+  - `get_update_mask` (method, line 250) `def get_update_mask(self, level_idx, batch_size)`
+  - `__init__` (method, line 261) `def __init__(self, temperature)`
+  - `forward` (method, line 265) `def forward(self, features, labels)`
+  - `__init__` (method, line 289) `def __init__(self, dim, use_spectral)`
+  - `forward` (method, line 295) `def forward(self, input_signal, prediction)`
+  - `__init__` (method, line 301) `def __init__(self, dim)`
+  - `forward` (method, line 310) `def forward(self, x_sensory, x_prediction)`
+  - `__init__` (method, line 315) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 323) `def forward(self, x)`
+  - `__init__` (method, line 333) `def __init__(self, in_dim, hid_dim, num_nodes, config, layer_type)`
+  - `forward` (method, line 362) `def forward(self, x_nodes, adjacency, incidence, global_step)`
+  - `apply_cms` (method, line 391) `def apply_cms(self, x, global_step)`
+  - `__init__` (method, line 401) `def __init__(self, config)`
+  - `_init_grid` (method, line 444) `def _init_grid(self, N)`
+  - `get_topology` (method, line 465) `def get_topology(self)`
+  - `forward` (method, line 477) `def forward(self, x)`
+  - `Wrapper` (class, line 552) `class Wrapper(Module)`
+  - `__init__` (method, line 553) `def __init__(self, m)`
+  - `forward` (method, line 554) `def forward(self, x)`
+  - `lambda_topo` (method, line 632) `def lambda_topo(epoch)`
+
+## tricameral2.py
+- Doc: Flickr8kMultimodalDataset: Dataset que carga imagen, audio del caption y texto
+- Layer: utility
+- Language: py
+- Symbols:
+  - `generate_audio_async` (function, line 31) `def generate_audio_async(text, output_path, voice, max_retries)`
+  - `generate_all_audios_batch` (function, line 66) `def generate_all_audios_batch(captions_list, audio_dir, batch_size)`
+  - `generate_audios_sync` (function, line 135) `def generate_audios_sync(images_dir, captions_file, audio_dir)`
+  - `download_from_github` (function, line 183) `def download_from_github(repo_url, output_dir)`
+  - `setup_flickr8k` (function, line 257) `def setup_flickr8k(data_dir, github_url)`
+  - `build_vocab_flickr` (function, line 366) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `StableLiquidNeuron` (class, line 389) `class StableLiquidNeuron(Module)`
+  - `LeftHemisphere` (class, line 512) `class LeftHemisphere(Module)`
+  - `Flickr8kMultimodalDataset` (class, line 584) `class Flickr8kMultimodalDataset(Dataset)`
+  - `AudioEncoder` (class, line 678) `class AudioEncoder(Module)`
+  - `RightHemisphereTricameral` (class, line 747) `class RightHemisphereTricameral(Module)`
+  - `CorpusCallosumTrimodal` (class, line 821) `class CorpusCallosumTrimodal(Module)`
+  - `NeuralAudioGenerator` (class, line 913) `class NeuralAudioGenerator(Module)`
+  - `NeuroLogosTricameral` (class, line 982) `class NeuroLogosTricameral(Module)`
+  - `compute_tricameral_loss` (method, line 1048) `def compute_tricameral_loss(logits, captions, gate, vocab, visual_post, audio_post, mtp_loss, linguistic_reward...`
+  - `train_tricameral` (method, line 1100) `def train_tricameral(github_repo_url)`
+  - `__init__` (method, line 390) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 425) `def forward(self, x)`
+  - `hebbian_update` (method, line 438) `def hebbian_update(self, post, pre, plasticity)`
+  - `update_physiology_advanced` (method, line 476) `def update_physiology_advanced(self, loss_value)`
+  - `__init__` (method, line 513) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 525) `def forward(self, visual_context, captions, channels, max_len, epoch)`
+  - `_greedy_decode` (method, line 548) `def _greedy_decode(self, visual_context, max_len, device)`
+  - `_get_init_state` (method, line 570) `def _get_init_state(self, visual_context)`
+  - `__init__` (method, line 587) `def __init__(self, images_dir, audio_dir, captions_file, vocab, img_transform, max_len, sample_rate)`
+  - `__len__` (method, line 625) `def __len__(self)`
+  - `__getitem__` (method, line 628) `def __getitem__(self, idx)`
+  - `__init__` (method, line 681) `def __init__(self, output_dim)`
+  - `forward` (method, line 720) `def forward(self, mel_spec)`
+  - `__init__` (method, line 750) `def __init__(self, output_dim)`
+  - `forward` (method, line 784) `def forward(self, image, audio)`
+  - `__init__` (method, line 824) `def __init__(self, dim)`
+  - `forward` (method, line 856) `def forward(self, right_features)`
+  - `__init__` (method, line 916) `def __init__(self, text_dim, output_sr)`
+  - `forward` (method, line 951) `def forward(self, text_embedding)`
+  - `__init__` (method, line 985) `def __init__(self, vocab_size)`
+  - `forward` (method, line 1000) `def forward(self, image, audio, captions, epoch, generate_audio)`
+  - `Flickr8kSimpleDataset` (class, line 1195) `class Flickr8kSimpleDataset(BaseDataset)`
+  - `__init__` (method, line 1196) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 1214) `def __len__(self)`
+  - `__getitem__` (method, line 1217) `def __getitem__(self, idx)`
+
+
+Next: [KB_root_p15.md](KB_root_p15.md)

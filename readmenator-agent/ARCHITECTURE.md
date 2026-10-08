@@ -1,0 +1,196 @@
+# Architecture
+
+## Internal Dependencies
+
+- `example_usage.py` -> `physio_chimera_v15_monitored.py`
+- `min_test_synergy.py` -> `premium_synergy_democratic.py`
+- `run_complete_experiment.py` -> `physio_chimera_v15_monitored.py`
+- `test_premium_synergy.py` -> `premium_synergy_democratic.py`
+
+## External Imports
+
+- `01_mcculloch_pitts.py` -> numpy
+- `01_topobrain_cou_v2.py` -> collections, dataclasses, json, math, matplotlib.pyplot, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu.py` -> dataclasses, itertools, json, numpy, os, random, sklearn.datasets, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu_v3.py` -> dataclasses, gc, json, matplotlib.pyplot, numpy, os, pathlib, psutil, random, sklearn.datasets, torch, torch.nn, torch.nn.functional, torch.utils.data, traceback, typing
+- `01_topobrain_cpu_v4.py` -> collections, dataclasses, json, math, matplotlib.pyplot, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu_v5.py` -> collections, dataclasses, json, math, matplotlib.pyplot, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu_v6.py` -> collections, dataclasses, json, numpy, os, pathlib, random, scipy, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu_v7.py` -> dataclasses, json, numpy, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `01_topobrain_cpu_v8.py` -> dataclasses, numpy, onnx, onnxruntime, os, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data
+- `01_topobrain_ganador_gpu_v1.py` -> dataclasses, json, numpy, pathlib, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `02_perceptron.py` -> numpy
+- `03_backpropagation.py` -> numpy
+- `04_cnn_lenet.py` -> numpy, torch, torch.nn, torch.optim, torch.utils.data, torchvision
+- `05_svm_rbf.py` -> numpy, sklearn.datasets, sklearn.metrics, sklearn.model_selection, sklearn.svm
+- `06_lstm_char.py` -> numpy, random, torch, torch.nn, urllib.request
+- `07_random_forest.py` -> numpy, sklearn.datasets, sklearn.ensemble, sklearn.metrics, sklearn.model_selection
+- `08_vae_mnist.py` -> numpy, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision
+- `09_transformer_mini.py` -> numpy, torch, torch.nn, torch.nn.functional
+- `10_gan_mnist_lite.py` -> numpy, torch, torch.nn, torch.optim, torch.utils.data, torchvision
+- `11_bert_tiny.py` -> numpy, random, torch, torch.nn, torch.nn.functional
+- `12_diffusion_minimal.py` -> numpy, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision
+- `13_nested_hope.py` -> collections, numpy, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `13_nested_kearning_gpu.py` -> numpy, torch, torch.nn, torch.nn.functional, torch.utils.data
+- `13_nested_learning.py` -> numpy, torch, torch.nn, torch.nn.functional, torch.utils.data
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v3.5.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v3.6.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v3.7.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v3.8.py` -> PIL, collections, google.colab, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v3.9.py` -> PIL, collections, google.colab, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v4.0.py` -> PIL, collections, google.colab, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `NeuroLogos_Bicameral_FISIOLÓGICO_v4.1.py` -> PIL, collections, google.colab, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `ablation.py` -> numpy, os, time, torch, torch.nn, torch.nn.functional, torchvision
+- `ablation1.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `ablation2.py` -> collections, numpy, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision
+- `ablation3.py` -> collections, itertools, numpy, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision
+- `adversarial_benchmark.py` -> numpy, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `apex.py` -> copy, dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `app.py` -> csv, datetime, io, joblib, json, matplotlib.pyplot, numpy, os, pandas, pathlib, re, seaborn, sklearn.ensemble, sklearn.feature_extraction.text, sklearn.metrics, sklearn.model_selection, warnings
+- `auto_regulation_working.py` -> dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional
+- `bicamera.py.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `bicameral.py` -> PIL, collections, math, numpy, os, random, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `bicameral2.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, tqdm, urllib.request, warnings, zipfile
+- `bicameral3.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `bicameral_v2.py` -> math, numpy, random, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, tqdm
+- `bicameral_v3.py` -> math, numpy, random, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, tqdm
+- `caquita.py` -> json, numpy, os, pathlib, random, sklearn.datasets, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `chatgpt.py` -> dataclasses, numpy, random, sklearn.datasets, torch, torch.nn, torch.nn.functional
+- `cifar3.py` -> logging, matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `cifar4.py` -> logging, matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `demo_auto_regulation.py` -> collections, dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional
+- `difract.py` -> matplotlib.pyplot, numpy
+- `dmg_core.py` -> networkx, numpy, torch, torch.nn, torch.nn.functional
+- `dualmind.py` -> json, numpy, pathlib, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `dynamic.py` -> dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `dynamic2.py` -> dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `example_usage.py` -> json, matplotlib.pyplot, numpy, pathlib, torch
+- `exampleww.py` -> liber_monitor, pandas, torch, torch.utils.data, torchvision, weightwatcher
+- `exodia_op_2.py` -> PIL, collections, functools, google.colab, kagglehub, numpy, os, pathlib, shutil, soundfile, subprocess, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, typing, urllib.request, warnings, zipfile
+- `exodia_optimized.py` -> PIL, collections, functools, google.colab, kagglehub, numpy, os, pathlib, shutil, soundfile, subprocess, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `final_sinergy_analysis.py` -> json, time
+- `gemini.py` -> PIL, collections, json, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `gemini2.py` -> PIL, collections, json, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `gen_dataset.py` -> aiofiles, asyncio, edge_tts, os, pathlib, sys, tqdm.asyncio, urllib.request, zipfile
+- `get_dataset.py` -> asyncio, edge_tts, huggingface_hub, json, nest_asyncio, os, pathlib, shutil, subprocess, sys, time, urllib.request, zipfile
+- `homeostatichope.py` -> numpy, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `hope.py` -> collections, numpy, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `kimi.py` -> dataclasses, json, numpy, os, random, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models
+- `legendario.py` -> dataclasses, logging, networkx, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, typing, warnings
+- `legendario2.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, psutil, scipy.linalg, scipy.sparse.linalg, time, torch, torch.nn, torch.nn.functional, typing, warnings, weakref
+- `live_cl.py` -> dataclasses, json, logging, numpy, os, sys, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing
+- `live_go.py` -> copy, dataclasses, logging, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, wandb
+- `live_ki.py` -> dataclasses, logging, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing, wandb
+- `live_qw.py` -> dataclasses, logging, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, wandb
+- `lol.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `main.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.interpolate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing
+- `main2.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.interpolate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing
+- `main3.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing
+- `main4.1.py` -> dataclasses, logging, networkx, numpy, ripser, scipy.integrate, scipy.linalg, scipy.sparse.linalg, typing, warnings
+- `main4.py.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing
+- `main5.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.interpolate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing, warnings
+- `microbi.py.py` -> PIL, collections, gc, math, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `min_test_synergy.py` -> datetime, json, os, sklearn.datasets, sklearn.preprocessing, torch, torch.nn, torch.optim, torch.utils.data, torchvision, torchvision.transforms
+- `minibi.py` -> PIL, collections, json, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `minibi2.py` -> PIL, collections, json, math, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `minibi_c.py` -> PIL, collections, gc, math, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `minibi_reduced.py.py` -> PIL, collections, gc, json, math, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `miniminibi.py` -> PIL, collections, numpy, os, shutil, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, urllib.request, zipfile
+- `nemesis.py` -> dataclasses, numpy, os, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `nested1.1.py` -> dataclasses, gc, logging, numpy, os, pathlib, pickle, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing
+- `nested1.py` -> dataclasses, logging, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing
+- `nestedtopobrain.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `nestedtopobrain_v1.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `nestedtopobrain_v2.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `nestedtopobrain_v3.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `neurologitos.py` -> collections, dataclasses, json, numpy, pathlib, random, scipy, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, typing
+- `neurologos.py` -> numpy, torch, torch.nn, torch.nn.functional, torchvision
+- `neurologos_V1.py` -> collections, json, numpy, pathlib, torch, torch.nn, torch.nn.functional, torchvision
+- `neurologos_cpu_v7.py` -> dataclasses, json, numpy, os, pathlib, random, scipy, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_cpu_v8.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_cpu_v9.py.py` -> collections, dataclasses, json, numpy, pathlib, random, scipy, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, typing
+- `neurologos_entropico.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `neurologos_fullhomesotatico_cpu_qw.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_fullhomestatico_cpu_qw2.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `neurologos_gpu_v1.py` -> collections, json, numpy, pathlib, torch, torch.nn, torch.nn.functional, torchvision
+- `neurologos_homeostatico_cpu_cl.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_homeostatico_cpu_cl2.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_homeostatico_cpu_ki.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, sys, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_homestotico_cpu_qw.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurologos_tricameral_exodia.py` -> PIL, collections, functools, google.colab, kagglehub, numpy, os, pathlib, shutil, soundfile, subprocess, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `neurologos_v4.py` -> numpy, torch, torch.nn, torch.nn.functional, torchvision
+- `neurologos_v5.py` -> numpy, torch, torch.nn, torch.nn.functional, torchvision
+- `neurologos_v6.py` -> collections, dataclasses, itertools, json, logging, numpy, os, pathlib, random, sklearn.datasets, torch, torch.nn, torch.nn.functional, typing
+- `neurologosv5.2.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `neurosoberano.py` -> argparse, dataclasses, json, matplotlib.pyplot, numpy, pathlib, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `neurosoberano_bicameral_opt.py` -> PIL, collections, math, numpy, os, random, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, warnings
+- `neurosovereign.py` -> dataclasses, math, numpy, os, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `ohm.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, psutil, scipy.linalg, scipy.sparse.linalg, time, torch, torch.nn, torch.nn.functional, typing, warnings, weakref
+- `omni1.py` -> collections, json, logging, matplotlib, matplotlib.pyplot, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `omni3.py` -> dataclasses, logging, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing, wandb
+- `omnibrain.py` -> collections, json, logging, matplotlib, matplotlib.pyplot, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `omnibrain_k.py` -> dataclasses, logging, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision, typing, wandb
+- `omno1.bkp.py.py` -> collections, json, logging, matplotlib, matplotlib.pyplot, numpy, os, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `physio_chimera_demo.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `physio_chimera_v15_monitored.py` -> collections, dataclasses, json, matplotlib.pyplot, numpy, os, pathlib, random, seaborn, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, tqdm, typing, warnings
+- `physioneruon_simple.py` -> json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data
+- `physioneuron_cpu_v1.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `physioneuron_cpu_v2.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `physioneuron_cpu_v3.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `poke_cifar.py` -> logging, matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `poke_cifar2.py` -> matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `pokemon3.py` -> dataclasses, logging, matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torchvision, typing
+- `pokemon4.py` -> logging, matplotlib, matplotlib.pyplot, numpy, os, psutil, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, torchvision
+- `pokemon_battle_champion.py` -> dataclasses, json, matplotlib.pyplot, numpy, pathlib, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data
+- `pokemon_hybrid_synergy_ablation.py` -> collections, dataclasses, json, matplotlib.pyplot, numpy, pathlib, random, seaborn, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, torch.utils.data, typing
+- `premium_synergy_demo.py` -> dataclasses, json, random, time, typing
+- `premium_synergy_democratic.py` -> collections, dataclasses, gc, numpy, os, psutil, sklearn, sklearn.datasets, sys, time, torch, torch.nn, torch.nn.functional, typing
+- `quen7.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `quimera.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `quimera_vision.py` -> PIL, json, os, pathlib, random, torch, torch.nn, torch.utils.data, torchaudio, torchvision, tqdm
+- `qwen.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `qwen3.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `qwen4.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `qwen5.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `qwen6.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, torch, torch.nn, torch.nn.functional, typing
+- `qwen8.py` -> dataclasses, json, numpy, os, pathlib, random, sklearn.datasets, time, torch, torch.nn, torch.nn.functional, typing
+- `qwen9.py` -> PIL, collections, numpy, os, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, warnings
+- `qwn2.py` -> dataclasses, itertools, json, numpy, os, pathlib, random, sklearn.datasets, sklearn.model_selection, time, torch, torch.nn, torch.nn.functional, torch.utils.data, typing
+- `resma4.10.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pathlib, pickle, psutil, scipy.integrate, scipy.linalg, scipy.sparse.linalg, time, typing, warnings, weakref
+- `resma4.2.py` -> dataclasses, logging, networkx, numpy, pint, psutil, ripser, scipy.integrate, scipy.interpolate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, typing, warnings
+- `resma4.3.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pickle, pint, psutil, ripser, scipy.integrate, scipy.linalg, scipy.sparse, time, typing, warnings, weakref
+- `resma4.4.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pickle, pint, psutil, ripser, scipy.integrate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, time, typing, warnings, weakref
+- `resma4.5.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pathlib, pickle, pint, psutil, scipy.integrate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, time, typing, warnings, weakref
+- `resma4.6.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pathlib, pickle, pint, psutil, scipy.integrate, scipy.linalg, time, typing, warnings, weakref
+- `resma4.7.py` -> dataclasses, gc, logging, networkx, numpy, scipy.integrate, scipy.linalg, scipy.sparse.linalg, typing, warnings
+- `resma4.8.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pathlib, pickle, psutil, scipy.integrate, scipy.linalg, scipy.sparse, scipy.sparse.linalg, time, typing, warnings, weakref
+- `resma4.9.py` -> dataclasses, datetime, gc, logging, networkx, numpy, os, pathlib, pickle, psutil, scipy.integrate, scipy.linalg, scipy.sparse.linalg, typing, warnings, weakref
+- `resma_Test.py` -> networkx, numpy, torch, torch.nn, torch.nn.functional
+- `resmann.py` -> networkx, numpy, torch, torch.nn, torch.nn.functional
+- `resmann2.py` -> numpy, torch, torch.nn, torch.nn.functional
+- `resmannn.py` -> numpy, torch, torch.nn, torch.nn.functional
+- `run_complete_experiment.py` -> argparse, datetime, json, numpy, pathlib, sys, time, torch, traceback
+- `scientific_benchmark.py` -> autoattack, math, matplotlib.pyplot, numpy, os, random, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision
+- `scientist_sinergy_ablation_plan.py` -> dataclasses, json, matplotlib.pyplot, numpy, pathlib, psutil, time, torch, torch.nn, torch.nn.functional, warnings
+- `setup_environment.py` -> importlib, matplotlib.pyplot, numpy, pathlib, seaborn, sklearn.datasets, subprocess, sys, torch, tqdm
+- `sintesis.py` -> logging, torch, torch.nn, torch.nn.functional, torch.optim
+- `sintesys2.py` -> logging, torch, torch.nn, torch.nn.functional, torch.optim
+- `sintesys3.py` -> logging, torch, torch.nn, torch.nn.functional, torch.optim
+- `sintesys5.py` -> logging, numpy, sklearn.datasets, sklearn.model_selection, torch, torch.nn, torch.nn.functional, torch.optim, warnings
+- `syntesys4.py` -> logging, torch, torch.nn, torch.nn.functional, torch.optim
+- `test.py` -> liber_monitor, matplotlib.pyplot, numpy, pandas, subprocess, sys, time, torch, torch.nn, torch.utils.data, torchvision, torchvision.transforms, weightwatcher
+- `test_premium_synergy.py` -> numpy, os, sys, torch, traceback
+- `topobrain.py` -> autoattack, datetime, gc, json, logging, matplotlib.pyplot, numpy, os, pandas, pickle, psutil, random, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, warnings
+- `topobrain_16_3.py` -> autoattack, datetime, gc, json, logging, matplotlib.pyplot, numpy, os, pandas, pickle, psutil, random, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, warnings
+- `topobrain_v18.1.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `topobrain_v18.2.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `topobrain_v18.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing
+- `topobrain_v19.py` -> argparse, dataclasses, datetime, gc, json, matplotlib.pyplot, networkx, numpy, os, pathlib, pickle, psutil, random, seaborn, sklearn.cluster, sklearn.decomposition, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torch_geometric.data, torch_geometric.nn, torch_geometric.utils, torchvision, tqdm, traceback, typing, wandb
+- `train_Adversarial.py` -> autoattack, datetime, gc, json, math, matplotlib.pyplot, numpy, os, pathlib, pickle, psutil, random, tempfile, time, torch, torch.nn, torch.nn.functional, torch.nn.utils, torch.optim, torch.utils.data, torchvision, traceback, typing, warnings, weakref
+- `tricameral2.py` -> PIL, asyncio, collections, edge_tts, json, nest_asyncio, numpy, os, pathlib, shutil, sys, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `tricameral_kimi.py` -> PIL, collections, kagglehub, numpy, os, pathlib, shutil, soundfile, subprocess, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `tricameral_kimi2.py` -> PIL, collections, functools, google.colab, kagglehub, numpy, os, pathlib, shutil, soundfile, subprocess, time, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `tricameralkimi2.py` -> PIL, collections, kagglehub, librosa, numpy, os, pathlib, shutil, soundfile, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `trycameral.py` -> PIL, asyncio, collections, edge_tts, nest_asyncio, numpy, os, pathlib, shutil, sys, torch, torch.nn, torch.nn.functional, torch.utils.data, torchaudio, torchaudio.transforms, torchvision, torchvision.models, tqdm, urllib.request, warnings, zipfile
+- `ultimo_neuorlogos.py` -> collections, numpy, time, torch, torch.nn, torch.nn.functional, torchvision
+- `ultimobicameral.py` -> PIL, collections, numpy, os, torch, torch.nn, torch.nn.functional, torch.utils.data, torchvision, torchvision.models, tqdm, warnings

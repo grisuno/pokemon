@@ -1,0 +1,499 @@
+# Subsystem: root (page 10 of 15)
+Previous: [KB_root_p9.md](KB_root_p9.md)
+
+## neurologosv5.2.py
+- Doc: NeuroLogos v5.2 - TopoBrain Ablation 3-Niveles CPU-Optimizado con Control Homeostático Fisiológico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `MicroConfig` (class, line 33) `class MicroConfig`
+  - `seed_everything` (method, line 57) `def seed_everything(seed)`
+  - `get_dataset` (method, line 65) `def get_dataset(config)`
+  - `HomeostaticRegulator` (class, line 85) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 109) `class PhysioNeuron(Module)`
+  - `MicroContinuumCell` (class, line 151) `class MicroContinuumCell(Module)`
+  - `MicroSymbioticBasis` (class, line 176) `class MicroSymbioticBasis(Module)`
+  - `MicroTopology` (class, line 196) `class MicroTopology`
+  - `MicroSupConLoss` (class, line 216) `class MicroSupConLoss(Module)`
+  - `MicroTopoBrain` (class, line 240) `class MicroTopoBrain(Module)`
+  - `micro_pgd_attack` (method, line 340) `def micro_pgd_attack(model, x, y, eps, steps, plasticity)`
+  - `generate_ablation_matrix` (method, line 364) `def generate_ablation_matrix()`
+  - `train_with_cv` (method, line 393) `def train_with_cv(config, dataset, cv_folds)`
+  - `run_ablation_study` (method, line 457) `def run_ablation_study()`
+  - `__init__` (method, line 86) `def __init__(self, d_in)`
+  - `forward` (method, line 96) `def forward(self, x, h_pre, w_norm)`
+  - `__init__` (method, line 110) `def __init__(self, d_in, d_out, dynamic_mode)`
+  - `forward` (method, line 121) `def forward(self, x)`
+  - `__init__` (method, line 152) `def __init__(self, dim)`
+  - `forward` (method, line 162) `def forward(self, x, plasticity)`
+  - `__init__` (method, line 177) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 185) `def forward(self, x)`
+  - `__init__` (method, line 197) `def __init__(self, num_nodes, config)`
+  - `get_adjacency` (method, line 210) `def get_adjacency(self, plasticity)`
+  - `__init__` (method, line 217) `def __init__(self, temperature)`
+  - `forward` (method, line 222) `def forward(self, features, labels)`
+  - `__init__` (method, line 241) `def __init__(self, config)`
+  - `_init_weights` (method, line 278) `def _init_weights(self)`
+  - `count_parameters` (method, line 283) `def count_parameters(self)`
+  - `forward` (method, line 286) `def forward(self, x, plasticity)`
+
+## neurosoberano.py
+- Doc: NeuroSovereign POC: Minimal Viable Experiment
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ExperimentConfig` (class, line 28) `class ExperimentConfig`
+  - `BasicBlock` (class, line 39) `class BasicBlock(Module)`
+  - `WideResNetBaseline` (class, line 60) `class WideResNetBaseline(Module)`
+  - `FastLiquidNeuron` (class, line 96) `class FastLiquidNeuron(Module)`
+  - `MinimalNeuroSovereign` (class, line 125) `class MinimalNeuroSovereign(Module)`
+  - `train_epoch` (method, line 177) `def train_epoch(model, loader, optimizer, criterion, device, use_mixup)`
+  - `evaluate` (method, line 215) `def evaluate(model, loader, device)`
+  - `Experiment` (class, line 233) `class Experiment`
+  - `main` (method, line 435) `def main()`
+  - `__init__` (method, line 40) `def __init__(self, in_c, out_c, stride)`
+  - `forward` (method, line 54) `def forward(self, x)`
+  - `__init__` (method, line 65) `def __init__(self, num_classes)`
+  - `_make_layer` (method, line 79) `def _make_layer(self, in_c, out_c, num_blocks, stride)`
+  - `forward` (method, line 85) `def forward(self, x)`
+  - `__init__` (method, line 98) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 107) `def forward(self, x, plasticity)`
+  - `__init__` (method, line 127) `def __init__(self, num_classes)`
+  - `_make_layer` (method, line 146) `def _make_layer(self, in_c, out_c, num_blocks, stride)`
+  - `forward` (method, line 152) `def forward(self, x)`
+  - `update_plasticity` (method, line 163) `def update_plasticity(self, epoch, total_epochs)`
+  - `__init__` (method, line 234) `def __init__(self, config)`
+  - `_get_data` (method, line 245) `def _get_data(self)`
+  - `run_baseline` (method, line 269) `def run_baseline(self)`
+  - `run_neurosovereign` (method, line 316) `def run_neurosovereign(self)`
+  - `compare` (method, line 369) `def compare(self)`
+  - `plot_comparison` (method, line 404) `def plot_comparison(self)`
+
+## neurosoberano_bicameral_opt.py
+- Doc: %%writefile neurosoberano_bicameral_optimized.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `HomeostaticRegulator` (class, line 39) `class HomeostaticRegulator(Module)`
+  - `LiquidNeuron` (class, line 66) `class LiquidNeuron(Module)`
+  - `RightHemisphere` (class, line 193) `class RightHemisphere(Module)`
+  - `LeftHemisphere` (class, line 214) `class LeftHemisphere(Module)`
+  - `CorpusCallosum` (class, line 313) `class CorpusCallosum(Module)`
+  - `NeuroLogosBicameral` (class, line 331) `class NeuroLogosBicameral(Module)`
+  - `NeuralDiagnostics` (class, line 361) `class NeuralDiagnostics`
+  - `Flickr8kDataset` (class, line 436) `class Flickr8kDataset(Dataset)`
+  - `build_vocab_flickr` (method, line 475) `def build_vocab_flickr(captions_file, vocab_size)`
+  - `LifeCycle` (class, line 498) `class LifeCycle`
+  - `train_bicameral` (method, line 513) `def train_bicameral()`
+  - `__init__` (method, line 40) `def __init__(self)`
+  - `forward` (method, line 50) `def forward(self, stress, excitation, fatigue, entropy, phase, loss_signal)`
+  - `__init__` (method, line 67) `def __init__(self, in_dim, out_dim)`
+  - `forward` (method, line 99) `def forward(self, x, global_plasticity, transfer_rate, task_loss)`
+  - `apply_svd_consolidation` (method, line 169) `def apply_svd_consolidation(self, repair_strength, timescale)`
+  - `__init__` (method, line 194) `def __init__(self, output_dim)`
+  - `forward` (method, line 205) `def forward(self, image, plasticity, transfer_rate, task_loss)`
+  - `__init__` (method, line 215) `def __init__(self, vocab_size, embed_dim, hidden_dim)`
+  - `forward` (method, line 237) `def forward(self, visual_context, captions, max_len, return_gate)`
+  - `_get_init_state` (method, line 293) `def _get_init_state(self, visual_context)`
+  - `_top_p_filtering` (method, line 298) `def _top_p_filtering(self, logits, top_p)`
+  - `__init__` (method, line 314) `def __init__(self, dim)`
+  - `forward` (method, line 322) `def forward(self, right_features, metabolism)`
+  - `__init__` (method, line 332) `def __init__(self, vocab_size)`
+  - `forward` (method, line 338) `def forward(self, image, captions, plasticity, transfer_rate, return_diagnostics)`
+  - `__init__` (method, line 362) `def __init__(self)`
+  - `measure_callosal_flow` (method, line 375) `def measure_callosal_flow(self, right_features, left_context)`
+  - `measure_vocab_diversity` (method, line 382) `def measure_vocab_diversity(self, generated_tokens, vocab_size)`
+  - `update` (method, line 386) `def update(self)`
+  - `get_recent_avg` (method, line 391) `def get_recent_avg(self, key, n)`
+  - `report` (method, line 396) `def report(self, epoch)`
+  - `__init__` (method, line 437) `def __init__(self, images_dir, captions_file, vocab, transform, max_len)`
+  - `__len__` (method, line 455) `def __len__(self)`
+  - `__getitem__` (method, line 458) `def __getitem__(self, idx)`
+  - `__init__` (method, line 499) `def __init__(self, total_epochs)`
+  - `get_plasticity` (method, line 502) `def get_plasticity(self, epoch)`
+
+## neurosoberano_v2.py
+- Layer: utility
+- Language: py
+
+## neurosoberano_v3.py
+- Layer: utility
+- Language: py
+
+## neurosoberano_v4.py
+- Layer: utility
+- Language: py
+
+## neurosovereign.py
+- Doc: LiquidCortex: Capa densa con Fast Weights Hebbianos y Homeostasis.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SovereignConfig` (class, line 16) `class SovereignConfig`
+  - `seed_everything` (method, line 44) `def seed_everything(seed)`
+  - `mixup_data` (method, line 51) `def mixup_data(x, y, alpha)`
+  - `mixup_criterion` (method, line 63) `def mixup_criterion(criterion, pred, y_a, y_b, lam)`
+  - `BasicBlock` (class, line 69) `class BasicBlock(Module)`
+  - `NetworkBlock` (class, line 96) `class NetworkBlock(Module)`
+  - `LiquidCortex` (class, line 111) `class LiquidCortex(Module)`
+  - `NeuroSovereignV1` (class, line 165) `class NeuroSovereignV1(Module)`
+  - `get_optimized_dataloaders` (method, line 214) `def get_optimized_dataloaders(config)`
+  - `train_sovereign` (method, line 239) `def train_sovereign()`
+  - `__init__` (method, line 70) `def __init__(self, in_planes, out_planes, stride, dropRate)`
+  - `forward` (method, line 85) `def forward(self, x)`
+  - `__init__` (method, line 97) `def __init__(self, nb_layers, in_planes, out_planes, block, stride, dropRate)`
+  - `_make_layer` (method, line 100) `def _make_layer(self, block, in_planes, out_planes, nb_layers, stride, dropRate)`
+  - `forward` (method, line 105) `def forward(self, x)`
+  - `__init__` (method, line 116) `def __init__(self, in_features, out_features, config)`
+  - `forward` (method, line 133) `def forward(self, x)`
+  - `__init__` (method, line 166) `def __init__(self, config, depth, num_classes)`
+  - `forward` (method, line 196) `def forward(self, x)`
+
+## ohm.py
+- Doc: MotorHomeostaticContext: Contexto para un motor homeostático
+- Layer: utility
+- Language: py
+- Symbols:
+  - `MotorHomeostaticContext` (class, line 34) `class MotorHomeostaticContext`
+  - `PTSymmetricMotor` (class, line 64) `class PTSymmetricMotor(MotorHomeostaticContext)`
+  - `TopologicalMotor` (class, line 100) `class TopologicalMotor(MotorHomeostaticContext)`
+  - `EnergyHomeostaticMotor` (class, line 127) `class EnergyHomeostaticMotor(MotorHomeostaticContext)`
+  - `ConsciousnessMotor` (class, line 157) `class ConsciousnessMotor(MotorHomeostaticContext)`
+  - `DualSystemMotor` (class, line 185) `class DualSystemMotor(MotorHomeostaticContext)`
+  - `AdaptiveLearningMotor` (class, line 213) `class AdaptiveLearningMotor(MotorHomeostaticContext)`
+  - `ModularActivationMotor` (class, line 241) `class ModularActivationMotor(MotorHomeostaticContext)`
+  - `OmniBrainCoordinator` (class, line 291) `class OmniBrainCoordinator`
+  - `OmniBrainModule` (class, line 438) `class OmniBrainModule(Module)`
+  - `PTSymmetricLayer` (class, line 453) `class PTSymmetricLayer(OmniBrainModule)`
+  - `TopologicalLayer` (class, line 486) `class TopologicalLayer(OmniBrainModule)`
+  - `DualMindModule` (class, line 543) `class DualMindModule(OmniBrainModule)`
+  - `ConsciousnessModule` (class, line 597) `class ConsciousnessModule(OmniBrainModule)`
+  - `HomeostaticEngine` (class, line 658) `class HomeostaticEngine`
+  - `OmniBrain` (class, line 689) `class OmniBrain(Module)`
+  - `train_omni_brain` (method, line 863) `def train_omni_brain(model, epochs, batch_size)`
+  - `update` (method, line 47) `def update(self, measurement, dt)`
+  - `__init__` (method, line 66) `def __init__(self)`
+  - `regulate_parameters` (method, line 78) `def regulate_parameters(self, current_coherence, energy_level)`
+  - `__init__` (method, line 102) `def __init__(self)`
+  - `regulate_connectivity` (method, line 112) `def regulate_connectivity(self, current_connectivity, clustering)`
+  - `__init__` (method, line 129) `def __init__(self)`
+  - `regulate_energy` (method, line 139) `def regulate_energy(self, memory_usage, cpu_usage, temperature)`
+  - `__init__` (method, line 159) `def __init__(self)`
+  - `regulate_consciousness` (method, line 168) `def regulate_consciousness(self, phi_effective, integration_level)`
+  - `__init__` (method, line 187) `def __init__(self)`
+  - `regulate_dual_systems` (method, line 197) `def regulate_dual_systems(self, unconscious_activity, conscious_activity)`
+  - `__init__` (method, line 215) `def __init__(self)`
+  - `regulate_learning` (method, line 224) `def regulate_learning(self, loss_reduction_rate, gradient_norm)`
+  - `__init__` (method, line 243) `def __init__(self)`
+  - `regulate_modules` (method, line 259) `def regulate_modules(self, task_complexity, resource_availability, performance)`
+  - `__init__` (method, line 294) `def __init__(self)`
+  - `_initialize_motors` (method, line 300) `def _initialize_motors(self)`
+  - `sense_environment` (method, line 312) `def sense_environment(self)`
+  - `measure_network_state` (method, line 326) `def measure_network_state(self, model, batch_data)`
+  - `coordinate_all_motors` (method, line 363) `def coordinate_all_motors(self, environment_state, network_state)`
+  - `__init__` (method, line 441) `def __init__(self, module_name, enabled)`
+  - `forward` (method, line 447) `def forward(self, x, params)`
+  - `update_performance` (method, line 450) `def update_performance(self, metrics)`
+  - `__init__` (method, line 456) `def __init__(self, in_features, out_features)`
+  - `forward` (method, line 463) `def forward(self, x, params)`
+  - `__init__` (method, line 489) `def __init__(self, in_features, out_features, sparsity_factor)`
+  - `_generate_topology_mask` (method, line 504) `def _generate_topology_mask(self)`
+  - `forward` (method, line 525) `def forward(self, x, params)`
+  - `__init__` (method, line 546) `def __init__(self, features)`
+  - `forward` (method, line 571) `def forward(self, x, params)`
+  - `__init__` (method, line 600) `def __init__(self, features)`
+  - `compute_phi_effective` (method, line 614) `def compute_phi_effective(self, x)`
+  - `forward` (method, line 634) `def forward(self, x, params)`
+  - `__init__` (method, line 661) `def __init__(self, target_performance)`
+  - `regulate_homeostasis` (method, line 666) `def regulate_homeostasis(self, observed_performance)`
+  - `__init__` (method, line 692) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `initialize_context` (method, line 726) `def initialize_context(self)`
+  - `forward` (method, line 740) `def forward(self, x)`
+  - `get_status_report` (method, line 828) `def get_status_report(self)`
+
+## omni1.py
+- Doc: FastSlowLinear: Linear layer con pesos hebbianos mejorados y mayor capacidad de adaptación.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `FastSlowLinear` (class, line 31) `class FastSlowLinear(Module)`
+  - `ConsciousnessModule` (class, line 83) `class ConsciousnessModule(Module)`
+  - `OmniBrainV8` (class, line 140) `class OmniBrainV8(Module)`
+  - `DualSystemModule` (class, line 215) `class DualSystemModule(Module)`
+  - `train_model` (method, line 250) `def train_model(model, train_loader, test_loader, device, epochs, lr, config_name, verbose)`
+  - `evaluate` (method, line 356) `def evaluate(model, loader, device, return_per_class)`
+  - `get_cifar10_loaders` (method, line 399) `def get_cifar10_loaders(batch_size)`
+  - `diagnose_model` (method, line 423) `def diagnose_model(model, loader, device)`
+  - `main` (method, line 481) `def main()`
+  - `__init__` (method, line 33) `def __init__(self, in_features, out_features, fast_lr, fast_decay)`
+  - `reset_fast_weights` (method, line 46) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 49) `def update_fast_weights(self, x)`
+  - `forward` (method, line 68) `def forward(self, x)`
+  - `get_fast_norm` (method, line 75) `def get_fast_norm(self)`
+  - `__init__` (method, line 85) `def __init__(self, features, use_conscious)`
+  - `compute_phi_effective` (method, line 99) `def compute_phi_effective(self, activity)`
+  - `forward` (method, line 121) `def forward(self, x)`
+  - `__init__` (method, line 142) `def __init__(self, use_fastslow, use_conscious)`
+  - `forward` (method, line 188) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 198) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 205) `def get_fast_norms(self)`
+  - `__init__` (method, line 217) `def __init__(self, dim, use_fastslow)`
+  - `forward` (method, line 235) `def forward(self, x)`
+  - `FocalLoss` (class, line 261) `class FocalLoss(Module)`
+  - `get_activation` (method, line 436) `def get_activation(name)`
+  - `__init__` (method, line 262) `def __init__(self, alpha, gamma)`
+  - `forward` (method, line 268) `def forward(self, inputs, targets)`
+  - `hook` (method, line 437) `def hook(model, input, output)`
+
+## omni3.py
+- Doc: IntegrationModule: Renombrado de ConsciousnessModule - más honesto sobre su función
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 22) `class Config`
+  - `compute_integration_index` (method, line 65) `def compute_integration_index(activity)`
+  - `FastSlowLinear` (class, line 105) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 196) `class DualSystemModule(Module)`
+  - `IntegrationModule` (class, line 232) `class IntegrationModule(Module)`
+  - `OmniBrainFastSlow` (class, line 268) `class OmniBrainFastSlow(Module)`
+  - `get_cifar10_loaders` (method, line 340) `def get_cifar10_loaders(config)`
+  - `evaluate_full` (method, line 368) `def evaluate_full(model, loader, device)`
+  - `train` (method, line 403) `def train(config)`
+  - `run_ablation_study` (method, line 539) `def run_ablation_study()`
+  - `__init__` (method, line 106) `def __init__(self, in_features, out_features, config)`
+  - `reset_fast_weights` (method, line 128) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 134) `def update_fast_weights(self, x, slow_out)`
+  - `forward` (method, line 169) `def forward(self, x)`
+  - `get_fast_norm` (method, line 189) `def get_fast_norm(self)`
+  - `__init__` (method, line 197) `def __init__(self, dim, config)`
+  - `forward` (method, line 211) `def forward(self, x)`
+  - `__init__` (method, line 236) `def __init__(self, features, config)`
+  - `forward` (method, line 248) `def forward(self, x)`
+  - `__init__` (method, line 269) `def __init__(self, config)`
+  - `forward` (method, line 304) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 314) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 323) `def get_fast_norms(self)`
+  - `get_ablation_state` (method, line 327) `def get_ablation_state(self)`
+
+## omnibrain.py
+- Doc: FastSlowLinear: Linear layer con pesos hebbianos estabilizados.
+- Layer: utility
+- Language: py
+- Symbols:
+  - `FastSlowLinear` (class, line 31) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 91) `class DualSystemModule(Module)`
+  - `ConsciousnessModule` (class, line 119) `class ConsciousnessModule(Module)`
+  - `OmniBrainV8` (class, line 174) `class OmniBrainV8(Module)`
+  - `get_cifar10_loaders` (method, line 233) `def get_cifar10_loaders(batch_size)`
+  - `get_few_shot_loaders` (method, line 253) `def get_few_shot_loaders(n_way, k_shot, batch_size)`
+  - `evaluate` (method, line 287) `def evaluate(model, loader, device, return_per_class)`
+  - `train_model` (method, line 331) `def train_model(model, train_loader, test_loader, device, epochs, lr, config_name, verbose)`
+  - `run_ablation_study` (method, line 430) `def run_ablation_study(epochs, batch_size)`
+  - `run_few_shot_experiment` (method, line 475) `def run_few_shot_experiment(n_way, k_shot, epochs)`
+  - `analyze_phi_per_class` (method, line 508) `def analyze_phi_per_class()`
+  - `plot_ablation_results` (method, line 545) `def plot_ablation_results(results)`
+  - `plot_phi_analysis` (method, line 617) `def plot_phi_analysis(class_accs, avg_phi_per_class)`
+  - `main` (method, line 673) `def main()`
+  - `__init__` (method, line 33) `def __init__(self, in_features, out_features, fast_lr, fast_decay)`
+  - `reset_fast_weights` (method, line 49) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 53) `def update_fast_weights(self, x)`
+  - `forward` (method, line 73) `def forward(self, x)`
+  - `end_of_batch` (method, line 84) `def end_of_batch(self)`
+  - `get_fast_norm` (method, line 87) `def get_fast_norm(self)`
+  - `__init__` (method, line 93) `def __init__(self, dim, use_fastslow)`
+  - `forward` (method, line 109) `def forward(self, x)`
+  - `__init__` (method, line 121) `def __init__(self, features, use_conscious)`
+  - `compute_phi_effective` (method, line 133) `def compute_phi_effective(self, activity)`
+  - `forward` (method, line 156) `def forward(self, x)`
+  - `__init__` (method, line 176) `def __init__(self, use_fastslow, use_conscious)`
+  - `forward` (method, line 209) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 216) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 223) `def get_fast_norms(self)`
+
+## omnibrain_k.py
+- Doc: IntegrationModule: Renombrado de ConsciousnessModule - más honesto sobre su función
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 22) `class Config`
+  - `compute_integration_index` (method, line 65) `def compute_integration_index(activity)`
+  - `FastSlowLinear` (class, line 105) `class FastSlowLinear(Module)`
+  - `DualSystemModule` (class, line 195) `class DualSystemModule(Module)`
+  - `IntegrationModule` (class, line 231) `class IntegrationModule(Module)`
+  - `OmniBrainFastSlow` (class, line 266) `class OmniBrainFastSlow(Module)`
+  - `get_cifar10_loaders` (method, line 339) `def get_cifar10_loaders(config)`
+  - `evaluate_full` (method, line 367) `def evaluate_full(model, loader, device)`
+  - `train` (method, line 402) `def train(config)`
+  - `run_ablation_study` (method, line 537) `def run_ablation_study()`
+  - `__init__` (method, line 106) `def __init__(self, in_features, out_features, config)`
+  - `reset_fast_weights` (method, line 128) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 134) `def update_fast_weights(self, x, slow_out)`
+  - `forward` (method, line 169) `def forward(self, x)`
+  - `get_fast_norm` (method, line 189) `def get_fast_norm(self)`
+  - `__init__` (method, line 196) `def __init__(self, dim, config)`
+  - `forward` (method, line 210) `def forward(self, x)`
+  - `__init__` (method, line 235) `def __init__(self, features, config)`
+  - `forward` (method, line 247) `def forward(self, x)`
+  - `__init__` (method, line 267) `def __init__(self, config)`
+  - `forward` (method, line 302) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 312) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 322) `def get_fast_norms(self)`
+  - `get_ablation_state` (method, line 326) `def get_ablation_state(self)`
+
+## omno1.bkp.py.py
+- Doc: !/usr/bin/env python3
+- Layer: utility
+- Language: py
+- Symbols:
+  - `FastSlowLinear` (class, line 32) `class FastSlowLinear(Module)`
+  - `ConsciousnessModule` (class, line 101) `class ConsciousnessModule(Module)`
+  - `OmniBrainV8` (class, line 181) `class OmniBrainV8(Module)`
+  - `DualSystemModule` (class, line 256) `class DualSystemModule(Module)`
+  - `train_model` (method, line 291) `def train_model(model, train_loader, test_loader, device, epochs, lr, config_name, verbose)`
+  - `evaluate` (method, line 399) `def evaluate(model, loader, device, return_per_class)`
+  - `get_cifar10_loaders` (method, line 442) `def get_cifar10_loaders(batch_size)`
+  - `diagnose_model` (method, line 466) `def diagnose_model(model, loader, device)`
+  - `main` (method, line 524) `def main()`
+  - `__init__` (method, line 34) `def __init__(self, in_features, out_features, fast_lr, fast_decay)`
+  - `reset_fast_weights` (method, line 51) `def reset_fast_weights(self)`
+  - `update_fast_weights` (method, line 56) `def update_fast_weights(self, x)`
+  - `forward` (method, line 85) `def forward(self, x)`
+  - `get_fast_norm` (method, line 93) `def get_fast_norm(self)`
+  - `__init__` (method, line 103) `def __init__(self, features, use_conscious)`
+  - `compute_phi_effective` (method, line 118) `def compute_phi_effective(self, activity)`
+  - `forward` (method, line 159) `def forward(self, x)`
+  - `__init__` (method, line 183) `def __init__(self, use_fastslow, use_conscious)`
+  - `forward` (method, line 229) `def forward(self, x)`
+  - `reset_all_fast_weights` (method, line 239) `def reset_all_fast_weights(self)`
+  - `get_fast_norms` (method, line 246) `def get_fast_norms(self)`
+  - `__init__` (method, line 258) `def __init__(self, dim, use_fastslow)`
+  - `forward` (method, line 276) `def forward(self, x)`
+  - `FocalLoss` (class, line 302) `class FocalLoss(Module)`
+  - `get_activation` (method, line 479) `def get_activation(name)`
+  - `__init__` (method, line 303) `def __init__(self, alpha, gamma)`
+  - `forward` (method, line 309) `def forward(self, inputs, targets)`
+  - `hook` (method, line 480) `def hook(model, input, output)`
+
+## physio_chimera_demo.py
+- Doc: Physio-Chimera v15 - Demo Simplificado
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 24) `class Config`
+  - `seed_everything` (method, line 36) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 46) `class DataEnvironment`
+  - `SimpleMonitor` (class, line 82) `class SimpleMonitor`
+  - `SimpleCMS` (class, line 130) `class SimpleCMS(Module)`
+  - `SimplePhysioNeuron` (class, line 153) `class SimplePhysioNeuron(Module)`
+  - `SimplePhysioChimera` (class, line 194) `class SimplePhysioChimera(Module)`
+  - `train_demo` (method, line 231) `def train_demo(config)`
+  - `run_demo` (method, line 298) `def run_demo()`
+  - `__init__` (method, line 47) `def __init__(self)`
+  - `get_batch` (method, line 57) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 71) `def get_full(self)`
+  - `get_w2` (method, line 75) `def get_w2(self)`
+  - `__init__` (method, line 83) `def __init__(self)`
+  - `update` (method, line 88) `def update(self, loss, physio)`
+  - `report` (method, line 94) `def report(self, step, phase)`
+  - `__init__` (method, line 131) `def __init__(self, levels, d_model, hidden_dim)`
+  - `forward` (method, line 142) `def forward(self, x, global_step)`
+  - `__init__` (method, line 154) `def __init__(self, d_in, d_out, config)`
+  - `forward` (method, line 162) `def forward(self, x, global_step)`
+  - `__init__` (method, line 195) `def __init__(self, config)`
+  - `forward` (method, line 207) `def forward(self, x, global_step)`
+
+## physio_chimera_v15_monitored.py
+- Doc: Physio-Chimera v15 — Monitored Learning Edition
+- Layer: utility
+- Language: py
+- Symbols:
+  - `Config` (class, line 42) `class Config`
+  - `seed_everything` (method, line 58) `def seed_everything(seed)`
+  - `DataEnvironment` (class, line 68) `class DataEnvironment`
+  - `NeuralDiagnostics` (class, line 104) `class NeuralDiagnostics`
+  - `SelfModifyingGates` (class, line 298) `class SelfModifyingGates(Module)`
+  - `ContinuumMemorySystem` (class, line 319) `class ContinuumMemorySystem(Module)`
+  - `NestedPhysioNeuron` (class, line 346) `class NestedPhysioNeuron(Module)`
+  - `PhysioChimeraNested` (class, line 397) `class PhysioChimeraNested(Module)`
+  - `MetricsVisualizer` (class, line 452) `class MetricsVisualizer`
+  - `train_nested_monitored` (method, line 658) `def train_nested_monitored(config)`
+  - `run_experiment_monitored` (method, line 762) `def run_experiment_monitored()`
+  - `__init__` (method, line 69) `def __init__(self)`
+  - `get_batch` (method, line 79) `def get_batch(self, phase, bs)`
+  - `get_full` (method, line 93) `def get_full(self)`
+  - `get_w2` (method, line 97) `def get_w2(self)`
+  - `__init__` (method, line 107) `def __init__(self, config)`
+  - `update_physio_metrics` (method, line 144) `def update_physio_metrics(self, metabolism, sensitivity, gate)`
+  - `update_performance_metrics` (method, line 150) `def update_performance_metrics(self, loss, accuracy, lr)`
+  - `update_memory_metrics` (method, line 158) `def update_memory_metrics(self, cms_activations, hebbian_norm, forgetting_factor)`
+  - `calculate_health_metrics` (method, line 166) `def calculate_health_metrics(self)`
+  - `get_recent_avg` (method, line 191) `def get_recent_avg(self, category, key, n)`
+  - `generate_diagnostic_report` (method, line 209) `def generate_diagnostic_report(self, step, phase)`
+  - `save_metrics` (method, line 279) `def save_metrics(self, filepath)`
+  - `__init__` (method, line 299) `def __init__(self, input_dim, hidden_dim)`
+  - `forward` (method, line 306) `def forward(self, x)`
+  - `__init__` (method, line 320) `def __init__(self, levels, d_model, hidden_dim)`
+  - `forward` (method, line 332) `def forward(self, x, global_step)`
+  - `__init__` (method, line 347) `def __init__(self, d_in, d_out, config)`
+  - `forward` (method, line 362) `def forward(self, x, global_step)`
+  - `__init__` (method, line 398) `def __init__(self, config)`
+  - `forward` (method, line 410) `def forward(self, x, global_step)`
+  - `__init__` (method, line 455) `def __init__(self, save_dir)`
+  - `plot_training_curves` (method, line 463) `def plot_training_curves(self, diagnostics)`
+  - `create_final_report` (method, line 551) `def create_final_report(self, final_metrics, diagnostics)`
+  - `_generate_recommendations` (method, line 634) `def _generate_recommendations(self, diagnostics)`
+- Imported by: `example_usage.py`, `run_complete_experiment.py`
+
+## physioneruon_simple.py
+- Doc: SimplePGD - Baseline Robusto para 75%+ PGD Accuracy
+- Layer: utility
+- Language: py
+- Symbols:
+  - `SimpleConfig` (class, line 27) `class SimpleConfig`
+  - `seed_everything` (method, line 54) `def seed_everything(seed)`
+  - `get_dataset` (method, line 61) `def get_dataset(config)`
+  - `SimpleRobustNet` (class, line 83) `class SimpleRobustNet(Module)`
+  - `pgd_attack` (method, line 117) `def pgd_attack(model, x, y, eps, steps, step_size)`
+  - `train_simple_robust` (method, line 154) `def train_simple_robust(config, dataset, verbose)`
+  - `main` (method, line 281) `def main()`
+  - `__init__` (method, line 85) `def __init__(self, config)`
+  - `forward` (method, line 105) `def forward(self, x)`
+
+## physioneuron_cpu_v1.py
+- Doc: NeuroLogos v5.2 - TopoBrain Ablation 3-Niveles CPU-Optimizado con Control Homeostático Fisiológico
+- Layer: utility
+- Language: py
+- Symbols:
+  - `MicroConfig` (class, line 33) `class MicroConfig`
+  - `seed_everything` (method, line 57) `def seed_everything(seed)`
+  - `get_dataset` (method, line 65) `def get_dataset(config)`
+  - `HomeostaticRegulator` (class, line 85) `class HomeostaticRegulator(Module)`
+  - `PhysioNeuron` (class, line 109) `class PhysioNeuron(Module)`
+  - `MicroContinuumCell` (class, line 151) `class MicroContinuumCell(Module)`
+  - `MicroSymbioticBasis` (class, line 176) `class MicroSymbioticBasis(Module)`
+  - `MicroTopology` (class, line 196) `class MicroTopology`
+  - `MicroSupConLoss` (class, line 216) `class MicroSupConLoss(Module)`
+  - `MicroTopoBrain` (class, line 240) `class MicroTopoBrain(Module)`
+  - `micro_pgd_attack` (method, line 340) `def micro_pgd_attack(model, x, y, eps, steps, plasticity)`
+  - `generate_ablation_matrix` (method, line 364) `def generate_ablation_matrix()`
+  - `train_with_cv` (method, line 393) `def train_with_cv(config, dataset, cv_folds)`
+  - `run_ablation_study` (method, line 457) `def run_ablation_study()`
+  - `__init__` (method, line 86) `def __init__(self, d_in)`
+  - `forward` (method, line 96) `def forward(self, x, h_pre, w_norm)`
+  - `__init__` (method, line 110) `def __init__(self, d_in, d_out, dynamic_mode)`
+  - `forward` (method, line 121) `def forward(self, x)`
+  - `__init__` (method, line 152) `def __init__(self, dim)`
+  - `forward` (method, line 162) `def forward(self, x, plasticity)`
+  - `__init__` (method, line 177) `def __init__(self, dim, num_atoms)`
+  - `forward` (method, line 185) `def forward(self, x)`
+  - `__init__` (method, line 197) `def __init__(self, num_nodes, config)`
+  - `get_adjacency` (method, line 210) `def get_adjacency(self, plasticity)`
+  - `__init__` (method, line 217) `def __init__(self, temperature)`
+  - `forward` (method, line 222) `def forward(self, features, labels)`
+  - `__init__` (method, line 241) `def __init__(self, config)`
+  - `_init_weights` (method, line 278) `def _init_weights(self)`
+  - `count_parameters` (method, line 283) `def count_parameters(self)`
+  - `forward` (method, line 286) `def forward(self, x, plasticity)`
+
+
+Next: [KB_root_p11.md](KB_root_p11.md)
