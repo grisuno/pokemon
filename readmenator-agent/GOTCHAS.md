@@ -4,7 +4,7 @@
 
 These files have the most connections. Changes here have high blast radius.
 
-- `premium_synergy_democratic.py` (score: 12.90, imported by 2 files)
+- `premium_synergy_democratic.py` (score: 12.90)
 - `exodia_op_2.py` (score: 10.30)
 - `exodia_optimized.py` (score: 10.20)
 - `neurologos_tricameral_exodia.py` (score: 10.10)
@@ -14,13 +14,6 @@ These files have the most connections. Changes here have high blast radius.
 - `main5.py` (score: 8.10)
 - `bicameral_v2.py` (score: 8.00)
 - `nestedtopobrain_v1.py` (score: 7.80)
-
-## Blast Radius (change impact)
-
-Editing these files can break the listed number of dependents. Run their tests after any change.
-
-- `physio_chimera_v15_monitored.py` -- 2 direct, 2 total dependents
-- `premium_synergy_democratic.py` -- 2 direct, 2 total dependents
 
 ## Hotspots (complexity + centrality)
 
